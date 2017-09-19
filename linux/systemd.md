@@ -14,7 +14,7 @@ categories:
 
 <!--more-->
 
-```yml
+```yaml
 [Unit]                   服务的说明  
 Description=             描述服务  
 After=                   描述服务类别  

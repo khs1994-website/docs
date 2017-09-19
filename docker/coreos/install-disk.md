@@ -36,7 +36,7 @@ categories:
 
 * `coreos_production_image.bin.bz2.sig`   # 签名文件
 
-## 编辑`cloud-config.yaml`（已废弃）
+## 编辑`cloud-config.yaml`
 
 ```yaml
 #cloud-config

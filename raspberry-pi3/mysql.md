@@ -16,7 +16,7 @@ Debian 9 使用 apt 安装 MySQL 会安装 MariaDB，下面介绍一下常用的
 
 # 密码
 
-做一次安全检查，设置root密码等操作。
+做一次安全检查，设置 root 密码等操作。
 
 ```bash
 $ sudo /usr/bin/mysql_secure_installation  
@@ -30,7 +30,7 @@ $ sudo mysql -u root -p
 
 设置密码之后，根据测试，使用 sudo 登录 MySQL 在输密码处直接回车也能登录。
 
-这是由于 [plugin=unix_socket](https://www.baidu.com/s?wd=plugin%20unix_socket) 造成的。使用如下命令，就可以解决。
+这是由于 [plugin=unix_socket](https://www.baidu.com/s?wd=plugin%20unix_socket) 造成的，使用如下命令解决该问题。
 
 ```bash
 $ sudo mysql -u root
@@ -39,7 +39,7 @@ update user set plugin='' where User='root';
 flush privileges;
 ```
 
-这样必须使用密码才能登录。
+执行之后必须使用密码才能登录。
 
 # 远程登录
 
@@ -81,4 +81,5 @@ $ sudo systemctl restart mysql.service
 `mysql.service` 和 `mysqld.service` 位于 `/etc/systemd/system`，均软链接到了 `/lib/systemd/system/mariadb.service`
 
 # 相关链接
+
 * https://mariadb.com/kb/zh-cn/configuring-mariadb-for-remote-client-access/

@@ -10,10 +10,12 @@ categories:
 - Python
 ---
 
+GitHub：https://github.com/PyMySQL/PyMySQL
+
+<!--more-->
+
 ```bash
 $ pip install PyMySQL
 ```
 
-<!--more-->
-相关链接
-* GitHub：https://github.com/PyMySQL/PyMySQL
+# 相关链接

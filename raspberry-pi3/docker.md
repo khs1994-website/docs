@@ -34,9 +34,13 @@ deb [arch=armhf] http://mirrors.aliyun.com/docker-ce/linux/debian stretch test
 
 # arm64v8
 
+暂时没有64位的官方系统。
+
 # 其他操作系统
 
 ## Rancher OS 64位
+
+GitHub：https://github.com/rancher/os
 
 在 https://github.com/rancher/os/releases 下载 `rancheros-raspberry-pi64.zip` ，刷入 TF 卡。
 
@@ -70,6 +74,8 @@ $ sudo ros engine switch docker-17.05.0-ce
 ```
 
 ## HypriotOS
+
+GitHub：https://github.com/hypriot/image-builder-rpi
 
 # 参考链接
 

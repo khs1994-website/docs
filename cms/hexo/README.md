@@ -20,9 +20,9 @@ categories:
 
 # Git
 
-* 安装 `Git`
-* 生成 `SSH` 公钥、密钥
-* 将 `公钥` 复制到GitHub
+安装 `Git`  
+生成 `SSH` 公钥、密钥  
+将 `公钥` 复制到GitHub  
 
 # Node.js
 

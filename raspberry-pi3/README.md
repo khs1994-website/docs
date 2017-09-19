@@ -11,7 +11,7 @@ categories:
 
 # SSH登录
 
-TF卡`boot`新建一个名为`ssh`的空白文件。
+TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
 
 官方的 Raspbian 系统默认的登录帐号： `pi` ，密码： `raspberry`
 
@@ -25,7 +25,7 @@ TF卡`boot`新建一个名为`ssh`的空白文件。
 $ sudo vi /etc/apt/source.list
 ```
 
-用#注释存在的内容
+用 # 注释存在的内容
 
 ```
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
@@ -65,30 +65,47 @@ interface wlan0
 static ip_address=192.168.0.200/24
 static routers=192.168.0.1
 static domain_name_servers=192.168.0.1
-
-#！！！修改  /etc/network/interfaces 的方法已经过时
-
 ```
+
+> 修改  /etc/network/interfaces 的方法已经过时
+
 # Shell
 
 ## Fish Shell
 
-下载编译安装    https://github.com/fish-shell/fish-shell
+GitHub：https://github.com/fish-shell/fish-shell
 
 ```bash
-$ autoreconf --no-recursive [if building from Git]
+$ autoreconf --no-recursive
 $ ./configure
-$ make [gmake on BSD]
+$ make
 $ sudo make install
 ```
+
 # 软件
 
 ## Samba
 
 http://shumeipai.nxez.com/2013/08/24/install-nas-on-raspberrypi.html
 
-## Nginx、PHP、Python
+## LNMP
+
+## Python、pip
+
+## Node.js、npm
+
+# 硬件
+
+## SPI
+
+使用以下命令开启 SPI
+
+```bash
+$ sudo raspi-config
+```
+
 
 # 相关链接
 
 * http://www.cnblogs.com/taojintianxia/p/6026225.html
+* http://www.landzo.cn/thread-12826-1-1.html
