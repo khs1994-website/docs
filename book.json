@@ -1,0 +1,59 @@
+{
+  "author": "khs1994.com",
+  "description": "khs1994.com 技术文档",
+  "language": "zh-hans",
+  "links": {
+    "sidebar": {
+      "Home": "//www.khs1994.com/more"
+    }
+  },
+  "plugins": [
+    "-sharing",
+    "-highlight",
+    "-livereload",
+    "tbfed-pagefooter@git+https://github.com/khs1994/gitbook-plugin-tbfed-pagefooter.git",
+    "prism",
+    "toggle-chapters",
+    "expandable-chapters",
+    "anchor-navigation-ex",
+    "favicon"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ]
+    },
+    "tbfed-pagefooter": {
+      "copyright": "&copy 2017 khs1994.com",
+      "modify_label": "修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false,
+      "associatedWithSummary": false,
+      "mode": "pageTop",
+      "float": {
+        "showLevelIcon": false,
+        "level1Icon": "fa fa-hand-o-right",
+        "level2Icon": "fa fa-hand-o-right",
+        "level3Icon": "fa fa-hand-o-right"
+      },
+      "pageTop": {
+        "showLevelIcon": false,
+        "level1Icon": "fa fa-hand-o-right",
+        "level2Icon": "fa fa-hand-o-right",
+        "level3Icon": "fa fa-hand-o-right"
+      }
+    },
+    "favicon": {
+      "shortcut": "favicon.ico",
+      "bookmark": "favicon.ico",
+      "appleTouch": "favicon.ico",
+      "appleTouchMore": {
+        "120x120": "favicon.ico",
+        "180x180": "favicon.ico"
+      }
+    }
+  }
+}

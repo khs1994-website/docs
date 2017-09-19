@@ -1,0 +1,9 @@
+{
+  "repo": {
+    "github": "git@github.com:khs1994-website/docs.git",
+    "aliyun": "git@code.aliyun.com:khs1994-website/docs.git"
+  },
+  "branch": "gitbook",
+  "deploy-branch": "master",
+  "description": "khs1994.com 技术文档"
+}
