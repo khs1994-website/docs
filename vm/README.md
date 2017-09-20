@@ -1,5 +1,5 @@
 ---
-title: 虚拟机常用配置
+title: VirtualBox 常用配置
 date: 2017-02-01 13:00:00
 updated:
 comments: true
@@ -9,6 +9,10 @@ categories:
 - VM
 ---
 
+本文列举了 VirtualBox 常用配置。
+
+<!--more-->
+
 # 压缩虚拟磁盘体积
 
 ## 碎片整理
@@ -17,8 +21,6 @@ categories:
 $ sudo dd if=/dev/zero of=/EMPTY bs=1M
 $ sudo rm -f /EMPTY
 ```
-
-<!--more-->
 
 ## 压缩磁盘
 

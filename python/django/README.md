@@ -19,7 +19,7 @@ $ django-admin startproject myblog
 
 <!--more-->
 
-# 创建应用
+创建应用
 
 >分隔功能，一个功能对应一个应用
 

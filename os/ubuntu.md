@@ -10,13 +10,15 @@ categories:
 - OS
 ---
 
+本文列举了 Ubuntu 常用软件。
+
+<!--more-->
+
 # 娱乐
 
 ## 网易云音乐
 
 http://music.163.com/#/download
-
-<!--more-->
 
 ## mpv播放器
 
