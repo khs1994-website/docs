@@ -15,6 +15,8 @@ categories:
 
 <!--more-->
 
+GitHub： https://github.com/docker/distribution/releases
+
 # 准备
 
 本次根目录为 `/Users/khs1994/docker/data/registry` ,当所有文件准备好之后，scp 到虚拟机
@@ -249,7 +251,6 @@ Use "registry help [command]" for more information about a command.
 # 相关链接
 
 * http://www.jb51.net/os/other/369064.html  
-* 官方文档: https://docs.docker.com/registry/  
-* GitHub： https://github.com/docker/distribution/releases
-* Dockerfile: https://github.com/docker/distribution-library-image
-* Nginx 代理：https://docs.docker.com/registry/recipes/nginx/
+* [官方文档](https://docs.docker.com/registry/)
+* [Dockerfile](https://github.com/docker/distribution-library-image)
+* [Nginx 代理](https://docs.docker.com/registry/recipes/nginx/)

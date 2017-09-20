@@ -1,6 +1,6 @@
 ---
-title: CoreOS 配置工具 Ignition 简介
-date: 2017-08-11 13:00:00
+title: CoreOS 配置工具 Ignition 官方示例
+date: 2017-09-01 14:00:00
 updated:
 comments: true
 tags:
@@ -11,7 +11,9 @@ categories:
 - CoreOS
 ---
 
-CoreOS 配置工具 已由 `Ignition` 代替 `cloud-config`
+CoreOS 配置工具 已由 `Ignition` 代替 `cloud-config`。
+
+GitHub：https://github.com/coreos/ignition
 
 <!--more-->
 

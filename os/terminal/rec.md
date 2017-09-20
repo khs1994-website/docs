@@ -36,4 +36,4 @@ $ asciinema rec
 
 使用 exit 或者 Ctrl+D 快捷键结束录制。结束录制的时候提示，如果要上传的话，敲回车，这样就不至于把废品也上传了。
 
-上传之后，asciinema会给出一个网址，如：https://asciinema.org/a/44nu2i2ieywlmqq9wx5sk5k1e 。
+上传之后，asciinema 会给出一个网址，如：https://asciinema.org/a/44nu2i2ieywlmqq9wx5sk5k1e 。

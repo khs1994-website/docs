@@ -54,4 +54,4 @@ https://gist.github.com/khs1994/80a9978333b86f4a6deb5cb2ddca56ad
 # 相关链接
 
 * http://blog.csdn.net/crper/article/details/47291063  
-* https://atom.io/packages
+* [插件列表](https://atom.io/packages)
