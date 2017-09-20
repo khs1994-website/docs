@@ -23,7 +23,9 @@ categories:
 $ brew doctor
 ```
 
-## 清理 如旧包、不再需要的包
+## 清理
+
+删除旧包、不再需要的包、安装包
 
 ```bash
 $ brew cleanup

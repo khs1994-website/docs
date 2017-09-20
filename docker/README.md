@@ -9,19 +9,21 @@ categories:
 - Docker
 ---
 
+本文以 CentOS 7 系统为例进行最新版本的 Docker CE 安装。其他发行版请参照官方文档。
+
+<!--more-->
+
 # 安装
 
 ## 配置REPO
 
->Install yum-utils, which provides the yum-config-manager utility:
+Install yum-utils, which provides the yum-config-manager utility:
 
 ```bash
 $ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
 
-<!--more-->
-
->Use the following command to set up the stable repository:
+Use the following command to set up the stable repository:
 
 ### 官方镜像
 
@@ -40,7 +42,7 @@ sudo yum-config-manager \
     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
->You can disable the edge repository by running the yum-config-manager command with the --disable flag. To re-enable it, use the --enable flag.
+You can disable the edge repository by running the yum-config-manager command with the --disable flag. To re-enable it, use the --enable flag.
 
 ```bash
 $ sudo yum-config-manager --enable docker-ce-edge

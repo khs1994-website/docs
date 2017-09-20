@@ -13,12 +13,15 @@ categories:
   - CoreOS
 ---
 
-CoreOS博客：<https://coreos.com/blog/migrating-from-fleet-to-kubernetes.html><br>
-翻译：<http://dockone.io/article/2277>
-
-> 近两年分布式应用的组织和管理水平大幅提升。CoreOS集群管理始于fleet，fleet是2014年发布的一个简易的分布式服务管理框架。而社区上Kubernetes被广泛应用，并逐渐成为了开源容器框架的事实标准。基于技术应用和市场占有等原因，Kubernetes成为大规模容器架构集群最优秀的自动化编排工具，CoreOS也因此而改变技术选型。本文讲述了CoreOS公司集群编排框架的前世今生，描述了从fleet到Kubernetes的转变。
+CoreOS 计划于 2018 年 2 月 1 日从 Linux 的容器平台上替换 fleet 技术，对 fleet 的支持也即将截止。
 
 <!-- more -->
+
+CoreOS博客：https://coreos.com/blog/migrating-from-fleet-to-kubernetes.html
+
+翻译：http://dockone.io/article/2277
+
+近两年分布式应用的组织和管理水平大幅提升。CoreOS集群管理始于fleet，fleet是2014年发布的一个简易的分布式服务管理框架。而社区上Kubernetes被广泛应用，并逐渐成为了开源容器框架的事实标准。基于技术应用和市场占有等原因，Kubernetes成为大规模容器架构集群最优秀的自动化编排工具，CoreOS也因此而改变技术选型。本文讲述了CoreOS公司集群编排框架的前世今生，描述了从fleet到Kubernetes的转变。
 
 目前，CoreOS计划于2018年2月1日从Linux的容器平台上替换fleet技术，对fleet的支持也即将截止。fleet进入了维护期，仅负责安全及补丁修复的升级。此项变动代表着集群编排和管理技术将转移到Kubernetes技术上。此转变也简化了用户自动更新容器Linux最小集操作系统的发布和部署操作。
 

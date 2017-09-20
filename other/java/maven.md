@@ -12,13 +12,15 @@ categories:
 - Maven
 ---
 
+Maven 简单配置说明。
+
+<!--more-->
+
 # 配置
 
 ## 镜像、中央仓库
 
 配置文件位于`~/.m2/settings.xml`
-
-<!--more-->
 
 ```xml
 <mirrors>

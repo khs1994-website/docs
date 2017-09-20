@@ -9,11 +9,13 @@ categories:
 - Docker
 ---
 
-原文：http://blog.csdn.net/candcplusplus/article/details/53366024
-
-本文是 Docker 官方文档中 [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) 的理解和翻译。包含了 Docker 官方对编写 Dockerfile 的最佳实践和建议。这些建议是为了让你写出高效易用的 Dockerfile。Docker 官方强烈建议你遵从这些建议（实际上，如果你是在创建官方镜像，你必须得遵从这些建议）。
+本文是 Docker 官方文档中 [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) 的理解和翻译。
 
 <!--more-->
+
+翻译：http://blog.csdn.net/candcplusplus/article/details/53366024
+
+本文包含了 Docker 官方对编写 Dockerfile 的最佳实践和建议。这些建议是为了让你写出高效易用的 Dockerfile。Docker 官方强烈建议你遵从这些建议（实际上，如果你是在创建官方镜像，你必须得遵从这些建议）。
 
 阅读该文档需要你已经会通过 Dockerfile 构建镜像，并了解 Dockerfile 中各条指令的用途。
 

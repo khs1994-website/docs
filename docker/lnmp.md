@@ -12,6 +12,8 @@ categories:
 
 目标：一条命令建立 LNMP 环境（MySQL、Redis、PHP-fpm、Nginx，etc）。这里只简单列举单容器运行方式，实际请使用 `Docker Compose`。
 
+GitHub：https://github.com/khs1994-docker/lnmp
+
 <!--more-->
 
 # MySQL

@@ -10,20 +10,17 @@ categories:
 - Terminal
 ---
 
-# 安装
-
 fish-shell GitHub：https://github.com/fish-shell/fish-shell
 
 oh-my-fish GitHub：https://github.com/oh-my-fish/oh-my-fish
 
-两个都安装，具体编译安装查看 `README.md` 文件
-
 <!--more-->
+
+两个都安装，具体编译安装查看项目 `README.md` 文件
 
 # 配置
 
-所有配置建议在 `~/.config/fish/config.fish` 中进行  
-以下命令中，前边加`$`的在终端中输入命令，不加的写入配置文件中
+所有配置建议在 `~/.config/fish/config.fish` 中进行。以下命令中，前边加`$`的在终端中输入命令，不加的写入配置文件中
 
 ## 环境变量env
 
