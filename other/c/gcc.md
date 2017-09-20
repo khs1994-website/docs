@@ -1,5 +1,5 @@
 ---
-title: C linux 下的编译
+title: C Linux 下的编译
 date: 2016-02-01 12:00:00
 updated:
 comments: true
@@ -10,6 +10,10 @@ categories:
 - C
 ---
 
+本文简要介绍了 C 语言的编译命令。
+
+<!--more-->
+
 # 基本编译命令
 
 ```bash
@@ -17,8 +21,6 @@ $ gcc a.c
 # 生成 a.out
 $ ./a.out
 ```
-
-<!--more-->
 
 ## 多个文件分而治之
 

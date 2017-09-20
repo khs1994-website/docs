@@ -7,9 +7,7 @@ categories:
 - Node.js
 ---
 
-# 安装
-
-`node.js`版本更新较快，建议官网下载安装，并将安装目录下的`bin`加入`PATH`。
+`node.js` 版本更新较快，建议官网下载安装，并将安装目录下的 `bin` 加入 `PATH`。
 
 <!--more-->
 

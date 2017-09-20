@@ -12,9 +12,9 @@ categories:
 
 官方网站：https://redis.io/
 
-下载，解压，进入文件夹
-
 <!--more-->
+
+下载，解压，进入文件夹
 
 ```bash
 $ make

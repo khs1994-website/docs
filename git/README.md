@@ -9,6 +9,10 @@ categories:
 - Git
 ---
 
+本文列举了 Git 的常用配置及使用方法。
+
+<!--more-->
+
 # 代理设置
 
 ```bash
@@ -22,8 +26,6 @@ $ git config --global https.proxy 127.0.0.1:1080
 $ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
 ```
-
-<!--more-->
 
 # 强制PULL
 

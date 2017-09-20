@@ -11,7 +11,7 @@ categories:
 - CoreOS
 ---
 
-原理：以 `ISO` 或者 `PXE` 或者 `iPXE` 模式启动 `CoreOS`，然后安装到硬盘。
+原理：以 `ISO` 或者 [`PXE`](boot-pxe-new.html) 或者 [`iPXE`](boot-ipxe.html) 模式启动 `CoreOS`，然后安装到硬盘。
 
 <!--more-->
 

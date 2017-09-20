@@ -14,12 +14,12 @@ categories:
 
 macOS 默认自带是 2.0 版本，所以需要升级。
 
+<!--more-->
+
 ```bash
 $ brew update
 $ brew install ruby
 ```
-
-<!--more-->
 
 ## 删除 gem 源
 

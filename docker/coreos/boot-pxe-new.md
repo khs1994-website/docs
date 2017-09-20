@@ -11,6 +11,10 @@ categories:
 - CoreOS
 ---
 
+本文是对官方文档 [Booting with PXE](//coreos.com/os/docs/latest/booting-with-pxe.html) 的翻译与补充。
+
+<!--more-->
+
 # 安装配置 PXE 服务器
 
 安装配置查看 [Linux 自动部署](/linux/server/pxe.html)
@@ -19,8 +23,6 @@ categories:
 * `coreos_production_pxe_image.cpio.gz`  
 
 将以上两文件上传到 `/var/lib/tftpboot`
-
-<!--more-->
 
 ## 准备文件
 
@@ -64,7 +66,3 @@ $ ssh core@ip
 ```
 
 之后 [安装到硬盘](install-disk-new.md) 或挂载磁盘作为数据磁盘使用。
-
-# 相关链接
-
-* 官方文档：https://coreos.com/os/docs/latest/booting-with-pxe.html

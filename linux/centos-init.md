@@ -10,6 +10,10 @@ categories:
 - Linux
 ---
 
+本文简要介绍了 CentOS 7 常用配置。
+
+<!--more-->
+
 # yum 源配置
 
 ## 阿里云开源镜像
@@ -22,8 +26,6 @@ $ mv /etc/yum.repos.d/CentOS-Base.repo \
 $ wget -O /etc/yum.repos.d/CentOS-Base.repo \
     http://mirrors.aliyun.com/repo/Centos-7.repo
 ```
-
-<!--more-->
 
 ## EPEL
 
