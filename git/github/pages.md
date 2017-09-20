@@ -10,6 +10,10 @@ categories:
 - GitHub
 ---
 
+本文列举了一些使用 GitHub Pages 遇到的问题及其解决方法。
+
+<!--more-->
+
 # 资源 404
 
 以_下划线开头的文件及文件夹都会被提示404，在根目录添加 `.nojekyll` 空白文件禁用 jekyll。
