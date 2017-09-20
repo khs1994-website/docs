@@ -7,6 +7,10 @@ categories:
 - Node.js
 ---
 
+npm 是 Node.js 的包管理工具。
+
+<!--more-->
+
 # 换源
 
 ```bash
@@ -14,8 +18,6 @@ $ vi ~/.npmrc
 
 registry=https://registry.npm.taobao.org
 ```
-
-<!--more-->
 
 ## npm 升级
 

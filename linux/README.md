@@ -9,6 +9,10 @@ categories:
 - Linux
 ---
 
+本文列举了 Linux 常见问题及其解决方法。
+
+<!--more-->
+
 # sudo
 
 ## 找不到命令
@@ -19,8 +23,6 @@ $ sudo vi /etc/sudoers
 Defaults  secure_path=...
 # 在后边加上PATH
 ```
-
-<!--more-->
 
 ## 脚本输入密码
 

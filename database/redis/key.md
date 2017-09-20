@@ -10,16 +10,16 @@ categories:
 - Redis
 ---
 
+设置过期时间、排序等。
+
+<!--more-->
+
 ```bash
 
 del name
 
 exists name
-```
 
-<!--more-->
-
-```bash
 # 过期时间
 
 expire name 30       # 单位为秒
@@ -35,6 +35,7 @@ pexpireat key 毫秒时间戳
 pttl mykey           # 单位为毫秒
 
 ttl mykey            # 单位为秒
+
 # 去掉过期时间
 
 persist mykey        # 单位为秒

@@ -9,13 +9,15 @@ categories:
 - Raspberry Pi3
 ---
 
-# SSH登录
+本文简要介绍了 树莓派3 的常用设置。
+
+<!--more-->
+
+# SSH 登录
 
 TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
 
 官方的 Raspbian 系统默认的登录帐号： `pi` ，密码： `raspberry`
-
-<!--more-->
 
 # 常用配置
 

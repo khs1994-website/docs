@@ -10,8 +10,7 @@ categories:
 - Hexo
 ---
 
-Hexo next 主题从 GitHub clone 到主题文件夹，如果要被项目 Git 跟踪，就得删除主题的 .git 文件夹（可以引入 子 git ,没有尝试过，这里不再说明）  
-这样问题是主题更新比较麻烦，我通过shell脚本实现`无痛`升级。
+Hexo next 主题从 GitHub clone 到主题文件夹，如果要被项目 Git 跟踪，就得删除主题的 .git 文件夹。这样问题是主题更新比较麻烦，我通过 shell 脚本实现 `无痛` 升级。
 
 <!--more-->
 
@@ -57,6 +56,4 @@ rm -rf .git
 
 ```
 
->本命令不再更新，最新记录请访问 GitHub
-
-我自己写的脚本：https://raw.githubusercontent.com/khs1994/khs1994.github.io/hexo/khs1994.hexo
+本命令不再更新，最新记录请访问 [GitHub](https://raw.githubusercontent.com/khs1994/khs1994.github.io/hexo/khs1994.hexo)
