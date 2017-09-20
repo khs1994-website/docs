@@ -4,7 +4,7 @@ cd repo
 git ls-files | while read file; do touch -d $(git log -1 --format="@%ct" "$file") "$file"; done
 docker run -dit -v $PWD:/tmp/gitbook-src khs1994/gitbook:1.0.0
 docker ps -a
-~/build/khs1994-website/docs/docker-status.sh
+~/build/khs1994-website/docs/.travis/docker-status.sh
 docker ps -a
 docker logs gitbook
 # Clone the repository

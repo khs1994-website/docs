@@ -14,6 +14,7 @@
 * [数据库](database/readme.md)
     * [MongoDB](database/mongodb/README.md)
     * [MySQL](database/mysql/README.md)
+        * [远程登录](database/mysql/remote.md)
         * [MySQL主从配置](database/mysql/m-s.md)
     * [Memcached](database/memcached/README.md)
     * [Redis](database/redis/README.md)
