@@ -1,6 +1,6 @@
 ---
 title: Fedora 常用软件
-date: 2017-02-01 13:00:00
+date: 2017-03-01 13:00:00
 updated:
 comments: true
 tags:

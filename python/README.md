@@ -1,6 +1,6 @@
 ---
 title: Python 安装配置
-date: 2016-03-05 13:00:00
+date: 2015-01-01 13:00:00
 tags:
 - Python
 categories:

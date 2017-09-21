@@ -1,6 +1,6 @@
 ---
 title: brew 安装配置
-date: 2017-01-01 13:00:00
+date: 2017-01-04 13:00:00
 updated:
 comments: true
 tags:

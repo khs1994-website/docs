@@ -1,6 +1,6 @@
 ---
 title: Hexo + Travis CI 实践（整合优化）
-date: 2017-07-31 13:00:00
+date: 2017-07-30 13:00:00
 updated:
 comments: true
 tags:

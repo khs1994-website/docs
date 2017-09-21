@@ -1,6 +1,6 @@
 ---
 title: Vim 常用设置
-date: 2016-05-05 12:00:00
+date: 2016-04-21 12:00:00
 updated:
 comments: true
 tags:

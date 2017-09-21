@@ -1,6 +1,6 @@
 ---
 title: Django 初始化配置
-date: 2017-03-01 13:00:00
+date: 2015-03-01 13:00:00
 updated:
 comments: true
 tags:

@@ -1,6 +1,6 @@
 ---
 title: Travis CI 使用详解
-date: 2017-08-01 13:00:00
+date: 2017-07-29 13:00:00
 updated:
 comments: true
 tags:

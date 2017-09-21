@@ -1,6 +1,6 @@
 ---
-title: Bash echo 命令详解
-date: 2016-06-01 13:00:00
+title: Bash  流程相关命令详解
+date: 2016-06-02 13:00:00
 updated:
 comments: true
 tags:
@@ -15,5 +15,3 @@ echo 命令用来输出内容。
 <!--more-->
 
 # 参考链接
-
-* http://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html

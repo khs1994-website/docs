@@ -1,6 +1,6 @@
 ---
 title: Atom 配置插件记录
-date: 2016-05-01 13:00:00
+date: 2016-04-20 13:00:00
 updated:
 comments: true
 tags:

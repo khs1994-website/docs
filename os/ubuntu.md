@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 常用软件
-date: 2017-02-08 13:00:00
+date: 2017-03-02 13:00:00
 updated:
 comments: true
 tags:
