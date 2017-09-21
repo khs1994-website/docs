@@ -8,6 +8,7 @@ tags:
 - SSH
 categories:
 - Linux
+- SSH
 ---
 
 本文详细介绍了 SSH 的配置。

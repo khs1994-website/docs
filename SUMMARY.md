@@ -54,7 +54,7 @@
         * [echo、read](linux/shell/echo-read.md)
         * [函数](linux/shell/function.md)
         * [if、case](linux/shell/if-case-etc.md)
-    * [SSH](Linux/ssh/README.md)
+    * [SSH](linux/ssh/README.md)
         * [SSH隧道与端口转发内网穿透](linux/ssh/proxy.md)
     * [Systemd 详解](linux/systemd.md)
     * [Centos7 初始化配置](linux/centos-init.md)

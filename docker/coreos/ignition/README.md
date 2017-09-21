@@ -6,9 +6,11 @@ comments: true
 tags:
 - Docker
 - CoreOS
+- Ignition
 categories:
 - Docker
 - CoreOS
+- Ignition
 ---
 
 CoreOS 配置工具 已由 `Ignition` 代替 `cloud-config`。

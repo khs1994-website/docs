@@ -5,9 +5,10 @@ updated:
 comments: true
 tags:
 - Linux
-- Bash
+- Shell
 categories:
 - Linux
+- Shell
 ---
 
 介绍 if case 等语句。

@@ -5,9 +5,10 @@ updated:
 comments: true
 tags:
 - Linux
-- Bash
+- Shell
 categories:
 - Linux
+- Shell
 ---
 
 echo 命令用来输出内容，read 命令用于读取用户输入。

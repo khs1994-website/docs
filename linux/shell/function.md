@@ -5,9 +5,10 @@ updated:
 comments: true
 tags:
 - Linux
-- Bash
+- Shell
 categories:
 - Linux
+- Shell
 ---
 
 默认情况下，脚本中定义的任何变量均为 `全局变量`，可以在函数内访问。

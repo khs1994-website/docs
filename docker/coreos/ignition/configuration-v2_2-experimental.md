@@ -6,9 +6,11 @@ comments: true
 tags:
 - Docker
 - CoreOS
+- Ignition
 categories:
 - Docker
 - CoreOS
+- Ignition
 ---
 
 This pre-release version of the specification is experimental and is subject to change without notice or regard to backward compatibility.
