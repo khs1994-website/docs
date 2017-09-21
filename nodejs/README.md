@@ -1,6 +1,6 @@
 ---
 title: Node.js 安装配置
-date: 2016-07-03 13:00:00
+date: 2016-10-01 13:00:00
 tags:
 - Node.js
 categories:

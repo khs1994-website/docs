@@ -19,19 +19,29 @@ categories:
 使用 `Travis CI` 之前：
 
 * 本地编写 `source/*.md`
+
 * `hexo g` 本地预览
+
 * `hexo d` 推送到 `GitHub` 和 `aliyun`
+
 * `手动` 完成后续操作：登录到服务器，`pull` 到网站根目录。
 
-使用`Travis CI`：
+使用 `Travis CI`：
 
 * 本地编写 `source/*.md`
+
 * `hexo g` 本地预览
+
 * 将部署文件推送到 `GitHub` 和 `aliyun`
+
 * `自动` 完成后续操作：
+
 * `Travis CI` 云端生成 `HTML`,并将其推送到 `GitHub` 和 `aliyun` 仓库的 `master` 分支
+
 * GitHub `webhooks` 通知服务器，服务器将 `aliyun` 仓库的代码 `强制pull`
+
 * 调用 `百度站长平台` 完成URL `主动推送`
+
 * 调用 `微信公众平台` 模板消息 API 完成消息提醒
 
 # 配置
@@ -54,4 +64,5 @@ categories:
 
 # 相关链接
 
-* http://blog.csdn.net/woblog/article/details/51319364  
+* http://blog.csdn.net/woblog/article/details/51319364
+* https://segmentfault.com/a/1190000004667156

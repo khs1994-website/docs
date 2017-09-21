@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 初始化配置
-date: 2016-08-06 13:00:00
+date: 2016-08-05 13:00:00
 updated:
 comments: true
 tags:

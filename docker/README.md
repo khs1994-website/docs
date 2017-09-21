@@ -1,7 +1,7 @@
 ---
 title: CentOS7 安装 Docker
-date: 2016-08-05 13:00:00
-updated: 2016-06-12 12:00:00
+date: 2016-05-01 13:00:00
+updated:
 comments: true
 tags:
 - Docker

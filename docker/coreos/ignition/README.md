@@ -1,6 +1,6 @@
 ---
 title: CoreOS 配置工具 Ignition 官方示例
-date: 2017-09-01 14:00:00
+date: 2016-09-02 14:00:00
 updated:
 comments: true
 tags:

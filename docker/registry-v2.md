@@ -256,3 +256,4 @@ Use "registry help [command]" for more information about a command.
 * [Dockerfile](https://github.com/docker/distribution-library-image)
 * [Nginx 代理](https://docs.docker.com/registry/recipes/nginx/)
 * http://www.jb51.net/os/other/369064.html
+* http://www.tuicool.com/articles/fAbiYnN

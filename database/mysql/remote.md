@@ -1,6 +1,6 @@
 ---
 title: MySQL 远程登录配置
-date: 2016-04-03 13:00:00
+date: 2016-04-04 13:00:00
 updated:
 comments: true
 tags:

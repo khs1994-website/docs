@@ -1,6 +1,6 @@
 ---
 title: CoreOS 配置工具 Ignition v2.2
-date: 2017-09-02 13:00:00
+date: 2016-09-01 13:00:00
 updated:
 comments: true
 tags:

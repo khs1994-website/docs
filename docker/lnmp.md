@@ -1,6 +1,6 @@
 ---
 title: LNMP Docker 安装配置
-date: 2016-06-06 13:00:00
+date: 2016-05-05 13:00:00
 updated:
 comments: true
 tags:

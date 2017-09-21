@@ -1,6 +1,6 @@
 ---
 title: npm 使用详解
-date: 2017-07-22 23:00:00
+date: 2016-10-02 23:00:00
 tags:
 - Node.js
 categories:

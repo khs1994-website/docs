@@ -1,6 +1,6 @@
 ---
 title: Linux Systemd 详解
-date: 2016-08-10 13:00:00
+date: 2016-08-11 13:00:00
 updated:
 comments: true
 tags:
