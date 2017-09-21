@@ -18,32 +18,54 @@ GitHub：https://github.com/linuxkit/linuxkit
 
 # 准备
 
+此处以 macOS 下安装为例，其他系统请在 go 环境下编译命令。
+
+GitHub：https://github.com/linuxkit/homebrew-linuxkit
+
 ```bash
 $ brew tap linuxkit/linuxkit
 $ brew install --HEAD moby
 $ brew install --HEAD linuxkit
+$ brew install --HEAD rtf
+$ brew install --HEAD manifest-tool
 ```
+
+保持版本为最新，请将以上命令 `install` 替换为 `reinstall`
 
 这一步会安装好 `moby` `linuxkit` 命令。
 
 # 运行官方示例
 
-## VirtualBox
+支持以下平台：
+
+* HyperKit (macOS)
+
+* Hyper-V (Windows)
+
+* qemu (macOS, Linux, Windows)
+
+* VMware (macOS, Windows)
+
+云平台不再列举。
+
+
+## 使用 VirtualBox
 
 官方文档没提到 VirtualBox (可能不推荐使用)，我这里使用它为了便于理解
 
-```bash
-$ git clone git@github.com:linuxkit/linuxkit.git
-$ cd linuxkit
+克隆 `git@github.com:linuxkit/linuxkit.git`，并进入文件夹执行以下命令构建 images
 
+```bash
 $ moby build -format iso-efi linuxkit.yml
 ```
 
-这样就生成了一个名为 `linuxkit-efi.iso` 的 ISO 文件，使用 `VirtualBox` 以 ISO 方式启动，勾选 `启用EFI` 并设置好 `VirtualBox` 网络。
+`-format` 参数指定输出格式，使用 `moby build -help`查看更多信息。
 
-浏览器访问 `VirtualBox` 的 IP。即可看到 Nginx 默认页面。
+这样就生成了一个名为 `linuxkit-efi.iso` 的 ISO 文件，使用 `VirtualBox` 挂载 ISO，勾选 `启用EFI` 并设置好 `VirtualBox` 网络，之后启动。
 
-## HyperKit
+浏览器访问 `VirtualBox` 的 IP，即可看到 Nginx 默认页面。
+
+## 使用 HyperKit
 
 `HyperKit` 是 macOS 上运行的轻量级虚拟化工具包。构建、运行命令如下
 
@@ -64,4 +86,5 @@ $ linuxkit run linuxkit
 # 参考链接
 
 * http://blog.csdn.net/shenshouer/article/details/70251109
+* https://www.v2ex.com/t/359038
 * https://github.com/moby/tool/blob/master/docs/yaml.md
