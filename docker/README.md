@@ -9,9 +9,11 @@ categories:
 - Docker
 ---
 
-本文以 CentOS 7 系统为例进行最新版本的 Docker CE 安装。其他发行版请参照官方文档。
+本文介绍最新版本的 Docker CE 安装。
 
 <!--more-->
+
+## CentOS 7
 
 # 安装
 
@@ -22,8 +24,6 @@ Install yum-utils, which provides the yum-config-manager utility:
 ```bash
 $ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
-
-Use the following command to set up the stable repository:
 
 ### 官方镜像
 

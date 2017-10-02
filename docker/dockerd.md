@@ -13,6 +13,6 @@ Docker 客户端可以通过 socket 或 tcp 与 docker daemon （守护进程）
 
 <!--more-->
 
-# 参考链接
+# More Information
 
-* 
+*

@@ -2,12 +2,10 @@
 git clone -b gitbook $REPO repo
 cd repo
 git ls-files | while read file; do touch -d $(git log -1 --format="@%ct" "$file") "$file"; done
-docker run -dit -v $PWD:/tmp/gitbook-src khs1994/gitbook:1.0.0
-docker ps -a
-~/build/khs1994-website/docs/.travis/docker-status.sh
-docker ps -a
-docker logs gitbook
-# Clone the repository
+docker run -it --rm \
+  -v $PWD:/tmp/gitbook-src \
+  khs1994/gitbook:1.0.0
+  
 git clone -b "$DEPLOY_BRANCH" "$REPO" .deploy_git
 if [ ! $? = 0 ];then
   #不存在

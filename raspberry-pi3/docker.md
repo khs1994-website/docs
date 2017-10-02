@@ -10,7 +10,7 @@ categories:
 - Raspberry Pi3
 ---
 
-`arm32v7` `arm64v8` 架构 Docker 全解析
+`arm32v7` `arm64v8` 架构 Docker 全解析。
 
 <!--more-->
 
@@ -26,15 +26,37 @@ Linux raspberrypi 4.12.3-v7 #1 SMP Mon Jul 24 10:40:40 CST 2017 armv7l GNU/Linux
 
 直接添加如下源即可安装 Docker
 
-```
+```bash
 deb [arch=armhf] http://mirrors.aliyun.com/docker-ce/linux/debian stretch test
+```
+
+```bash
+$ sudo apt install docker-ce
 ```
 
 请 pull [arm32v7](https://hub.docker.com/u/arm32v7/) 镜像
 
 # arm64v8
 
-暂时没有64位的官方系统。
+暂时没有64位的官方系统，使用 [pi64](https://www.khs1994.com/raspberry-pi3/arm64v8.html)
+
+安装 Ubuntu arm64 版本的 Docker。
+
+国内镜像：http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/test/arm64/
+
+官方地址：https://download.docker.com/linux/ubuntu/dists/xenial/pool/test/arm64/
+
+wget 下载该包
+
+```bash
+$ sudo dpkg -i docker*
+
+# 安装依赖软件
+
+$ sudo apt install -f -y
+
+$ sudo usermod -aG docker $USER
+```
 
 # 其他操作系统
 
@@ -77,6 +99,6 @@ $ sudo ros engine switch docker-17.05.0-ce
 
 GitHub：https://github.com/hypriot/image-builder-rpi
 
-# 参考链接
+# More Information
 
 * http://dockone.io/article/1676

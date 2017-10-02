@@ -27,7 +27,7 @@ $ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
 ```
 
-# 强制PULL
+# 将本地仓库与远程仓库保持一致
 
 ```bash
 $ git fetch --all  
@@ -61,6 +61,15 @@ $ git fetch remote_repo remote_branch_name:local_branch_name
 $ git push -f origin master:gh-pages
 ```
 
+# tag
+
+## 删除远程分支
+
+```bash
+$ git push origin --delete tag <tagName>
+```
+
 # 相关链接
 
 * http://www.jianshu.com/p/633ae5c491f5
+* https://blog.zengrong.net/post/1746.html

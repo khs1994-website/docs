@@ -17,7 +17,7 @@ categories:
 
 TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
 
-官方的 Raspbian 系统默认的登录帐号： `pi` ，密码： `raspberry`
+官方的 Raspbian 系统默认的登录帐号： `pi`，密码： `raspberry`
 
 # 常用配置
 
