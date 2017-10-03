@@ -13,9 +13,10 @@ categories:
 
 电子邮件是—种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。本次实验采用`二级域名邮箱:4s.khs1994.com`
 
+<!--more-->
+
 # DNS设置
 
-<!--more-->
 # hostname
 
 # Postfix (SMTP) 发送

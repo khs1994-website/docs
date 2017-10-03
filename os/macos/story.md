@@ -12,7 +12,9 @@ categories:
 
 作者:王越 来源:《程序员》
 
-　　作者王越，美国宾夕法尼亚大学计算机系研究生，中国著名 TeX 开发者，非著名 OpenFOAM 开发者。
+<!--more-->
+
+作者王越，美国宾夕法尼亚大学计算机系研究生，中国著名 TeX 开发者，非著名 OpenFOAM 开发者。
 
 Mac OS X 背后的故事（一）力挽狂澜的Ellen Hancock
 
@@ -21,8 +23,6 @@ Mac OS X 背后的故事（二）Linus Torvalds的短视
 Mac OS X 背后的故事（三）Mach之父Avie Tevanian
 
 Mac OS X 背后的故事（四）政客的跨界
-
-<!--more-->
 
 Mac OS X 背后的故事（五）Jean-Marie Hullot的Interface Builder神话
 
@@ -36,11 +36,9 @@ Mac OS X 背后的故事（九）半导体的丰收
 
 Mac OS X背后的故事（十）Mac OS X文件系统的来龙去脉
 
-
+# Mac OS X 背后的故事（一）力挽狂澜的 Ellen Hancock
 
 Ellen Hancock曾任苹果公司技术总监
-
-# Mac OS X 背后的故事（一）力挽狂澜的 Ellen Hancock
 
 　　故事还得从 20 世纪 90 年代说起。Ellen Hancock 是本文的主人公，也是一位女英雄。她因在 IBM 的经历而被人们所熟悉。1966-1995 年间，Ellen Hancock 在 IBM 共工作了 29 年。1985 年，她成为 IBM 的副主席。在 1986-1988 年间，Ellen Hancock 担任过 IBM 通信产品的主席，并在 1992 年被选为资深副总裁。1995 年 9 月，她被时任美国国家半导体（National Semiconductor）CEO的 Gil Amelio 忽悠，跳槽来到这个企业，做执行副总裁。她在这里带领团队完成了 CompactRISC 架构，这个架构事后成为 ARM7 系列的前身。很多人早已经把她忘了，也很少有人能够在回忆时将她和 Mac OS X 联系起来。但事实上，她是让苹果放弃 Copland 转而购买 NeXT 的关键人物。
 

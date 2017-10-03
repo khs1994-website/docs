@@ -1,5 +1,5 @@
 ---
-title: Docker 私有仓库(Registry) v2 安装配置
+title: Docker 私有仓库安装配置 (Registry v2)
 date: 2017-08-05 14:00:00
 updated:
 comments: true
@@ -9,25 +9,19 @@ categories:
 - Docker
 ---
 
-服务器位于本机，如果本机已占用 443 端口，请配置 Nginx 代理，如果未占用，请直接启动容器。
+使用 Docker Compose 配置一个 Docker 私有仓库。服务器位于本机，如果本机已占用 443 端口，请配置 Nginx 代理，如果未占用，请直接启动容器。
 
-首先介绍的是直接启动容器。
+GitHub：https://github.com/khs1994-docker/registry
 
 <!--more-->
 
+官方 GitHub： https://github.com/docker/distribution/releases
+
 # 准备
 
-本次根目录为 `/Users/khs1994/docker/data/registry` ,当所有文件准备好之后，scp 到虚拟机
+申请 SSL 证书放到 ssl 文件夹，这里不进行详细说明。
 
-GitHub:https://github.com/khs1994-website/docker-registry-conf
-
-## SSL证书
-
-从腾讯云申请免费的 SSL 证书之后下载，得到文件 `docker.khs1994.com.zip` 将解压之后的 `Nginx` 文件夹下两个文件复制到 `/Users/khs1994/docker/data/registry/ssl`
-
-## 编辑config.yml
-
-`config.yml`
+编辑 `config.yml`
 
 ```yaml
 version: 0.1
@@ -76,9 +70,14 @@ $ docker run --rm --entrypoint htpasswd \
     registry:2 -Bbn username password > auth/nginx.htpasswd
 ```
 
-# 启动 registry 容器
+注意 Nginx 可能不能解密，请换为：
 
-编辑 `docker-compose.yml`
+```bash
+$ docker run --rm --entrypoint htpasswd \
+    registry:2 -mbn username password > auth/nginx.htpasswd
+```
+
+## 编辑 `docker-compose.yml`
 
 ```yaml
 version: '3'
@@ -92,46 +91,21 @@ services:
     volumes:
       - ./:/etc/docker/registry
       - ./var/lib/registry:/var/lib/registry
+
+  # nginx:
+  #   image: nginx
+  #   ports:
+  #     - "443:443"
+  #     - "5000:5000"
+  #   volumes:
+  #     - ./registry.conf:/etc/nginx/conf.d/registry.conf
 ```
 
-使用以下命令启动关闭容器
-
-```bash
-$ docker-compose up -d
-# 关闭
-$ docker-compose stop
-```
-
-若异常退出，请运行下面命令排查错误
-
-```bash
-$ docker logs registry
-```
-
-# 客户机操作
-
-我已在域名解析处把 `docker.xc725.wang` 解析到了 `本机 IP`, 还可以通过修改本地 /etc/hosts 文件将 `docker.khs1994.com` 解析到 `127.0.0.1`，这里请根据实际情况修改。
-
-## 测试私有仓库功能
-
-网页查看 https://docker.xc725.wang/v2/_catalog
-
-```bash
-# 登录
-$ docker login docker.xc725.wang #接下来输入用户名、密码
-
-# 使用
-
-$ docker pull nginx
-$ docker tag nginx docker.khs1994.com/nginx
-$ docker push docker.khs1994.com/nginx
-```
+若本机 443 端口未占用，请忽略 Nginx 代理配置。
 
 # Nginx 代理配置
 
-若 443 端口已占用，请配置 Nginx 代理。
-
-请自行查找学习 Nginx 配置，请将 SSL 证书路径、IP 等变量确定好。示例配置如下：
+若 443 端口已占用（本地存在 Nginx 服务器），请配置 Nginx 代理。请自行查找学习 Nginx ，请将 SSL 证书路径、IP 等变量确定好，nginx 示例配置如下，之后启动容器
 
 ```nginx
 upstream docker-registry {
@@ -193,13 +167,41 @@ server {
 }
 ```
 
-使用以下命令启动容器：
+# 启动
 
-```yaml
-$ docker run -dit \
-    -p 127.0.0.1:5000:5000 \
-    -v `pwd`/var/lib/registry:/var/lib/registry
-    registry
+```bash
+$ docker-compose up -d
+
+# 关闭
+
+$ docker-compose stop
+
+# 销毁
+
+$ docker-compose down
+```
+
+若异常退出，请运行下面命令排查错误
+
+```bash
+$ docker logs registry
+```
+
+# 测试私有仓库功能
+
+我已在域名解析处把 `docker.xc725.wang` 解析到了 `本机 IP`, 还可以通过修改本地 /etc/hosts 文件将 `docker.khs1994.com` 解析到 `127.0.0.1`，这里请根据实际情况修改。
+
+网页查看 https://docker.xc725.wang/v2/_catalog
+
+```bash
+# 登录
+$ docker login docker.xc725.wang #接下来输入用户名、密码
+
+# 使用
+
+$ docker pull nginx
+$ docker tag nginx docker.khs1994.com/nginx
+$ docker push docker.khs1994.com/nginx
 ```
 
 # 命令参考
@@ -226,7 +228,9 @@ registry github.com/docker/distribution v2.6.0
 
 ```bash
 $ docker exec [docker-registry id] registry help
+```
 
+```bash
 `registry`
 
 Usage:
@@ -248,8 +252,8 @@ Use "registry help [command]" for more information about a command.
 
 # 相关链接
 
-* http://www.jb51.net/os/other/369064.html  
-* 官方文档: https://docs.docker.com/registry/  
-* GitHub： https://github.com/docker/distribution/releases
-* Dockerfile: https://github.com/docker/distribution-library-image
-* Nginx 代理：https://docs.docker.com/registry/recipes/nginx/
+* [官方文档](https://docs.docker.com/registry/)
+* [Dockerfile](https://github.com/docker/distribution-library-image)
+* [Nginx 代理](https://docs.docker.com/registry/recipes/nginx/)
+* http://www.jb51.net/os/other/369064.html
+* http://www.tuicool.com/articles/fAbiYnN

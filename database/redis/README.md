@@ -1,6 +1,6 @@
 ---
 title: Redis 使用详解
-date: 2016-04-05 13:00:00
+date: 2016-04-05 12:00:00
 updated:
 comments: true
 tags:
@@ -12,9 +12,9 @@ categories:
 
 官方网站：https://redis.io/
 
-下载，解压，进入文件夹
-
 <!--more-->
+
+下载，解压，进入文件夹
 
 ```bash
 $ make

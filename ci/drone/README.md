@@ -1,6 +1,6 @@
 ---
 title: Drone CI/CD 实践
-date: 2017-08-21 13:00:00
+date: 2017-09-01 13:00:00
 updated:
 comments: true
 tags:
@@ -23,7 +23,7 @@ categories:
 
 编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/drone/blob/0.7/docker-compose.yml) 查看。
 
-## 0.8 rc 版本
+## 0.8 版本
 
 编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/drone/blob/0.8/docker-compose.yml) 查看。
 

@@ -1,11 +1,15 @@
 ---
-title: Python 安装配置详解
-date: 2016-03-05 13:00:00
+title: Python 安装配置
+date: 2015-01-01 13:00:00
 tags:
 - Python
 categories:
 - Python
 ---
+
+本文介绍了 Python 的编译安装方法以及 pip 的使用。
+
+<!--more-->
 
 # 安装
 
@@ -17,9 +21,9 @@ $ make
 $ make install
 ```
 
-<!--more-->
+# pip
 
-pip 类似 RedHat 里面的 yum ，安装 Python 包非常方便
+pip 是 Python 包管理工具，安装 Python 包非常方便
 
 # pip 下载安装
 

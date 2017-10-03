@@ -10,13 +10,11 @@ categories:
 - Memcached
 ---
 
-# 安装 Memcached
-
 官方网站：http://memcached.org/
 
-下载，解压，进入文件夹
-
 <!--more-->
+
+下载，解压，进入文件夹
 
 ```bash
 $ sudo apt install libsasl2-dev libevent-dev
@@ -28,7 +26,23 @@ $ make
 $ make install  
 ```
 
-## 安装 libmemcached
+# 安装 libmemcached
+
+## 使用包管理工具安装
+
+Debian 系
+
+```bash
+$ apt install libmemcached-dev
+```
+
+RedHat 系
+
+```bash
+$ yum install libmemcached-devel
+```
+
+## 编译安装
 
 官方网站：http://libmemcached.org/libMemcached.html
 

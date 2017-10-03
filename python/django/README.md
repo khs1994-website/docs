@@ -1,6 +1,6 @@
 ---
 title: Django 初始化配置
-date: 2017-03-01 13:00:00
+date: 2015-03-01 13:00:00
 updated:
 comments: true
 tags:
@@ -11,13 +11,21 @@ categories:
 - Django
 ---
 
-# 创建工程
+创建工程
+
+```bash
 $ django-admin startproject myblog
-# 创建应用
+```
+
+<!--more-->
+
+创建应用
 
 >分隔功能，一个功能对应一个应用
-<!--more-->
+
+```bash
 $ python3 manage.py startapp blog
+```
 
 在 `settings.py` 中添加应用
 
@@ -32,26 +40,41 @@ INSTALLED_APPS = [
 
 >测试使用，后续使用 Nginx
 
+```bash
 $ python3 manage.py runserver
+```
 
 # 模板
-在应用目录下新建 `Templates` 文件夹  
-存放 `HTML` 文件
+
+在应用目录下新建 `Templates` 文件夹存放 `HTML` 文件
+
 # 生成数据表
+
+```bash
 $ python3 manage.py makemigrations blog
+
 $ python3 manage.py migrate
+
 # 查看SQL语句
+
 $ python3 manage.py sqlmigrate blog 0001
+
 # 创建用户
+
 $ python3 manage.py createsuperuser
+
 # 静态资源
+```
 
 修改 `settings.py`
 
 ```bash
 # 新文件夹
+
 STATIC_ROOT = "/var/www/example.com/static/"
+
 # 转移文件
+
 $ python3 manage.py collectstatic
 ```
 
@@ -61,13 +84,15 @@ $ python3 manage.py collectstatic
 
 ## 安装 uwsgi
 
+```bash
 $ python3 -m pip install uwsgi
+```
 
 ## 配置文件方式启动
 
 `uwsgi.ini`
 
-```ini
+```yaml
 # myweb_uwsgi.ini file
 [uwsgi]
 
@@ -96,10 +121,10 @@ buffer-size = 32768
 ```
 
 ```bash
-uwsgi --ini uwsgi.ini
+$ uwsgi --ini uwsgi.ini
 ```
 
-## Nginx配置
+## Nginx 配置
 
 ```nginx
 server {

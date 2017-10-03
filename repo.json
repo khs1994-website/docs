@@ -4,6 +4,6 @@
     "aliyun": "git@code.aliyun.com:khs1994-website/docs.git"
   },
   "branch": "gitbook",
-  "deploy-branch": "master",
+  "deploy-branch": "gh-pages",
   "description": "khs1994.com 技术文档"
 }

@@ -1,6 +1,6 @@
 ---
 title: LNMP Docker 安装配置
-date: 2016-06-06 13:00:00
+date: 2016-05-05 13:00:00
 updated:
 comments: true
 tags:
@@ -11,6 +11,8 @@ categories:
 ---
 
 目标：一条命令建立 LNMP 环境（MySQL、Redis、PHP-fpm、Nginx，etc）。这里只简单列举单容器运行方式，实际请使用 `Docker Compose`。
+
+GitHub：https://github.com/khs1994-docker/lnmp
 
 <!--more-->
 

@@ -12,10 +12,14 @@ categories:
 
 GitHub：https://github.com/soimort/you-get
 
+<!--more-->
+
 # 安装
 
 ```bash
 $ pip3 install you-get
 ```
 
-<!--more-->
+# 参考链接
+
+* http://www.jianshu.com/p/a3f8df948395

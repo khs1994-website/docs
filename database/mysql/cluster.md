@@ -13,7 +13,7 @@ categories:
 
 使用 Docker Compose 启动一主一从的 MySQL 集群。
 
-GitHub：https://github.com/khs1994-docker/mysql
+GitHub：https://github.com/khs1994-docker/mysql-cluster
 
 <!--more-->
 
@@ -130,7 +130,7 @@ create database test;
 show databases;
 ```
 
-# 相关链接
+# More Information
 
 * http://blog.csdn.net/qq362228416/article/details/48569293  
 * http://blog.csdn.net/he90227/article/details/54140422

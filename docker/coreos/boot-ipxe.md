@@ -11,27 +11,29 @@ categories:
 - CoreOS
 ---
 
-# 下载 `ipxe.iso`
+iPXE 模式启动 CoreOS 方法比较简单，无需配置 PXE 所需的服务器，推荐大家使用。
+
+<!--more-->
+
+# 准备
+
+下载 `ipxe.iso`
 
 ```bash
 $ wget http://boot.ipxe.org/ipxe.iso
 ```
+
 准备好以下文件
 
-```
 coreos_production_pxe.vmlinuz
+
 coreos_production_pxe_image.cpio.gz
-```
-
-<!--more-->
-
-# 准备文件
 
 内网服务器搭建过程请查看 [CoreOS 安装服务 本地服务器配置](install-server.html)  
 
-`ipxe.html`
+## `ipxe.html`
 
-```
+```bash
 #!ipxe
 
 set base-url http://192.168.199.100/current
@@ -40,7 +42,7 @@ initrd ${base-url}/coreos_production_pxe_image.cpio.gz
 boot
 ```
 
-`pxe-ignition.yaml`
+## `pxe-ignition.yaml`
 
 ```yaml
 systemd:
@@ -61,7 +63,7 @@ passwd:
 $ ct-v0.4.2-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
 ```
 
-关于 Ignition 请查看 [CoreOS 配置工具 Ignition 简介](ignition.html)
+关于 Ignition 请查看 [CoreOS 配置工具 Ignition 简介](ignition/README.html)
 
 > 格式转换之后验证 `ignition.json`
 https://coreos.com/validate/

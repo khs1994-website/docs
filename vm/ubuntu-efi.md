@@ -10,10 +10,13 @@ categories:
 - VM
 ---
 
+以 `UEFI` 模式启动虚拟机，首次启动会出现错误。 
+
+<!--more-->
+
 ```bash
 Shell> FS0:
 FS0:\> cd EFI
 FS0:\EFI> mkdir boot
 FS0:\EFI> cp ubuntu\grubx64.efi boot\bootx64.efi
 ```
-<!--more-->

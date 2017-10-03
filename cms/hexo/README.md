@@ -16,13 +16,13 @@ categories:
 
 # Github
 
-注册 Github，并新建 `用户名.github.io` 仓库
+注册 [Github](//github.com) 账号，并新建 `用户名.github.io` 仓库
 
 # Git
 
-* 安装 `Git`
-* 生成 `SSH` 公钥、密钥
-* 将 `公钥` 复制到GitHub
+安装 `Git`  
+生成 `SSH` 公钥、密钥  
+将 `公钥` 复制到GitHub  
 
 # Node.js
 

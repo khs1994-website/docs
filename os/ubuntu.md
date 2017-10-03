@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 常用软件
-date: 2017-02-08 13:00:00
+date: 2017-03-02 13:00:00
 updated:
 comments: true
 tags:
@@ -10,13 +10,15 @@ categories:
 - OS
 ---
 
+本文列举了 Ubuntu 常用软件。
+
+<!--more-->
+
 # 娱乐
 
 ## 网易云音乐
 
 http://music.163.com/#/download
-
-<!--more-->
 
 ## mpv播放器
 

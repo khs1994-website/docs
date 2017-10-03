@@ -11,12 +11,11 @@ categories:
 - Server
 ---
 
-需要以下软件`PXE dhcp tftp vsftpd kickstart`
-
->服务器 192.168.57.101  
-客户端
+Linux 自动部署需要以下软件`PXE` `dhcp` `tftp` `vsftpd` `kickstart`
 
 <!--more-->
+
+服务器 IP 192.168.57.101  
 
 # 安装软件
 
@@ -26,9 +25,9 @@ $ yum install tftp-server dhcp syslinux vsftpd xinetd
 
 ## DHCP
 
-```bash
-$ vi /etc/dhcp/dhcpd.conf
+修改 `/etc/dhcp/dhcpd.conf` 文件
 
+```bash
 allow booting;
 allow bootp;
 ddns-update-style interim;
@@ -44,17 +43,18 @@ subnet 192.168.57.0 netmask 255.255.255.0 {
     filename "pxelinux.0";
 }     
 ```
+
 ## TFTP
 
 ### 配置xinetd
 
-将`/etc/xinetd.d/tftp`中的`disable` 值设为no
+将 `/etc/xinetd.d/tftp` 中的 `disable` 值设为 no
 
 ## syslinux
 
 # 挂载安装光盘
 
-在root家目录新建cdrom文件夹，挂载光盘
+在 root 家目录新建 cdrom 文件夹，挂载光盘
 
 ```bash
 $ mkdir cdrom
@@ -97,8 +97,11 @@ $ cp -r ~/cdrom/* /var/ftp
 ```bash
 $ cp ~/anaconda-ks.cfg /var/ftp/pub/ks.cfg
 $ chmod +r /var/ftp/pub/ks.fg
-$ vi /var/ftp/pub/ks.cfg  
+```
 
+修改 `/var/ftp/pub/ks.cfg` 文件
+
+```bash
 #第6行
 
 url --url=ftp://192.168.57.101

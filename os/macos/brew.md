@@ -1,6 +1,6 @@
 ---
 title: brew 安装配置
-date: 2017-01-01 13:00:00
+date: 2017-01-04 13:00:00
 updated:
 comments: true
 tags:
@@ -23,7 +23,9 @@ categories:
 $ brew doctor
 ```
 
-## 清理 如旧包、不再需要的包
+## 清理
+
+删除旧包、不再需要的包、安装包
 
 ```bash
 $ brew cleanup

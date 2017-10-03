@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 初始化配置
-date: 2016-08-06 13:00:00
+date: 2016-08-05 13:00:00
 updated:
 comments: true
 tags:
@@ -9,6 +9,10 @@ tags:
 categories:
 - Linux
 ---
+
+本文简要介绍了 Ubuntu 常用配置。
+
+<!--more-->
 
 # 网络配置
 
@@ -27,8 +31,6 @@ iface enp0s8 inet static
 address 192.168.56.130
 netmask 255.255.255.0
 ```
-
-<!--more-->
 
 ## 网络超时
 

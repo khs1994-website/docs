@@ -1,6 +1,6 @@
 ---
 title: Linux Systemd 详解
-date: 2016-08-10 13:00:00
+date: 2016-08-12 13:00:00
 updated:
 comments: true
 tags:
@@ -14,7 +14,7 @@ categories:
 
 <!--more-->
 
-```yml
+```yaml
 [Unit]                   服务的说明  
 Description=             描述服务  
 After=                   描述服务类别  

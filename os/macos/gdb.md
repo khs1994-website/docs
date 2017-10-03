@@ -10,6 +10,10 @@ categories:
 - macOS
 ---
 
+在 macOS 使用 GDB 调试 C 语言代码，必须对 gdb 进行代码签名，否则 GDB 不能运行！
+
+<!--more-->
+
 # 创建证书
 
 钥匙串访问
@@ -18,8 +22,6 @@ categories:
 选择身份类型：自签名根证书 （Identity Type to Self Signed Root）
 选择证书类型：代码签名 （Certificate Type to Code Signing）
 勾选：让我覆盖这些默认签名 （select the Let me override defaults）
-
-<!--more-->
 
 一路继续，直到选择存放证书地址，选择：系统
 

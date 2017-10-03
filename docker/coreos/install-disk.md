@@ -1,6 +1,6 @@
 ---
 title: 硬盘安装 CoreOS 三节点集群 （已废弃）
-date: 2016-08-10 13:00:00
+date: 2016-08-09 13:00:00
 updated:
 comments: true
 tags:
@@ -36,7 +36,7 @@ categories:
 
 * `coreos_production_image.bin.bz2.sig`   # 签名文件
 
-## 编辑`cloud-config.yaml`（已废弃）
+## 编辑`cloud-config.yaml`
 
 ```yaml
 #cloud-config

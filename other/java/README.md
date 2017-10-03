@@ -1,5 +1,5 @@
 ---
-title: Java 初始化配置
+title: Linux Java 初始化配置
 date: 2016-07-02 13:00:00
 updated:
 comments: true
@@ -10,7 +10,11 @@ categories:
 - Java
 ---
 
-# 卸载自带openjdk
+Linux 可能自带 openjdk，先将其卸载，之后官网下载再进行安装。
+
+<!--more-->
+
+# 卸载自带 openjdk
 
 ```bash
 $ rpm -qa | grep java
@@ -18,7 +22,7 @@ $ rpm -qa | grep jdk
 $ rpm -e --nodeps ***
 ```
 
-<!--more-->
+Debian 系请使用 apt 卸载。
 
 # 增加环境变量配置
 

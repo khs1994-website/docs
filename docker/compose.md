@@ -1,6 +1,6 @@
 ---
 title: Docker Compose version 3 使用详解
-date: 2017-06-06 12:00:00
+date: 2017-06-03 12:00:00
 updated:
 comments: true
 tags:
@@ -13,25 +13,38 @@ Define application stacks built using multiple containers, services, and swarm c
 
 <!--more-->
 
-# 安装配置
+# install
 
-桌面版自带 Docker Compose，如果找不到 `docker-compose` 命令，请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
+Windows 10 、macOS Docker CE 自带 `docker-compose`，Linux 不包含 `docker-compose` 命令，请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
 
-## 命令行自动补全
+```bash
+$ DOCKER_COMPOSE_VERSION=1.16.1
+$ curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+$ chmod +x docker-compose
+$ sudo mv docker-compose /usr/local/bin
+$ docker-compose --version
+```
+
+## Command-line completion
 
 ### fish
 
 ```bash
 $ mkdir -p ~/.config/fish/completions
 
+# 之后进入该文件
+
 $ wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish
 ```
 
 ### bash
 
-# 使用
+参见 [官方文档](https://docs.docker.com/compose/completion/)。
+
+# Compose file reference
 
 ## build
+
 ```yaml
 version: '3'
 services:
@@ -43,6 +56,7 @@ services:
         buildno: 1
     image: webapp:tag
 ```
+
 ## cap_add, cap_drop
 
 待补充
@@ -401,6 +415,6 @@ db:
 
 从 `Shell` 或 `.env` 文件读取变量。
 
-# 相关链接
+# More Information
 
 * https://docs.docker.com/compose/install/

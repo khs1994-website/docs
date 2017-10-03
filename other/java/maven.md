@@ -1,6 +1,6 @@
 ---
 title: Maven 使用详解
-date: 2016-07-11 13:00:00
+date: 2016-07-03 13:00:00
 updated:
 comments: true
 tags:
@@ -12,13 +12,15 @@ categories:
 - Maven
 ---
 
+Maven 简单配置说明。
+
+<!--more-->
+
 # 配置
 
 ## 镜像、中央仓库
 
 配置文件位于`~/.m2/settings.xml`
-
-<!--more-->
 
 ```xml
 <mirrors>
