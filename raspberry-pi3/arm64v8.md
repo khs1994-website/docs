@@ -9,7 +9,7 @@ categories:
 - Raspberry Pi3
 ---
 
-国内资料关于 `64位` 系统的资料较少,我只在知乎里找到一篇关于此的 [文章](https://zhuanlan.zhihu.com/p/27837299)。
+国内资料关于 `64位` 系统的资料较少，我只在知乎里找到一篇关于此的 [文章](https://zhuanlan.zhihu.com/p/27837299)。
 
 <!--more-->
 

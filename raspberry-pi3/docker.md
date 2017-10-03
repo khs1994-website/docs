@@ -56,6 +56,12 @@ $ sudo dpkg -i docker*
 $ sudo apt install -f -y
 
 $ sudo usermod -aG docker $USER
+
+# 设置字符集
+
+$ sudo localectl set-locale LANG=en_US.UTF-8
+$ sudo localectl set-keymap LANG=en_US.UTF-8
+$ sudo localectl set-x11-keymap LANG=en_US.UTF-8
 ```
 
 # 其他操作系统

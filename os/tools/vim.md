@@ -16,6 +16,8 @@ categories:
 
 # 配色
 
+一般不用设置
+
 ```bash
 colorscheme desert
 syntax on
@@ -23,6 +25,8 @@ syntax on
 
 # 中文乱码
 
+设置环境变量
+
 ```bash
-set encoding=UTF-8
+$ export LANG=en_US.UTF-8
 ```

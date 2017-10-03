@@ -51,6 +51,7 @@
         * [DHCP](linux/server/dhcp.md)
         * [DNS](linux/server/dns.md)
     * [SHELL 脚本](linux/shell/readme.md)
+        * [date](linux/shell/date.md)
         * [echo、read](linux/shell/echo-read.md)
         * [函数](linux/shell/function.md)
         * [if、case](linux/shell/if-case-etc.md)

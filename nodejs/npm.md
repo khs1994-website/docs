@@ -14,9 +14,7 @@ npm 是 Node.js 的包管理工具。
 # 换源
 
 ```bash
-$ vi ~/.npmrc
-
-registry=https://registry.npm.taobao.org
+$ echo "registry=https://registry.npm.taobao.org" >> ~/.npmrc
 ```
 
 ## npm 升级

@@ -67,10 +67,10 @@ MariaDB [(none)]> SELECT host,user,password,Grant_priv,Super_priv FROM mysql.use
 ## 赋予完整权限
 
 ```bash
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.100.%' IDENTIFIED BY 'my-new-password' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.199.%' IDENTIFIED BY 'your-password' WITH GRANT OPTION;
 ```
 
-我们已经创建root用户，并且让这个用户在192.168.100.0/24 地址内能连接到服务器。
+我们已经创建root用户，并且让这个用户在192.168.199.0/24 地址内能连接到服务器。
 
 重启 `mysql.service` 服务，进行测试。
 

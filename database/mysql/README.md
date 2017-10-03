@@ -21,6 +21,20 @@ use mysql;
 DELETE FROM user WHERE user='admin' and host='%';
 ```
 
+# 字符集
+
+修改配置文件
+
+```yaml
+character-set-server = utf8mb4
+```
+
+查看字符集
+
+```sql
+SHOW VARIABLES LIKE 'character%';
+```
+
 # 增
 
 ## 新建数据库
