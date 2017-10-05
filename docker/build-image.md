@@ -9,7 +9,7 @@ categories:
 - Docker
 ---
 
-将 Dockerfile 上传到代码仓库（GitHub,Coding,etc）,云端开始构建并 push Docker 镜像。
+将 Dockerfile 上传到代码仓库(GitHub, Coding, etc)，云端开始构建并 push Docker 镜像。
 
 <!--more-->
 

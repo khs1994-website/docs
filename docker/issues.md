@@ -19,6 +19,18 @@ categories:
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 ```
 
+基于 `Debian` 的镜像可以设置环境变量
+
+```bash
+$ TZ=Asia/Shanghai
+```
+
+基于 `Alpine` 的镜像先安装 `tzdate`，再设置环境变量
+
+```docker
+RUN apk add --no-cache tzdata
+```
+
 # 交叉运行
 
 https://github.com/justincormack/cross-docker
@@ -41,7 +53,7 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 ## 使用 Docker Compose
 
-本博客系列文章计划运行容器方式由 `docker run` 转变为 [`docker-compose`](compose.html)。
+本博客系列文章运行容器方式由 `docker run` 转变为 [`docker-compose`](compose.html)。
 
 ## 一个容器，一个服务
 
