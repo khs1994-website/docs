@@ -6,7 +6,7 @@ comments: true
 tags:
 - Memcached
 categories:
-- DataBase
+- Cache
 - Memcached
 ---
 

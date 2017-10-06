@@ -6,7 +6,7 @@ comments: true
 tags:
 - Redis
 categories:
-- DataBase
+- Cache
 - Redis
 ---
 
