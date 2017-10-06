@@ -1,5 +1,5 @@
 ---
-title: Ubuntu 编译 树莓派3 内核
+title: Ubuntu 编译 树莓派 3 内核
 date: 2017-04-01 13:00:00
 updated:
 comments: true
