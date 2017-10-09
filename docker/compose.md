@@ -17,6 +17,8 @@ Define application stacks built using multiple containers, services, and swarm c
 
 Windows 10 、macOS Docker CE 自带 `docker-compose`，Linux 不包含 `docker-compose` 命令，请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
 
+或者执行以下命令进行安装。
+
 ```bash
 $ DOCKER_COMPOSE_VERSION=1.16.1
 $ curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose

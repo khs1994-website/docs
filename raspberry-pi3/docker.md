@@ -14,7 +14,7 @@ categories:
 
 <!--more-->
 
-配置方法和 Linux 一样，由于和 `x86_64` 架构不同,不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和其他无异，跟多内容请查看本博客 Docker[https://www.khs1994.com/categories/Docker/] 分类下的文章。
+配置方法和 Linux 一样，由于和 `x86_64` 架构不同，不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和其他无异，跟多内容请查看本博客 Docker[https://www.khs1994.com/categories/Docker/] 分类下的文章。
 
 # arm32v7
 
@@ -40,15 +40,19 @@ $ sudo apt install docker-ce
 
 # arm64v8
 
-暂时没有64位的官方系统，使用 [pi64](https://www.khs1994.com/raspberry-pi3/arm64v8.html)
+暂时没有 64 位的官方系统，本人使用的是 [pi64](https://www.khs1994.com/raspberry-pi3/arm64v8.html)
 
-安装 Ubuntu arm64 版本的 Docker。
+Docker 安装 [Ubuntu arm64 版本](https://download.docker.com/linux/ubuntu/dists/xenial/pool/test/arm64/)。
 
 国内镜像：http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/test/arm64/
 
-官方地址：https://download.docker.com/linux/ubuntu/dists/xenial/pool/test/arm64/
+下载该包
 
-wget 下载该包
+```bash
+$ wget http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/test/arm64/docker-ce_17.10.0~ce~rc1-0~ubuntu_arm64.deb
+```
+
+手动安装，注意需要安装一些依赖。
 
 ```bash
 $ sudo dpkg -i docker*
@@ -58,16 +62,21 @@ $ sudo dpkg -i docker*
 $ sudo apt install -f -y
 
 $ sudo usermod -aG docker $USER
+```
 
-# 设置字符集
+使用 Docker Compose 可能会报错，使用以下命令设置字符集。
 
+```bash
 $ sudo localectl set-locale LANG=en_US.UTF-8
 $ sudo localectl set-keymap LANG=en_US.UTF-8
 $ sudo localectl set-x11-keymap LANG=en_US.UTF-8
 ```
+
 请 pull [arm64v8](https://hub.docker.com/u/arm64v8/) 镜像
 
 # 其他操作系统
+
+上边的 pi64 本人感觉用的很顺手，大家可以尝试使用以下系统运行 Docker。
 
 ## Rancher OS 64位
 
