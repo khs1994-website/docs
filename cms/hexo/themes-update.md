@@ -14,8 +14,9 @@ Hexo next 主题从 GitHub clone 到主题文件夹，如果要被项目 Git 跟
 
 <!--more-->
 
-```bash
+本文章不再更新，最新记录请访问 [GitHub](https://raw.githubusercontent.com/khs1994/khs1994.github.io/hexo/khs1994.hexo)
 
+```bash
 cd themes
 rm -rf next/.git _config.yml
 # 备份配置文件
@@ -53,7 +54,4 @@ cp ../_config.yml .
 tar -zcf git.tar.gz .git
 echo -e "\033[32mINFO\033[0m  rm .git folder..."
 rm -rf .git
-
 ```
-
-本命令不再更新，最新记录请访问 [GitHub](https://raw.githubusercontent.com/khs1994/khs1994.github.io/hexo/khs1994.hexo)
