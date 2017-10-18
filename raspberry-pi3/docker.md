@@ -14,11 +14,11 @@ categories:
 
 <!--more-->
 
-配置方法和 Linux 一样，由于和 `x86_64` 架构不同，不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和其他无异，跟多内容请查看本博客 Docker[https://www.khs1994.com/categories/Docker/] 分类下的文章。
+配置方法和 Linux 一样，由于和 `x86_64` 架构不同，不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和 Linux 相同，跟多内容请查看本博客 Docker[https://www.khs1994.com/categories/Docker/] 分类下的文章。
 
 # arm32v7
 
-即运行官方的 `Raspbian Stretch Lite(基于 Debian 9)`
+即运行官方的 `[Raspbian Stretch Lite(基于 Debian 9)](https://www.raspberrypi.org/downloads/raspbian/)`
 
 ```bash
 $ uname -a
@@ -64,6 +64,8 @@ $ sudo apt install -f -y
 $ sudo usermod -aG docker $USER
 ```
 
+请 pull [arm64v8](https://hub.docker.com/u/arm64v8/) 镜像
+
 使用 Docker Compose 可能会报错，使用以下命令设置字符集。
 
 ```bash
@@ -71,8 +73,6 @@ $ sudo localectl set-locale LANG=en_US.UTF-8
 $ sudo localectl set-keymap LANG=en_US.UTF-8
 $ sudo localectl set-x11-keymap LANG=en_US.UTF-8
 ```
-
-请 pull [arm64v8](https://hub.docker.com/u/arm64v8/) 镜像
 
 # 其他操作系统
 
