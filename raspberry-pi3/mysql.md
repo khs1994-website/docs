@@ -10,7 +10,7 @@ categories:
 - Raspberry Pi3
 ---
 
-Debian 9 使用 apt 安装 MySQL 会安装 MariaDB，下面介绍一下常用的配置方法。
+Debian9 使用 apt 安装 MySQL 会安装 MariaDB，下面介绍一下常用的配置方法。
 
 <!--more-->
 

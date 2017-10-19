@@ -19,7 +19,7 @@ categories:
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 ```
 
-基于 `Debian` 的镜像可以设置环境变量
+基于 `Debian` 的镜像通过设置环境变量改变时区
 
 ```bash
 $ TZ=Asia/Shanghai
@@ -35,7 +35,7 @@ RUN apk add --no-cache tzdata
 
 https://github.com/justincormack/cross-docker
 
-x86_64 架构运行其他架构（ armhf 等）容器，原理是运用 `QEMU`。
+`x86_64` 架构运行其他架构（ armhf 等）容器，原理是运用 `QEMU`。
 
 macOS 不用以上脚本，实际测试中与树莓派对比，性能较差，毕竟是虚拟机。
 

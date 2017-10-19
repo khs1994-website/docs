@@ -14,7 +14,7 @@ categories:
 
 <!--more-->
 
-配置方法和 Linux 一样，由于和 `x86_64` 架构不同，不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和 Linux 相同，跟多内容请查看本博客 Docker[https://www.khs1994.com/categories/Docker/] 分类下的文章。
+配置方法和 Linux 一样，由于和 `x86_64` 架构不同，不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和 Linux 相同，更多内容请查看本博客 Docker[https://www.khs1994.com/categories/Docker/] 分类下的文章。
 
 # arm32v7
 

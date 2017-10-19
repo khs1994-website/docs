@@ -51,7 +51,7 @@ $ vi /etc/resolvconf.conf
 name_servers=127.0.0.1
 ```
 
-## 静态IP
+## 静态 IP
 
 ```bash
 $ vim /etc/dhcpcd.conf

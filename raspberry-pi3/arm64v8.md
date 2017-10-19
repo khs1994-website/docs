@@ -9,11 +9,11 @@ categories:
 - Raspberry Pi3
 ---
 
-国内资料关于 `64位` 系统的资料较少，我只在知乎里找到一篇关于此的 [文章](https://zhuanlan.zhihu.com/p/27837299)。
+国内关于 `arm64位` 系统的资料较少，我只在知乎里找到一篇关于此的 [文章](https://zhuanlan.zhihu.com/p/27837299)。
 
 <!--more-->
 
-从 [pi64](https://github.com/bamarni/pi64) 下载镜像，和以前一样将镜像刷入 TF 卡，开机。此处注意第一次系统启动时间较长并会重启一次，等待一会再通过 `SSH` 登录。
+从 [pi64](https://github.com/bamarni/pi64) 下载镜像，和以前一样将镜像刷入 TF 卡，开机。注意第一次系统启动时间较长并会重启一次，等待一会再通过 `SSH` 登录。
 
 登录帐号： `pi`，密码： `raspberry`
 
