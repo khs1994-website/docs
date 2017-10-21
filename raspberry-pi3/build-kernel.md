@@ -1,7 +1,7 @@
 ---
 title: Ubuntu 编译 树莓派 3 内核
 date: 2017-04-01 13:00:00
-updated:
+updated: 2017-10-22 13:00:00
 comments: true
 tags:
 - Raspberry Pi3
@@ -9,84 +9,190 @@ categories:
 - Raspberry Pi3
 ---
 
-编译环境 Ubuntu16.04 64 位。本次编译专门针对 `树莓派 3`，可能不适用于前代产品！
+编译环境 Ubuntu 17.10 server 64 位(使用 VirtuaiBox 虚拟机)，本次编译专门针对 `树莓派 3`，可能不适用于前代产品！
+
+GitHub: https://github.com/khs1994-pi/kernel
 
 <!--more-->
 
+目录说明：本次编译目录位于 `~/pi`，请提前创建好该文件夹。
+
 # 准备
 
+## arm32v7 （官方系统）
+
 ```bash
-$ sudo apt install make make-guile
-$ sudo apt install libncurses5-dev
-# 32 位库，不安装会提示 编译器找不到文件
-$ sudo apt install lib32ncurses5 lib32z1
+$ sudo apt install \
+       make \
+       make-guile \
+       libncurses5-dev \
+       gcc-arm-linux-gnueabihf \
+       g++-arm-linux-gnueabihf
+
+# 32 位库，不安装会提示 gcc 编译器提示 找不到文件
+
+$ sudo apt install \
+       lib32ncurses5 \
+       lib32z1
 ```
 
-## GitHub 下载三个仓库
+## arm64v8
+
+```bash
+$ sudo apt-get update \
+        && sudo apt-get -y install \
+        bc \
+        build-essential \
+        cmake \
+        device-tree-compiler \
+        gcc-aarch64-linux-gnu \
+        g++-aarch64-linux-gnu \
+        git \
+        unzip \
+        qemu-user-static \
+        multistrap \
+        zip \
+        wget \
+        dosfstools \
+        kpartx
+```
+
+## 克隆资源
 
 https://github.com/raspberrypi
 
-`firmware`:树莓派的交叉编译好的二进制内核、模块、库、bootloader  
-`linux`:内核源码  
-`tools`:编译内核和其他源码所需的工具——交叉编译器等  
+在 `~/pi` 目录执行以下命令
 
-然后将 `GCC` 目录加入环境变量
+### firmware
+
+> 树莓派的交叉编译好的二进制内核、模块、库、bootloader
 
 ```bash
-ARM-GCC-PATH=/home/khs1994/arm-gcc/arm-rpi-4.9.3-linux-gnueabihf/bin
+$ git clone --depth=1 git@github.com:raspberrypi/firmware.git
+```
+
+### linux
+
+> 内核源码
+
+```bash
+$ git clone -b rpi-4.13.y --depth=1 git@github.com:raspberrypi/linux.git linux-src
 ```
 
 # 编译
 
-使用以下两种方法之一，在 `linux` 文件夹下生成 `.config`。
+## `.config`
 
-## 使用命令生成
+使用以下两种方法之一，在 `linux-src` 文件夹下生成 `.config`。
 
-```bash
-$ make ARCH=arm CROSS_COMPILE=$ARM-GCC-PATH/arm-linux-gnueabihf- bcm2709_defconfig
-```
-
-## 使用图形化界面进行配置
+### 使用命令生成
 
 ```bash
-$ make ARCH=arm CROSS_COMPILE=$ARM-GCC-PATH/arm-linux-gnueabihf- menuconfig
+$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
 ```
 
-之后执行编译命令
+### 使用图形化界面进行配置
+
+有特殊需求再自行配置，一般使用第一种方法即可。
 
 ```bash
-$ make ARCH=arm CROSS_COMPILE=$ARM-GCC-PATH/arm-linux-gnueabihf- -j4
+$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 ```
 
-# 复制kernel
+## 编译
 
 ```bash
-$ cp linux/arch/arm/boot/Image kernel7.img
+$ make ARCH=arm -j $(nproc) CROSS_COMPILE=arm-linux-gnueabihf-
 ```
 
-之后将 `kernel7.img` 复制到 TF 卡中。注意 `kernel.img` 是树莓派1用的，二代以后 cpu 是 `arm v7` 架构，内核名字被配置成了 `kernel7.img` ！
+## arm64v8
 
-# 提取modules
-
-上一步其实不但编译出来了内核的源码，一些模块文件也编译出来了，这里我们提取一下。新的 Kernel 要正确运行，还需要编译所需的 module，主要对应 `/lib` 目录下的内容。编译时，使用 `INSTALL_MOD_PATH` 参数指定目标路径。
+在 `linux-src` 目录执行以下命令。
 
 ```bash
-$ mkdir modules
+$ wget https://github.com/khs1994-pi/pi64/raw/master/make/kernel-config.txt
+$ mv kernel-config.txt .config
 
-$ cd linux/
+$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- olddefconfig
 
-$ make modules_install ARCH=arm \
-       CROSS_COMPILE=${ARM-GCC-PATH}/arm-linux-gnueabihf- \
-       INSTALL_MOD_PATH=../modules modules
+$ make -j $(nproc) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 ```
 
-# 升级 kernel、Firmware、lib
+# 复制 kernel
 
-* 将上边得到的 `kernel7.img` 复制到 TF 卡 `boot` 目录下
+在 `linux-src` 目录执行以下命令
 
-* 将 `firmware/boot/` 目录下以下文件复制到 TF 卡 `boot` 目录：`fbootcode.bin` `fixup.dat` `fixup_cd.dat` `start.elf`
+```bash
+$ mkdir -p ../linux/boot
+$ cp arch/arm64/boot/Image ../linux/boot/kernel7.img
+```
 
-* 将编译出来的 `modules/lib/modules` 拷入树莓派文件系统 `/lib` 下
+之后将 `kernel7.img` 复制到 TF 卡中。注意 `kernel.img` 是树莓派 1 用的，二代以后 cpu 是 `arm v7` 架构，内核名字被配置成了 `kernel7.img` ！
+
+## arm64v8
+
+```bash
+$ mkdir -p ../linux/boot
+$ cp arch/arm64/boot/Image ../linux/boot/kernel8.img
+```
+
+# 提取 modules
+
+上一步不但编译出来了内核的源码，一些模块文件也编译出来了，这里我们提取一下（新的 Kernel 要正确运行，还需要编译所需的 module，主要对应 `/lib` 目录下的内容）。
+
+编译时，使用 `INSTALL_MOD_PATH` 参数指定目标路径。
+
+在 `linux-src` 目录执行以下命令
+
+```bash
+$ make ARCH=arm \
+       CROSS_COMPILE=arm-linux-gnueabihf- \
+       INSTALL_MOD_PATH=../linux modules_install
+```
+
+## arm64v8
+
+```bash
+$ make ARCH=arm64 \
+       CROSS_COMPILE=aarch64-linux-gnu- \
+       INSTALL_MOD_PATH=../linux modules_install
+```
+
+# 提取 firmware
+
+在 `~/pi` 目录执行以下命令
+
+```bash
+$ cd firmware/boot
+
+$ rm -rf *.dtb *.img
+
+$ cp -a * ../../linux/boot
+```
+
+# 打包
+
+由于编译环境位于虚拟机，把文件压缩之后，本机使用 `scp` 将压缩包拿回来。
+
+```bash
+$ tar -zcvf linux.tar.gz linux
+```
+
+# 将文件移动到 TF 卡
+
+在本机将 `linux.tar.gz` 解压缩。
+
+将 `linux/boot` 目录文件复制到 TF 卡 `boot` 目录，树莓派开机。
+
+启动之后将 `linux.tar.gz` 通过 `scp` 上传到树莓派中。
+
+```bash
+$ tar -zxvf linux.tar.gz
+$ sudo rm -rf /lib/firmware
+$ cp -a lib/modules/* /lib/modules/
+```
+
+注意: 这一步不可以省略，如果不复制 modules 一些软件比如 Dcoekr 会出错。
 
 # 相关链接
 

@@ -49,15 +49,25 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 不能在文件中写入配置，写入也不生效。在 `daemon.json` 中可以配置 DNS , host 请通过 `docker build` 、`docker run` 时的命令参数进行设置。
 
-# 规范
-
-## 使用 Docker Compose
+# 使用 Docker Compose
 
 本博客系列文章运行容器方式由 `docker run` 转变为 [`docker-compose`](compose.html)。
+
+# 规范
 
 ## 一个容器，一个服务
 
 比如不要在一个容器中安装 LNMP，可以使用 Docker Compose 分配到 3 个容器，集中启动、管理。
+
+# 命令
+
+使用 `docker image` 管理镜像 代替 `docker images`
+
+使用 `docker container` 管理容器 代替 `docker ps`
+
+使用 `docker volume` 管理数据卷
+
+使用 `docker network` 管理容器网络
 
 # 参考链接
 
