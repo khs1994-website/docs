@@ -1,5 +1,5 @@
 ---
-title: macOS aria 命令行使用详解
+title: macOS aria2 命令行使用详解
 date: 2017-10-06 13:00:00
 updated:
 comments: true
@@ -39,18 +39,20 @@ input-file=/etc/aria2/aria2.session
 save-session=/etc/aria2/aria2.session
 ```
 
-之后启动 aria2
+# 启动
 
 ```bash
 $ aria2c
 ```
 
-# Chrome 插件
+# 下载百度网盘里的文件
+
+## Chrome 插件
 
 克隆 https://github.com/acgotaku/BaiduExporter
 
-在 Chrome 扩展中加载 该项目 Chrome 文件夹
+在 Chrome 扩展中加载该项目 `chrome` 文件夹
 
-在百度网盘页面点击 导出下载 -> ARIA2 PRC
+在百度网盘页面点击 `导出下载` -> `ARIA2 PRC`
 
 回到命令行，看到开始下载

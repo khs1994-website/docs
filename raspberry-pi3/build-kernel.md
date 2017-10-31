@@ -24,7 +24,6 @@ GitHub: https://github.com/khs1994-pi/kernel
 ```bash
 $ sudo apt install \
        make \
-       make-guile \
        libncurses5-dev \
        gcc-arm-linux-gnueabihf \
        g++-arm-linux-gnueabihf
