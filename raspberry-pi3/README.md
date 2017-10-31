@@ -1,5 +1,5 @@
 ---
-title: 树莓派3 常用设置
+title: 树莓派 3 常用设置
 date: 2017-04-02 13:00:00
 updated:
 comments: true
@@ -51,7 +51,7 @@ $ vi /etc/resolvconf.conf
 name_servers=127.0.0.1
 ```
 
-## 静态IP
+## 静态 IP
 
 ```bash
 $ vim /etc/dhcpcd.conf
@@ -104,6 +104,26 @@ http://shumeipai.nxez.com/2013/08/24/install-nas-on-raspberrypi.html
 
 ```bash
 $ sudo raspi-config
+```
+
+## WiFi
+
+`/etc/wpa_supplicant/wpa_supplicant.conf`
+
+```bash
+country=GB
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+#network={
+#  ssid="WIFINAME"
+#  psk="password"
+#}
+
+network={
+  ssid="CMCC.."
+  psk="1320271000"
+}
 ```
 
 

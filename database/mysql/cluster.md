@@ -47,29 +47,36 @@ server-id = 2
 
 ## 启动Docker MySQL
 
-编写 `docker-compose.yml` 文件
+编写 `docker-compose.yml` 文件(最新版文件请查看 GitHub)
 
 ```yaml
-version: '3'
+version: '3.3'
 services:
+
   mysql_1:
-    image: mysql
+    image: mysql:5.7.19
     env_file: .env
     ports:
       - 3306:3306
     volumes:
-      - ./var/lib/mysql1:/var/lib/mysql
+      - mysql-1-data:/var/lib/mysql
       - ./etc/mysql/mysql.conf.d:/etc/mysql/mysql.conf.d
+
   mysql_2:
-    image: mysql
+    image: mysql:5.7.19
     env_file: .env
-    ports: "3307:3306"
+    ports:
+      - "3307:3306"
     volumes:
-      - ./var/lib/mysql2:/var/lib/mysql
-      - ./etc/mysql/mysql2.conf.d/:/etc/mysql/mysql.conf.d      
+      - mysql-2-data:/var/lib/mysql
+      - ./etc/mysql/mysql2.conf.d/:/etc/mysql/mysql.conf.d
+
+volumes:
+  mysql-1-data:
+  mysql-2-data:      
 ```
 
-新建 `.env` 文件
+新建 `.env` 文件，写入以下内容
 
 ```bash
 MYSQL_ROOT_PASSWORD=mytest
@@ -88,7 +95,7 @@ $ docker-compose up -d
 登录主服务器
 
 ```bash
-$ docker exec -it **** bash
+$ docker-compose exec mysql_1 bash
 $ mysql -uroot -p
 ```
 
@@ -104,15 +111,17 @@ SHOW master status;
 登录从服务器
 
 ```bash
-$ docker exec -it **** bash
+$ docker-compose exec mysql_2 bash
 $ mysql -uroot -p
 ```
 
 ```sql
-change master to master_host='172.17.0.1',master_user='backup',
+change master to master_host='mysql_1',master_user='backup',
      master_password='mytest',master_log_file='mysql-bin.000001',
      master_log_pos=154,master_port=3306;
+
 start slave;
+
 show slave status;
 ```
 

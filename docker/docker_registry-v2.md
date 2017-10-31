@@ -88,6 +88,7 @@ services:
 #    restart: always
     ports:
       - "443:443"
+#      - "5000:443"
     volumes:
       - ./:/etc/docker/registry
       - ./var/lib/registry:/var/lib/registry
@@ -104,6 +105,8 @@ services:
 若本机 443 端口未占用，请忽略 Nginx 代理配置。
 
 # Nginx 代理配置
+
+在 `docker-compose.yml` 将端口配置 `443:443` 注释，将 `5000:443` 的注释去掉。
 
 若 443 端口已占用（本地存在 Nginx 服务器），请配置 Nginx 代理。请自行查找学习 Nginx ，请将 SSL 证书路径、IP 等变量确定好，nginx 示例配置如下，之后启动容器
 

@@ -9,7 +9,7 @@ categories:
 - Docker
 ---
 
-将 Dockerfile 上传到代码仓库（GitHub,Coding,etc）,云端开始构建并 push Docker 镜像。
+将 Dockerfile 上传到代码仓库(GitHub, Coding, etc)，云端开始构建并 push Docker 镜像。
 
 <!--more-->
 
@@ -23,7 +23,7 @@ categories:
 
 # 阿里云
 
-供高性能本地化 Registry，上传/下载/构建及托管的全方位镜像服务。已经与(code.aliyun.com)/Github/Bitbucket 代码源打通，提供Docker镜像的持续集成服务。
+提供高性能本地化 Registry，上传/下载/构建及托管的全方位镜像服务。已经与(code.aliyun.com)/Github/Bitbucket 代码源打通，提供 Docker 镜像的持续集成服务。
 
 提供国内、国外构建环境。
 

@@ -1,5 +1,5 @@
 ---
-title: 树莓派 Debian9 MySQL 实践
+title: 树莓派 Debian 9 MySQL 实践
 date: 2017-07-23 23:00:00
 updated:
 comments: true
@@ -10,7 +10,7 @@ categories:
 - Raspberry Pi3
 ---
 
-Debian 9 使用 apt 安装 MySQL 会安装 MariaDB，下面介绍一下常用的配置方法。
+Debian9 使用 apt 安装 MySQL 会安装 MariaDB，下面介绍一下常用的配置方法。
 
 <!--more-->
 

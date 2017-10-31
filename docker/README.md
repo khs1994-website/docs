@@ -13,31 +13,24 @@ categories:
 
 <!--more-->
 
-## CentOS 7
+# CentOS 7
 
-# 安装
-
-## 配置REPO
+## 配置 REPO
 
 Install yum-utils, which provides the yum-config-manager utility:
 
 ```bash
-$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+$ sudo yum install -y yum-utils \
+    device-mapper-persistent-data \
+    lvm2
 ```
 
-### 官方镜像
-
-访问慢，请使用国内镜像
-
 ```bash
-$ sudo yum-config-manager  \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-```
-### 国内镜像
+# $ sudo yum-config-manager \
+#     --add-repo \
+#     https://download.docker.com/linux/centos/docker-ce.repo
 
-```bash
-sudo yum-config-manager \
+$ sudo yum-config-manager \
     --add-repo \
     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
@@ -52,29 +45,92 @@ $ sudo yum-config-manager --enable docker-ce-test
 $ sudo yum-config-manager --disable docker-ce-edge
 ```
 
-## 安装
+### 安装
 
 ```bash
-
 $ sudo yum install docker-ce
 
 # 或者指定版本号
 
+$ yum list docker-ce --showduplicates | sort -r
+
 $ sudo yum install docker-ce-<VERSION>
 
-# Configure Docker to start on boot
+```
 
+# Debian
+
+```bash
+$ sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common
+
+# $ curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+#
+# $ sudo add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+#    $(lsb_release -cs) \
+#    stable"
+
+$ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable"
+
+$ sudo apt-get update
+
+$ sudo apt-get install docker-ce
+
+# 查看可供安装版本
+
+$ apt-cache madison docker-ce
+```
+
+# Ubuntu
+
+```bash
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+
+# $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# $ sudo add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#    $(lsb_release -cs) \
+#    stable"
+
+$ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+$ sudo apt-get update
+
+$ sudo apt-get install docker-ce
+
+# 查看可供安装版本
+
+$ apt-cache madison docker-ce
+```
+
+# Linux 安装之后配置
+
+```bash
 $ sudo systemctl enable docker.service
-
-# Start the Docker daemon.
 
 $ sudo systemctl start docker
 
-# Create the docker group.
-
 $ sudo groupadd docker
-
-# Add your user to docker group.
 
 $ sudo usermod -aG docker $USER
 
@@ -84,14 +140,24 @@ $ sudo usermod -aG docker $USER
 $ docker run --rm hello-world
 ```
 
-## 国内镜像加速
+# 国内镜像加速
 
-```bash
-$ vi /lib/systemd/system/docker.service
+`/etc/docker/daemon.json`
 
-ExecStart=/usr/bin/dockerd --registry-mirror=https://wcafmbzt.mirror.aliyuncs.com
+阿里云加速器地址请自行申请，替换为你申请的地址
 
-#在`ExecStart=/usr/bin/dockerd`之后加上如上所示内容
+```json
+{
+  "registry-mirrors": [
+    "https://****.mirror.aliyuncs.com"
+  ],
+  "debug": true,
+  "dns": [
+    "114.114.114.114",
+    "8.8.8.8"
+  ],
+  "experimental": true
+}
 ```
 
 # 创建Docker网络
@@ -107,6 +173,15 @@ $ docker run -it --network=test --ip 192.168.0.100 centos
 
 ```bash
 $ sudo yum remove docker-ce
+```
+
+`Debian` 系
+
+```bash
+$ sudo apt-get purge docker-ce
+```
+
+```bash
 $ sudo rm -rf /var/lib/docker
 ```
 
