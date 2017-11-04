@@ -9,17 +9,25 @@ categories:
 - Docker
 ---
 
-将 Dockerfile 上传到代码仓库(GitHub, Coding, etc)，云端开始构建并 push Docker 镜像。
+将 Dockerfile 上传到代码仓库(GitHub, GitLab, Coding, etc)，云端开始构建并 push Docker 镜像。这里只列出免费服务。
 
 <!--more-->
 
 # Docker Hub
 
-官方标记为 `废弃`
+Docker 官方标记为 `废弃`
 
 # Docker Cloud
 
+https://cloud.docker.com
+
+Docker 官方推荐
+
 # Travis CI
+
+https://travis-ci.org
+
+只支持与 GitHub 绑定
 
 # 阿里云
 
@@ -31,7 +39,11 @@ https://dev.aliyun.com/search.html?spm=5176.1971733.0.1.trlkKn
 
 # 腾讯云
 
-速度太慢，不提供国外构建环境。
+https://console.cloud.tencent.com/ccs/registry
+
+据 QQ 交流群 434653499 构建主机位于国外。
+
+镜像前缀 `ccr.ccs.tencentyun.com`
 
 # More Information
 

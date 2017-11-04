@@ -53,6 +53,8 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 本博客系列文章运行容器方式由 `docker run` 转变为 [`docker-compose`](compose.html)。
 
+必须使用 `.env.example` 文件来定义变量。使用时将 `.env.example` 复制为 `.env` 文件。
+
 # 规范
 
 ## 一个容器，一个服务
