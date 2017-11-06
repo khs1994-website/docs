@@ -23,6 +23,12 @@ categories:
 Linux raspberrypi 4.11.12-pi64+ #1 SMP PREEMPT Sun Aug 27 14:50:58 CEST 2017 aarch64 GNU/Linux
 ```
 
+# 最新内核
+
+GitHub: https://github.com/khs1994-pi/kernel
+
+我参考作者编译内核步骤，使用 Travis CI 自动构建最新的内核，你可以在 [releses](https://github.com/khs1994-pi/kernel/releases) 下载 arm64 开头的内核，[替换](https://www.khs1994.com/raspberry-pi3/build-kernel.html) 即可。
+
 # 配置
 
 ## 国内源

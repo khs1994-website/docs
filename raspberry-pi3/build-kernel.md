@@ -1,5 +1,5 @@
 ---
-title: Ubuntu 编译 树莓派 3 内核
+title: 树莓派 3 内核交叉编译详解
 date: 2017-04-01 13:00:00
 updated: 2017-10-22 13:00:00
 comments: true
@@ -9,9 +9,9 @@ categories:
 - Raspberry Pi3
 ---
 
-编译环境 Ubuntu 17.10 server 64 位(使用 VirtuaiBox 虚拟机)，本次编译专门针对 `树莓派 3`，可能不适用于前代产品！
-
 GitHub: https://github.com/khs1994-pi/kernel
+
+编译环境 Ubuntu 17.10 server 64 位(使用 VirtuaiBox 虚拟机)，本次编译专门针对 `树莓派 3`，可能不适用于前代产品！
 
 <!--more-->
 
