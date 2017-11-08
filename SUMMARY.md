@@ -61,6 +61,7 @@
         * [echo、read](linux/shell/echo-read.md)
         * [函数](linux/shell/function.md)
         * [if、case](linux/shell/if-case-etc.md)
+    * [OpenSSL](linux/openssl/file-enc.md)  
     * [SSH](linux/ssh/README.md)
         * [SSH 隧道与端口转发内网穿透](linux/ssh/proxy.md)
     * [Systemd 详解](linux/systemd.md)
