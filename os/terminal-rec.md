@@ -4,10 +4,9 @@ date: 2017-01-05 13:00:00
 updated:
 comments: true
 tags:
-- Terminal
+- OS
 categories:
 - OS
-- Terminal
 ---
 
 asciinema 是一个用 ClojureScript 编写的开源命令行录屏工具。

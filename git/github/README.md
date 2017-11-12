@@ -14,20 +14,6 @@ categories:
 
 <!--more-->
 
-# repo.json
-
-```json
-{
-  "repo": {
-    "github": "git@github.com:khs1994/docs.git",
-    "aliyun": "git@code.aliyun.com:khs1994/docs.git"
-  },
-  "branch": "gitbook",
-  "deploy-branch": "master",
-  "description": "khs1994.com 技术文档"
-}
-```
-
 # `.gitignore`
 
 每个项目必须有`.gitignore`

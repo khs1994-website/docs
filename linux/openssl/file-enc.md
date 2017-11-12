@@ -33,7 +33,6 @@ $ openssl enc -aes-128-cbc -d -a -in ~/.ssh/khs1994-robot.enc -out ~/.ssh/id_rsa
 
 Key 和 IV 值是 16进制
 
-
 ## More Information
 
 * https://www.cnblogs.com/gordon0918/p/5317701.html

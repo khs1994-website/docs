@@ -4,10 +4,10 @@ date: 2017-07-24 13:00:00
 updated:
 comments: true
 tags:
-- macOS
+- fish shell
 categories:
 - OS
-- Terminal
+- fish shell
 ---
 
 fish-shell GitHub：https://github.com/fish-shell/fish-shell
