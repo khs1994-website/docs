@@ -1,5 +1,5 @@
 ---
-title: Fish Shell 安装配置
+title: Fish Shell 命令补全
 date: 2017-10-11 13:00:00
 updated:
 comments: true
