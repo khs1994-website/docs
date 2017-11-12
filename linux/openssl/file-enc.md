@@ -18,11 +18,11 @@ categories:
 ```bash
 # 加密
 
-$ openssl enc -aes-128-cbc -e -a -in ~/.ssh/khs1994-robot -out ~/.ssh/khs1994-robot.enc -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f58
+$ openssl enc -aes-128-cbc -e -a -in ~/.ssh/khs1994-robot -out ~/.ssh/khs1994-robot.enc -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f00
 
 # 解密
 
-$ openssl enc -aes-128-cbc -d -a -in ~/.ssh/khs1994-robot.enc -out ~/.ssh/id_rsa -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f58
+$ openssl enc -aes-128-cbc -d -a -in ~/.ssh/khs1994-robot.enc -out ~/.ssh/id_rsa -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f00
 ```
 
 `-e` 加密
