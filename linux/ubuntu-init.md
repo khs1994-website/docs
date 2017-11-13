@@ -18,10 +18,10 @@ categories:
 
 ## 静态IP
 
-```bash
-$ sudo vi  /etc/network/interface
 
-...
+`/etc/network/interface`
+
+```bash
 # The primary network interface
 auto enp0s3
 iface enp0s3 inet dhcp

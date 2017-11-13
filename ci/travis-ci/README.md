@@ -62,7 +62,7 @@ $ travis encrypt-file ~/.ssh/id_rsa --add
 
 ## 解密 id_rsa
 
-命令执行之后,自动生成了 `id_rsa.enc` 文件，并自动在 `.travis.yml` 增加如下内容：
+命令执行之后，自动生成了 `id_rsa.enc` 文件，并自动在 `.travis.yml` 增加如下内容：
 
 ```yaml
 before_install:
@@ -93,8 +93,7 @@ addons:
 
 ```yaml
 before_install:
-- echo "TZ='Asia/Shanghai'; export TZ" >> ~/.profile
-- . ~/.profile
+- export TZ='Asia/Shanghai'
 ```
 
 # 部署

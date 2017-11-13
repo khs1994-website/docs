@@ -15,19 +15,23 @@ categories:
 
 生产环境：Debian9 + Drone + GitHub
 
+官方网站：http://drone.io/
+
 <!--more-->
 
 # 安装
 
 ## 0.7 版本
 
-编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/drone/blob/0.7/docker-compose.yml) 查看。
+请升级到 0.8 版本。
 
 ## 0.8 版本
 
-编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/drone/blob/0.8/docker-compose.yml) 查看。
+编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/ci/blob/master/docker-compose.yml) 查看。
 
 注意：0.8 版本的 `drone-server`、`drone-agent` image 不同。
+
+与 GitHub 或 Gogs 集成请参考官方文档 http://docs.drone.io/zh/ 的配置。
 
 之后使用以下命令启动即可
 
@@ -40,8 +44,3 @@ $ docker-compose up -d
 与 Travis CI 类似，项目中包含 `.drone.yml` 即可使用。
 
 使用文档请查看 [这里](http://docs.drone.io/getting-started/)。
-
-# 相关链接
-
-* http://drone.io/
-* http://docs.drone.io/zh/

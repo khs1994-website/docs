@@ -14,7 +14,7 @@ Hexo next 主题从 GitHub clone 到主题文件夹，如果要被项目 Git 跟
 
 <!--more-->
 
-本文章不再更新，最新记录请访问 [GitHub](https://raw.githubusercontent.com/khs1994/khs1994.github.io/hexo/khs1994.hexo)
+本文章不再更新，最新记录请访问 [GitHub](https://github.com/khs1994/khskit/blob/12304dbfac2d8099231e5dc77f5c4db3b2acbb73/bin/hexo/hexo.sh#L27)
 
 ```bash
 cd themes
