@@ -1,6 +1,6 @@
 ---
 title: 静态网站部署之 Netlify
-date: 2017-10-09 12:00:00
+date: 2017-10-12 12:00:00
 updated:
 comments: true
 tags:

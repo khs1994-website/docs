@@ -14,6 +14,8 @@ categories:
 
 本文简要介绍了使用 Travis CI 构建 Hexo。
 
+示例文件：https://github.com/khs1994/khs1994.github.io/blob/hexo/.travis.yml
+
 <!--more-->
 
 使用 `Travis CI` 之前：
