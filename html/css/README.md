@@ -143,4 +143,18 @@ h1,span{
 
 `float` 浮动模型
 
+```css
+div{
+  float: left;
+}
+```
+
 `layer` 层模型
+
+## 层模型
+
+`position:absolute` 绝对定位
+
+`position:relative` 相对定位
+
+`position:fixed` 固定定位
