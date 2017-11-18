@@ -1,6 +1,6 @@
 ---
 title: MySQL 数据类型
-date: 2017-10-05 13:00:00
+date: 2015-03-02 13:00:00
 updated:
 comments: true
 tags:

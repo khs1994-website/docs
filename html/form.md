@@ -11,7 +11,7 @@ categories:
 
 HTML 表单
 
-<!--moree-->
+<!--more-->
 
 ```html
 <form method="post" action=" ">
