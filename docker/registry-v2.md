@@ -15,7 +15,7 @@ GitHub：https://github.com/khs1994-docker/registry
 
 <!--more-->
 
-官方 GitHub： https://github.com/docker/distribution/releases
+GitHub： https://github.com/docker/distribution/releases
 
 # 准备
 

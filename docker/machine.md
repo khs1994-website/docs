@@ -11,6 +11,8 @@ categories:
 
 Automate container provisioning on your network or in the cloud. Available for Windows, macOS, or Linux.
 
+GitHub: https://github.com/docker/machine
+
 <!--more-->
 
 命名为 `default`
@@ -20,6 +22,7 @@ Automate container provisioning on your network or in the cloud. Available for W
 ```bash
 $ docker-machine create \
       --driver virtualbox \
+      --engine-opt dns=114.114.114.114 \
       --engine-registry-mirror https://registry.docker-cn.com \
       --virtualbox-memory 2048 \
       --virtualbox-cpu-count 2 \
@@ -36,6 +39,7 @@ $ brew install docker-machine-driver-xhyve
 $ docker-machine create \
       -d xhyve \
       --xhyve-boot2docker-url ~/.docker/machine/cache/boot2docker.iso \
+      --engine-opt dns=114.114.114.114 \
       --engine-registry-mirror https://registry.docker-cn.com \
       --xhyve-memory-size 2048 \
       --xhyve-rawdisk \

@@ -11,6 +11,8 @@ categories:
 
 Define application stacks built using multiple containers, services, and swarm configurations.
 
+GitHub: https://github.com/docker/compose
+
 <!--more-->
 
 # install
