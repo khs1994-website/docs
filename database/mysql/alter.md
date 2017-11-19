@@ -1,5 +1,5 @@
 ---
-title: MySQL 修改列定义 ALTER
+title: MySQL 修改数据表 ALTER
 date: 2015-03-04 13:00:00
 updated:
 comments: true

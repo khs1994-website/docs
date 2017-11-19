@@ -38,6 +38,8 @@
         * [UPDATE](database/mysql/update.md)
         * [SELECT](database/mysql/select.md)
         * [INSERT](database/mysql/insert.md)
+        * [索引](database/mysql/index.md)
+        * [函数](database/mysql/function.md)
 * [Docker](docker/README.md)
     * [CoreOS](docker/coreos/README.md)
         * [Ignition](docker/coreos/ignition/README.md)
