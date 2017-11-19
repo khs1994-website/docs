@@ -15,12 +15,14 @@ Define application stacks built using multiple containers, services, and swarm c
 
 # install
 
-Windows 10 、macOS Docker CE 自带 `docker-compose`，Linux 不包含 `docker-compose` 命令，请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
+Windows 10 、macOS Docker CE 自带 `docker-compose`，官方建议随 Docker 版本升级。
+
+Linux 不包含 `docker-compose` 命令，请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
 
 或者执行以下命令进行安装。
 
 ```bash
-$ DOCKER_COMPOSE_VERSION=1.16.1
+$ DOCKER_COMPOSE_VERSION=1.17.1
 $ curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
 $ chmod +x docker-compose
 $ sudo mv docker-compose /usr/local/bin
@@ -31,11 +33,9 @@ $ docker-compose --version
 
 ### fish
 
+`~/.config/fish/completions`
+
 ```bash
-$ mkdir -p ~/.config/fish/completions
-
-# 之后进入该文件
-
 $ wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish
 ```
 

@@ -10,18 +10,15 @@ categories:
 - Redis
 ---
 
-设置过期时间、排序等。
+`del name`
+
+`exists name`
 
 <!--more-->
 
-```bash
-
-del name
-
-exists name
-
 # 过期时间
 
+```bash
 expire name 30       # 单位为秒
 
 pexpire mykey 1500   # 单位为毫秒
@@ -29,45 +26,50 @@ pexpire mykey 1500   # 单位为毫秒
 expireat name 时间戳
 
 pexpireat key 毫秒时间戳
+```
 
 # 查看剩余生存时间
 
+```bash
 pttl mykey           # 单位为毫秒
 
 ttl mykey            # 单位为秒
+```
 
 # 去掉过期时间
 
-persist mykey        # 单位为秒
+单位为秒
+
+`persist mykey`
 
 # 查找所有符合给定模式 pattern 的 key
 
-keys *
+`keys *`
 
 # 迁移
 
-migrate
+`migrate`
 
 # 将当前数据库的 key 移动到给定的数据库 db 当中
 
-move key db_name
+`move key db_name`
 
 # 随机返回一个key
 
-randomkey
+`randomkey`
 
-rename key newkey
+`rename key newkey`
 
 # 当且仅当 newkey 不存在时，将 key 改名为 newkey
 
-renamenx key newkey
+`renamenx key newkey`
 
 # 排序
-sort keys
 
-sort keys alpha
+`sort keys`
+
+`sort keys alpha`
 
 # 查看类型
 
-type key
-```
+`type key`

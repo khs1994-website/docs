@@ -19,9 +19,9 @@ Docker 官方标记为 `废弃`
 
 # Docker Cloud
 
-https://cloud.docker.com
-
 Docker 官方推荐
+
+https://cloud.docker.com
 
 # Travis CI
 

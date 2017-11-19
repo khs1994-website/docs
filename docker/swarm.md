@@ -9,11 +9,11 @@ categories:
 - Docker
 ---
 
-使用 `$ docker swarm` 这一 Dcoker 内置的集群管理的工具。
+使用 `$ docker swarm` Dcoker 内置的集群管理的工具，Docker CE `17.09+`。
 
-OS: CoreOS 1562.1.0
+OS: CoreOS 1562.1.0 3个节点
 
-Docker: v17.09.0
+OS: macOS + Docker Machine
 
 <!--more-->
 
@@ -22,13 +22,26 @@ Docker Swarm 在 Docker 1.12 版本之前属于一个独立的项目，在 Docke
 有关集群的 Docker 命令如下：
 
 docker swarm：集群管理，子命令有 init, join, join-token, leave, update
+
 docker node：节点管理，子命令有 demote, inspect, ls, promote, rm, ps, update
+
 docker service：服务管理，子命令有 create, inspect, ps, ls ,rm , scale, update
-docker stack/deploy：试验特性，用于多应用部署
 
-# 初始化集群
+docker stack：
 
-创建一个 3 节点集群。
+docker deploy：试验特性，用于多应用部署
+
+# 创建
+
+## 使用 Docker Machine 创建集群
+
+```bash
+
+```
+
+## CoreOS 初始化集群
+
+[创建一个 3 节点集群](https://www.khs1994.com/docker/coreos/install-disk-new.html)。在其中一个节点执行
 
 ```bash
 $ docker swarm init
@@ -40,7 +53,7 @@ $ docker swarm init
 
 $ docker swarm join-token [OPTIONS] (worker|manager)
 
-按照提示将另外两个节点加入集群。
+按照提示在另外两个节点执行命令加入集群。
 
 # 查看节点
 
