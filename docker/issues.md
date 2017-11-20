@@ -9,7 +9,7 @@ categories:
 - Docker
 ---
 
-本文列举了一些本人在使用 Docker 过程中遇到的问题。
+本文列举了使用 Docker 过程中遇到的问题。
 
 <!--more-->
 
@@ -18,7 +18,7 @@ categories:
 基于 `Debian` 的镜像通过设置 `环境变量` 改变时区，在 Dockerfile 中增加 `ENV` 或在启动时指定，这里不再赘述。
 
 ```docker
-ENV Asia/Shanghai
+ENV TZ=Asia/Shanghai
 ```
 
 基于 `Alpine` 的镜像先安装 `tzdate`，再设置环境变量
@@ -26,7 +26,7 @@ ENV Asia/Shanghai
 ```docker
 RUN apk add --no-cache tzdata
 
-ENV Asia/Shanghai
+ENV TZ=Asia/Shanghai
 ```
 
 # 交叉运行
@@ -68,6 +68,17 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 使用 `docker volume` 管理数据卷
 
 使用 `docker network` 管理容器网络
+
+# 数据
+
+## 开发环境
+
+Use `bind mounts` to give your container access to your source code
+
+## 生产环境
+
+Use `volumes` to store container data.
+
 
 # 参考链接
 
