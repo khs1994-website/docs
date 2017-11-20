@@ -9,7 +9,7 @@ categories:
 - Docker
 ---
 
-我们已经熟悉了 `-v` or `--volume`，官方最近建议( Docker 17.06+ ) 使用 `--mount`。
+我们已经熟悉了 `-v` 或者 `--volume`，官方最近建议( Docker 17.06+ ) 使用 `--mount`。
 
 官方文档：https://docs.docker.com/engine/admin/volumes/
 
