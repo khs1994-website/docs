@@ -14,6 +14,8 @@ categories:
 
 本文简要介绍了使用 Travis CI 构建 Hexo。
 
+示例文件：https://github.com/khs1994/khs1994.github.io/blob/hexo/.travis.yml
+
 <!--more-->
 
 使用 `Travis CI` 之前：
@@ -48,7 +50,7 @@ categories:
 
 在 `Travis CI` 网站开启项目部署
 
-[GitHub仓库](https://github.com/khs1994/khs1994.github.io) `hexo` 存放部署文件，`master` 存放HTML文件。
+[GitHub仓库](https://github.com/khs1994/khs1994.github.io) `hexo 分支` 存放部署文件，`master 分支` 存放生成的静态 HTML 文件。
 
 注意：用户名.github.io 仓库的 `Pages` 只能使用 `master` 分支
 

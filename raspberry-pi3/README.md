@@ -17,19 +17,17 @@ categories:
 
 TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
 
-官方的 Raspbian 系统默认的登录帐号： `pi`，密码： `raspberry`
+官方的 Raspbian 系统默认的登录帐号：`pi` 密码：`raspberry`
 
 # 常用配置
 
 ## 换源
 
+`/etc/apt/source.list`
+
+用 `#` 注释存在的内容
+
 ```bash
-$ sudo vi /etc/apt/source.list
-```
-
-用 # 注释存在的内容
-
-```
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
 deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
 ```
@@ -44,18 +42,20 @@ $ dpkg-reconfigure tzdata
 
 ## DNS
 
-```bash
-$ vi /etc/resolvconf.conf
+`/etc/resolvconf.conf`
 
+```bash
 # configure your subscribers configuration files below.
 name_servers=127.0.0.1
 ```
 
 ## 静态 IP
 
-```bash
-$ vim /etc/dhcpcd.conf
+注意：修改 `/etc/network/interfaces` 的方法已经过时
 
+`/etc/dhcpcd.conf`
+
+```bash
 interface eth0
 
 static ip_address=192.168.0.10/24
@@ -68,8 +68,6 @@ static ip_address=192.168.0.200/24
 static routers=192.168.0.1
 static domain_name_servers=192.168.0.1
 ```
-
-> 修改  /etc/network/interfaces 的方法已经过时
 
 # Shell
 

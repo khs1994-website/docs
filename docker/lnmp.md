@@ -19,7 +19,9 @@ GitHub：https://github.com/khs1994-docker/lnmp
 # MySQL
 
 ```bash
-$ docker run -d --name mysql001 -p 3306:3306 \
+$ docker run -d \
+   --name mysql001 \
+   -p 3306:3306 \
    -e MYSQL_ROOT_PASSWORD=mytest \
    -v /Users/khs1994/docker/var/lib/mysql:/var/lib/mysql \
    mysql
@@ -41,14 +43,14 @@ $ –p 127.0.0.1:3306:3306
 $ docker run -dit \
     --name redis001 \
     -p 6379:6379 \
-    redis
+    redis:alpine
 ```
 
 # PHP7
 
 `php-fpm` 官方镜像需要通过 `Dockerfile` 增加 PHP 扩展
 
-## 扩展
+## 增加扩展
 
 编辑 Dockerfile 增加 PHP 扩展
 
@@ -60,16 +62,17 @@ RUN pecl install redis \
     && docker-php-ext-enable redis xdebug
 ```
 
-构建镜像
+## 构建镜像
 
 ```bash
 $ docker build -t php-mysql .
 ```
 
-运行容器
+## 运行容器
 
 ```bash
-$ docker run -d --name php7 \
+$ docker run -d \
+    --name php7 \
     --link mysql001:mysql \
     --link redis001:redis \
     -v /Users/khs1994/docker/var/www:/var/www \
@@ -79,7 +82,10 @@ $ docker run -d --name php7 \
 # Nginx
 
 ```bash
-$ docker run -d -p 80:80 -p 443:443 --name nginx \
+$ docker run -d \
+    -p 80:80 \
+    -p 443:443 \
+    --name nginx \
     --link php7:php \
     --link mysql001:mysql \
     --link redis001:redis \
@@ -88,6 +94,6 @@ $ docker run -d -p 80:80 -p 443:443 --name nginx \
     nginx
 ```
 
-# docker-composer
+# docker-compose
 
 请访问 [khs1994-docker/lnmp](https://github.com/khs1994-docker/lnmp) 查看。

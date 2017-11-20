@@ -41,9 +41,9 @@ $ redis-cli shutdown
 
 # Systemd
 
-```bash
-$ vi /lib/systemd/system/redis.service
+`/lib/systemd/system/redis.service`
 
+```bash
 [Unit]  
 Description=Redis  
 After=syslog.target network.target remote-fs.target nss-lookup.target  

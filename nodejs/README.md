@@ -7,12 +7,10 @@ categories:
 - Node.js
 ---
 
-`node.js` 版本更新较快，建议官网(速度慢)下载安装，并将安装目录下的 `bin` 加入 `PATH`。
+`node.js` 版本更新较快，建议官网下载安装，并将安装目录下的 `bin` 加入 `PATH`。
 
-<!--more-->
+官方网站：https://nodejs.org/en/download/current/
 
 镜像源：http://mirrors.ustc.edu.cn/node/
 
-# 相关链接
-
-* 官方网站：https://nodejs.org/en/download/current/  
+<!--more-->

@@ -1,6 +1,6 @@
 ---
 title: MySQL 远程登录配置
-date: 2016-04-04 13:00:00
+date: 2015-03-03 13:00:00
 updated:
 comments: true
 tags:
@@ -19,11 +19,11 @@ categories:
 更改 "mysql" 数据库里的 "user" 表里的 "host" 项，将 "localhost" 改为 "%"
 
 ```sql
-mysql>use mysql;
+USE mysql;
 
-mysql>update user set host = '%' where user = 'root';
+UPDATE user SET host = '%' WHERE user = 'root';
 
-mysql>select host, user from user;
+SELECT host, user FROM user;
 ```
 
 # 授权法

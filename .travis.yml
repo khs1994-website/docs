@@ -11,11 +11,9 @@ before_install:
 - git config --global user.name "khs1994-merge-robot"
 - git config --global user.email "ai@khs1994.com"
 script:
-- cd ~
 - export REPO=$REPO
 - export REPO_ALIYUN=$REPO_ALIYUN
-- "~/build/khs1994-website/docs/.travis/deploy.sh"
-- cd ~
+- .travis/deploy.sh
 env:
   global:
   - DEPLOY_BRANCH: gh-pages

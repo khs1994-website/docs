@@ -12,11 +12,11 @@ categories:
 - Travis CI
 ---
 
-刚开始在 Travis CI 中从零开始搭建环境，全部执行时间为 `三分半`，将环境部署进 Docker， `pull Docker` 之后直接开始生成，时间缩短为 `一分半`。
+示例文件：https://github.com/khs1994-website/docs/blob/master/.travis.yml
 
 <!--more-->
 
-示例文件：https://github.com/khs1994-website/docs/blob/master/.travis.yml
+刚开始在 Travis CI 中从零开始搭建环境，全部执行时间为 `三分半`，将环境部署进 Docker， `pull Docker` 之后直接开始生成，时间缩短为 `一分半`。
 
 # 相关链接
 

@@ -12,7 +12,7 @@ categories:
 
 使用 [Docker Compose](/docker/compose.html) 安装 [Gogs](https://github.com/gogits/gogs)。
 
-GitHub：https://github.com/khs1994-docker/gogs
+GitHub：https://github.com/khs1994-docker/ci
 
 <!--more-->
 
