@@ -88,7 +88,7 @@ $ rm ~/Library/Caches/CocoaPods/search_index.json
 
 # 使用
 
-## 切换到Xocde项目文件夹
+## 切换到 Xocde 项目文件夹
 
 ```bash
 $ cd Desktop/swiftweahter

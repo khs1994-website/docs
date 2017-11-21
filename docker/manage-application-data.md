@@ -59,7 +59,9 @@ $ docker service create -d \
 
 ## readonly
 
-`$ mkdir: can't create directory 'a.txt': Read-only file system`
+```bash
+$ mkdir: can't create directory 'a.txt': Read-only file system
+```
 
 # bind mounts
 
@@ -73,7 +75,9 @@ $ docker run \
 
 ## macOS
 
-`--mount type=bind,source="$(pwd)"/target,destination=/app,consistency=cached`
+```bash
+--mount type=bind,source="$(pwd)"/target,destination=/app,consistency=cached
+```
 
 # tmpfs
 

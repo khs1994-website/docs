@@ -15,7 +15,7 @@ categories:
 
 # 时区
 
-基于 `Debian` 的镜像通过设置 `环境变量` 改变时区，在 Dockerfile 中增加 `ENV` 或在启动时指定，这里不再赘述。
+基于 `Debian` 的镜像通过设置 `环境变量` 改变时区，在 Dockerfile 中增加 `ENV` 或在启动容器时指定 `$ docker run -e TZ=Asia/Shanghai ...`。
 
 ```docker
 ENV TZ=Asia/Shanghai
@@ -70,6 +70,8 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 使用 `docker network` 管理容器网络
 
 # 数据
+
+详细内容请查看 [Docker 数据管理](https://www.khs1994.com/docker/manage-application-data.html)
 
 ## 开发环境
 

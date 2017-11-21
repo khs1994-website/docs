@@ -37,9 +37,7 @@ $ docker network ls
 
 ```bash
 $ docker run --net=NETWORK_NAME --ip=172.25.3.3 ...
-```
 
-```bash
 $ docker network connect NETWORK_NAME CONTAINER_NAME
 ```
 

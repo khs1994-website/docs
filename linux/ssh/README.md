@@ -15,7 +15,7 @@ categories:
 
 <!--more-->
 
-# SSH无密码登录
+# 无密码登录
 
 ```bash
 # 产生公钥与私钥对
@@ -23,7 +23,7 @@ categories:
 $ ssh-keygen
 
 # 按三次回车键
-# 将本机的公钥(id_rsa.pub)复制到远程机器的authorized_keys文件中( 用户主目录/.ssh/authorized_keys)
+# 将本机的公钥 id_rsa.pub 复制到远程机器的 ~/.ssh/authorized_keys 文件中
 
 $ ssh-copy-id user@ip
 ```

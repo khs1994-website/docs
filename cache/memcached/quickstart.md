@@ -10,6 +10,9 @@ categories:
 - Memcached
 ---
 
+以 PHP 为例使用 Memcached。
+
+<!--more-->
 
 ```php
 $m=new Memcached();
@@ -17,8 +20,6 @@ $m->addServer('memcached',11211);
 $m->getVersion();
 $m->getStats();
 ```
-
-<!--more-->
 
 # 数据操作
 

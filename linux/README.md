@@ -17,9 +17,9 @@ categories:
 
 ## 找不到命令
 
-```bash
-$ sudo vi /etc/sudoers
+`/etc/sudoers`
 
+```bash
 Defaults  secure_path=...
 # 在后边加上PATH
 ```

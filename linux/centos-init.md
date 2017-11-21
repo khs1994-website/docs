@@ -44,7 +44,7 @@ $ vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
 ONBOOT=yes
 ```
 
-## 静态IP
+## 静态 IP
 
 ```bash
 BOOTPROTO=static
@@ -120,20 +120,20 @@ $ yum install zip unzip wget  \
 ```bash
 $ systemctl status firewalld
 ```
-### 停止firewall
+### 停止 firewall
 
 ```bash
 $ systemctl stop firewalld.service
 ```
 
-### 禁止firewall开机启动
+### 禁止 firewall 开机启动
 
 ```bash
 $ systemctl disable firewalld.service
 $ /usr/sbin/sestatus -v
 ```
 
-## 关闭SELINUX
+## 关闭 SELINUX
 
 ```bash
 $ vi /etc/selinux/config
@@ -155,7 +155,7 @@ yum remove kernel-3.10.0-514.10.2.el7.x86_64
 
 # 常用命令
 
-## 查看硬盘UUID
+## 查看硬盘 UUID
 
 ```bash
 $ blkid

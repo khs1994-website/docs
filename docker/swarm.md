@@ -58,6 +58,8 @@ $ docker-machine create \
       swarm3
 ```
 
+使用 `$ docker-machine ssh MACHINE_NAME` 通过 SSH 登录到机器。
+
 ## CoreOS 创建集群
 
 [创建一个 3 节点集群](https://www.khs1994.com/docker/coreos/install-disk-new.html)。

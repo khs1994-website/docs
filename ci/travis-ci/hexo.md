@@ -18,7 +18,7 @@ categories:
 
 <!--more-->
 
-使用 `Travis CI` 之前：
+# 使用 `Travis CI` 之前
 
 * 本地编写 `source/*.md`
 
@@ -28,7 +28,7 @@ categories:
 
 * `手动` 完成后续操作：登录到服务器，`pull` 到网站根目录。
 
-使用 `Travis CI`：
+# 使用 `Travis CI`
 
 * 本地编写 `source/*.md`
 
@@ -48,15 +48,13 @@ categories:
 
 # 配置
 
-在 `Travis CI` 网站开启项目部署
+在 `Travis CI` 网站开启项目部署。
 
 [GitHub仓库](https://github.com/khs1994/khs1994.github.io) `hexo 分支` 存放部署文件，`master 分支` 存放生成的静态 HTML 文件。
 
-注意：用户名.github.io 仓库的 `Pages` 只能使用 `master` 分支
+注意：`用户名.github.io` 仓库的 `Pages 服务` 只能使用 `master` 分支。
 
-在项目根目录编写 `.travis.yml`
-
-示例文件：https://github.com/khs1994/khs1994.github.io/blob/hexo/.travis.yml
+在项目根目录编写 `.travis.yml`，示例文件：https://github.com/khs1994/khs1994.github.io/blob/hexo/.travis.yml
 
 使用 `命令行工具` 加密 SSH 私钥（也可以使用 `github Token`）注意去掉转义符。
 
