@@ -24,7 +24,7 @@ $ docker network disconnect bridge CONTAINER_NAME
 # 创建网络
 
 ```bash
-$ docker network create -d bridge --subnet 172.25.0.0/16 NETWORK_NAME
+$ docker network create -d bridge [ --subnet 172.25.0.0/16 ] NETWORK_NAME
 ```
 
 # 查看网络
@@ -35,8 +35,10 @@ $ docker network ls
 
 # 容器连接网络
 
+这样可以固定容器 IP
+
 ```bash
-$ docker run --net=NETWORK_NAME --ip=172.25.3.3 ...
+$ docker run --net=NETWORK_NAME [ --ip=172.25.3.3 ] ...
 
 $ docker network connect NETWORK_NAME CONTAINER_NAME
 ```

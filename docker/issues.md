@@ -59,6 +59,8 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 比如不要在一个容器中安装 LNMP，可以使用 Docker Compose 分配到 3 个容器，集中启动、管理。
 
+一个容器运行多个服务：https://docs.docker.com/engine/admin/multi-service_container/
+
 # 命令
 
 使用 `docker image` 管理镜像 代替 `docker images`
@@ -80,6 +82,14 @@ Use `bind mounts` to give your container access to your source code
 ## 生产环境
 
 Use `volumes` to store container data.
+
+# 不赞成使用
+
+## 容器互联
+
+但对 `--link`，请使用自定义的 Docker 网络来连接多个容器
+
+反对 `-v` 或 `--volume`，请使用 `--mount`
 
 
 # 参考链接
