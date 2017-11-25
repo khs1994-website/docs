@@ -1,5 +1,5 @@
 ---
-title: Docker Swarm 详解
+title: Docker Swarm mode 详解
 date: 2017-08-07 14:00:00
 updated:
 comments: true
@@ -9,7 +9,7 @@ categories:
 - Docker
 ---
 
-使用 `$ docker swarm` Dcoker 内置的集群管理的工具，Docker CE `17.09+`。
+使用 `$ docker swarm` Dcoker 内置的集群管理的工具，Docker CE `1.12+`。注意与旧的 `Docker Swarm` 区分开来。
 
 OS: CoreOS 1562.1.0 3个节点
 
@@ -32,6 +32,8 @@ docker stack/deploy：试验特性，用于多应用部署 `$ docker stack deplo
 # 创建
 
 ## 使用 Docker Machine 创建集群
+
+`khs1994.com` 备注：`docker-machine create --swarm` 等 `--swarm*` 是旧的 `Docker Swarm`，与本文提到的 `Swarm mode` 没有关系。
 
 [Docker Machine](https://www.khs1994.com/docker/machine.html)
 

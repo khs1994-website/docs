@@ -19,11 +19,19 @@ categories:
 
 # 类型
 
-`bind`
+* `bind`
 
-`volume`
+* `volume`
 
-`tmpfs`
+* `tmpfs`
+
+# source
+
+`source` 或 `src`
+
+# destination
+
+`destination` 或 `dst` 或 `target`
 
 # volumes
 
@@ -65,6 +73,12 @@ $ mkdir: can't create directory 'a.txt': Read-only file system
 
 # bind mounts
 
+官方文档：https://docs.docker.com/engine/admin/volumes/bind-mounts/
+
+`-v` 参数挂载的文件或目录路径如果不存在，Docker 会默认创建一个文件夹
+
+`--mount` 参数挂载的文件或目录路径如果不存在，Docker 不会自动创建，并且会报错
+
 ```bash
 $ docker run \
    --mount type=bind,source=$PWD/app,target=/app \
@@ -76,8 +90,16 @@ $ docker run \
 ## macOS
 
 ```bash
---mount type=bind,source="$(pwd)"/target,destination=/app,consistency=cached
+--mount type=bind,source=$PWD/target,destination=/app,consistency=cached
 ```
+
+* `consistent` or `default`: The default setting with full consistency, as described above.
+
+* `delegated`: The container runtime’s view of the mount is authoritative. There may be delays before updates made in a container are visible on the host.
+
+* `cached`: The macOS host’s view of the mount is authoritative. There may be delays before updates made on the host are visible within a container.
+
+These options are completely ignored on all host operating systems except `macOS`.
 
 # tmpfs
 

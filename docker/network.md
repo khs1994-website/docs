@@ -43,7 +43,7 @@ $ docker run --net=NETWORK_NAME [ --ip=172.25.3.3 ] ...
 $ docker network connect NETWORK_NAME CONTAINER_NAME
 ```
 
-# Docker Swarm
+# Swarm mode
 
 ```bash
 $ docker network create \
@@ -57,6 +57,16 @@ $ docker service create \
     --name my-web \
     nginx    
 ```
+
+## Overlay network
+
+## ingress network
+
+The ingress network is created automatically when you initialize or join a swarm.
+
+## docker_gwbridge
+
+The docker_gwbridge network is created automatically when you initialize or join a swarm.
 
 # 设置代理
 

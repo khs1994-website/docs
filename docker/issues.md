@@ -71,7 +71,7 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 使用 `docker network` 管理容器网络
 
-# 数据
+# 数据管理
 
 详细内容请查看 [Docker 数据管理](https://www.khs1994.com/docker/manage-application-data.html)
 
@@ -89,9 +89,14 @@ Use `volumes` to store container data.
 
 但对 `--link`，请使用自定义的 Docker 网络来连接多个容器
 
+## 数据管理
+
 反对 `-v` 或 `--volume`，请使用 `--mount`
 
+## 废弃功能
 
-# 参考链接
+https://docs.docker.com/engine/deprecated/
+
+# More Information
 
 * http://dockone.io/question/362
