@@ -9,19 +9,23 @@ categories:
 - Docker
 ---
 
-使用 Docker Compose 配置一个 Docker 私有仓库。服务器位于本机，如果本机已占用 443 端口，请配置 Nginx 代理，如果未占用，请直接启动容器。
+使用 Docker Compose + Docker machine 配置一个 Docker 私有仓库。
 
 GitHub：https://github.com/khs1994-docker/registry
 
+官方 GitHub：https://github.com/docker/distribution/releases
+
 <!--more-->
 
-GitHub： https://github.com/docker/distribution/releases
+一种是使用 Docker Compose
+
+一种是基于 `registry` 镜像 ，添加配置文件之后构建自己的镜像。具体查看 [GitHub](https://github.com/khs1994-docker/registry)
 
 # 准备
 
 申请 SSL 证书放到 ssl 文件夹，这里不进行详细说明。
 
-编辑 `config.yml`
+编辑 `config.yml`，该文件详细配置讲解请查看 [Docker Registry v2 配置文件详解]()
 
 ```yaml
 version: 0.1
@@ -46,14 +50,14 @@ auth:
     path: /etc/docker/registry/auth/nginx.htpasswd
 http:
   addr: :443
-  host: https://docker.khs1994.com
+  host: https://docker.xc725.wang
   headers:
     X-Content-Type-Options: [nosniff]
   http2:
     disabled: false
   tls:
-    certificate: /etc/docker/registry/ssl/1_docker.khs1994.com_bundle.crt
-    key: /etc/docker/registry/ssl/2_docker.khs1994.com.key
+    certificate: /etc/docker/registry/ssl/docker.xc725.wang.crt
+    key: /etc/docker/registry/ssl/docker.xc725.wang.key
 health:
   storagedriver:
     enabled: true
@@ -66,15 +70,12 @@ health:
 将以下命令中的 `username` `password` 替换为 `用户名` 和 `密码` ，也可以添加多个用户更多内容请搜索 `htpasswd`
 
 ```bash
-$ docker run --rm --entrypoint htpasswd \
-    registry:2 -Bbn username password > auth/nginx.htpasswd
-```
-
-注意 Nginx 可能不能解密，请换为：
-
-```bash
-$ docker run --rm --entrypoint htpasswd \
-    registry:2 -mbn username password > auth/nginx.htpasswd
+$ docker run --rm \
+    --entrypoint htpasswd \
+    registry \
+    # 部分 nginx 可能不能解密，你可以替换为下面的命令
+    # -mbn username password > auth/nginx.htpasswd \
+    -Bbn username password > auth/nginx.htpasswd
 ```
 
 ## 编辑 `docker-compose.yml`
@@ -88,30 +89,75 @@ services:
 #    restart: always
     ports:
       - "443:443"
-#      - "5000:443"
+      # - "5000:443"
     volumes:
       - ./:/etc/docker/registry
-      - ./var/lib/registry:/var/lib/registry
+      - registry-data:/var/lib/registry
+    depends_on:
+      # - nginx  
 
-  # nginx:
-  #   image: nginx
-  #   ports:
-  #     - "443:443"
-  #     - "5000:5000"
-  #   volumes:
-  #     - ./registry.conf:/etc/nginx/conf.d/registry.conf
+volumes:
+  registry-data:      
 ```
 
-若本机 443 端口未占用，请忽略 Nginx 代理配置。
+# 启动
+
+## Swarm mode
+
+由于 `Docker Machine` 不包含 Compose，这里使用 `Swarm mode`。
+
+```bash
+$ docker-machine create \
+      --driver virtualbox \
+      --engine-opt dns=114.114.114.114 \
+      --engine-registry-mirror https://registry.docker-cn.com \
+      --virtualbox-memory 2048 \
+      --virtualbox-cpu-count 2 \
+      registry
+
+$ docker-machine ip registry
+
+$ docker-machine ssh registry
+
+$ docker swarm init --advertise-addr=192.168.99.100
+
+$ git clone --depth=1 https://github.com/khs1994-docker/registry.git
+
+$ cd registry
+
+# 修改配置之后
+
+$ docker stack deploy -c docker-compose.yml registry
+```
+
+## 自定义镜像并运行
+
+配置好所需文件，构建镜像，运行容器
+
+```bash
+$ docker build -t username/registry .
+
+$ docker run -dit \
+    --mount src=registry-data,target=/var/lib/registry \
+    -p 443:443 \
+    username/registry
+```
+
+## Docker Compose
+
+```bash
+$ docker-compose up -d
+```
 
 # Nginx 代理配置
 
-在 `docker-compose.yml` 将端口配置 `443:443` 注释，将 `5000:443` 的注释去掉。
+https://docs.docker.com/registry/recipes/nginx/
 
-若 443 端口已占用（本地存在 Nginx 服务器），请配置 Nginx 代理。请自行查找学习 Nginx ，请将 SSL 证书路径、IP 等变量确定好，nginx 示例配置如下，之后启动容器
+若使用外部 Nginx，在 `docker-compose.yml` 将端口配置为 `5000:443`。
 
 ```nginx
 upstream docker-registry {
+    # 修改 IP
     server 127.0.0.1:5000;
 }
 
@@ -126,11 +172,13 @@ map $upstream_http_docker_distribution_api_version $docker_distribution_api_vers
 
 server {
     listen 443 ssl;
+    # 修改域名
     server_name docker.xc725.wang;
 
     # SSL
-    ssl_certificate conf.d/ssl/1_docker.xc725.wang_bundle.crt;
-    ssl_certificate_key conf.d/ssl/2_docker.xc725.wang.key;
+    # 修改 SSL 路径
+    ssl_certificate conf.d/ssl/docker.xc725.wang.crt;
+    ssl_certificate_key conf.d/ssl/docker.xc725.wang.key;
 
     # Recommendations from https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html
     ssl_protocols TLSv1.1 TLSv1.2;
@@ -170,93 +218,76 @@ server {
 }
 ```
 
-# 启动
-
-```bash
-$ docker-compose up -d
-
-# 关闭
-
-$ docker-compose stop
-
-# 销毁
-
-$ docker-compose down
-```
-
-若异常退出，请运行下面命令排查错误
-
-```bash
-$ docker logs registry
-```
-
 # 测试私有仓库功能
 
-我已在域名解析处把 `docker.xc725.wang` 解析到了 `本机 IP`, 还可以通过修改本地 /etc/hosts 文件将 `docker.khs1994.com` 解析到 `127.0.0.1`，这里请根据实际情况修改。
-
-网页查看 https://docker.xc725.wang/v2/_catalog
+修改 `/etc/hosts`，替换为对应 IP
 
 ```bash
-# 登录
-$ docker login docker.xc725.wang #接下来输入用户名、密码
+127.0.0.1 docker.xc725.wang
+```
 
-# 使用
+## 网页查看
 
-$ docker pull nginx
-$ docker tag nginx docker.khs1994.com/nginx
-$ docker push docker.khs1994.com/nginx
+https://docker.xc725.wang/v2/_catalog
+
+## 命令行登录
+
+```bash
+$ docker login docker.xc725.wang
+#接下来输入用户名、密码
+```
+
+## 命令行操作
+
+```bash
+$ docker pull nginx:alpine
+$ docker tag nginx docker.khs1994.com/nginx:alpine
+$ docker push docker.khs1994.com/nginx:alpine
+$ docker rm docker.xc725.wang/nginx:alpine
+$ docker pull docker.c725.wang/nginx:alpine
 ```
 
 # 命令参考
 
 ```bash
-$ docker exec [docker-registry id] registry [command]
+$ docker exec {docker-registry id} registry [command]
 ```
 
 ## 垃圾回收
 
-## 搜索
-
-## 常用命令
-
-* 查看版本
+https://docs.docker.com/registry/garbage-collection/
 
 ```bash
-$ docker exec [docker-registry id] registry --version
+$ docker exec -it {docker-registry id} \
+    bin/registry garbage-collect [--dry-run] /etc/docker/registry/config.yml
+```
+
+## 搜索
+
+参考 API：https://docs.docker.com/registry/spec/api/
+
+## 查看版本
+
+```bash
+$ docker exec {docker-registry id} registry --version
 
 registry github.com/docker/distribution v2.6.0
 ```
 
-* 帮助
+## 帮助信息
 
 ```bash
 $ docker exec [docker-registry id] registry help
 ```
 
-```bash
-`registry`
-
-Usage:
-  registry [flags]
-  registry [command]
-
-Available Commands:
-  serve           `serve` stores and distributes Docker images
-  garbage-collect `garbage-collect` deletes layers not referenced by any manifests
-  help            Help about any command
-
-Flags:
-  -h, --help=false: help for registry
-  -v, --version=false: show the version and exit
-
-
-Use "registry help [command]" for more information about a command.
-```
-
 # 相关链接
 
 * [官方文档](https://docs.docker.com/registry/)
+
 * [Dockerfile](https://github.com/docker/distribution-library-image)
+
 * [Nginx 代理](https://docs.docker.com/registry/recipes/nginx/)
+
 * http://www.jb51.net/os/other/369064.html
+
 * http://www.tuicool.com/articles/fAbiYnN
