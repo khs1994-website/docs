@@ -49,19 +49,23 @@ $ brew install --HEAD manifest-tool
 云平台不再列举。
 
 
-## 使用 VirtualBox
-
-官方文档没提到 VirtualBox (可能不推荐使用)，我这里使用它为了便于理解
+## 克隆源代码
 
 ```bash
 $ git clone --depth=1 git@github.com:linuxkit/linuxkit.git
 
 $ cd linuxkit
+```
 
+## 使用 VirtualBox
+
+官方不支持，但也可以使用。
+
+```bash
 $ moby build -format iso-efi linuxkit.yml
 ```
 
-`-format` 参数指定输出格式，使用 `$ moby build --help`查看更多信息。
+`-format` 参数指定输出格式，使用 `moby build --help`查看更多信息。
 
 这样就生成了一个名为 `linuxkit-efi.iso` 的 ISO 文件，使用 `VirtualBox` 挂载 ISO，勾选 `启用EFI` 并设置好网络后启动。
 
@@ -74,12 +78,20 @@ $ moby build -format iso-efi linuxkit.yml
 ```bash
 $ moby build linuxkit.yml
 
-$ linuxkit run linuxkit
+$ linuxkit run -publish 8080:80/tcp linuxkit
 ```
 
-运行 `$ moby help` `$ linuxkit help` 查看更多使用方法。
+连接到容器的方法：https://github.com/linuxkit/linuxkit/blob/master/docs/platform-hyperkit.md#networking
+
+`linuxkit run hyperkit --help` 查看更多用法。
+
+## macOS xhyve 虚拟引擎
+
+官方已经删去对其的支持，具体查看 GitHub。我实际测试启动不起来，这里不再赘述。
 
 # 自定义
+
+运行 `moby help` `linuxkit help` 查看更多使用方法。
 
 参考示例 `linuxkit.yml` 编写自定义的 `name.yml`，然后构建、运行。
 
@@ -88,5 +100,9 @@ $ linuxkit run linuxkit
 # 参考链接
 
 * http://blog.csdn.net/shenshouer/article/details/70251109
+
 * https://www.v2ex.com/t/359038
+
 * https://github.com/moby/tool/blob/master/docs/yaml.md
+
+* https://zhuanlan.zhihu.com/p/26997981

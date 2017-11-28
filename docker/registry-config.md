@@ -52,7 +52,6 @@ log:
   fields:
     service: registry
     environment: staging
-  # 钩子，邮件通知  
   hooks:
     - type: mail
       disabled: true
@@ -164,6 +163,7 @@ http:
     X-Content-Type-Options: [nosniff]
   http2:
     disabled: false
+# 类似 github webhooks ,给特定网址 post 一个 json 数据    
 notifications:
   endpoints:
     - name: alistener
@@ -187,6 +187,7 @@ redis:
     maxidle: 16
     maxactive: 64
     idletimeout: 300s
+# 健康检查    
 health:
   storagedriver:
     enabled: true
@@ -208,6 +209,7 @@ health:
       timeout: 3s
       interval: 10s
       threshold: 3
+# docker hub 镜像      
 proxy:
   remoteurl: https://registry-1.docker.io
   username: [username]
