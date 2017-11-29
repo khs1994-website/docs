@@ -80,12 +80,12 @@ passwd:
         - ssh-rsa AAAAB3N
 ```
 
-### `pxe-ignition.json`
+### `pxe-config.ign`
 
-将 `pxe-ignition.yaml` 转化为 `pxe-ignition.ign`。
+将 `pxe-ignition.yaml` 转化为 `pxe-config.ign`。
 
 ```bash
-$ ct-v0.5.0-x86_64-apple-darwin -in-file pxe-ignition.yaml  > pxe-ignition.ign
+$ ct-v0.5.0-x86_64-apple-darwin -in-file pxe-ignition.yaml  > pxe-config.ign
 ```
 
 # 启动虚拟机

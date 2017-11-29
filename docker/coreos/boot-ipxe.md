@@ -57,7 +57,7 @@ $ docker-compose up  # 默认监听 8080 端口
 #!ipxe
 
 set base-url http://192.168.199.100:8080/current
-kernel ${base-url}/coreos_production_pxe.vmlinuz initrd=coreos_production_pxe_image.cpio.gz coreos.first_boot=1 coreos.config.url=http://192.168.199.100:8080/pxe/pxe-ignition.json console=tty0 console=ttyS0 coreos.autologin=tty1 coreos.autologin=ttyS0
+kernel ${base-url}/coreos_production_pxe.vmlinuz initrd=coreos_production_pxe_image.cpio.gz coreos.first_boot=1 coreos.config.url=http://192.168.199.100:8080/pxe/pxe-config.ign console=tty0 console=ttyS0 coreos.autologin=tty1 coreos.autologin=ttyS0
 initrd ${base-url}/coreos_production_pxe_image.cpio.gz
 boot
 ```
@@ -79,13 +79,15 @@ passwd:
         - ssh-rsa AAAA...
 ```
 
-之后使用以下命令转换为 `pxe-ignition.json`
+## `pxe-config.ign`
+
+之后使用以下命令转换为 `pxe-config.ign`
 
 ```bash
-$ ct-v0.5.0-x86_64-apple-darwin -in-file pxe-ignition.yaml  > pxe-ignition.json
+$ ct-v0.5.0-x86_64-apple-darwin -in-file pxe-ignition.yaml  > pxe-config.ign
 ```
 
-格式转换之后可以验证 `ignition.json` https://coreos.com/validate/
+格式转换之后可以验证 `pxe-config.ign` https://coreos.com/validate/
 
 # 启动虚拟机
 
