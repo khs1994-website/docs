@@ -16,14 +16,20 @@ categories:
 
 <!--more-->
 
+# 更新记录
+
+* 2017/8 : CoreOS 配置工具使用新的 [`Ignition`](../ignition/README.html) 代替 `cloud-config`，旧的安装方法已经删除，但 GitHub 仍保留该配置文件。
+
 # 设置网卡模式
+
+`VirtualBox` 虚拟机网络设置如下
 
 | 网卡    | 模式                  | IP              |
 | :----- | :-------------        |:------         |
 | 网卡1   | `host-only` (`DHCP`)  | `192.168.57.*` |
 | 网卡2   | 桥接 (`DHCP`)          | `192.168.199.*` |
 
-三个节点 IP 分别为：
+本例中三个节点 IP 分别为：
 
 * 192.168.57.110
 
@@ -31,22 +37,24 @@ categories:
 
 * 192.168.57.112
 
-# 准备所需文件
+# 准备文件
 
 进入 http://alpha.release.core-os.net/amd64-usr/ 点击版本号或 `current` ，下载以下文件:
 
-`coreos_production_iso_image.iso`       # iso 启动文件
+iso 启动文件 `coreos_production_iso_image.iso`
 
-`coreos_production_image.bin.bz2`       # 镜像文件
+镜像文件 `coreos_production_image.bin.bz2`
 
-`coreos_production_image.bin.bz2.sig`   # 签名文件
+签名文件 `coreos_production_image.bin.bz2.sig`
 
-# 克隆示例配置文件
+## 克隆示例配置文件
 
 GitHub：https://github.com/khs1994-docker/coreos
 
 ```bash
 $ git clone --depth=1 https://github.com/khs1994-docker/coreos
+
+$ cd coreos
 ```
 
 ## 修改 `.env` 文件中的变量值。
@@ -55,9 +63,7 @@ $ git clone --depth=1 https://github.com/khs1994-docker/coreos
 
 ## 放入文件
 
-并把 `coreos_production_image.bin.bz2` `coreos_production_image.bin.bz2.sig` 放入 `current` 文件夹中。
-
-关于 `Ignition` 请查看 [CoreOS 配置工具 Ignition 简介](ignition.html)
+把 `coreos_production_image.bin.bz2` `coreos_production_image.bin.bz2.sig` 放入 `current` 文件夹中。
 
 ## 启动容器
 
@@ -65,14 +71,11 @@ $ git clone --depth=1 https://github.com/khs1994-docker/coreos
 $ docker-compose up
 ```
 
->参考资料中作者通过改 `coreos-install` 文件指定本地服务器，我发现安装时可以通过 `-b` 参数指定本地服务器，这样就做到了尽量最少改动，完成安装。  
-屏幕会显示出详细的信息，如果出错根据提示信息进行排查
-
 # 安装 CoreOS
 
 ## 启动
 
-新建虚拟机，添加按照文章开头添加两块网卡，内存最低设置为 `2G`，选择加载 `coreos_production_iso_image.iso` 镜像，之后启动。或是以 `PXE` `iPXE` 模式启动虚拟机。
+新建虚拟机，添加按照文章开头设置两块网卡，内存最低设置为 `2G`，选择加载 `coreos_production_iso_image.iso` ISO 镜像之后启动。
 
 > ISO 启动方式不支持 UEFI
 
@@ -81,24 +84,29 @@ $ docker-compose up
 
 $ ip addr
 
-# 若是以 ISO 启动虚拟机需要改密码(虚拟机里输入命令不方便,本机ssh登录操作)
+# 需要改密码 虚拟机里输入命令不方便,本机 ssh 登录操作
 
 $ sudo passwd core
 ```
 
 ## SSH 登录并安装
 
-```bash
-# 本机登陆
+本机登陆
 
+```bash
 $ ssh core@IP
 
 $ wget http://192.168.57.1:8080/disk/ignition-1.json
 
-# 必须以 root 用户运行，安装脚本通过 `-i` 选项加载配置 `ignition.json`
+# 必须以 root 用户运行，安装脚本通过 `-i` 选项加载配置文件 `ignition.json`
 
-$ sudo coreos-install -d /dev/sda -C alpha -V 1590.0.0 \
-      -i ignition.json -v -b http://192.168.57.1:8080
+$ sudo coreos-install \
+      -d /dev/sda \
+      -C alpha \
+      -V 1590.0.0 \
+      -i ignition.json \
+      -b http://192.168.57.1:8080 \
+      -v
 
 + echo 'Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda'
 Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda
@@ -131,7 +139,7 @@ $ sudo coreos-install -d /dev/sda -C alpha -V 1590.0.0 \
 ## 参数说明
 
 ```bash
-$ coreos-install --help
+$ coreos-install -h
 
 Usage: /usr/bin/coreos-install [-C channel] -d /dev/device
 Options:
@@ -178,10 +186,6 @@ Docker version 17.10.0-ce, build afdb6d4
 $ ip route show
 $ sudo ip route del default
 ```
-
-# 更新记录
-
-* 2017/8 : 配置工具使用新的 `Ignition`
 
 # 相关链接
 

@@ -43,7 +43,7 @@ $ update_engine_client
 $ sudo mkdir -p /etc/systemd/system/update-engine.service.d
 ```
 
-`/etc/systemd/system/update-engine.service.d/proxy.conf` 在该文件中写入以下内容。
+`/etc/systemd/system/update-engine.service.d/proxy.conf` 在该文件中写入以下内容(没有就新建)。
 
 ```yaml
 [Service]

@@ -17,32 +17,54 @@ categories:
 
 # 准备
 
-下载 `ipxe.iso`
+## 下载 `ipxe.iso`
 
 ```bash
 $ wget http://boot.ipxe.org/ipxe.iso
 ```
 
-准备好以下文件
+## 克隆示例配置
+
+克隆示例配置文件并启动内网安装服务器。
+
+GitHub：https://github.com/khs1994-docker/coreos
+
+```bash
+$ git clone --depth=1 https://github.com/khs1994-docker/coreos
+
+$ cd coreos
+
+$ docker-compose up  # 默认监听 8080 端口
+```
+
+内网服务器详情请参见 [CoreOS 安装服务本地服务器 Docker 化](https://www.khs1994.com/docker/coreos/install-server.html)。
+
+## 放入文件
+
+在 http://alpha.release.core-os.net/amd64-usr/ 点击版本号或 `current` ，下载以下文件:
 
 `coreos_production_pxe.vmlinuz`
 
 `coreos_production_pxe_image.cpio.gz`
 
-内网服务器搭建过程请查看 [CoreOS 安装服务 本地服务器配置](install-server.html)  
+放入 `current` 文件夹中。
 
 ## `ipxe.html`
+
+打开示例中的 `ipxe.html`，按实际修改 IP
 
 ```bash
 #!ipxe
 
-set base-url http://192.168.199.100/current
-kernel ${base-url}/coreos_production_pxe.vmlinuz initrd=coreos_production_pxe_image.cpio.gz coreos.first_boot=1 coreos.config.url=http://192.168.199.100/pxe-ignition.json console=tty0 console=ttyS0 coreos.autologin=tty1 coreos.autologin=ttyS0
+set base-url http://192.168.199.100:8080/current
+kernel ${base-url}/coreos_production_pxe.vmlinuz initrd=coreos_production_pxe_image.cpio.gz coreos.first_boot=1 coreos.config.url=http://192.168.199.100:8080/pxe/pxe-ignition.json console=tty0 console=ttyS0 coreos.autologin=tty1 coreos.autologin=ttyS0
 initrd ${base-url}/coreos_production_pxe_image.cpio.gz
 boot
 ```
 
 ## `pxe-ignition.yaml`
+
+进入示例中的 `./pxe/` 目录，在 `./pxe/pxe-ignition.yaml` 中设置 SSH 公钥。
 
 ```yaml
 systemd:
@@ -57,47 +79,28 @@ passwd:
         - ssh-rsa AAAA...
 ```
 
-之后使用以下命令生成 `pxe-ignition.json`
+之后使用以下命令转换为 `pxe-ignition.json`
 
 ```bash
-$ ct-v0.4.2-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
+$ ct-v0.5.0-x86_64-apple-darwin -in-file pxe-ignition.yaml  > pxe-ignition.json
 ```
 
-关于 `Ignition` 请查看 [CoreOS 配置工具 Ignition 简介](ignition/README.html)
+格式转换之后可以验证 `ignition.json` https://coreos.com/validate/
 
-> 格式转换之后验证 `ignition.json`
-https://coreos.com/validate/
+# 启动虚拟机
 
-## 服务器文件结构
+虚拟机添加 `ipxe.iso` ISO 镜像之后启动。
 
-```
-.
-├── 1506.0.0
-│   ├── coreos_production_image.bin.bz2
-│   ├── coreos_production_image.bin.bz2.sig
-│   ├── coreos_production_pxe.vmlinuz
-│   ├── coreos_production_pxe_image.cpio.gz
-│   └── version.txt
-├── current -> /Users/khs1994/atom/www/local/home/1506.0.0
-├── ignition.json
-├── ignition.yaml
-├── ipxe.html
-├── pxe-ignition.json
-└── pxe-ignition.yaml
-```
-
-# 启动
-
-添加 `ipxe.iso` 启动虚拟机。
-
-在启动界面按下 `Ctrl+B` ，依次输入以下命令
+在启动界面按下 `Ctrl+B` ，依次输入以下命令。
 
 ```bash
 iPXE> dhcp
-iPXE> chain http://192.168.199.100/ipxe.html
+iPXE> chain http://192.168.199.100:8080/ipxe.html
 ```
 
 # 登录
+
+`IPXE` 方式启动的 CoreOS 默认没有密码，直接在本机登录。
 
 ```bash
 $ ssh core@ip
@@ -105,4 +108,4 @@ $ ssh core@ip
 
 # 安装
 
-之后 [安装到磁盘](install-disk-new.html)。
+之后 [安装到硬盘](install-disk-new.html)。

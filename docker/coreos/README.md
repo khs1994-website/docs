@@ -15,7 +15,7 @@ categories:
 
 * `fleet` => `k8s`
 
-* `cloud-config` => `Container Linux Config` `ignition config`
+* `cloud-config` => `Container Linux Config` 转化为 `ignition config`
 
 <!--more-->
 
