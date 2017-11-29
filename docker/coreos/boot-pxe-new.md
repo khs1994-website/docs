@@ -19,8 +19,9 @@ categories:
 
 安装配置查看 [Linux 自动部署](/linux/server/pxe.html)
 
-* `coreos_production_pxe.vmlinuz`
-* `coreos_production_pxe_image.cpio.gz`  
+`coreos_production_pxe.vmlinuz`
+
+`coreos_production_pxe_image.cpio.gz`  
 
 将以上两文件上传到 `/var/lib/tftpboot`
 
@@ -42,7 +43,7 @@ menu default
   append coreos.first_boot=1 coreos.config.url=https://example.com/pxe-config.ign
 ```
 
-`pxe-ignition.yml`  
+### `pxe-ignition.yml`  
 
 ```yaml
 systemd:
@@ -56,6 +57,8 @@ passwd:
       ssh_authorized_keys:
         - ssh-rsa AAAAB3N
 ```
+
+### `pxe-ignition.json`
 
 将 `pxe-ignition.yml` 转化为 `pxe-ignition.json` 并放入 Nginx 服务器。详情见 [使用 Ignition 配置工具硬盘安装 CoreOS 三节点集群](/docker/coreos/install-disk-new.html)
 

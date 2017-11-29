@@ -11,7 +11,7 @@ categories:
 - CoreOS
 ---
 
-iPXE 模式启动 CoreOS 方法比较简单，无需配置 PXE 所需的服务器，推荐大家使用。
+`iPXE` 模式启动 `CoreOS` 方法比较简单，无需配置 `PXE` 所需的服务器，推荐大家使用。
 
 <!--more-->
 
@@ -25,9 +25,9 @@ $ wget http://boot.ipxe.org/ipxe.iso
 
 准备好以下文件
 
-coreos_production_pxe.vmlinuz
+`coreos_production_pxe.vmlinuz`
 
-coreos_production_pxe_image.cpio.gz
+`coreos_production_pxe_image.cpio.gz`
 
 内网服务器搭建过程请查看 [CoreOS 安装服务 本地服务器配置](install-server.html)  
 
@@ -63,7 +63,7 @@ passwd:
 $ ct-v0.4.2-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
 ```
 
-关于 Ignition 请查看 [CoreOS 配置工具 Ignition 简介](ignition/README.html)
+关于 `Ignition` 请查看 [CoreOS 配置工具 Ignition 简介](ignition/README.html)
 
 > 格式转换之后验证 `ignition.json`
 https://coreos.com/validate/
@@ -88,8 +88,9 @@ https://coreos.com/validate/
 
 # 启动
 
-添加 `ipxe.iso` 启动虚拟机。  
-在启动界面按下 Ctrl+B ，依次输入以下命令
+添加 `ipxe.iso` 启动虚拟机。
+
+在启动界面按下 `Ctrl+B` ，依次输入以下命令
 
 ```bash
 iPXE> dhcp

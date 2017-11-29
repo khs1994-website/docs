@@ -20,8 +20,9 @@ categories:
 
 安装配置查看 [Linux 自动部署](/linux/server/pxe.html)
 
-* `coreos_production_pxe.vmlinuz`
-* `coreos_production_pxe_image.cpio.gz`  
+`coreos_production_pxe.vmlinuz`
+
+`coreos_production_pxe_image.cpio.gz`  
 
 将以上两文件上传到 `/var/lib/tftpboot`
 
@@ -43,7 +44,7 @@ menu default
   append cloud-config-url=http://192.168.57.102:8080/pxe-cloud-config.yml
 ```
 
-`pxe-cloud-config.yml`  
+### `pxe-cloud-config.yml`  
 
 ```yaml
 #cloud-config

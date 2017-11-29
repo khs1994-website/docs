@@ -19,24 +19,26 @@ categories:
 三个节点私有IP分别为：  
 
 * 192.168.57.110
+
 * 192.168.57.111
+
 * 192.168.57.112
 
 内网服务器搭建过程请查看 [CoreOS 安装服务 本地服务器配置](install-server.html)
 
-原理：以 `ISO` 或者 `PXE` 或者 `iPXE` 模式启动 `CoreOS`，然后安装到硬盘。
+以 `ISO` 或者 `PXE` 或者 `iPXE` 模式启动 `CoreOS`，然后安装到硬盘。
 
 # 准备所需文件
 
 进入 http://alpha.release.core-os.net/amd64-usr/ 点击版本号或 `current` ，下载以下文件:
 
-* `coreos_production_iso_image.iso`       # iso 启动文件
+`coreos_production_iso_image.iso`       # iso 启动文件
 
-* `coreos_production_image.bin.bz2`       # 镜像文件
+`coreos_production_image.bin.bz2`       # 镜像文件
 
-* `coreos_production_image.bin.bz2.sig`   # 签名文件
+`coreos_production_image.bin.bz2.sig`   # 签名文件
 
-## 编辑`cloud-config.yaml`
+## `cloud-config.yaml`
 
 ```yaml
 #cloud-config
@@ -96,14 +98,11 @@ users:
 2. 每个节点设置不同的 静态 ip
 3. 配置好 SSH 公钥
 
-> 验证该文件  
-https://coreos.com/validate/
+验证该文件 https://coreos.com/validate/
 
-> `cloud-config.yaml`配置详细说明  
-https://coreos.com/os/docs/latest/cloud-config.html  
+`cloud-config.yaml` 配置详细说明 https://coreos.com/os/docs/latest/cloud-config.html  
 
->最新版文件请访问  
-https://github.com/khs1994-website/docker-coreos/blob/master/cloud-config.yaml
+最新版文件请访问 https://github.com/khs1994-website/docker-coreos/blob/master/cloud-config.yaml
 
 由于本次模拟三个节点的集群，每个节点安装之前，都要提前修改好 `cloud-config.yaml`（包括 etcd 、 IP 、hostname 等），也就是每个节点的 `cloud-config.yaml` 都是不同的，请提前配置好。
 
