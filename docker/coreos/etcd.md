@@ -15,6 +15,12 @@ categories:
 
 <!--more-->
 
+先设置环境变量
+
+```bash
+$ export ETCDCTL_API=3
+```
+
 # 查看节点列表
 
 ```bash

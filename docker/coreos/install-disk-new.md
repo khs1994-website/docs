@@ -57,7 +57,7 @@ $ git clone --depth=1 https://github.com/khs1994-docker/coreos
 $ cd coreos
 ```
 
-## 修改 `.env` 文件中的变量值。
+## 修改 `.env` 文件中的变量值
 
 各项变量含义都已经注明，按实际修改即可
 
@@ -103,8 +103,8 @@ $ wget http://192.168.57.1:8080/disk/ignition-1.json
 $ sudo coreos-install \
       -d /dev/sda \
       -C alpha \
-      -V 1590.0.0 \
-      -i ignition.json \
+      # -V 1590.0.0 \
+      -i ignition-1.json \
       -b http://192.168.57.1:8080 \
       -v
 
@@ -129,10 +129,10 @@ $ wget http://192.168.57.1:8080/disk/ignition-2.json
 
 # $ wget http://192.168.57.1:8080/disk/ignition-3.json
 
-$ sudo coreos-install -d /dev/sda -C alpha -V 1590.0.0 \
+$ sudo coreos-install -d /dev/sda -C alpha \
       -i ignition-2.json -v -b http://192.168.57.1:8080
 
-# $ sudo coreos-install -d /dev/sda -C alpha -V 1590.0.0 \
+# $ sudo coreos-install -d /dev/sda -C alpha \
 #       -i ignition-3.json -v -b http://192.168.57.1:8080  
 ```
 
