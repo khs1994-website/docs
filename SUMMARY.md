@@ -53,6 +53,7 @@
         * [CoreOS 系统升级](docker/coreos/update.md)
         * [etcd](docker/coreos/etcd.md)
         * [fleet 废弃](docker/coreos/migrating-from-fleet-to-kubernetes.md)
+    * [Docker 守护进程](docker/dockerd.md)    
     * [Docker Machine](docker/machine.md)
     * [Docker Registry v2](docker/registry.md)
     * [Docker Registry v2 配置文件详解](docker/registry-config.md)

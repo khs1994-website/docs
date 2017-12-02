@@ -59,7 +59,7 @@ $ cd linuxkit
 
 ## 使用 VirtualBox
 
-官方不支持，但也可以使用。
+官方不支持，但也可以使用。先以虚拟机方式启动，便于大家理解。
 
 ```bash
 $ moby build -format iso-efi linuxkit.yml
@@ -80,6 +80,8 @@ $ moby build linuxkit.yml
 
 $ linuxkit run -publish 8080:80/tcp linuxkit
 ```
+
+这里将 LinuxKit 中的 `80` 端口映射到了 macOS `8080` 端口，现在打开 `127.0.0.1:8080`，即可看到 Nginx 默认页面。
 
 连接到容器的方法：https://github.com/linuxkit/linuxkit/blob/master/docs/platform-hyperkit.md#networking
 

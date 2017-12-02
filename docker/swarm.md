@@ -21,13 +21,13 @@ Docker Swarm 在 Docker 1.12 版本之前属于一个独立的项目，在 Docke
 
 有关集群的 Docker 命令如下：
 
-docker swarm：集群管理，子命令有 init, join, join-token, leave, update
+`docker swarm`：集群管理，子命令有 init, join, join-token, leave, update
 
-docker node：节点管理，子命令有 demote, inspect, ls, promote, rm, ps, update
+`docker node`：节点管理，子命令有 demote, inspect, ls, promote, rm, ps, update
 
-docker service：服务管理，子命令有 create, inspect, ps, ls ,rm , scale, update
+`docker service`：服务管理，子命令有 create, inspect, ps, ls ,rm , scale, update
 
-docker stack/deploy：试验特性，用于多应用部署 `$ docker stack deploy ...`
+`docker stack/deploy`：用于多应用部署 `docker stack deploy ...`
 
 # 创建
 
@@ -35,9 +35,9 @@ docker stack/deploy：试验特性，用于多应用部署 `$ docker stack deplo
 
 `khs1994.com` 备注：`docker-machine create --swarm` 等 `--swarm*` 是旧的 `Docker Swarm`，与本文提到的 `Swarm mode` 没有关系。
 
-[Docker Machine](https://www.khs1994.com/docker/machine.html)
+Docker Machine：https://www.khs1994.com/docker/machine.html
 
-[官方文档](https://docs.docker.com/machine/reference/create/#specifying-docker-swarm-options-for-the-created-machine)
+官方文档：https://docs.docker.com/machine/reference/create/#specifying-docker-swarm-options-for-the-created-machine
 
 ```bash
 $ docker-machine create \
@@ -62,9 +62,9 @@ $ docker-machine create \
 
 使用 `$ docker-machine ssh MACHINE_NAME` 通过 SSH 登录到机器。
 
-## CoreOS 创建集群
+## CoreOS 集群
 
-[创建一个 3 节点集群](https://www.khs1994.com/docker/coreos/install-disk-new.html)。
+创建一个 CoreOS 3 节点集群：https://www.khs1994.com/docker/coreos/install-disk-new.html
 
 # 初始化集群
 
@@ -152,7 +152,7 @@ $ docker service scale nginx=2
 # docker stack
 
 ```bash
-$ docker stack deploy -c docker-compose.yml lnmp
+$ docker stack deploy -c docker-stack.yml lnmp
 
 $ docker stack ls
 

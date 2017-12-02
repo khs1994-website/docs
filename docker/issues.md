@@ -45,7 +45,7 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 ## DNS、host
 
-不能在文件中写入配置，写入也不生效。在 `daemon.json` 中可以配置 DNS , host 请通过 `$ docker build` 、`$ docker run` 时的命令参数进行设置。
+不能在文件中写入配置，写入也不生效。在 `daemon.json` 中可以配置 `DNS` , 设置 `hosts` 请通过 `docker build` 、`docker run` 时的命令参数进行设置。
 
 # 使用 Docker Compose
 
@@ -87,7 +87,7 @@ Use `volumes` to store container data.
 
 ## 容器互联
 
-但对 `--link`，请使用自定义的 Docker 网络来连接多个容器
+反对 `--link`，请使用自定义的 Docker 网络来连接多个容器
 
 ## 数据管理
 
