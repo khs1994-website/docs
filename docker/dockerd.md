@@ -35,7 +35,7 @@ GitHub：https://github.com/khs1994-docker/dockerd-tls
 
 配置时选择以下两种方法之一
 
-### 通常的配置方法
+### 通常的配置方法（不推荐）
 
 `docker.service` 中 `dockerd` 的参数不能与 `daemon.json` 中的键值对冲突。这里我们删去 `docker.service` 中的 `-H` 参数，在 `daemon.json` 中进行配置。
 
@@ -71,7 +71,7 @@ $ sudo systemctl restart docker
 
 >注意：我们这里修改了 `docker.service` 文件，而每次 Docker 升级都会重置此文件，大家不想每次升级 Docker 之后再修改 `docker.service`，可以采用下面的方法。
 
-### 借鉴 CoreOS 官方文档提供的方法
+### 借鉴 CoreOS 官方文档提供的方法(推荐)
 
 官方文档：https://coreos.com/os/docs/latest/customizing-docker.html
 
@@ -82,6 +82,7 @@ $ sudo systemctl restart docker
 Description=Docker Socket for the API
 
 [Socket]
+# ListenStream=127.0.0.1:2375
 ListenStream=2375
 BindIPv6Only=both
 Service=docker.service
@@ -114,21 +115,17 @@ $ docker -H 192.168.57.110:2375 info
 
 成功输出信息，证明客户端可以成功连接到远程的服务端。
 
-在 `macOS` 上远程操作 `CoreOS` 上的 `Docker` 每次执行命令时必须加上 `-H` 参数(这样太麻烦，我们可以通过配置 `环境变量`，简化命令)。
+在 `macOS` 上远程操作 `CoreOS` 上的 `Docker` 每次执行命令时必须加上 `-H` 参数(这样太麻烦，我们可以通过将 Docker 命令 `参数` 配置成 `环境变量` 来简化命令)。
 
 在 `macOS` 上执行如下命令。
 
 ```bash
-$ docker -H 127.0.0.1 info
-
-# 配置环境变量
-
 $ export DOCKER_HOST="tcp://0.0.0.0:2375"
 
 $ docker info
 ```
 
-让环境变量永久生效请写入 `~/.bashrc`
+这里写入的变量是临时生效的，重新登录环境变量就消失了（下文同理，之后不再赘述），让环境变量永久生效请写入 `~/.bashrc`。
 
 ### fish shell
 
@@ -150,11 +147,26 @@ $ set -Ue DOCKER_HOST
 
 ## 服务端配置
 
-只能使用 Linux 下的 `openssl` 生成密钥，macOS 下的不可以。
+只能使用 Linux 下的 `openssl` 生成密钥，macOS 下的不可以。在 `CoreOS` 下执行以下操作
 
-在 `CoreOS` 下执行以下操作
+### 手动执行命令生成证书（不推荐）
 
-### Create a CA, server and client keys with OpenSSL
+这一步较复杂，你可以跳过这一方法，使用容器生成证书。此方法来自 Docker 官方文档 https://docs.docker.com/engine/security/https/。
+
+文件总览
+
+```bash
+├── ca-key.pem       # 妥善保管，连接时用不到
+├── ca.pem           # clent & server
+├── ca.srl           # 用不到
+├── cert.pem         # client
+├── client.csr       # 请求文件
+├── extfile.cnf      # 配置文件
+├── key.pem          # client
+├── server-cert.pem  # server
+├── server.csr       # 请求文件
+└── server-key.pem   # server
+```
 
 ```bash
 # 生成 CA 私钥
@@ -222,22 +234,51 @@ $ chmod -v 0400 ca-key.pem key.pem server-key.pem
 $ chmod -v 0444 ca.pem server-cert.pem cert.pem
 ```
 
+把 `ca.pem` `server-cert.pem` `server-key.pem` 三个文件移动到 `/etc/docker/` 文件夹中。
+
+### 使用容器生成证书（推荐）
+
+GitHub：https://github.com/khs1994-docker/dockerd-tls
+
+方法来自 `CoreOS` 官方文档：https://coreos.com/os/docs/latest/generate-self-signed-certificates.html
+
+>既然使用容器那就可以在任何系统运行，只要把对应文件放到客户端和服务端即可
+
+```bash
+$ git clone --depth=1 https://github.com/khs1994-docker/dockerd-tls.git
+$ cd dockerd-tls
+```
+
+在 `./cfssl/*.json` 中配置好 `CN` `hosts`。
+
+```bash
+$ docker-compose up cfssl
+```
+
+命令执行完毕之后在 `./cfssl/cert` 文件夹中可以看到证书文件，修改文件权限。
+
+```bash
+$ chmod -v 0400 ca-key.pem key.pem server-key.pem
+
+$ chmod -v 0444 ca.pem server-cert.pem cert.pem
+```
+
+把 `ca.pem` `server-cert.pem` `server-key.pem` 三个文件移动到服务端 `/etc/docker/` 文件夹中。
+
 根据本文第一步选择的方法选择以下对应的方法
 
-#### 通常的配置方法
+### 通常的配置方法（不推荐）
 
 修改 `CoreOS` 上的 `daemon.json` 文件。
 
 >注意：非安全连接使用的是 `2375` 端口，安全连接使用的是 `2376` 端口。当然这是推荐的端口配置，你可以配置任何端口！
 
-密钥文件路径请根据实际修改。
-
 ```json
 {
   "tlsverify": true,
-  "tlscert": "/home/core/server-cert.pem",
-  "tlskey": "/home/core/server-key.pem",
-  "tlscacert": "/home/core/ca.pem",
+  "tlscert": "/etc/docker/server-cert.pem",
+  "tlskey": "/etc/docker/server-key.pem",
+  "tlscacert": "/etc/docker/ca.pem",
   "hosts":[
     "unix:///var/run/docker.sock",
     "tcp://0.0.0.0:2376"
@@ -251,7 +292,7 @@ $ chmod -v 0444 ca.pem server-cert.pem cert.pem
 $ sudo systemctl restart docker
 ```
 
-#### 借鉴 CoreOS 官方文档的方法
+### 借鉴 CoreOS 官方文档的方法（推荐）
 
 首先需要修改 `/etc/systemd/system/docker-tcp.socket` 文件内容
 
@@ -263,14 +304,14 @@ ListenStream=2375
 ListenStream=2376
 ```
 
-密钥文件路径请根据实际修改。
+修改 `CoreOS` 上的 `daemon.json` 文件。
 
 ```json
 {
   "tlsverify": true,
-  "tlscert": "/home/core/server-cert.pem",
-  "tlskey": "/home/core/server-key.pem",
-  "tlscacert": "/home/core/ca.pem"
+  "tlscert": "/etc/docker/server-cert.pem",
+  "tlskey": "/etc/docker/server-key.pem",
+  "tlscacert": "/etc/docker/ca.pem"
 }
 ```
 
@@ -287,7 +328,7 @@ $ sudo systemctl restart docker
 
 ## 客户端远程安全连接
 
-将 `ca.pem` `cert.pem` `key.pem` 三个文件通过 `scp` 下载到 `macOS`
+将 `ca.pem` `cert.pem`(或 `client.pem`) `key.pem`(或 `client-key.pem`) 三个文件通过 `scp` 下载到 `macOS`
 
 在 `macOS` 执行以下命令，密钥路径请根据实际情况填写。
 
@@ -302,7 +343,7 @@ $ docker --tlsverify \
 
 ### 把密钥放入 `~/.docker` 文件夹中
 
-每次操作需要跟那么多参数，太麻烦了。我们可以把 `ca.pem` `cert.pem` `key.pem` 三个文件放入 `~/.docker` 中（没有就新建），然后配置环境变量就可以简化命令了。
+每次操作需要跟那么多参数，太麻烦了。我们可以把 `ca.pem` `cert.pem` `key.pem` 三个文件放入客户端 `~/.docker` 中，然后配置环境变量就可以简化命令了。
 
 ```bash
 $ export DOCKER_HOST=tcp://192.168.57.110:2376 DOCKER_TLS_VERIFY=1
@@ -310,9 +351,7 @@ $ export DOCKER_HOST=tcp://192.168.57.110:2376 DOCKER_TLS_VERIFY=1
 $ docker info
 ```
 
-让环境变量永久生效请写入 `~/.bashrc`
-
->该文件路径也可以通环境变量 `DOCKER_CERT_PATH` 指定。
+>你也可以选择其他路径，请通过环境变量 `DOCKER_CERT_PATH` 指定。
 
 ### 报错详情
 
@@ -330,13 +369,13 @@ Get http://192.168.57.110:2376/v1.34/containers/json?all=1: malformed HTTP respo
 
 ```bash
 $ docker -H 10.141.20.83:2376 info
-$ error during connect: Get https://10.141.20.83:2376/v1.34/info: x509: certificate is valid for 192.168.57.110, 192.168.199.100, 127.0.0.1, not 10.141.20.83
+error during connect: Get https://10.141.20.83:2376/v1.34/info: x509: certificate is valid for 192.168.57.110, 192.168.199.100, 127.0.0.1, not 10.141.20.83
 ```
 
 #### 在非允许列表 Host 中登录
 
 ```bash
-docker -H localhost:2376 info
+$ docker -H localhost:2376 info
 error during connect: Get https://localhost:2375/v1.34/info: x509: certificate is valid for coreos1, not localhost
 ```
 

@@ -18,7 +18,9 @@ categories:
 
 # 更新记录
 
-* 2017/8 : CoreOS 配置工具使用新的 [`Ignition`](../ignition/README.html) 代替 `cloud-config`，旧的安装方法已经删除，但 GitHub 仍保留该配置文件。
+* 2017/12：默认启用 [Docker Daemon TLS 远程连接](https://www.khs194.com/docker/dockerd.html)。
+
+* 2017/8：CoreOS 配置工具使用新的 [`Ignition`](../ignition/README.html) 代替 `cloud-config`，旧的安装方法已经删除，但 GitHub 仍保留该配置文件。
 
 # 设置网卡模式
 
@@ -36,6 +38,8 @@ categories:
 * 192.168.57.111
 
 * 192.168.57.112
+
+> VirtualBox 可以新建该网段，如果你的节点不是以上 IP 请按照 https://www.khs194.com/docker/dockerd.html 提供的方法，生成证书。
 
 # 准备文件
 

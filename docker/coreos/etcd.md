@@ -15,6 +15,15 @@ categories:
 
 <!--more-->
 
+`CoreOS` 中的 `etcd` 是以 `rkt` 容器方式启动的。自带的 `etcd2` 命令已经过时，操作请使用 `etcdctl`。
+
+```bash
+$ rkt list
+
+UUID		APP	IMAGE NAME			STATE	CREATED		STARTED		NETWORKS
+57581644	etcd	quay.io/coreos/etcd:v3.2.10	running	1 minute ago	1 minute ago
+```
+
 先设置环境变量
 
 ```bash
