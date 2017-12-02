@@ -13,9 +13,7 @@
     "-livereload",
     "tbfed-pagefooter@git+https://github.com/khs1994/gitbook-plugin-tbfed-pagefooter.git",
     "prism",
-    "toggle-chapters",
-    "expandable-chapters",
-    "anchor-navigation-ex",
+    "page-treeview",
     "favicon"
   ],
   "pluginsConfig": {
@@ -29,22 +27,10 @@
       "modify_label": "修订时间：",
       "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
-    "anchor-navigation-ex": {
-      "showLevel": false,
-      "associatedWithSummary": false,
-      "mode": "pageTop",
-      "float": {
-        "showLevelIcon": false,
-        "level1Icon": "fa fa-hand-o-right",
-        "level2Icon": "fa fa-hand-o-right",
-        "level3Icon": "fa fa-hand-o-right"
-      },
-      "pageTop": {
-        "showLevelIcon": false,
-        "level1Icon": "fa fa-hand-o-right",
-        "level2Icon": "fa fa-hand-o-right",
-        "level3Icon": "fa fa-hand-o-right"
-      }
+    "page-treeview": {
+      "copyright": "Copyright &#169; khs1994.com",
+      "minHeaderCount": "2",
+      "minHeaderDeep": "2"
     },
     "favicon": {
       "shortcut": "favicon.ico",

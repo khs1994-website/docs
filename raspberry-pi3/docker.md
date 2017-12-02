@@ -36,13 +36,13 @@ deb [arch=armhf] http://mirrors.aliyun.com/docker-ce/linux/raspbian stretch test
 $ sudo apt install docker-ce
 ```
 
-请 pull [arm32v7](https://hub.docker.com/u/arm32v7/) 镜像
+请 `pull` [arm32v7](https://hub.docker.com/u/arm32v7/) 镜像
 
 # arm64v8
 
 暂时没有 64 位的官方系统，本人使用的是 [pi64](https://www.khs1994.com/raspberry-pi3/arm64v8.html)
 
-Docker 安装 [Ubuntu arm64 版本](https://download.docker.com/linux/ubuntu/dists/xenial/pool/test/arm64/)。
+安装 Docker [Ubuntu arm64](https://download.docker.com/linux/ubuntu/dists/xenial/pool/test/arm64/) 版本。
 
 国内镜像：http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/test/arm64/
 
@@ -64,7 +64,7 @@ $ sudo apt install -f -y
 $ sudo usermod -aG docker $USER
 ```
 
-请 pull [arm64v8](https://hub.docker.com/u/arm64v8/) 镜像
+请 `pull` [arm64v8](https://hub.docker.com/u/arm64v8/) 镜像
 
 使用 Docker Compose 可能会报错，使用以下命令设置字符集。
 

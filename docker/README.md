@@ -149,7 +149,7 @@ $ docker run --rm hello-world
 ```json
 {
   "registry-mirrors": [
-    "https://****.mirror.aliyuncs.com"
+    "https://registry.docker-cn.com"
   ],
   "debug": true,
   "dns": [
@@ -160,16 +160,9 @@ $ docker run --rm hello-world
 }
 ```
 
-# 创建Docker网络
-
-```bash
-$ docker network create --subnet=192.168.0.0/24 test
-$ docker network connect test web（容器名）
-$ docker network disconnect test web（容器名）
-$ docker run -it --network=test --ip 192.168.0.100 centos
-```
-
 # 卸载
+
+`RedHat` 系
 
 ```bash
 $ sudo yum remove docker-ce

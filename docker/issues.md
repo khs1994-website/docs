@@ -9,16 +9,16 @@ categories:
 - Docker
 ---
 
-本文列举了一些本人在使用 Docker 过程中遇到的问题。
+本文列举了使用 Docker 过程中遇到的问题。
 
 <!--more-->
 
 # 时区
 
-基于 `Debian` 的镜像通过设置 `环境变量` 改变时区，在 Dockerfile 中增加 `ENV` 或在启动时指定，这里不再赘述。
+基于 `Debian` 的镜像通过设置 `环境变量` 改变时区，在 Dockerfile 中增加 `ENV` 或在启动容器时指定 `$ docker run -e TZ=Asia/Shanghai ...`。
 
 ```docker
-ENV Asia/Shanghai
+ENV TZ=Asia/Shanghai
 ```
 
 基于 `Alpine` 的镜像先安装 `tzdate`，再设置环境变量
@@ -26,7 +26,7 @@ ENV Asia/Shanghai
 ```docker
 RUN apk add --no-cache tzdata
 
-ENV Asia/Shanghai
+ENV TZ=Asia/Shanghai
 ```
 
 # 交叉运行
@@ -45,7 +45,7 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 ## DNS、host
 
-不能在文件中写入配置，写入也不生效。在 `daemon.json` 中可以配置 DNS , host 请通过 `$ docker build` 、`$ docker run` 时的命令参数进行设置。
+不能在文件中写入配置，写入也不生效。在 `daemon.json` 中可以配置 `DNS` , 设置 `hosts` 请通过 `docker build` 、`docker run` 时的命令参数进行设置。
 
 # 使用 Docker Compose
 
@@ -59,6 +59,8 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 比如不要在一个容器中安装 LNMP，可以使用 Docker Compose 分配到 3 个容器，集中启动、管理。
 
+一个容器运行多个服务：https://docs.docker.com/engine/admin/multi-service_container/
+
 # 命令
 
 使用 `docker image` 管理镜像 代替 `docker images`
@@ -69,6 +71,32 @@ macOS 不能 ping 通容器（Linux docker0 默认为 172.17.0.1），所以容�
 
 使用 `docker network` 管理容器网络
 
-# 参考链接
+# 数据管理
+
+详细内容请查看 [Docker 数据管理](https://www.khs1994.com/docker/manage-application-data.html)
+
+## 开发环境
+
+Use `bind mounts` to give your container access to your source code
+
+## 生产环境
+
+Use `volumes` to store container data.
+
+# 不赞成使用
+
+## 容器互联
+
+反对 `--link`，请使用自定义的 Docker 网络来连接多个容器
+
+## 数据管理
+
+反对 `-v` 或 `--volume`，请使用 `--mount`
+
+## 废弃功能
+
+https://docs.docker.com/engine/deprecated/
+
+# More Information
 
 * http://dockone.io/question/362

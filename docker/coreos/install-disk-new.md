@@ -11,181 +11,146 @@ categories:
 - CoreOS
 ---
 
-原理：以 `ISO` 或者 [`PXE`](/docker/coreos/boot-pxe-new.html) 或者 [`iPXE`](/docker/coreos/boot-ipxe.html) 模式启动 `CoreOS`，然后安装到硬盘。
+
+本例在 `VirtualBox` 虚拟机，以 `ISO` 或者 [`PXE`](boot-pxe-new.html) 或者 [`iPXE`](boot-ipxe.html) 模式启动 `CoreOS`，然后安装到硬盘。
 
 <!--more-->
 
-三个节点私有IP分别为：  
+# 更新记录
+
+* 2017/12：默认启用 [Docker Daemon TLS 远程连接](https://www.khs194.com/docker/dockerd.html)。
+
+* 2017/8：CoreOS 配置工具使用新的 [`Ignition`](../ignition/README.html) 代替 `cloud-config`，旧的安装方法已经删除，但 GitHub 仍保留该配置文件。
+
+# 设置网卡模式
+
+`VirtualBox` 虚拟机网络设置如下
+
+| 网卡    | 模式                  | IP              |
+| :----- | :-------------        |:------         |
+| 网卡1   | `host-only` (`DHCP`)  | `192.168.57.*` |
+| 网卡2   | 桥接 (`DHCP`)          | `192.168.199.*` |
+
+本例中三个节点 IP 分别为：
 
 * 192.168.57.110
+
 * 192.168.57.111
+
 * 192.168.57.112
 
-内网服务器搭建过程请查看 [CoreOS 安装服务 本地服务器配置](install-server.html)
+> VirtualBox 可以新建该网段，如果你的节点不是以上 IP 请按照 https://www.khs194.com/docker/dockerd.html 提供的方法，生成证书。
 
-# 准备所需文件
+# 准备文件
 
 进入 http://alpha.release.core-os.net/amd64-usr/ 点击版本号或 `current` ，下载以下文件:
 
-* `coreos_production_iso_image.iso`       # iso 启动文件
+iso 启动文件 `coreos_production_iso_image.iso`
 
-* `coreos_production_image.bin.bz2`       # 镜像文件
+镜像文件 `coreos_production_image.bin.bz2`
 
-* `coreos_production_image.bin.bz2.sig`   # 签名文件
+签名文件 `coreos_production_image.bin.bz2.sig`
 
-## 编辑 `ignition.yaml`
+## 克隆示例配置文件
 
-```yaml
-passwd:
-  users:
-    - name: core
-      ssh_authorized_keys:
-        - ssh-rsa AAAAB3Nza...
-      create:
-        groups:
-          - sudo
-          - docker
-etcd:
-  name:                        coreos3
-  discovery: https://discovery.etcd.io/249ea9815631abc753fe4a4743f147d2
-  advertise_client_urls:       http://192.168.57.102:2379
-  initial_advertise_peer_urls: http://192.168.57.102:2380
-  listen_client_urls:          http://192.168.57.102:2379,http://0.0.0.0:4001
-  listen_peer_urls:            http://0.0.0.0:2380
-systemd:
-  units:
-    - name: settimezone.service
-      enable: true
-      contents: |
-        [Unit]
-        Description=Set the time zone
-
-        [Service]
-        ExecStart=/usr/bin/timedatectl set-timezone  PRC
-        RemainAfterExit=yes
-        Type=oneshot
-networkd:
-   units:
-     - name: 10-static.network
-       contents: |
-         [Match]
-         Name=enp0s3
-
-         [Network]
-         Address=192.168.57.102/24
-     - name: 20-dhcp.network
-       contents: |
-         [Match]
-         Name=enp0s8
-
-         [Network]
-         DHCP=yes
-storage:
-  files:
-    - filesystem: "root"
-      path:       "/etc/hostname"
-      mode:       0644
-      contents:
-        inline: coreos3
-    - filesystem: "root"
-      path:       "/etc/resolv.conf"
-      mode:       0644
-      contents:
-        inline: |
-          nameserver 114.114.114.114
-    - filesystem: "root"
-      path:       "/etc/hosts"
-      mode:       0644
-      contents:
-        inline: |
-          127.0.0.1	localhost
-          ::1		localhost
-          127.0.0.1 example.com
-```
-> 最新版文件请访问  
-https://github.com/khs1994-website/docker-coreos/blob/master/ignition.yaml
-
-> 该文件必须按实际情况进行修改，千万不要无脑复制，三个节点的文件主要修改以下几个配置
-1. etcd2 中 https://discovery.etcd.io/new?size=3 申请 token，`192.168.57.110`改为每个节点的内网地址，三个节点使用同一 token
-2. 每个节点设置不同的 静态 ip 、hostname
-3. 配置好 SSH 公钥
-
-由于本次模拟三个节点的集群，每个节点安装之前，都要提前修改好 `ignition.yaml`（包括 etcd 、 IP 、hostname 等）之后使用以下命令生成 `ignition.json`，也就是每个节点的`ignition.json`都是不同的，请提前配置好。
+GitHub：https://github.com/khs1994-docker/coreos
 
 ```bash
-$ ct-v0.4.2-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
+$ git clone --depth=1 https://github.com/khs1994-docker/coreos
+
+$ cd coreos
 ```
 
-关于 Ignition 请查看 [CoreOS 配置工具 Ignition 简介](ignition.html)
+## 修改 `.env` 文件中的变量值
 
-> 格式转换之后验证 `ignition.json`
-https://coreos.com/validate/
+各项变量含义都已经注明，按实际修改即可
 
-# 本地服务器文件结构
+## 放入文件
 
-参照 http://alpha.release.core-os.net/amd64-usr/ 结构
+把 `coreos_production_image.bin.bz2` `coreos_production_image.bin.bz2.sig` 放入 `current` 文件夹中。
 
-将 `current` 软链接到版本号
+## 启动容器
 
 ```bash
-$ cd /Users/khs1994/docker/www/coreos-disk
-$ ln -s $PWD/1506.0.0 current
-$ tree
-
-.
-├── 1506.0.0
-│   ├── coreos_production_image.bin.bz2
-│   └── coreos_production_image.bin.bz2.sig
-│   └── version.txt
-├── ignition.json
-└── current -> /Users/khs1994/docker/www/coreos-disk/1506.0.0
+$ docker-compose up
 ```
-
->参考资料中作者通过改 `coreos-install` 文件指定本地服务器，我发现安装时可以通过 `-b` 参数指定本地服务器，这样就做到了尽量最少改动，完成安装。  
-屏幕会显示出详细的信息，如果出错根据提示信息进行排查
 
 # 安装 CoreOS
 
-启动添加了 ISO 镜像的虚拟机，添加两块网卡，选择加载 `coreos_production_iso_image.iso` 镜像，启动。或是以 `PXE` `iPXE` 模式启动虚拟机。
+## 启动
+
+新建虚拟机，添加按照文章开头设置两块网卡，内存最低设置为 `2G`，选择加载 `coreos_production_iso_image.iso` ISO 镜像之后启动。
+
+> ISO 启动方式不支持 UEFI
 
 ```bash
 # 查看 IP 以便后边登录
 
 $ ip addr
 
-# 若是以 ISO 启动虚拟机需要改密码(虚拟机里输入命令不方便,本机ssh登录操作)
+# 需要改密码 虚拟机里输入命令不方便,本机 ssh 登录操作
 
 $ sudo passwd core
 ```
 
 ## SSH 登录并安装
 
+本机登陆
+
 ```bash
-# 本机登陆
+$ ssh core@IP
 
-$ ssh core@192.168.57.110
+$ wget http://192.168.57.1:8080/disk/ignition-1.json
 
-$ wget http://192.168.57.1:8080/ignition.json
+# 必须以 root 用户运行，安装脚本通过 `-i` 选项加载配置文件 `ignition.json`
 
-# 必须以 root 用户运行
+$ sudo coreos-install \
+      -d /dev/sda \
+      -C alpha \
+      # -V 1590.0.0 \
+      -i ignition-1.json \
+      -b http://192.168.57.1:8080 \
+      -v
 
-$ sudo coreos-install -d /dev/sda -C alpha -V 1506.0.0 \
-      -i ignition.json -v -b http://192.168.57.1:8080
++ echo 'Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda'
+Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda
 
-# 执行成功后，关闭虚拟机      
+# 执行成功后，关闭虚拟机
+
+$ sudo shutdown now  
 ```
 
-> 安装脚本通过 `-i` 选项加载配置 `ignition.json`
+关闭虚拟机之后移除 `ISO`，在虚拟机设置 `系统` 里选择 `启用 EFI`。稍后启动，接下来在其他两个节点进行安装。
+
+## 在另外两个节点安装
+
+重复上边两步，注意每次 `wget` 所下载的文件是不同的，`coreos-install` 命令 `-i` 参数后边跟着 `wget` 所下载的文件。
+
+```bash
+$ ssh core@IP
+
+$ wget http://192.168.57.1:8080/disk/ignition-2.json
+
+# $ wget http://192.168.57.1:8080/disk/ignition-3.json
+
+$ sudo coreos-install -d /dev/sda -C alpha \
+      -i ignition-2.json -v -b http://192.168.57.1:8080
+
+# $ sudo coreos-install -d /dev/sda -C alpha \
+#       -i ignition-3.json -v -b http://192.168.57.1:8080  
+```
 
 ## 参数说明
 
 ```bash
-Usage: ./coreos-install [-C channel] -d /dev/device
+$ coreos-install -h
+
+Usage: /usr/bin/coreos-install [-C channel] -d /dev/device
 Options:
     -d DEVICE   Install Container Linux to the given device.
-    -V VERSION  Version to install (e.g. current) [default: current]
+    -V VERSION  Version to install (e.g. current) [default: 1590.0.0]
     -B BOARD    Container Linux board to use [default: amd64-usr]
-    -C CHANNEL  Release channel to use (e.g. beta) [default: stable]
+    -C CHANNEL  Release channel to use (e.g. beta) [default: alpha]
     -o OEM      OEM type to install (e.g. ami) [default: (none)]
     -c CLOUD    Insert a cloud-init config to be executed on boot.
     -i IGNITION Insert an Ignition config to be executed on boot.
@@ -202,8 +167,20 @@ Container Linux on a machine then use this tool to make a permanent install.
 
 # 启动
 
-三个节点全部安装之后，按以下方式依次启动虚拟机。  
-去掉 `ISO` 启动选项，以磁盘方式启动虚拟机
+三个节点全部安装之后，依次启动虚拟机。
+
+# SSH 登录
+
+```bash
+$ ssh core@192.168.57.110
+
+Last login: Wed Nov 29 11:52:26 UTC 2017 from 192.168.57.1 on pts/0
+Container Linux by CoreOS alpha (1590.0.0)
+core@coreos1 ~ $ docker --version
+Docker version 17.10.0-ce, build afdb6d4
+```
+
+# 网络配置
 
 ## 删除内网路由
 
@@ -214,11 +191,8 @@ $ ip route show
 $ sudo ip route del default
 ```
 
-# 更新记录
-
-* 2017/8 : 配置工具使用新的 `Ignition`
-
 # 相关链接
 
 * https://yq.aliyun.com/articles/42288
+
 * https://raw.githubusercontent.com/coreos/init/master/bin/coreos-install

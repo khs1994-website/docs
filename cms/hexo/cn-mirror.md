@@ -19,3 +19,13 @@ GitHub: https://github.com/khs1994-website/hexo-cn-mirror
 该镜像替换主题为 Next
 
 直接 `git clone` `npm install` 新建文章即可。
+
+之后重新初始化 git 仓库
+
+```bash
+$ rm -rf .git
+
+$ git init
+
+$ git remote add origin git@github.com:username/username.github.io
+```

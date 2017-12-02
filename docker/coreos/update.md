@@ -11,7 +11,7 @@ categories:
 - CoreOS
 ---
 
-CoreOS 会自动检测升级，由于国内网络环境，下载升级包可能会失败。
+`CoreOS` 会自动检测升级，由于国内网络环境，下载升级包可能会失败。
 
 <!--more-->
 
@@ -30,16 +30,20 @@ $ update_engine_client
 参数如下
 
 * -status
+
 * -watch_for_updates
+
 * -update
+
 * -check_for_update
 
 # 设置升级代理服务器
 
 ```bash
 $ sudo mkdir -p /etc/systemd/system/update-engine.service.d
-$ sudo vi /etc/systemd/system/update-engine.service.d/proxy.conf
 ```
+
+`/etc/systemd/system/update-engine.service.d/proxy.conf` 在该文件中写入以下内容(没有就新建)。
 
 ```yaml
 [Service]

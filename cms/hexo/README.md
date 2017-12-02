@@ -22,7 +22,7 @@ categories:
 
 安装 `Git`  
 生成 `SSH` 公钥、密钥  
-将 `公钥` 复制到GitHub  
+将 `公钥` 复制到 GitHub  
 
 # Node.js
 
@@ -72,7 +72,7 @@ $ npm install hexo-server --save
 $ hexo server -p 8080     #-p 指定端口
 ```
 
-## 发布到github
+## 发布到 GitHub
 
 ```bash
 $ hexo g

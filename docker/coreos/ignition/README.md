@@ -13,21 +13,27 @@ categories:
 - Ignition
 ---
 
-CoreOS 配置工具 已由 `Ignition` 代替 `cloud-config`。
+CoreOS 配置工具已由 `Ignition` 代替 `cloud-config`。
 
 GitHub：https://github.com/coreos/ignition
 
 <!--more-->
 
-使用 Ignition 需要两步：
+使用 `Ignition` 需要两步：
 
-* 第一步编写 `Container Linux Config` ( yaml 格式 )
-* 第二步使用 [`container-linux-config-transpiler`](https://github.com/khs1994/container-linux-config-transpiler) 将 `Container Linux Config` 转化为 `Ignition Config` (json 格式)
-* `container-linux-config-transpiler` 安装方法请查看该项目 GitHub
+* 第一步编写 `Container Linux Config` ( `yaml` 格式 )
+
+* 第二步使用 [`container-linux-config-transpiler`](https://github.com/coreos/container-linux-config-transpiler/releases) 将 `Container Linux Config` 转化为 `Ignition Config` (`json` 格式)
 
 ```bash
-$ ct-v0.4.2-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
+$ ct-v0.5.0-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
 ```
+
+`container-linux-config-transpiler` 安装方法:
+
+在 https://github.com/coreos/container-linux-config-transpiler/releases 下载二进制文件移入 `PATH`，并赋予可执行权限之后即可使用。
+
+官方文档：https://coreos.com/os/docs/latest/overview-of-ct.html
 
 # 常用配置举例
 
@@ -73,11 +79,11 @@ passwd:
   users:
     - name: core
       ssh_authorized_keys:
-        - ssh-rsa AAAAB3NzaC1yc...
-      create:
-        groups:
-          - sudo
-          - docker
+        - ssh-rsa SSH_PUB
+      groups:
+        - wheel
+        - sudo
+        - docker
 ```
 
 ## systemd unit
@@ -117,9 +123,10 @@ storage:
 
 # 示例文件
 
-https://github.com/khs1994-website/docker-coreos/blob/master/ignition.yaml
+https://github.com/khs1994-docker/coreos/blob/master/disk/ignition-1.example.yaml
 
 # 相关链接
 
 * https://coreos.com/os/docs/latest/migrating-to-clcs.html
+
 * https://coreos.com/blog/introducing-ignition.html

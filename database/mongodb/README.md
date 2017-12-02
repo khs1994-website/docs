@@ -1,5 +1,5 @@
 ---
-title: MongoDB 使用详解
+title: MongoDB 安装配置
 date: 2016-04-01 13:00:00
 updated:
 comments: true
@@ -45,10 +45,4 @@ $ mongo 127.0.0.1:端口/数据库
 ```bash
 use admin
 db.shutdownServer()
-```
-
-# 基本命令
-
-```bash
-$ show dbs
 ```

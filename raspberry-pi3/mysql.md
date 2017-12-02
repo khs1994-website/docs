@@ -34,8 +34,11 @@ $ sudo mysql -u root -p
 
 ```bash
 $ sudo mysql -u root
-use mysql;
-update user set plugin='' where User='root';
+```
+
+```sql
+USE mysql;
+UPDATE user SET plugin='' WHERE User='root';
 flush privileges;
 ```
 
@@ -43,10 +46,9 @@ flush privileges;
 
 # 远程登录
 
+`/etc/mysql/mariadb.conf.d/50-server.cnf`
+
 ```bash
-$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
-
-
 [mysqld]
 
 # 将 `bind-address		= 127.0.0.1` 注释
@@ -54,8 +56,8 @@ $ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 
 ## 查看权限
 
-```bash
-MariaDB [(none)]> SELECT host,user,password,Grant_priv,Super_priv FROM mysql.user;
+```sql
+SELECT host,user,password,Grant_priv,Super_priv FROM mysql.user;
 +-----------+------+-------------------------------------------+------------+------------+
 | host      | user | password                                  | Grant_priv | Super_priv |
 +-----------+------+-------------------------------------------+------------+------------+
@@ -66,7 +68,7 @@ MariaDB [(none)]> SELECT host,user,password,Grant_priv,Super_priv FROM mysql.use
 
 ## 赋予完整权限
 
-```bash
+```sql
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.199.%' IDENTIFIED BY 'your-password' WITH GRANT OPTION;
 ```
 
@@ -75,7 +77,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.199.%' IDENTIFIED BY 'your-passwo
 重启 `mysql.service` 服务，进行测试。
 
 ```bash
-$ sudo systemctl restart mysql.service
+$ sudo systemctl restart mysql
 ```
 
 `mysql.service` 和 `mysqld.service` 位于 `/etc/systemd/system`，均软链接到了 `/lib/systemd/system/mariadb.service`

@@ -63,7 +63,15 @@ $ abbr -a l ls -lhS
 
 ## 变量赋值 set
 
-`-l` `-g` `-U` `-x` `-u`
+`-l`
+
+`-g`
+
+`-U`
+
+`-x`
+
+`-u`
 
 ```bash
 $ set -xg

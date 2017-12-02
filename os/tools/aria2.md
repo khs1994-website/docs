@@ -49,7 +49,11 @@ $ aria2c
 
 ## Chrome 插件
 
-克隆 https://github.com/acgotaku/BaiduExporter
+```bash
+git clone https://github.com/acgotaku/BaiduExporter
+```
+
+或者下载项目打包文件。
 
 在 Chrome 扩展中加载该项目 `chrome` 文件夹
 
