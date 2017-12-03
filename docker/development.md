@@ -35,7 +35,7 @@ Docker 开发最佳实践
 
 * Start with an appropriate base image. 如果你需要 JDK，则直接使用官方的 `openjdk` 镜像，而不要基于 `ubuntu` 安装 `openjdk`
 
-* Use `multistage builds`. 使用多步构建，如果你的 Docker 版本不支持 `多步构建`，请请尽可能减少镜像层数。
+* Use `multistage builds`. 使用多阶段构建，如果你的 Docker 版本不支持 `多阶段构建`，请请尽可能减少镜像层数。
 
 * 使用你自己的基础镜像
 
@@ -61,7 +61,7 @@ Docker 开发最佳实践
 
 * 哪怕仅需要运行一个容器，`Swarm mode` 能提供更多的功能
 
-* 网络和数据卷能够连接和断开通过 `Swarm` 服务
+* 通过 `Swarm` 服务，网络和数据卷能够连接和断开
 
 * 一些功能只在 `服务` 中可用,比如 `secrets` `config`，上一部分已经提到
 
@@ -85,5 +85,7 @@ Docker 开发最佳实践
 * Docker Hub
 
 * Dcoekr Registry 私有仓库
+
+https://www.khs1994.com/docker/registry.html
 
 * Docker Trusted Registry (Docker EE)

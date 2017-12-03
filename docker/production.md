@@ -19,6 +19,8 @@ categories:
 
 ## 手动启动 Docker
 
+这一部分内容详情可以查看：https://www.khs1994.com/docker/dockerd.html
+
 ```bash
 $ sudo docked
 ```
@@ -87,17 +89,22 @@ https://docs.docker.com/engine/admin/resource_constraints/
 
 https://docs.docker.com/engine/admin/pruning/
 
+https://www.khs1994.com/docker/prune.html
+
 # 使用本地私有 Docker 仓库
+
+https://www.khs1994.com/docker/registry.html
 
 # 容器日志
 
 https://docs.docker.com/engine/admin/logging/view_container_logs/
 
 ```bash
-$ docker logs
+$ docker logs CONTAINER_NAME
 
-$ docker service logs
+$ docker service logs SERVICE_NAME
 ```
+
 ## 日志驱动
 
 # Swarm mode

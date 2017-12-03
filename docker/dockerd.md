@@ -242,7 +242,7 @@ GitHub：https://github.com/khs1994-docker/dockerd-tls
 
 方法来自 `CoreOS` 官方文档：https://coreos.com/os/docs/latest/generate-self-signed-certificates.html
 
->既然使用容器那就可以在任何系统运行，只要把对应文件放到客户端和服务端即可
+>既然使用容器那就可以在任何系统运行，只要把生成的证书文件对应的放到 Docker 客户端和服务端即可。
 
 ```bash
 $ git clone --depth=1 https://github.com/khs1994-docker/dockerd-tls.git
@@ -328,15 +328,15 @@ $ sudo systemctl restart docker
 
 ## 客户端远程安全连接
 
-将 `ca.pem` `cert.pem`(或 `client.pem`) `key.pem`(或 `client-key.pem`) 三个文件通过 `scp` 下载到 `macOS`
+将 `ca.pem` `cert.pem` `key.pem` 三个文件通过 `scp` 下载到 `macOS`。
 
 在 `macOS` 执行以下命令，密钥路径请根据实际情况填写。
 
 ```bash
 $ docker --tlsverify \
-  --tlscacert=~/test/ca.pem \
-  --tlscert=~/test/cert.pem \
-  --tlskey=~/test/key.pem \
+  --tlscacert=/Users/khs1994/test/ca.pem \
+  --tlscert=/Users/khs1994/test/cert.pem \
+  --tlskey=/Users/khs1994/test/key.pem \
   -H=192.168.57.110:2376 \
   info
 ```

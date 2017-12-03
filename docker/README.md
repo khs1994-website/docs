@@ -1,5 +1,5 @@
 ---
-title: CentOS7 安装 Docker
+title: Linux 安装 Docker
 date: 2016-05-01 13:00:00
 updated:
 comments: true
@@ -143,8 +143,6 @@ $ docker run --rm hello-world
 # 国内镜像加速
 
 `/etc/docker/daemon.json`
-
-阿里云加速器地址请自行申请，替换为你申请的地址
 
 ```json
 {
