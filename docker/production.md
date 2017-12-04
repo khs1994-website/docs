@@ -25,28 +25,6 @@ categories:
 $ sudo docked
 ```
 
-## 配置 Docker daemon
-
-```bash
-$ dockerd -D \
-     --tls=true \
-     --tlscert=/var/docker/server.pem \
-     --tlskey=/var/docker/serverkey.pem \
-     -H tcp://192.168.59.3:2376
-```
-
-你也可以通过编辑 `daemon.json`
-
-```json
-{
-  "debug": true,
-  "tls": true,
-  "tlscert": "/var/docker/server.pem",
-  "tlskey": "/var/docker/serverkey.pem",
-  "hosts": ["tcp://192.168.59.3:2376"]
-}
-```
-
 # 自动启动容器
 
 https://docs.docker.com/engine/admin/start-containers-automatically/
@@ -91,6 +69,14 @@ https://docs.docker.com/engine/admin/pruning/
 
 https://www.khs1994.com/docker/prune.html
 
+# Keep containers alive during daemon downtime
+
+https://docs.docker.com/engine/admin/live-restore/
+
+# Systemd
+
+https://docs.docker.com/engine/admin/systemd/
+
 # 使用本地私有 Docker 仓库
 
 https://www.khs1994.com/docker/registry.html
@@ -107,4 +93,68 @@ $ docker service logs SERVICE_NAME
 
 ## 日志驱动
 
+# 安全
+
+https://docs.docker.com/engine/security/security/
+
 # Swarm mode
+
+## 存储配置数据
+
+https://docs.docker.com/engine/swarm/configs/
+
+`docker config` 命令
+
+
+以 `redis` 为例
+
+```bash
+$ echo "This is a config" | docker config create my-config -
+
+# 配置文件默认挂载到 /my-config ，也可以通过 target 进行配置
+
+$ docker service  create \
+    --name redis \
+    # --config my-config \
+    --config source=my-config,target=/config/path \
+    redis:alpine
+
+$ docker config ls
+
+# 当配置文件被使用时，不能删除
+
+$ docker config rm my-config
+```
+
+## 存储敏感数据
+
+https://docs.docker.com/engine/swarm/secrets/
+
+`docker secret` 命令
+
+以 `nginx` 为例
+
+```bash
+$ docker secret create site.key site.key
+
+$ docker secret create site.crt site.crt
+
+$ docker secret create site.conf site.conf
+
+$ docker secret ls
+
+# 默认挂载到 /run/secrets/*** ，你可以通过 target 配置
+
+$ docker service create \
+     --name nginx \
+     --secret site.key \
+     --secret site.crt \
+     --secret source=site.conf,target=/etc/nginx/conf.d/site.conf \
+     --publish target=3000,port=443 \
+     nginx:latest \
+     sh -c "exec nginx -g 'daemon off;'"
+```
+
+# 在一个容器中运行多个服务
+
+https://docs.docker.com/engine/admin/multi-service_container/

@@ -67,7 +67,7 @@ $ docker service create -d \
 
 ## readonly
 
-```bash
+```
 $ mkdir: can't create directory 'a.txt': Read-only file system
 ```
 
@@ -89,6 +89,8 @@ $ docker run \
 
 ## macOS
 
+该选项仅用于 `macOS`
+
 ```bash
 --mount type=bind,source=$PWD/target,destination=/app,consistency=cached
 ```
@@ -107,4 +109,50 @@ These options are completely ignored on all host operating systems except `macOS
 --mount type=tmpfs,destination=/app
 
 --mount type=tmpfs,destination=/app,tmpfs-mode=1770
+```
+
+# 注意事项
+
+当挂载一个 `空的数据卷` 时，若挂载的容器目标目录存在文件时，Docker 会把容器中的文件复制到数据卷中。若 `监听主机目录` 或 `挂载非空数据卷` 时，不会复制容器中原有文件，而是由原路径文件直接覆盖容器中的目标路径。下面通过具体的命令来进行说明。
+
+```bash
+$ docker run -it --rm \
+    --mount src=new_vol,target=/etc/nginx/conf.d \
+    nginx:alpine \
+    ls /etc/nginx/conf.d
+default.conf
+
+# 以上说明 Docker 复制容器中的原有文件到了这个空的数据卷
+
+# 在数据卷写入数据
+
+$ docker run -it --rm \
+    --mount src=new_vol,target=/etc/nginx/conf.d \
+    nginx:alpine \
+    sh
+
+/ # cd /etc/nginx/conf.d/
+/etc/nginx/conf.d # rm -rf *
+/etc/nginx/conf.d # ls
+/etc/nginx/conf.d # touch test.txt
+
+# 退出，现在数据卷 new_vol 非空，下面测试挂载一个非空数据卷，看会不会复制容器中的文件到数据卷。
+
+$ docker run -it --rm \
+    --mount src=new_vol,target=/etc/nginx/conf.d \
+    nginx:alpine \
+    ls /etc/nginx/conf.d
+test.txt
+
+# 以上说明没有复制
+
+# 现在测试一下监听主机目录
+
+$ docker run -it --rm \
+    --mount type=bind,src=$PWD,target=/etc/nginx/conf.d \
+    nginx:alpine \
+    ls /etc/nginx/conf.d
+
+# 没有看到 default.conf
+# 说明没有复制容器中的原有文件，主机中的文件直接覆盖掉了容器中的原有文件    
 ```

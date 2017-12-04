@@ -28,7 +28,7 @@ categories:
 容器将不会虚拟出自己的网卡，配置自己的 IP 等，而是使用宿主机的 IP 和端口，容器可以和宿主机一样，使用宿主机的 `eth0` 实现和外界的通信。换言之容器的 IP 地址即为宿主机 eth0 的 IP 地址。
 
 ```bash
-$ docker run -dit --net host nginx:alpine
+$ docker run -dit --network host nginx:alpine
 ```
 
 现在访问 `主机 IP` 即可看到 nginx 默认页面。
@@ -54,7 +54,7 @@ $ docker run -it --rm nginx:alpine ip addr
 
 ## container:name or id
 
-`--net="container:name or id`
+`--network="container:name or id`
 
 通过此参数启动的容器，拥有与被连接的容器相同的网络。
 
@@ -88,9 +88,9 @@ $ docker network inspect bridge
 可以固定容器 IP
 
 ```bash
-$ docker run --net=NETWORK_NAME [ --ip=172.25.3.3 ] ...
+$ docker run --network=NETWORK_NAME [ --ip=172.25.3.3 ] ...
 
-$ docker run --net="container:id or name"
+$ docker run --network="container:id or name"
 
 $ docker network connect NETWORK_NAME CONTAINER_NAME
 ```

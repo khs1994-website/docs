@@ -15,6 +15,16 @@ categories:
 
 <!--more-->
 
+根据官方文档的层次，分为
+
+* 容器 (`Containers`) 使用 `Docker run`
+
+* 服务 (`Services`) 使用 `Docker Compose` **Defines how containers behave in production**
+
+* 服务栈 (`Stack`) 使用 `Swarm mode` **Defining the interactions of all the services**
+
+# 必须知道
+
 * 使用 [`Dockerfile`](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) 构建镜像
 
 * 使用 [`multistage builds`](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) 保持镜像最小
@@ -23,7 +33,7 @@ categories:
 
 * 使用 `docker swarm` 部署服务
 
-* 使用 `docker stack` 部署服务 `compose 文件`
+* 使用 `docker stack` 部署服务栈 `compose 文件`
 
 * 普遍的应用开发最佳实践
 
@@ -73,6 +83,7 @@ Docker 开发最佳实践
 
 * 使用 Docker EE ，安全团队 sign 一个镜像，之后部署到生产环境中。
 
+## Differences in development and production environments
 
 |Development |	Production |
 | :---       | :---        |
