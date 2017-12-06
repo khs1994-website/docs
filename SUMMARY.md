@@ -66,6 +66,7 @@
     * [Docker 数据管理](docker/manage-application-data.md)
     * [Dockerfile 最佳实践](docker/dockerfile.md)
     * [Docker 镜像云端构建](docker/build-image.md)
+    * [Dockerfile 多阶段构建](docker/multistage-builds.md)
     * [Docker Cloud](docker/cloud.md)
     * [Docker Store](docker/store.md)
     * [开发环境](docker/development.md)

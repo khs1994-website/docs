@@ -77,8 +77,6 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```
 
->注意：我们这里修改了 `docker.service` 文件，而每次 Docker 升级都会重置此文件，大家不想每次升级 Docker 之后再修改 `docker.service`，可以采用下面的方法。
-
 ### CoreOS 官方文档提供的方法
 
 官方文档：https://coreos.com/os/docs/latest/customizing-docker.html
