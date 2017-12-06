@@ -9,7 +9,9 @@ categories:
 - Docker
 ---
 
-将 Dockerfile 上传到代码仓库(GitHub, GitLab, Coding, etc)，云端开始构建并 `push` Docker 镜像。这里只列出免费服务。
+将 Dockerfile 上传到代码仓库(GitHub, GitLab, Coding, 等)，云端开始构建并 `push` Docker 镜像到仓库中。
+
+这里只列出免费服务。
 
 <!--more-->
 

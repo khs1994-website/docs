@@ -9,7 +9,7 @@ categories:
 - Docker
 ---
 
-使用 `$ docker swarm` Dcoker 内置的集群管理的工具，Docker CE `1.12+`。注意与旧的 `Docker Swarm` 区分开来。
+使用 `docker swarm` Dcoker 内置的集群管理的工具，Docker CE `1.12+`。注意与旧的 `Docker Swarm` 区分开来。
 
 OS: CoreOS 1562.1.0 3个节点
 
@@ -17,7 +17,7 @@ OS: macOS + Docker Machine
 
 <!--more-->
 
-Docker Swarm 在 Docker 1.12 版本之前属于一个独立的项目，在 Docker 1.12 版本发布之后，该项目合并到了 Docker 中，成为 Docker 的一个子命令 `$ docker swarm`。
+Docker Swarm 在 Docker 1.12 版本之前属于一个独立的项目，在 Docker 1.12 版本发布之后，该项目合并到了 Docker 中，成为 Docker 的一个子命令 `docker swarm`。
 
 有关集群的 Docker 命令如下：
 
@@ -60,7 +60,7 @@ $ docker-machine create \
       swarm3
 ```
 
-使用 `$ docker-machine ssh MACHINE_NAME` 通过 SSH 登录到机器。
+使用 `docker-machine ssh MACHINE_NAME` 通过 SSH 登录到机器。
 
 ## CoreOS 集群
 

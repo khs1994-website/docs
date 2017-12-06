@@ -17,11 +17,11 @@ GitHub: https://github.com/docker/compose
 
 # install
 
-Docker CE for Windows 10 、Docker CE for macOS 自带 `docker-compose`，官方建议随 Docker 版本升级。
+Docker CE for Windows 10 、Docker CE for Mac 自带 `docker-compose`，官方建议随 Docker 版本升级。
 
-Linux 不包含 `docker-compose` 命令，请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
+Linux 请在 [GitHub releases](https://github.com/docker/compose/releases) 处下载二进制文件，移入 `PATH` 并赋予可执行权限。
 
-或者执行以下命令进行安装。
+或者执行以下命令进行下载安装。
 
 ```bash
 $ DOCKER_COMPOSE_VERSION=1.17.1
@@ -522,7 +522,7 @@ web:
 
 ## logging
 
-日子配置
+日志配置
 
 ## network_mode
 

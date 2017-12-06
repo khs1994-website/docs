@@ -23,9 +23,19 @@ GitHub：https://github.com/khs1994-docker/dockerd-tls
 
 官方文档：https://docs.docker.com/edge/engine/reference/commandline/dockerd/
 
+官方文档：https://docs.docker.com/engine/admin/
+
 **本文适合有一定 Linux 基础的读者阅读，如果出现错误，请将各种操作之前修改过的文件恢复原状并删除新增的环境变量。**
 
 我们已经知道 Docker 是客户端/服务端架构。一般情况下我们使用的 Docker 客户端/服务端都在本机（macOS、Windows 实际上是在本机启动了一个虚拟机，这里指 Linux）。本文所指的情况是 Docker 客户端与服务端不在同一主机上。
+
+![](https://docs.docker.com/engine/article-img/engine-components-flow.png)
+
+**Dokcer 架构**
+
+![](https://docs.docker.com/engine/article-img/architecture.svg)
+
+Typically, you start Docker using operating system utilities. For debugging purposes, you can start Docker manually using the `dockerd` command. You may need to use `sudo`, depending on your operating system configuration. When you start Docker this way, it runs in the foreground and sends its logs directly to your terminal.
 
 # 非安全的连接方式
 
@@ -33,21 +43,17 @@ GitHub：https://github.com/khs1994-docker/dockerd-tls
 
 ## 服务端配置
 
-配置时选择以下两种方法之一
+`CoreOS` 请使用第二种方法，其他 Linux 系统配置时选择以下两种方法之一
 
-### 通常的配置方法（不推荐）
+### 通常的配置方法
 
-`docker.service` 中 `dockerd` 的参数不能与 `daemon.json` 中的键值对冲突。这里我们删去 `docker.service` 中的 `-H` 参数，在 `daemon.json` 中进行配置。
+**`docker.service` 中 `dockerd` 的 `-H` 参数不能与 `daemon.json` 中的 `hosts` 键值对冲突。(其他参数同理)**
 
-修改 `/lib/systemd/system/docker.service` （下文统一简称 `docker.service`）文件
-
->注意：`CoreOS` 上的 `docker.service` 位于 `/var/run/systemd/system/docker.service`。
+新建 `/etc/systemd/system/docker.service.d/docker.conf` 文件。
 
 ```yaml
-ExecStart=/usr/bin/dockerd -H fd://
-
-# 修改为
-
+[Service]
+ExecStart=
 ExecStart=/usr/bin/dockerd
 ```
 
@@ -62,6 +68,8 @@ ExecStart=/usr/bin/dockerd
 }
 ```
 
+> 该文件必须符合 json 规范写法，否则 Docker 将不能启动。
+
 重新启动 Docker。
 
 ```bash
@@ -69,9 +77,7 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```
 
->注意：我们这里修改了 `docker.service` 文件，而每次 Docker 升级都会重置此文件，大家不想每次升级 Docker 之后再修改 `docker.service`，可以采用下面的方法。
-
-### 借鉴 CoreOS 官方文档提供的方法(推荐)
+### CoreOS 官方文档提供的方法
 
 官方文档：https://coreos.com/os/docs/latest/customizing-docker.html
 
@@ -242,7 +248,7 @@ GitHub：https://github.com/khs1994-docker/dockerd-tls
 
 方法来自 `CoreOS` 官方文档：https://coreos.com/os/docs/latest/generate-self-signed-certificates.html
 
->既然使用容器那就可以在任何系统运行，只要把对应文件放到客户端和服务端即可
+>既然使用容器那就可以在任何系统运行，只要把生成的证书文件对应的放到 Docker 客户端和服务端即可。
 
 ```bash
 $ git clone --depth=1 https://github.com/khs1994-docker/dockerd-tls.git
@@ -265,11 +271,11 @@ $ chmod -v 0444 ca.pem server-cert.pem cert.pem
 
 把 `ca.pem` `server-cert.pem` `server-key.pem` 三个文件移动到服务端 `/etc/docker/` 文件夹中。
 
-根据本文第一步选择的方法选择以下对应的方法
+`CoreOS` 请使用第二种方法，其他 Linux 系统根据上文选择的方法，这里选择对应的方法
 
-### 通常的配置方法（不推荐）
+### 通常的配置方法
 
-修改 `CoreOS` 上的 `daemon.json` 文件。
+修改 `daemon.json` 文件。
 
 >注意：非安全连接使用的是 `2375` 端口，安全连接使用的是 `2376` 端口。当然这是推荐的端口配置，你可以配置任何端口！
 
@@ -292,7 +298,7 @@ $ chmod -v 0444 ca.pem server-cert.pem cert.pem
 $ sudo systemctl restart docker
 ```
 
-### 借鉴 CoreOS 官方文档的方法（推荐）
+### CoreOS 官方文档的方法
 
 首先需要修改 `/etc/systemd/system/docker-tcp.socket` 文件内容
 
@@ -328,15 +334,15 @@ $ sudo systemctl restart docker
 
 ## 客户端远程安全连接
 
-将 `ca.pem` `cert.pem`(或 `client.pem`) `key.pem`(或 `client-key.pem`) 三个文件通过 `scp` 下载到 `macOS`
+将 `ca.pem` `cert.pem` `key.pem` 三个文件通过 `scp` 下载到 `macOS`。
 
 在 `macOS` 执行以下命令，密钥路径请根据实际情况填写。
 
 ```bash
 $ docker --tlsverify \
-  --tlscacert=~/test/ca.pem \
-  --tlscert=~/test/cert.pem \
-  --tlskey=~/test/key.pem \
+  --tlscacert=/Users/khs1994/test/ca.pem \
+  --tlscert=/Users/khs1994/test/cert.pem \
+  --tlskey=/Users/khs1994/test/key.pem \
   -H=192.168.57.110:2376 \
   info
 ```
