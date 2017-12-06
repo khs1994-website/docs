@@ -93,10 +93,10 @@ Docker 开发最佳实践
 
 # 镜像管理
 
-* Docker Hub
+## Docker Hub
 
-* Dcoekr Registry 私有仓库
+## Dcoekr Registry 私有仓库
 
 https://www.khs1994.com/docker/registry.html
 
-* Docker Trusted Registry (Docker EE)
+## Docker Trusted Registry (Docker EE)
