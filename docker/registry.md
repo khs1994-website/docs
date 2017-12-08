@@ -50,14 +50,14 @@ auth:
     path: /etc/docker/registry/auth/nginx.htpasswd
 http:
   addr: :443
-  host: https://docker.xc725.wang
+  host: https://docker.domain.com
   headers:
     X-Content-Type-Options: [nosniff]
   http2:
     disabled: false
   tls:
-    certificate: /etc/docker/registry/ssl/docker.xc725.wang.crt
-    key: /etc/docker/registry/ssl/docker.xc725.wang.key
+    certificate: /etc/docker/registry/ssl/docker.domain.com.crt
+    key: /etc/docker/registry/ssl/docker.domain.com.key
 health:
   storagedriver:
     enabled: true
@@ -173,12 +173,12 @@ map $upstream_http_docker_distribution_api_version $docker_distribution_api_vers
 server {
     listen 443 ssl;
     # 修改域名
-    server_name docker.xc725.wang;
+    server_name docker.domain.com;
 
     # SSL
     # 修改 SSL 路径
-    ssl_certificate conf.d/ssl/docker.xc725.wang.crt;
-    ssl_certificate_key conf.d/ssl/docker.xc725.wang.key;
+    ssl_certificate conf.d/ssl/docker.domain.com.crt;
+    ssl_certificate_key conf.d/ssl/docker.domain.com.key;
 
     # Recommendations from https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html
     ssl_protocols TLSv1.1 TLSv1.2;
@@ -223,17 +223,17 @@ server {
 修改 `/etc/hosts`，替换为对应 IP
 
 ```bash
-127.0.0.1 docker.xc725.wang
+127.0.0.1 docker.domain.com
 ```
 
 ## 网页查看
 
-https://docker.xc725.wang/v2/_catalog
+https://docker.domain.com/v2/_catalog
 
 ## 命令行登录
 
 ```bash
-$ docker login docker.xc725.wang
+$ docker login docker.domain.com
 #接下来输入用户名、密码
 ```
 
@@ -243,8 +243,8 @@ $ docker login docker.xc725.wang
 $ docker pull nginx:alpine
 $ docker tag nginx docker.khs1994.com/nginx:alpine
 $ docker push docker.khs1994.com/nginx:alpine
-$ docker rm docker.xc725.wang/nginx:alpine
-$ docker pull docker.c725.wang/nginx:alpine
+$ docker rm docker.domain.com/nginx:alpine
+$ docker pull docker.domain.com/nginx:alpine
 ```
 
 # 命令参考

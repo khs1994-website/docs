@@ -19,7 +19,7 @@ categories:
 ## 静态IP
 
 
-`/etc/network/interface`
+编辑 `/etc/network/interface` 文件。
 
 ```bash
 # The primary network interface
@@ -32,26 +32,29 @@ address 192.168.56.130
 netmask 255.255.255.0
 ```
 
-## 网络超时
+## DNS
+
+编辑 `/etc/resolvconf.conf` 文件
 
 ```bash
-$ cd /etc/systemd/system/network-online.target.wants
-$ sudo vi networking.service
+# configure your subscribers configuration files below.
+name_servers=127.0.0.1
 ```
-
-## DNS
 
 # 常用软件
 
 ```bash
-$ sudo apt install gcc g++ \
+$ sudo apt install gcc g++
 ```
 
 ## mail
+
 ```bash
 $ apt install mailutils
 ```
+
 ## openssl
+
 ```bash
 $ sudo apt install openssl
 $ sudo apt install libssl-dev

@@ -67,12 +67,4 @@ JetBrainsToolbox
 Android Studio  
 jdk  
 iterm2  
-Etcher  
-
-# 优化配置
-
-## 删除英文输入法
-
-```bash
-`~/Library/Preferences/com.apple.HIToolbox.plist`
-```
+Etcher

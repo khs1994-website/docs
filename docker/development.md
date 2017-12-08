@@ -51,7 +51,7 @@ Docker 开发最佳实践
 
 * 保持生产环境镜像尽可能小，但允许调试
 
-* 使用有明确含义的镜像标签 `prod` 或者 `test`，尽量不使用
+* 使用有明确含义的镜像标签 `prod` 或者 `test`，尽量不使用 `latest` 标签。
 
 ## Where and how to persist application data
 

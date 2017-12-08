@@ -10,7 +10,7 @@ categories:
 - Linux
 ---
 
-本文简要介绍了 CentOS 7 常用配置。
+本文简要介绍了 `CentOS 7` 常用配置。
 
 <!--more-->
 
@@ -38,9 +38,9 @@ $ wget -O /etc/yum.repos.d/epel.repo \
 
 ## 开机网络连接
 
-```bash     
-$ vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
+编辑 `/etc/sysconfig/network-scripts/ifcfg-enp0s8`
 
+```bash     
 ONBOOT=yes
 ```
 
@@ -58,8 +58,9 @@ ONBOOT=yes
 
 ## 路由
 
+编辑 `/etc/sysconfig/network-scripts/route-enp0s8` 文件
+
 ```bash
-$ vi /etc/sysconfig/network-scripts/route-enp0s8
 192.168.56.0/24 via 192.168.56.1 dev enp0s8
 
 # 虚拟机采用双网卡，网卡1桥接模式；网卡2 host-only 模式此处添加网卡2 ip段 192.168.56.0、24 静态路由
@@ -89,20 +90,25 @@ $ nmcli dev disconnect enp0s3 && nmcli dev connect enp0s3
 
 ## DNS（重要）
 
-``` bash
-$ vi /etc/NetworkManager/NetworkManager.conf
+编辑 `/etc/NetworkManager/NetworkManager.conf`
 
+``` bash
 [main]
 plugins=ifcfg-rh
 #增加dns=none
 dns=none
+```
 
-$ vi /etc/resolv.conf
+编辑 `/etc/resolv.conf` 文件
 
+```bash
 nameserver 114.114.114.114
+```
 
+重启网络
+
+```bash
 $ systemctl restart NetworkManager.service
-
 ```
 
 # 常用软件包
@@ -135,22 +141,26 @@ $ /usr/sbin/sestatus -v
 
 ## 关闭 SELINUX
 
-```bash
-$ vi /etc/selinux/config
+编辑 `/etc/selinux/config` 文件。
 
+```bash
 #SELINUX=enforcing #注释掉
 #SELINUXTYPE=targeted #注释掉
 #增加
 SELINUX=disabled
+```
 
+执行以下命令生效，或者重启电脑
+
+```bash
 $ setenforce 0
 ```
 
 # 删除旧内核
 
 ```bash
-rpm -qa | grep kernel
-yum remove kernel-3.10.0-514.10.2.el7.x86_64
+$ rpm -qa | grep kernel
+$ yum remove kernel-3.10.0-514.10.2.el7.x86_64
 ```
 
 # 常用命令

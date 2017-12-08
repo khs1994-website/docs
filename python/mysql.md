@@ -15,7 +15,7 @@ GitHub：https://github.com/PyMySQL/PyMySQL
 <!--more-->
 
 ```bash
-$ pip install PyMySQL
+$ pip install pymysql
 ```
 
 # 相关链接

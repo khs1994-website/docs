@@ -17,7 +17,7 @@ categories:
 
 ## 找不到命令
 
-`/etc/sudoers`
+编辑 `/etc/sudoers` 文件。
 
 ```bash
 Defaults  secure_path=...

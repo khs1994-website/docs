@@ -30,7 +30,15 @@ function func1 {
 func2() {
    echo "this is func2"
 }
+
+# sh 函数命名使用下划线分隔
+
+fun_read(){
+  echo "sh function"
+}
 ```
+
+>注意，为了兼容 sh，尽量使第二种方法。
 
 # 引用函数
 

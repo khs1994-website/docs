@@ -14,15 +14,17 @@ Nexus 是一个基于 maven 的仓库管理的社区项目。主要的使用场�
 
 <!--more-->
 
-# Docker
+# 通过 Docker 启动
 
 ```bash
-$ docker run -d -p 8081:8081 --name nexus \                          
-   -v /Users/khs1994/docker/data/nexus-data:/nexus-data \
+$ docker run -d \
+   --name nexus \
+   -p 8081:8081 \                       
+   -v nexus-data:/nexus-data \
    sonatype/nexus3
 ```
 
-# 配置
+# Android Studio 配置
 
 ## 项目 buid.gradle
 
@@ -60,5 +62,7 @@ $ docker run -d -p 8081:8081 --name nexus \
 # 相关链接
 
 * [官方网站](https://www.sonatype.com/download-oss-sonatype)
+
 * [nexus Docker](https://hub.docker.com/r/sonatype/nexus3/)
+
 * http://blog.csdn.net/l2show/article/details/48653949  

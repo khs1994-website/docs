@@ -52,7 +52,7 @@ $ docker volume create lnmp-mysql-data
 
 ```bash
 $ docker run -dit \
-   --net lnmp \
+   --network lnmp \
    --name mysql \
    -p 3306:3306 \
    -e MYSQL_ROOT_PASSWORD=mytest \
@@ -75,7 +75,7 @@ $ –p 127.0.0.1:3306:3306
 
 ```bash
 $ docker run -dit \
-    --net lnmp \
+    --network lnmp \
     --name redis \
     -p 6379:6379 \
     redis:alpine
@@ -110,7 +110,7 @@ $ docker build -t username/php:fpm .
 
 ```bash
 $ docker run -dit \
-    --net lnmp \
+    --network lnmp \
     --name php7 \
     # -v $PWD/app:/app \
     --mount type=bind,source=$PWD/app,target=/app,readonly \
@@ -121,7 +121,7 @@ $ docker run -dit \
 
 ```bash
 $ docker run -dit \
-    --net lnmp \
+    --network lnmp \
     -p 80:80 \
     -p 443:443 \
     --name nginx \
@@ -155,7 +155,7 @@ mysql> create database test;
 Query OK, 1 row affected (0.00 sec)
 ```
 
-访问 `127.0.0.1/pdo-mysql.php` 测试 PHP pdo_mysql 扩展。
+访问 `127.0.0.1/pdo-mysql.php` 测试 PHP `pdo_mysql` 扩展。
 
 # docker-compose
 

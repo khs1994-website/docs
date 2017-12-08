@@ -11,7 +11,7 @@ categories:
 - Server
 ---
 
-Linux 自动部署需要以下软件`PXE` `dhcp` `tftp` `vsftpd` `kickstart`
+Linux 自动部署需要以下软件 `PXE` `dhcp` `tftp` `vsftpd` `kickstart`。
 
 <!--more-->
 
@@ -54,7 +54,7 @@ subnet 192.168.57.0 netmask 255.255.255.0 {
 
 # 挂载安装光盘
 
-在 root 家目录新建 cdrom 文件夹，挂载光盘
+在 root 家目录新建 `cdrom` 文件夹，挂载光盘
 
 ```bash
 $ mkdir cdrom
@@ -67,11 +67,14 @@ $ mount /dev/cdrom cdrom
 $ cd /var/lib/tftpboot
 $ cp /usr/share/syslinux/pxelinux.0 .
 $ cp ~/cdrom/images/pxeboot/{initrd.img,vmlinuz} .
-$ cp ~/cdrom/isolinux/{vesamenu.c32,*.msg} .                #*
+$ cp ~/cdrom/isolinux/{vesamenu.c32,*.msg} .
 $ mkdir pxelinux.cfg
 $ cp ~/cdrom/isolinux/isolinux.cfg pxelinux.cfg/default
-$ vi pxelinux.cfg/default
+```
 
+编辑 `pxelinux.cfg/default` 文件。
+
+```bash
 #第1行
 
 default linux
