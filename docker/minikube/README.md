@@ -1,6 +1,6 @@
 ---
 title: 国内使用 minikube
-date: 2017-10-01 12:00:00
+date: 2017-12-01 12:00:00
 updated:
 comments: true
 tags:
@@ -14,6 +14,8 @@ categories:
 OS：macOS
 
 GitHub：https://github.com/khs1994-docker/minikube
+
+GitHub: https://github.com/kubernetes/minikube
 
 <!--more-->
 
@@ -48,6 +50,34 @@ GOPATH="/Users/khs1994/go"
 
 ```bash
 $ brew install kubectl
+```
+
+或者使用 curl 下载。
+
+## bash
+
+```bash
+# OS X
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+
+# Linux
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+# Windows
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
+```
+
+## fish
+
+```
+# OS X
+curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+
+# Linux
+curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+# Windows
+curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
 ```
 
 >注意，我发现 `Docker for Mac` 居然自带了 `kubectl` 并放置到了 `/usr/local/bin/kubectl`，但实际上并不能用，我们必须设置 `$PATH` 保证 `/usr/local/Cellar/kubernetes-cli/1.8.5/bin` 在 `/usr/local/bin` 之前，了解 Linux `PATH` 的人应该能看懂，这里不再赘述。

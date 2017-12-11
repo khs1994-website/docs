@@ -1,6 +1,6 @@
 ---
 title: Linux 常见问题解决方法
-date: 2017-07-26 12:00:00
+date: 2017-07-07 12:00:00
 updated:
 comments: true
 tags:

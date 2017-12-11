@@ -1,6 +1,6 @@
 ---
 title: Memcached 安装配置
-date: 2017-07-26 17:00:00
+date: 2016-04-13 17:00:00
 updated:
 comments: true
 tags:

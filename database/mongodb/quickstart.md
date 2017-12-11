@@ -1,6 +1,6 @@
 ---
 title: MongoDB 基本操作
-date: 2016-04-01 13:00:00
+date: 2016-04-02 13:00:00
 updated:
 comments: true
 tags:

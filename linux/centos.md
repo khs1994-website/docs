@@ -1,6 +1,6 @@
 ---
-title: CentOS7 最小化安装初始化配置
-date: 2016-08-05 13:00:00
+title: CentOS 7 最小化安装初始化配置
+date: 2016-08-04 13:00:00
 updated:
 comments: true
 tags:

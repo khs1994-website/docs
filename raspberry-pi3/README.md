@@ -1,6 +1,6 @@
 ---
 title: 树莓派 3 常用设置
-date: 2017-04-02 13:00:00
+date: 2017-02-11 13:00:00
 updated:
 comments: true
 tags:

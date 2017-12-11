@@ -1,6 +1,6 @@
 ---
 title: iPXE 模式启动 CoreOS（简单、推荐使用）
-date: 2017-08-04 13:00:00
+date: 2017-08-03 13:00:00
 updated:
 comments: true
 tags:

@@ -1,6 +1,6 @@
 ---
 title: Dockerfile 最佳实践 （转载）
-date: 2017-06-02 12:00:00
+date: 2017-07-02 12:00:00
 updated:
 comments: true
 tags:

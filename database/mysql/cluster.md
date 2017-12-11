@@ -1,6 +1,6 @@
 ---
 title: 使用 Docker 配置 MySQL 主从集群
-date: 2016-04-02 13:00:00
+date: 2016-05-06 13:00:00
 updated:
 comments: true
 tags:

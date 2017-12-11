@@ -1,6 +1,6 @@
 ---
 title: 树莓派 Debian 9 MySQL 实践
-date: 2017-07-23 23:00:00
+date: 2017-07-05 23:00:00
 updated:
 comments: true
 tags:
