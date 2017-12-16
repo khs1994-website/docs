@@ -10,7 +10,7 @@ categories:
 - Tools
 ---
 
-配置文件位于`~/.vimrc`
+配置文件位于 `~/.vimrc`。
 
 <!--more-->
 
@@ -29,4 +29,5 @@ syntax on
 
 ```bash
 $ export LANG=en_US.UTF-8
+$ export LC_ALL=en_US.UTF-8
 ```

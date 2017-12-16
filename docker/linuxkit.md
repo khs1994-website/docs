@@ -38,6 +38,12 @@ $ brew install --HEAD rtf
 $ brew install --HEAD manifest-tool
 ```
 
+工具升级
+
+```bash
+$ brew reinstall --HEAD linuxkit
+```
+
 这一步会安装好 `linuxkit` 命令。
 
 # 运行官方示例
