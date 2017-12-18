@@ -57,6 +57,16 @@ deploy:
    repo: git@github.com:khs1994/khs1994.github.io.git
 ```
 
+你可能会配置多个仓库
+
+```yaml
+deploy:
+  type: git
+  repo:
+      aliyun: git@code.aliyun.com:khs1994/www.khs1994.git,master
+      github: git@github.com:khs1994/khs1994.github.io.git,master
+```
+
 # 日常操作
 
 ## 生成静态文件

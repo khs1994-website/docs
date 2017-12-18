@@ -1,6 +1,6 @@
 ---
 title: 使用 Docker 配置 MySQL 主从集群
-date: 2016-04-02 13:00:00
+date: 2016-05-06 13:00:00
 updated:
 comments: true
 tags:
@@ -104,7 +104,7 @@ GRANT REPLICATION SLAVE ON *.* to 'backup'@'%' identified by 'mytest';
 SHOW master status;
 ```
 
-记住File、Position的值。我查出来的是 `mysql-bin.000004`、`312`
+记住 `File`、`Position` 的值。我查出来的是 `mysql-bin.000004`、`312`
 
 ## 从服务器
 

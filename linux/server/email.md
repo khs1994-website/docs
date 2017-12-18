@@ -11,7 +11,7 @@ categories:
 - Server
 ---
 
-电子邮件是—种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。本次实验采用`二级域名邮箱:4s.khs1994.com`
+电子邮件是—种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。本次实验采用 `二级域名邮箱:4s.khs1994.com`
 
 <!--more-->
 
@@ -20,11 +20,15 @@ categories:
 # hostname
 
 # Postfix (SMTP) 发送
+
 ## 安装
+
 ## 配置
+
 ### main.cf
 
-$ vi /etc/postfix/main.cf
+编辑 `/etc/postfix/main.cf` 文件
+
 ### 创建账号
 
 ### 启动服务
@@ -65,5 +69,6 @@ protocol imap {
 
 # 相关链接
 
-* http://wiki.dovecot.org/SSL/DovecotConfiguration  
+* http://wiki.dovecot.org/SSL/DovecotConfiguration
+
 * http://blog.csdn.net/stwstw0123/article/details/47130293

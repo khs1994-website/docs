@@ -23,9 +23,9 @@ $ yum install bind bind-chroot
 
 # 修改主配置文件
 
-```bash
-$ vi /etc/named.conf
+编辑 `/etc/named.conf` 文件
 
+```bash
 ...
 listen-on port 53 { any; };
 ...
@@ -34,9 +34,9 @@ allow-query     { any; };
 
 # 增加域名
 
-```bash
-$ vi /etc/named.rfc1912.zones
+编辑 `/etc/named.rfc1912.zones` 文件
 
+```bash
 #增加以下内容
 
 zone "tkhs1994.com" In {
@@ -48,12 +48,11 @@ zone "tkhs1994.com" In {
 
 ## 配置文件
 
-```bash
-$ cd /var/named/
-$ vi khs1994.com.zone
+编辑 `/var/named/tkhs1994.com.zone` 文件。
 
+```bash
 $TTL 7200
-@ IN SOA @ khs1994.khs1994.com. (222 1H 15M 1W 1D)
+@ IN SOA @ khs1994.tkhs1994.com. (222 1H 15M 1W 1D)
 @ IN NS dns1.tkhs1994.com.
 dns1 IN A 192.168.56.200
 * IN A 127.0.0.1

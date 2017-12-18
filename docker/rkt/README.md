@@ -1,6 +1,6 @@
 ---
 title: CoreOS 容器 Rkt 简单介绍
-date: 2017-10-23 14:00:00
+date: 2017-10-24 14:00:00
 updated:
 comments: true
 tags:

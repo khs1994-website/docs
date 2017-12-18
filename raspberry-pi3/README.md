@@ -1,6 +1,6 @@
 ---
 title: 树莓派 3 常用设置
-date: 2017-04-02 13:00:00
+date: 2017-02-11 13:00:00
 updated:
 comments: true
 tags:
@@ -17,13 +17,13 @@ categories:
 
 TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
 
-官方的 Raspbian 系统默认的登录帐号：`pi` 密码：`raspberry`
+官方的 `Raspbian` 系统默认的登录帐号：`pi` 密码：`raspberry`
 
 # 常用配置
 
 ## 换源
 
-`/etc/apt/source.list`
+编辑 `/etc/apt/source.list` 文件
 
 用 `#` 注释存在的内容
 
@@ -42,7 +42,7 @@ $ dpkg-reconfigure tzdata
 
 ## DNS
 
-`/etc/resolvconf.conf`
+编辑 `/etc/resolvconf.conf` 文件
 
 ```bash
 # configure your subscribers configuration files below.
@@ -53,7 +53,7 @@ name_servers=127.0.0.1
 
 注意：修改 `/etc/network/interfaces` 的方法已经过时
 
-`/etc/dhcpcd.conf`
+编辑 `/etc/dhcpcd.conf` 文件
 
 ```bash
 interface eth0
@@ -106,7 +106,7 @@ $ sudo raspi-config
 
 ## WiFi
 
-`/etc/wpa_supplicant/wpa_supplicant.conf`
+编辑 `/etc/wpa_supplicant/wpa_supplicant.conf` 文件
 
 ```bash
 country=GB
@@ -128,4 +128,5 @@ network={
 # 相关链接
 
 * http://www.cnblogs.com/taojintianxia/p/6026225.html
+
 * http://www.landzo.cn/thread-12826-1-1.html

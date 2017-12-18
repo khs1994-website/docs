@@ -1,6 +1,6 @@
 ---
 title: Fish Shell 安装配置
-date: 2017-07-24 13:00:00
+date: 2017-07-06 13:00:00
 updated:
 comments: true
 tags:

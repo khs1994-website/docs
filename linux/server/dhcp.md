@@ -11,15 +11,18 @@ categories:
 - Server
 ---
 
-DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）是一个局域网的网络协议，使用UDP协议工作，给内部网络或网络服务供应商自动分配IP地址。
+DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）是一个局域网的网络协议，使用 `UDP` 协议工作，给内部网络或网络服务供应商自动分配 `IP` 地址。
 
 <!--more-->
 
 ```bash
 $ yum install dhcp
 $ cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
-$ vi /etc/dhcp/dhcpd.conf
+```
 
+编辑 `/etc/dhcp/dhcpd.conf` 文件
+
+```bash
 subnet 192.168.3.0 netmask 255.255.255.0 {
 range 192.168.3.10 192.168.3.254;
 option routers 192.168.3.1;
@@ -30,7 +33,11 @@ max-lease-time 7200;
 next-server 192.168.3.10;
 filename "pxelinux.0";
 }
+```
 
+重启服务
+
+```bash
 $ systemctl start dhcpd.service
 ```
 

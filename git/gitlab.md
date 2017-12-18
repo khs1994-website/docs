@@ -37,8 +37,9 @@ services:
 
 在 `./config/nginx/` `./config/gitlab/` 中分别新建 ssl 文件夹，并放入证书文件。
 
-* git.xc725.wang.crt
-* git.xc725.wang.key
+* git.domain.com.crt
+
+* git.domain.com.key
 
 # nginx
 
@@ -47,15 +48,15 @@ services:
 ```nginx
 server {
   listen 80;
-  server_name git.xc725.wang;
-  return 301 https://git.xc725.wang;
+  server_name git.domain.com;
+  return 301 https://git.domain.com;
 }
 
 server {
   listen       443 ssl http2;
-  server_name  git.xc725.wang;
-  ssl_certificate conf.d/ssl/git.xc725.wang.crt;
-  ssl_certificate_key conf.d/ssl/git.xc725.wang.key;
+  server_name  git.domain.com;
+  ssl_certificate conf.d/ssl/git.domain.com.crt;
+  ssl_certificate_key conf.d/ssl/git.domain.com.key;
   location / {
       proxy_set_header Host $host;
       proxy_set_header X-Real-IP $remote_addr;
@@ -77,7 +78,7 @@ $ docker-compose up -d
 
 ```ruby
 # note the 'https' below
-external_url "https://gitlab.example.com"
+external_url "https://git.domain.com"
 ```
 
 使用以下命令重新启动

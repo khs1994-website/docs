@@ -10,13 +10,15 @@ categories:
 - Git
 ---
 
+GitBook 示例：https://github.com/yeasy/docker_practice
+
+<!--more-->
+
 安装好 [Node.js](/nodejs/README.html)，运行以下命令安装 gitbook
 
 ```bash
 $ npm install -g gitbook-cli
 ```
-
-<!--more-->
 
 ## 初始化
 
@@ -24,21 +26,19 @@ $ npm install -g gitbook-cli
 $ gitbook init
 ```
 
-生成 `SUMMARY.md` `README.md`
+生成 `SUMMARY.md` `README.md` 文件
 
-## 写目录
+## 编写目录
 
-```bash
-$ vi SUMMARY.md
-$ gitbook init
+编写 `SUMMARY.md` 文件，之后执行 `gitbook init` 生成空白的 `*.md` 文件。
 
-# 生成空白 *.md 文件
-```
+也可以先写内容（`*.md` 文件），再增加到目录到 `SUMMARY.md` 文件中。
 
 ## 插件
 
+编辑 `book.json` 文件，之后执行以下命令，安装插件。
+
 ```bash
-$ vi book.json
 $ gitbook install
 ```
 

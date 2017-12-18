@@ -1,7 +1,6 @@
 ---
 title: 树莓派 3 内核交叉编译详解
-date: 2017-04-01 13:00:00
-updated: 2017-10-22 13:00:00
+date: 2017-02-10 13:00:00
 comments: true
 tags:
 - Raspberry Pi3

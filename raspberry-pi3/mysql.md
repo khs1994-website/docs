@@ -1,6 +1,6 @@
 ---
 title: 树莓派 Debian 9 MySQL 实践
-date: 2017-07-23 23:00:00
+date: 2017-07-05 23:00:00
 updated:
 comments: true
 tags:
@@ -72,7 +72,7 @@ SELECT host,user,password,Grant_priv,Super_priv FROM mysql.user;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.199.%' IDENTIFIED BY 'your-password' WITH GRANT OPTION;
 ```
 
-我们已经创建root用户，并且让这个用户在192.168.199.0/24 地址内能连接到服务器。
+我们已经创建 root 用户，并且让这个用户在192.168.199.0/24 地址内能连接到服务器。
 
 重启 `mysql.service` 服务，进行测试。
 

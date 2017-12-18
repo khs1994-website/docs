@@ -1,6 +1,6 @@
 ---
 title: Memcached 使用详解
-date: 2017-07-27 17:00:00
+date: 2016-04-12 17:00:00
 updated:
 comments: true
 tags:

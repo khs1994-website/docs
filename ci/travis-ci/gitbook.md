@@ -164,7 +164,7 @@ services:
     volumes:
       - ./:/srv/gitbook-src
     command: server
-# command: build
+    # command: build
 ```
 
 # 构键 Docker 镜像并推送

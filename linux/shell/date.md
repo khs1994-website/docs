@@ -1,6 +1,6 @@
 ---
 title: Shell date 命令详解
-date: 2016-06-03 13:00:00
+date: 2016-06-04 13:00:00
 updated:
 comments: true
 tags:

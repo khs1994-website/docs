@@ -48,7 +48,7 @@ $ wget "url" --no-check-certificate
 
 $ tar -xzvf default.tar.gz
 
-$ cd setuptools**** //依据你的解压目录名而定
+$ cd setuptools* # 依据你的解压目录名而定
 
 $ python setup.py install
 
@@ -65,41 +65,51 @@ $ python setup.py install
 
 # pip 使用
 
+>注意，现在可能更常用的是 `Python3`，为了与 `Python2` 区分，你可能需要将以下命令中的 `pip` 换为 `pip3`。
+
+## 搜索包
+
+```bash
+$ pip search SomePackage
+```
+
 ## 安装包
 
 ```bash
 $ pip install SomePackage
 ```
 
-## pip查看已安装的包
+## 查看包详情
 
 ```bash
-$ pip show --files SomePackage
+$ pip show SomePackage
 ```
 
-## pip检查哪些包需要更新
+## 查看已安装的包
+
+```bash
+$ pip list
+```
+
+## 检查哪些包有可用的更新
 
  ```bash
 $ pip list --outdated
 ```
 
-## pip升级包
+## 升级包
 
 ```bash
 $ pip install --upgrade SomePackage
 ```
 
-## pip卸载包
+## 卸载包
 
 ```bash
 $ pip uninstall SomePackage
 ```
 
-## 查看待更新包
-
-```bash
-$ pip list --outdate
-```
+更多的用法请通过 `pip --help` 查看。
 
 # 相关链接
 
