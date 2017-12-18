@@ -8,3 +8,9 @@ tags:
 categories:
 - Linux
 ---
+
+`yum` 是 `CentOS` 上的包管理工具。
+
+<!--more-->
+
+# `install`

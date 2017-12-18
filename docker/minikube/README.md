@@ -31,9 +31,78 @@ GitHub: https://github.com/kubernetes/minikube
 
 我已经把变更过的文件上传到了 [GitHub](https://github.com/khs1994-docker/minikube)，本文以这个 git 仓库为源码，重新编译 `minikube`
 
-# 重新编译安装 `minikube`
+# 安装 `kubectl`
 
-## 安装 `Go`
+使用 `minikube` 必须先安装好 `k8s` 命令行工具 `kubectl`。
+
+## macOS
+
+`Docker for Mac` 17.12+ 启用 `k8s` 之后会在 `/usr/local/bin` 放入 `kubectl`，所以你无需安装。
+
+`Docker for Mac` 自带的 `k8s` 会与 `minikube` 冲突，请以下命令进行切换。
+
+```bash
+$ kubectl config get-contexts
+
+CURRENT   NAME                 CLUSTER                      AUTHINFO             NAMESPACE
+          docker-for-desktop   docker-for-desktop-cluster   docker-for-desktop
+*         minikube             minikube                     minikube
+
+# 切换到 docker 自带的 k8s
+
+$ kubectl config use-context docker-for-desktop
+
+
+# 切换到 minikube
+
+$ kubectl config use-context minikube
+```
+
+如果你没启用 `k8s` 那么请使用下面的方法。
+
+```bash
+$ brew install kubectl
+```
+
+或者使用 `curl` 下载。
+
+## curl
+
+### bash
+
+```bash
+# OS X
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+
+# Linux
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+# Windows
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
+```
+
+### fish
+
+```
+# OS X
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+
+# Linux
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+# Windows
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
+```
+
+# 重新安装 `minikube` 国内版
+
+你可以选择编译安装或者下载安装。
+
+## 编译安装
+
+>注意：编译安装适用于对 `Go` 有一定了解的人。
+
+### 安装 `Go`
 
 ```bash
 $ brew install go
@@ -46,43 +115,7 @@ GOROOT="/usr/local/opt/go/libexec"
 GOPATH="/Users/khs1994/go"
 ```
 
-## 安装 `kubectl`
-
-```bash
-$ brew install kubectl
-```
-
-或者使用 curl 下载。
-
-## bash
-
-```bash
-# OS X
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
-
-# Linux
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-
-# Windows
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
-```
-
-## fish
-
-```
-# OS X
-curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
-
-# Linux
-curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-
-# Windows
-curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
-```
-
->注意，我发现 `Docker for Mac` 居然自带了 `kubectl` 并放置到了 `/usr/local/bin/kubectl`，但实际上并不能用，我们必须设置 `$PATH` 保证 `/usr/local/Cellar/kubernetes-cli/1.8.5/bin` 在 `/usr/local/bin` 之前，了解 Linux `PATH` 的人应该能看懂，这里不再赘述。
-
-## 编译安装
+### 编译安装
 
 ```bash
 $ git clone -b 0.24.1 --depth=1 git@github.com:khs1994-docker/minikube.git $GOPATH/src/k8s.io/minikube
@@ -94,13 +127,13 @@ $ make
 $ sudo cp out/minikube /usr/local/bin
 ```
 
-# 下载安装
+## 直接下载安装
 
 如果你不想编译安装，你也可以选择下载我编译好的二进制文件。
 
 https://github.com/khs1994-docker/minikube/releases
 
-## bash
+### bash
 
 ```bash
 $ curl -LO https://github.com/khs1994-docker/minikube/releases/download/v0.24.1/minikube-`uname -s`-`uname -m`
@@ -110,7 +143,7 @@ $ chmod +x minikube-`uname -s`-`uname -m`
 $ sudo cp minikube-`uname -s`-`uname -m` /usr/local/bin/minikube
 ```
 
-## fish
+### fish
 
 ```
 $ curl -LO https://github.com/khs1994-docker/minikube/releases/download/v0.24.1/minikube-(uname -s)-(uname -m)
@@ -157,7 +190,13 @@ $ minikube start --vm-driver=hyperkit --alsologtostderr --v 10
 
 # 错误排查
 
-若启动时出现错误，请删除 `~/.minikube`，重新执行启动命令。
+若启动时出现错误，请执行以下命令删除本地集群，再重新执行启动命令。
+
+```bash
+$ minikube delete
+```
+
+如果仍然出现错误请删除 `~/.minikube`，再重新执行启动命令。
 
 # 使用方法
 

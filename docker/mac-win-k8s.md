@@ -143,7 +143,7 @@ $ kubectl get services
 
 ## 指定命名空间
 
-默认的命名空间为 `default`。
+默认的命名空间为 `default`，使用以下命令自定义命名空间。
 
 ```bash
 $ docker stack deploy --namespace my-app --compose-file docker-compose.yml mystack
