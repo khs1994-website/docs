@@ -5,9 +5,10 @@ updated:
 comments: true
 tags:
 - Docker
-- LinuxKit
+- k8s
 categories:
 - Docker
+- k8s
 ---
 
 Docker CE v17.12 正式支持 k8s。
