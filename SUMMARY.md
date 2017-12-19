@@ -77,6 +77,7 @@
     * [Docker 常见问题](docker/issues.md)
     * [minikube](docker/minikube/README.md)
     * [Kubernetes](docker/k8s/README.md)
+        * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
         * [Docker for Mac k8s](docker/mac-win-k8s.md)
 * [Linux](linux/README.md)
     * [Server](linux/server/readme.md)
