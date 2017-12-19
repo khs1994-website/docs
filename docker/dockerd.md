@@ -109,7 +109,7 @@ $ sudo systemctl start docker
 
 >注意：这种方法必须先启动 docker-tcp.socket，再启动 Docker，一定要注意启动顺序！
 
-Systemd socket 详情请查看：http://www.jinbuguo.com/systemd/systemd.socket.html
+systemd socket 详情请查看：http://www.jinbuguo.com/systemd/systemd.socket.html
 
 ## 在客户端测试连接
 

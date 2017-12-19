@@ -5,7 +5,7 @@ updated:
 comments: true
 tags:
 - Linux
-- Systemd
+- systemd
 categories:
 - Linux
 ---
@@ -170,7 +170,7 @@ OnBootSec=1h
 OnUnitActiveSec=1w
 ```
 
-OnBootSec 选项告诉 systemd 在系统启动一小时后启动这个单元。第二个选项的意思是：自那以后每周启动这个单元一次。
+OnBootSec 选项告诉 `systemd` 在系统启动一小时后启动这个单元。第二个选项的意思是：自那以后每周启动这个单元一次。
 
 # 相关链接
 
@@ -184,6 +184,6 @@ OnBootSec 选项告诉 systemd 在系统启动一小时后启动这个单元。�
 
 * http://www.cnblogs.com/piscesLoveCc/p/5867900.html
 
-* [Arch wiki Systemd][Arch wiki Systemd]
+* [Arch wiki systemd][Arch wiki systemd]
 
-[Arch wiki Systemd]:https://wiki.archlinux.org/index.php/Systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+[Arch wiki systemd]:https://wiki.archlinux.org/index.php/systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)

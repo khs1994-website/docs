@@ -91,7 +91,7 @@
     * [OpenSSL](linux/openssl/file-enc.md)  
     * [SSH](linux/ssh/README.md)
         * [SSH 隧道与端口转发内网穿透](linux/ssh/proxy.md)
-    * [Systemd 详解](linux/systemd.md)
+    * [systemd 详解](linux/systemd.md)
     * [包管理工具](linux/package_management/README.md)
         * [Alpine apk](linux/package_management/apk.md)
         * [RedHat yum](linux/package_management/yum.md)
