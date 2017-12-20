@@ -24,7 +24,7 @@ GitHub：https://github.com/linuxkit/linuxkit
 
 # 准备
 
-此处以 macOS 下安装为例，其他系统请在 go 环境下编译命令。
+此处以 `macOS` 下安装为例，其他系统请在 `Go` 环境下编译命令。
 
 GitHub：https://github.com/linuxkit/homebrew-linuxkit
 
@@ -38,13 +38,13 @@ $ brew install --HEAD rtf
 $ brew install --HEAD manifest-tool
 ```
 
+这一步会安装好 `linuxkit` 命令。
+
 工具升级
 
 ```bash
 $ brew reinstall --HEAD linuxkit
 ```
-
-这一步会安装好 `linuxkit` 命令。
 
 # 运行官方示例
 
@@ -79,11 +79,11 @@ $ cd linuxkit
 $ linuxkit build -format iso-efi linuxkit.yml
 ```
 
-`-format` 参数指定输出格式，使用 `linuxkit build --help`查看更多信息。
+`-format` 参数指定输出格式，使用 `linuxkit build --help` 查看更多信息。
 
-这样就生成了一个名为 `linuxkit-efi.iso` 的 ISO 文件，使用 `VirtualBox` 挂载 ISO，勾选 `启用EFI` 并设置好网络后启动。
+这样就生成了一个名为 `linuxkit-efi.iso` 的 ISO 文件。
 
-浏览器访问虚拟机的 IP，即可看到 Nginx 默认页面。
+使用 `VirtualBox` 挂载 ISO，勾选 `启用EFI` 并设置好网络后启动。浏览器访问虚拟机的 IP，即可看到 Nginx 默认页面。
 
 或者使用命令运行。
 
@@ -99,7 +99,7 @@ $ linuxkit run vbox --uefi linuxkit-efi.iso
 
 官方文档：https://github.com/linuxkit/linuxkit/blob/master/docs/platform-hyperkit.md
 
-`HyperKit` 是 macOS 上运行的轻量级虚拟化工具包。构建、运行命令如下
+`HyperKit` 是 `macOS` 上运行的轻量级虚拟化工具包。构建、运行命令如下
 
 ```bash
 $ linuxkit build linuxkit.yml
@@ -107,21 +107,25 @@ $ linuxkit build linuxkit.yml
 $ linuxkit run -publish 8080:80/tcp linuxkit
 ```
 
-这里将 LinuxKit 中的 `80` 端口映射到了 macOS `8080` 端口，现在打开 `127.0.0.1:8080`，即可看到 Nginx 默认页面。
+这里将 `LinuxKit` 中的 `80` 端口映射到了 `macOS` 的 `8080` 端口，现在打开 `127.0.0.1:8080`，即可看到 Nginx 默认页面。
 
-还有一种方法是使用 Docker for Mac 启动一个容器，在容器中可以连接到 Linuxkit 启动的系统。
+还有一种方法是使用 `Docker for Mac` 启动一个容器，在容器中可以连接到 `LinuxKit` 启动的系统。
 
 连接到容器的方法：https://github.com/linuxkit/linuxkit/blob/master/docs/platform-hyperkit.md#networking
 
 执行 `linuxkit run hyperkit --help` 查看更多配置参数。
 
+>注意：使用该驱动，LinuxKit 中的服务会继承 macOS 中 `/etc/hosts` 的配置。如果想要自定义 `hosts` 可以挂载配置文件。
+
 ## macOS xhyve 虚拟引擎
 
-官方已经删去对其的支持，具体查看 GitHub。我实际测试启动不起来，这里不再赘述。
+你查看的旧教程可能以 `xhyve` 为例讲解 `Linuxkit`。
+
+不过目前官方已经删去对其的支持。我实际测试启动不起来，这里不再赘述。
 
 # 关闭
 
-执行 `halt` 关闭 Linuxkit 启动的系统。
+执行 `halt` 关闭 `LinuxKit` 启动的系统。
 
 # 自定义
 
