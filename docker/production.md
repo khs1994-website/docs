@@ -30,7 +30,7 @@ $ sudo docked
 https://docs.docker.com/engine/admin/start-containers-automatically/
 
 ```bash
-$ docker run --restat no | on-failure | unless-stopped | always
+$ docker run --restart no | on-failure | unless-stopped | always
 ```
 
 # 限制容器资源
