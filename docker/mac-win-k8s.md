@@ -1,6 +1,6 @@
 ---
 title: Docker for Mac 支持 kubernetes
-date: 2017-12-16 13:00:00
+date: 2017-12-20 13:00:00
 updated:
 comments: true
 tags:
@@ -159,3 +159,5 @@ $ DOCKER_ORCHESTRATOR=swarm docker node ls
 
 $ DOCKER_ORCHESTRATOR=swarm docker stack deploy --compose-file /path/to/docker-compose.yml mystack
 ```
+
+我的博客即将搬运同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan
