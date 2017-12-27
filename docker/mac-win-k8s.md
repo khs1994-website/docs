@@ -1,6 +1,6 @@
 ---
 title: Docker for Mac 支持 kubernetes
-date: 2017-12-16 13:00:00
+date: 2017-12-20 13:00:00
 updated:
 comments: true
 tags:
@@ -8,7 +8,6 @@ tags:
 - k8s
 categories:
 - Docker
-- k8s
 ---
 
 Docker CE v17.12 正式支持 k8s。
@@ -27,7 +26,7 @@ Docker CE v17.12 正式支持 k8s。
 
 # 加入计划
 
-首先使用 Docker 账号在 https://beta.docker.com 注册预览计划，之后在菜单登录该 Docker 账号。
+首先使用 Docker 账号在 https://beta.docker.com 注册预览计划，之后在 Docker 菜单登录该 Docker 账号。
 
 # kubectl
 
@@ -41,7 +40,7 @@ $ brew remove kubernetes-cli
 
 官方文档：https://docs.docker.com/docker-for-mac/#kubernetes
 
-在 Docker 设置中启用 k8s。
+在 Docker 设置中启用 k8s（具体图解请查看上方给出的官方文档）。
 
 >注意，需要从 `gcr.io` 拉取以下镜像，由于网络问题可能会失败。
 
@@ -95,7 +94,7 @@ docker-for-desktop   Ready     master    8h        v1.8.2
 
 官方文档：https://docs.docker.com/docker-for-mac/kubernetes/
 
-新建以下 `docker-compose.yml` compose 文件。
+新建 `docker-compose.yml` 文件。
 
 ```yaml
 version: '3.3'
@@ -159,3 +158,5 @@ $ DOCKER_ORCHESTRATOR=swarm docker node ls
 
 $ DOCKER_ORCHESTRATOR=swarm docker stack deploy --compose-file /path/to/docker-compose.yml mystack
 ```
+
+我的博客即将搬运同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan

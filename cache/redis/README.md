@@ -39,7 +39,7 @@ $ redis-cli shutdown
 
 ```
 
-# Systemd
+# systemd
 
 `/lib/systemd/system/redis.service`
 

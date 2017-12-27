@@ -66,6 +66,8 @@ $ brew install kubectl
 
 或者使用 `curl` 下载。
 
+>注意，由于网络问题，从官网下载极有可能下载失败。你可以使用国内镜像 https://github.com/khs1994-docker/kubectl-cn-mirror
+
 ## curl
 
 ### bash
