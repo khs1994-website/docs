@@ -14,7 +14,13 @@ categories:
 
 <!--more-->
 
+# 修订记录
+
+* Docker CE v17.12 + 开始支持 arm64 Debian
+
 配置方法和 Linux 一样，由于和 `x86_64` 架构不同，不同之处仅是安装包、拉取 Docker 镜像的差别，配置加速器等操作和 Linux 相同，更多内容请查看本博客 [Docker](https://www.khs1994.com/categories/Docker/) 分类下的文章。
+
+安装之后需要做一些配置请查看这里：https://www.khs1994.com/docker/README.html
 
 # arm32v7
 
@@ -33,6 +39,10 @@ deb [arch=armhf] http://mirrors.aliyun.com/docker-ce/linux/raspbian stretch test
 ```
 
 ```bash
+$ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+
+$ sudo apt update
+
 $ sudo apt install docker-ce
 ```
 
@@ -40,35 +50,39 @@ $ sudo apt install docker-ce
 
 # arm64v8
 
-暂时没有 64 位的官方系统，本人使用的是 [pi64](https://www.khs1994.com/raspberry-pi3/arm64v8.html)
+暂时没有 arm64 位的官方系统，本人使用的是 [pi64](https://www.khs1994.com/raspberry-pi3/arm64v8.html)
 
-安装 Docker [Ubuntu arm64](https://download.docker.com/linux/ubuntu/dists/xenial/pool/test/arm64/) 版本。
-
-国内镜像：http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/test/arm64/
-
-下载该包
+内核信息
 
 ```bash
-$ wget http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/test/arm64/docker-ce_17.10.0~ce~rc1-0~ubuntu_arm64.deb
+Linux raspberrypi 4.14.1-pi64+ #1 SMP PREEMPT Thu Nov 23 13:22:01 CST 2017 aarch64 GNU/Linux
 ```
 
-手动安装，注意需要安装一些依赖。
+直接添加如下源即可安装 Docker
 
 ```bash
-$ sudo dpkg -i docker*
+deb [arch=arm64] http://mirrors.aliyun.com/docker-ce/linux/debian stretch test
+```
 
-# 安装依赖软件
+```bash
+$ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
 
-$ sudo apt install -f -y
+$ sudo apt update
 
-$ sudo usermod -aG docker $USER
+$ sudo apt install docker-ce
 ```
 
 请 `pull` [arm64v8](https://hub.docker.com/u/arm64v8/) 镜像
 
+# Docker Compose
+
 使用 Docker Compose 可能会报错，使用以下命令设置字符集。
 
 ```bash
+# 安装方法，已经安装的请忽略
+
+$ sudo pip3 install docker-compose
+
 $ sudo localectl set-locale LANG=en_US.UTF-8
 $ sudo localectl set-keymap LANG=en_US.UTF-8
 $ sudo localectl set-x11-keymap LANG=en_US.UTF-8
@@ -90,9 +104,11 @@ GitHub：https://github.com/rancher/os
 $ ssh rancher@ip
 
 # 密码为 rancher
+```
 
-$ uname -a
+内核信息
 
+```bash
 Linux rancher.lan 4.9.34-bee42-v8 #1 SMP PREEMPT Mon Jun 26 01:51:13 UTC 2017 aarch64 GNU/Linux
 ```
 

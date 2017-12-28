@@ -11,7 +11,7 @@ categories:
 - MySQL
 ---
 
-使用 Docker Compose 启动一主一从的 MySQL 集群。
+使用 `Docker Compose` 启动一主一从的 MySQL 集群。
 
 GitHub：https://github.com/khs1994-docker/mysql-cluster
 
@@ -31,49 +31,40 @@ server-id = 1
 
 ```yaml
 [mysqld]
-pid-file	= /var/run/mysqld/mysqld.pid
-socket		= /var/run/mysqld/mysqld.sock
-datadir		= /var/lib/mysql
-#log-error	= /var/log/mysql/error.log
-# By default we only accept connections from localhost
-#bind-address	= 127.0.0.1
-# Disabling symbolic-links is recommended to prevent assorted security risks
-symbolic-links=0
-
-
 log-bin = mysql-bin
 server-id = 2
 ```
 
-## 启动Docker MySQL
+## 启动 Docker MySQL
 
-编写 `docker-compose.yml` 文件(最新版文件请查看 GitHub)
+编写 `docker-compose.yml` 文件
 
 ```yaml
-version: '3.3'
+version: '3.5'
 services:
 
   mysql_1:
-    image: mysql:5.7.19
+    image: mysql:8.0.3
     env_file: .env
     ports:
-      - 3306:3306
+      - 3307:3306
     volumes:
       - mysql-1-data:/var/lib/mysql
-      - ./etc/mysql/mysql.conf.d:/etc/mysql/mysql.conf.d
+      - ./etc/mysql/conf.d:/etc/mysql/conf.d:ro
 
   mysql_2:
-    image: mysql:5.7.19
+    image: mysql:8.0.3
     env_file: .env
     ports:
-      - "3307:3306"
+      - "3308:3306"
     volumes:
       - mysql-2-data:/var/lib/mysql
-      - ./etc/mysql/mysql2.conf.d/:/etc/mysql/mysql.conf.d
+      - ./etc/mysql2/conf.d/:/etc/mysql/conf.d:ro
 
 volumes:
   mysql-1-data:
-  mysql-2-data:      
+  mysql-2-data:
+
 ```
 
 新建 `.env` 文件，写入以下内容
@@ -95,8 +86,9 @@ $ docker-compose up -d
 登录主服务器
 
 ```bash
-$ docker-compose exec mysql_1 bash
-$ mysql -uroot -p
+$ docker-compose exec mysql_1 mysql -uroot -p
+
+# 输入密码
 ```
 
 ```sql
@@ -108,17 +100,18 @@ SHOW master status;
 
 ## 从服务器
 
-登录从服务器
+新打开一个终端，登录从服务器
 
 ```bash
-$ docker-compose exec mysql_2 bash
-$ mysql -uroot -p
+$ docker-compose exec mysql_2 mysql -uroot -p
+
+# 输入密码
 ```
 
 ```sql
 change master to master_host='mysql_1',master_user='backup',
-     master_password='mytest',master_log_file='mysql-bin.000001',
-     master_log_pos=154,master_port=3306;
+     master_password='mytest',master_log_file='mysql-bin.000004',
+     master_log_pos=312,master_port=3306;
 
 start slave;
 
@@ -133,7 +126,7 @@ show slave status;
 create database test;
 ```
 
-登录从服务器查看数据库，发现已经存在了 test（与主服务器同步）
+在从服务器查看数据库，发现已经存在了 test（与主服务器同步）
 
 ```sql
 show databases;
@@ -141,5 +134,6 @@ show databases;
 
 # More Information
 
-* http://blog.csdn.net/qq362228416/article/details/48569293  
+* http://blog.csdn.net/qq362228416/article/details/48569293
+
 * http://blog.csdn.net/he90227/article/details/54140422
