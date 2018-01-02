@@ -13,6 +13,10 @@ categories:
 
 <!--more-->
 
+# Docker for Windows 设置
+
+设置中打开 `2375` 端口，这里不再赘述。
+
 # 下载文件
 
 国内地址
