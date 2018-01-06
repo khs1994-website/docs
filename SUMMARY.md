@@ -129,6 +129,7 @@
         * [Atom](os/tools/atom.md)
         * [aria2 下载工具](os/tools/aria2.md)
         * [sqlectron SQL 图形客户端](os/tools/sqlectron.md)
+        * [Postman](os/tools/postman.md)
     * [Fedora](os/fedora.md)
     * [Ubuntu](os/ubuntu.md)
     * [终端录制工具](os/terminal-rec.md)

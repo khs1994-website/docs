@@ -19,6 +19,8 @@ GitHub：https://github.com/khs1994-docker/mysql-cluster
 
 # 配置文件内容
 
+可以通过命令配置，这里以配置文件举例。
+
 ## 主服务器
 
 ```yaml
@@ -31,41 +33,12 @@ server-id = 1
 
 ```yaml
 [mysqld]
-log-bin = mysql-bin
-server-id = 2
+server-id = 10
 ```
 
 ## 启动 Docker MySQL
 
-编写 `docker-compose.yml` 文件
-
-```yaml
-version: '3.5'
-services:
-
-  mysql_1:
-    image: mysql:8.0.3
-    env_file: .env
-    ports:
-      - 3307:3306
-    volumes:
-      - mysql-1-data:/var/lib/mysql
-      - ./etc/mysql/conf.d:/etc/mysql/conf.d:ro
-
-  mysql_2:
-    image: mysql:8.0.3
-    env_file: .env
-    ports:
-      - "3308:3306"
-    volumes:
-      - mysql-2-data:/var/lib/mysql
-      - ./etc/mysql2/conf.d/:/etc/mysql/conf.d:ro
-
-volumes:
-  mysql-1-data:
-  mysql-2-data:
-
-```
+编写 `docker-compose.yml` 文件，文件内容请查看 GitHub。
 
 新建 `.env` 文件，写入以下内容
 
@@ -81,14 +54,14 @@ $ docker-compose up -d
 
 # 关联节点
 
+下面了介绍手动执行的步骤，GitHub 中将这一步写入了 shell 脚本文件。
+
 ## 主服务器
 
 登录主服务器
 
 ```bash
-$ docker-compose exec mysql_1 mysql -uroot -p
-
-# 输入密码
+$ docker-compose exec mysql_master mysql -uroot -pmytest
 ```
 
 ```sql
@@ -103,9 +76,7 @@ SHOW master status;
 新打开一个终端，登录从服务器
 
 ```bash
-$ docker-compose exec mysql_2 mysql -uroot -p
-
-# 输入密码
+$ docker-compose exec mysql_node mysql -uroot -pmytest
 ```
 
 ```sql
