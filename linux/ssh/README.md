@@ -30,7 +30,7 @@ $ ssh-copy-id user@ip
 
 # Ubuntu
 
-SSH 分客户端 `openssh-client`和服务端 `openssh-server` 如果你只是想登陆别的机器只需要安装客户端
+SSH 分客户端 `openssh-client` 和服务端 `openssh-server` 如果你只是想登陆别的机器只需要安装客户端
 
 ```bash
 $ sudo apt install openssh-client
@@ -42,13 +42,13 @@ $ sudo apt install openssh-client
 $ sudo apt install openssh-server
 ```
 
-然后确认 sshserver 是否启动了：
+然后确认 SSH 服务端是否启动了：
 
 ```bash
 $ ps -e |grep ssh
 ```
 
-如果看到 sshd 那说明 ssh-server 已经启动了,如果没有则可以这样启动：
+如果看到 sshd 那说明 SSH 服务端已经启动了,如果没有则可以这样启动：
 
 ```bash
 $ sudo /usr/sbin/sshd
@@ -89,4 +89,5 @@ Host *
 # 相关链接
 
 * http://www.cnblogs.com/kqdongnanf/p/6517836.html
+
 * http://blog.csdn.net/iloveyin/article/details/11808377

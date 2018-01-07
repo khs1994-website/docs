@@ -9,13 +9,13 @@ categories:
 - Raspberry Pi3
 ---
 
-本文简要介绍了 树莓派3 的常用设置。
+本文简要介绍了 `树莓派 3` 的常用设置。
 
 <!--more-->
 
 # SSH 登录
 
-TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
+TF 卡 `boot` 新建一个名为 `ssh` 的空白文件。
 
 官方的 `Raspbian` 系统默认的登录帐号：`pi` 密码：`raspberry`
 
@@ -26,6 +26,15 @@ TF卡 `boot` 新建一个名为 `ssh` 的空白文件。
 编辑 `/etc/apt/source.list` 文件
 
 用 `#` 注释存在的内容
+
+### Debian 9
+
+```bash
+deb http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free rpi
+deb-src http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free rpi
+```
+
+### Debian 8
 
 ```bash
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
@@ -51,7 +60,7 @@ name_servers=127.0.0.1
 
 ## 静态 IP
 
-注意：修改 `/etc/network/interfaces` 的方法已经过时
+>注意：修改 `/etc/network/interfaces` 的方法已经过时
 
 编辑 `/etc/dhcpcd.conf` 文件
 
@@ -120,7 +129,7 @@ update_config=1
 
 network={
   ssid="CMCC.."
-  psk="1320271000"
+  psk="000000000"
 }
 ```
 

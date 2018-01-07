@@ -35,6 +35,8 @@ $ brew cleanup
 
 ```bash
 # 没有执行过 cleanup ,可以切换到以前安装的版本
-brew info node
-brew switch node 8.2.1
+
+$ brew info node
+
+$ brew switch node 8.2.1
 ```

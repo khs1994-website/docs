@@ -46,7 +46,7 @@ subnet 192.168.57.0 netmask 255.255.255.0 {
 
 ## TFTP
 
-### 配置xinetd
+### 配置 xinetd
 
 将 `/etc/xinetd.d/tftp` 中的 `disable` 值设为 no
 
@@ -89,7 +89,7 @@ append initrd=initrd.img inst.stage2=ftp://192.168.57.101 rd.live.check ks=ftp:/
 
 # VSFTP
 
-## 复制光盘镜像内容到ftp目录
+## 复制光盘镜像内容到 ftp 目录
 
 ```bash
 $ cp -r ~/cdrom/* /var/ftp

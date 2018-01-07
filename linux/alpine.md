@@ -9,7 +9,7 @@ categories:
 - Linux
 ---
 
-本文介绍使用 Virtualbox 安装 Alpine Linux。
+本文介绍使用 `VirtualBox` 安装 `Alpine Linux`。
 
 <!--more-->
 
@@ -23,9 +23,7 @@ categories:
 $ setup-alpine
 ```
 
-然后交互式输入信息，完成安装。
-
-注意一定要设置 DNS 服务器，否则会遇到网络问题而安装失败。
+然后交互式输入信息，完成安装。不要无脑回车，注意一定要设置 DNS 服务器，否则会遇到网络问题而安装失败。
 
 输入 `$ poweroff` 关机，移除安装 ISO 光盘。
 

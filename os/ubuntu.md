@@ -20,7 +20,7 @@ categories:
 
 http://music.163.com/#/download
 
-## mpv播放器
+## mpv 播放器
 
 https://mpv.io/   
 
@@ -53,7 +53,7 @@ $ sudo apt install terminix
 b站介绍视频
 http://www.bilibili.com/video/av5879001/
 
-## OBS录屏工具
+## OBS 录屏工具
 
 ```bash
 $ sudo apt-get install ffmpeg
