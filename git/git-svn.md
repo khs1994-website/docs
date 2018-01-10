@@ -17,14 +17,18 @@ Git SVN 配合使用
 
 ```bash
 $ git svn clone  https://svn.code.sf.net/p/intelgraphicsfixup/svn/ intelgraphicsfixup -s --prefix=svn/
+
 $ git branch -av
 
 * master            8b54b14 ComputeLaneCount patch for Azul was removed.
   remotes/svn/trunk 8b54b14 ComputeLaneCount patch for Azul was removed.
+```
 
-# 克隆部分 commit
+## 克隆部分 commit
 
+```bash
 $ git svn clone -r<开始版本号>:<结束版本号> <svn项目地址> [其他参数]
+
 $ git svn clone -r2:HEAD file:///d/Projects/svn_repo proj1_git -s
 ```
 

@@ -52,6 +52,12 @@ $ echo -e "\033[41;37m 红底白字 \033[0m"
 
 `-s`参数，能够使 `read` 命令中输入的数据不显示在显视器上，例如密码。
 
+# printf
+
+`printf format-string [arguments]`
+
+和 c 类似。
+
 # 参考链接
 
 * http://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html

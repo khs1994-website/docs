@@ -38,16 +38,23 @@ $ ssh-keygen
 $ ssh root@192.168.1.101
 ```
 
-# mpv 播放器中文乱码
+# mpv 播放器中文乱码(推荐使用 iina)
+
+编辑 `~/.config/mpv/mpv.conf` 文件。
 
 ```bash
-$ vi ~/.config/mpv/mpv.conf
-
 # Subtitles
+
 sub-auto=fuzzy
 sub-text-font-size=48
 sub-codepage=utf8:gb18030
 ```
+
+# iina
+
+GitHub: https://github.com/lhc70000/iina
+
+国内镜像：https://mirrors.tuna.tsinghua.edu.cn/iina/
 
 # 常用软件
 

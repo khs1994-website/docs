@@ -149,6 +149,39 @@ case $1 in
 esac
 ```
 
+# for
+
+```bash
+for (( i = 0; i < 10; i++ )); do
+  #statements
+done
+```
+
+# for in
+
+```bash
+for arg in "$@"
+do
+  echo $arg
+done
+```
+
+# while
+
+```bash
+while [[ condition ]]; do
+  #statements
+done
+```
+
+# until
+
+```bash
+until [[ condition ]]; do
+  #statements
+done
+```
+
 # 参考链接
 
 * http://www.cnblogs.com/huai371720876/p/4561195.html

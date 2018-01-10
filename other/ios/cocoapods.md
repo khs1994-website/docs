@@ -10,7 +10,11 @@ categories:
 - iOS
 ---
 
-首先安装配置好 `ruby`，`CocoaPods` 需要 `Ruby` 的版本大于 2.2.2，不然会报错：`Error installing pods: activesupport requires Ruby version >= 2.2.2`。
+首先安装配置好 `ruby`，`CocoaPods` 需要 `Ruby` 的版本大于 2.2.2，不然会报错：
+
+```bash
+Error installing pods: activesupport requires Ruby version >= 2.2.2
+```
 
 macOS 默认自带是 2.0 版本，所以需要升级。
 
@@ -18,6 +22,7 @@ macOS 默认自带是 2.0 版本，所以需要升级。
 
 ```bash
 $ brew update
+
 $ brew install ruby
 ```
 
@@ -35,12 +40,13 @@ $ gem sources --remove https://ruby.taobao.org/
 
 ```bash
 $ gem sources -a https://gems.ruby-china.org/
+
 $ gem sources -l
 
 *** CURRENT SOURCES ***
 https://gems.ruby-china.org/
 
-#出现以上提示说明添加成功
+# 出现以上提示说明添加成功
 ```
 
 # 安装
@@ -49,15 +55,13 @@ https://gems.ruby-china.org/
 $ sudo gem install -n /usr/local/bin cocoapods
 ```
 
-* 若Xcode为预览版 ，在命令后边添加 `--pre`
+> 若 `Xcode` 为预览版 ，在命令后边添加 `--pre`
 
 ## 查看版本
 
 ```bash
 $ pod --version
-```
 
-```bash
 $ sudo xcode-select --switch /Applications/Xcode.app
 ```
 
@@ -65,6 +69,7 @@ $ sudo xcode-select --switch /Applications/Xcode.app
 
 ```bash
 $ pod setup
+
 # 本质是从 GitHub 克隆代码，一些国内镜像源停止更新，通过修改 host 加速 GitHub
 ```
 
@@ -88,7 +93,7 @@ $ rm ~/Library/Caches/CocoaPods/search_index.json
 
 # 使用
 
-## 切换到 Xocde 项目文件夹
+## 切换到 Xcode 项目文件夹
 
 ```bash
 $ cd Desktop/swiftweahter
@@ -109,8 +114,9 @@ target 'MyApp' do
   pod 'SwiftyJSON', '~> 2.3'
 end
 
-#输入以上内容，target '＊＊＊＊' do 单引号内填入你自己的项目名称
+# 输入以上内容，target '＊＊＊＊' do 单引号内填入你自己的项目名称
 ```
+
 ## 安装
 
 ```bash
@@ -130,7 +136,7 @@ $ sudo gem update --system
 # 卸载
 
 ```bash
-#待补充
+# 待补充
 ```
 
 # 相关链接

@@ -120,7 +120,7 @@ $ sudo systemctl list-dependencies docker.service
 $ sudo systemctl list-unit-files
 ```
 
-## 查看 unit 配置文件
+## 查看 Unit 配置文件
 
 ```bash
 $ sudo systemctl cat docker.service

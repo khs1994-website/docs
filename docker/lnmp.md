@@ -10,11 +10,11 @@ categories:
 - Docker
 ---
 
-目标：一条命令建立 LNMP 环境（MySQL、Redis、PHP-fpm、Nginx，etc）。这里只简单列举单容器运行方式，实际请使用 `Docker Compose`。
+目标：一条命令建立 LNMP 环境（MySQL、Redis、PHP-fpm、Nginx，etc）。
+
+这里只简单列举单容器运行方式，实际请使用 `Docker Compose` https://github.com/khs1994-docker/lnmp。
 
 GitHub：https://github.com/khs1994-docker/lnmp-quickstart
-
-GitHub：https://github.com/khs1994-docker/lnmp
 
 <!--more-->
 
@@ -97,7 +97,7 @@ RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
       && apk del .build-deps
 ```
 
->注意: 安装扩展可能需要依赖包，请使用 `RUN apk add --no-cache PACKAGE_NAME` 安装依赖。
+>注意: 安装扩展极有可能需要安装依赖包，请使用 `RUN apk add --no-cache PACKAGE_NAME` 安装依赖。
 
 ## 构建镜像
 

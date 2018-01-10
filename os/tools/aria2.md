@@ -26,11 +26,9 @@ $ brew install aria2
 
 # 配置
 
-参考 http://aria2c.com/usage.html 在 `~/.aria2/aria2.conf` 中写入配置内容。
+参考 http://aria2c.com/usage.html 在 `~/.aria2/aria2.conf` 中写入配置内容，主要修改 `下载路径`。
 
-主要修改 `下载路径`
-
-注意：将示例配置中的以下内容注释，不注释的话启动会报错。
+> 注意：将示例配置中的以下内容注释，不注释的话启动会报错。
 
 ```yaml
 # 从会话文件中读取下载任务

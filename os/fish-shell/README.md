@@ -20,11 +20,12 @@ oh-my-fish GitHub：https://github.com/oh-my-fish/oh-my-fish
 
 # 配置
 
-所有配置建议在 `~/.config/fish/config.fish` 中进行。以下命令中，前边加`$`的在终端中输入命令，不加的写入配置文件中
+所有配置建议在 `~/.config/fish/config.fish` 中进行。以下命令中，前边加 `$` 的在终端中输入命令，不加的写入配置文件中
 
 ## 环境变量env
 
-通过 `set -x` 命令设置环境变量  
+通过 `set -x` 命令设置环境变量
+
 只对当前 shell 设定环境变量:
 
 ```bash
@@ -47,13 +48,13 @@ set -gx fish_user_paths $fish_user_paths /usr/local/sbin /usr/local/bin
 
 ## 别名
 
-兼容其他Shell`alias`设置方法，例如
+兼容其他 Shell `alias` 设置方法，例如
 
 ```bash
 alias nginx="sudo nginx ; php-fpm"
 ```
 
-使用`abbr`，执行`abbr -h`查看帮助信息。
+使用 `abbr`，执行 `abbr -h` 查看帮助信息。
 
 ```bash
 $ abbr -a l ls -lhS
@@ -88,5 +89,6 @@ $ set -e smurf
 
 # 相关链接
 
-* 官方文档：http://www.fishshell.com/docs/current/index.html  
+* 官方文档：http://www.fishshell.com/docs/current/index.html
+
 * https://zhuanlan.zhihu.com/p/26157081

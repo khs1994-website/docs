@@ -10,7 +10,7 @@ categories:
 - Docker
 ---
 
-Docker CE v17.12 正式支持 k8s。
+Docker for Mac v17.12 正式支持 k8s。
 
 <!--more-->
 
