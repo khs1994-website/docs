@@ -23,6 +23,8 @@ GitHub：https://github.com/khs1994-docker/tls
 
 * [Let's Encrypt SSL 证书配置详解](https://www.khs1994.com/php/development/nginx-lets-encrypt.html)
 
+* [Https 分类下的文章](https://www.khs1994.com/tags/HTTPS/)
+
 ## 自签名证书详解
 
 这里假设想要签署 SSL 的网站为 `docker.domain.com`，下面我们介绍使用 `openssl` 自行签发 `docker.domain.com` 的站点 SSL 证书。
@@ -97,4 +99,4 @@ $ openssl x509 -req -days 750 -in "site.csr" -sha256 \
 
 这样已经拥有了 `docker.domain.com` 的网站 SSL 私钥 `docker.domain.com.key` 和 SSL 证书 `docker.domain.com.crt`。
 
-将 `root-ca.crt` 导入浏览器中，之后配置好 Web 服务器。
+将 `root-ca.crt` 导入浏览器中，之后配置好 Web 服务器并重启。
