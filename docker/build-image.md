@@ -17,11 +17,9 @@ categories:
 
 # Docker Hub
 
-Docker 官方标记为 `废弃`
+https://hub.docker.com
 
 # Docker Cloud
-
-Docker 官方推荐
 
 https://cloud.docker.com
 
@@ -46,6 +44,12 @@ https://console.cloud.tencent.com/ccs/registry
 据 QQ 交流群 434653499 构建主机位于国外。
 
 镜像前缀 `ccr.ccs.tencentyun.com`
+
+# 七牛云
+
+https://hub.qiniu.com
+
+CI 构建支持 GitHub
 
 # More Information
 

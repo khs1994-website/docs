@@ -23,6 +23,8 @@ categories:
 
 https://docs.docker.com/docker-cloud/builds/automated-testing/
 
+https://docs.docker.com/docker-cloud/builds/advanced/
+
 每次源代码提交 Pr 时，Docker Cloud 会自动测试 Pr。
 
 在构建配置选项打开自动测试，并在构建目录下新增 `docker-compose.test.yml`
@@ -34,6 +36,9 @@ sut:
 ```
 
 可以通过 `depends_on` 增加服务，也可以使用多个 `compose` 文件，只要以 `.test.yml` 结尾就行。
+
+命令返回 0 则表示测试通过，其他均为失败。
+
 
 示例：https://github.com/khs1994-docker/hexo/blob/dev/alpine/docker-compose.test.yml
 

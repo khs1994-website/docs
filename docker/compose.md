@@ -24,10 +24,14 @@ Linux 请在 [GitHub releases](https://github.com/docker/compose/releases) 处�
 或者执行以下命令进行下载安装。
 
 ```bash
-$ DOCKER_COMPOSE_VERSION=1.17.1
+$ DOCKER_COMPOSE_VERSION=1.18.0
+
 $ curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+
 $ chmod +x docker-compose
+
 $ sudo mv docker-compose /usr/local/bin
+
 $ docker-compose --version
 ```
 
@@ -58,6 +62,8 @@ services:
     build:
       # Dockerfile 目录或 git 仓库网址
       context: ./dir | .
+      # Dockerfile 文件名称
+      dockerfile: Dockerfile-alternate
       # 3.2
       cache_from:
         - alpine:latest
@@ -67,13 +73,13 @@ services:
         com.example.description: "Accounting webapp"
         com.example.department: "Finance"
         com.example.label-with-empty-value: ""  
-      # Dockerfile 文件名称
-      dockerfile: Dockerfile-alternate
       # 构建时变量，相当于 docker build --build-arg list
       args:
         buildno: 1
       args:
         - buildno=1
+      # 3.5  
+      shm_size: '2gb'  
     image: webapp:tag
 ```
 
@@ -106,7 +112,15 @@ cap_drop:
 
 ```yaml
 command: bundle exec thin -p 3000
+
 command: ["bundle", "exec", "thin", "-p", "3000"]
+
+command:
+  - bundle
+  - exec
+  - thin
+  - -p
+  - 3000
 ```
 
 ## configs
@@ -127,6 +141,7 @@ services:
 configs:
   my_config:
     file: ./my_config.txt
+  # 使用外部的 config，使用 docker config create 命令创建的 config  
   my_other_config:
     external: true
 ```
@@ -155,11 +170,15 @@ configs:
 
 ## cgroup_parent
 
+Specify an optional parent cgroup for the container.
+
 ```yaml
 cgroup_parent: m-executor-abcd
 ```
 
 ## container_name
+
+不建议使用，此项配置的话，服务将不能扩展。
 
 ```yaml
 container_name: my-web-container
@@ -185,7 +204,8 @@ services:
   redis:
     image: redis:alpine
     deploy:
-      # 急群中运行该服务的容器个数
+      # 集群中运行该服务的容器个数
+      mode: replicated
       replicas: 6
       update_config:
         parallelism: 2
@@ -208,9 +228,13 @@ deploy:
 
 ### mode
 
+https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services
+
 ```yaml
 deploy:
+  # 每个节点一个容器 exactly one container per swarm node
   mode: global
+  # 指定数量的容器 a specified number of containers
   mode: replicated
 ```
 
@@ -220,8 +244,11 @@ deploy:
 deploy:
   placement:
     constraints:
+      # 运行在管理节点
       - node.role == manager
       - engine.labels.operatingsystem == ubuntu 14.04
+    preferences:
+      - spread: node.labels.zone      
 ```
 
 ### resources
@@ -248,11 +275,12 @@ services:
     image: redis:alpine
     deploy:
       restart_policy:
-        condition: on-failure | none | any
+        condition: none | on-failure | any (默认)
         # 等待时间
         delay: 5s
         # 最大尝试次数
         max_attempts: 3
+        # How long to wait before deciding if a restart has succeeded, specified as a duration (default: decide immediately)
         window: 120s
 ```
 
@@ -268,9 +296,14 @@ services:
     deploy:
       replicas: 2
       update_config:
+        # 同时升级 config 的容器个数
         parallelism: 2
         delay: 10s
-        order: stop-first
+        failure_action: continue | rollback | pause (默认)
+        monitor:
+        max_failure_ration:
+        # 3.4
+        order: stop-first (默认) | start-first
 ```
 
 `docker stack deploy` 不支持以下参数
@@ -283,10 +316,6 @@ services:
 `container_name`
 
 `devices`
-
-`dns`
-
-`dns_search`
 
 `tmpfs`
 
@@ -307,7 +336,7 @@ services:
 
 ## devices
 
-没用过，不了解。
+List of device mappings. Uses the same format as the --device docker client create option.
 
 ```yaml
 devices:
@@ -315,6 +344,8 @@ devices:
 ```
 
 ## depends_on
+
+保证依赖的服务完全启动之后才启动 https://docs.docker.com/compose/startup-order/
 
 依赖关系
 
@@ -395,6 +426,10 @@ env_file:
   - /opt/secrets.env
 ```
 
+若变量重复，后边文件的变量会覆盖后边的。
+
+`env` 文件内容举例
+
 ```yaml
 # 支持 # 号注释
 RACK_ENV=development
@@ -428,7 +463,7 @@ expose:
 
 ## external_links
 
-不建议使用，建议通过网络进行连接。
+链接外部容器。不建议使用，建议通过网络进行连接！
 
 `CONTAINER:ALIAS`
 
@@ -490,8 +525,6 @@ image: a4bc65fd
 
 ## isolation
 
-没用过，不了解。
-
 https://docs.docker.com/engine/reference/commandline/run/#specify-isolation-technology-for-container---isolation
 
 Specify a container’s isolation technology. On Linux, the only supported value is `default`. On Windows, acceptable values are `default`, `process `and `hyperv`.
@@ -512,6 +545,8 @@ labels:
 
 ## links
 
+不建议使用！
+
 ```yaml
 web:
   links:
@@ -523,6 +558,36 @@ web:
 ## logging
 
 日志配置
+
+```yaml
+logging:
+  driver: syslog
+  options:
+    syslog-address: "tcp://192.168.0.42:123"
+```
+
+```yaml
+driver: "json-file"
+driver: "syslog"
+driver: "none"
+```
+
+```yaml
+options:
+  max-size: "200k"
+  max-file: "10"
+```
+
+```yaml
+services:
+  some-service:
+    image: some-service
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+```
 
 ## network_mode
 
@@ -661,8 +726,11 @@ secrets:
   my_secret:
     file: ./my_secret.txt
   my_other_secret:
+    # 使用外部 secret
     external: true    
 ```
+
+长格式
 
 ```yaml
 version: "3.1"
@@ -707,6 +775,8 @@ stop_signal: SIGUSR1
 
 ## sysctls
 
+Kernel parameters to set in the container. You can use either an array or a dictionary.
+
 ```yaml
 sysctls:
   net.core.somaxconn: 1024
@@ -719,6 +789,8 @@ sysctls:
 
 ## ulimits
 
+Override the default ulimits for a container. You can either specify a single limit as an integer or soft/hard limits as a mapping.
+
 ```yaml
 ulimits:
   nproc: 65535
@@ -728,6 +800,8 @@ ulimits:
 ```
 
 ## userns_mode
+
+Disables the user namespace for this service, if Docker daemon is configured with user namespaces. See dockerd for more information.
 
 ```yaml
 userns_mode: "host"
@@ -777,6 +851,10 @@ volumes:
 
   # Named volume
   - datavolume:/var/lib/mysql
+
+  #
+
+  - source:/target:constraints (默认) | cached (宿主机优先)| delegated (容器优先)
 ```
 
 ```yaml
@@ -859,7 +937,145 @@ volumes:
   data-volume:
 ```
 
+```yaml
+driver: foobar
+```
+
+```yaml
+driver_opts:
+  foo: "bar"
+  baz: 1
+```
+
+```yaml
+volumes:
+  data:
+    external: true
+```
+
+```yaml
+labels:
+  com.example.description: "Database volume"
+  com.example.department: "IT/Ops"
+  com.example.label-with-empty-value: ""
+
+labels:
+  - "com.example.description=Database volume"
+  - "com.example.department=IT/Ops"
+  - "com.example.label-with-empty-value"
+```
+
+```yaml
+volumes:
+  data:
+    external:
+      name: actual-name-of-volume
+```
+
+### name
+
+```yaml
+version: '3.4'
+volumes:
+  data:
+    name: my-app-data
+```
+
+```yaml
+version: '3.4'
+volumes:
+  data:
+    external: true
+    name: my-app-data
+```
+
 ## Network configuration reference
+
+```yaml
+driver: overlay
+```
+
+### host OR none
+
+用于 `docker stack`，如果使用 `docker-compose` 请使用 `network_mode`。
+
+类似于 `docker run --net=host`
+
+```yaml
+services:
+  web:
+    ...
+    networks:
+      hostnet: {}
+
+networks:
+  hostnet:
+    external:
+      name: host
+
+```
+
+类似于 `docker run --net=none`
+
+```yaml
+services:
+  web:
+    ...
+    networks:
+      nonet: {}
+
+networks:
+  nonet:
+    external:
+      name: none
+
+```
+
+### driver_opts
+
+```yaml
+driver_opts:
+  foo: "bar"
+  baz: 1
+```
+
+### attachable
+
+```yaml
+networks:
+  mynet1:
+    driver: overlay
+    attachable: true
+
+```
+
+### ipam
+
+```yaml
+ipam:
+  driver: default
+  config:
+    - subnet: 172.28.0.0/16
+```
+
+### name
+
+3.5
+
+```yaml
+version: '3.5'
+networks:
+  network1:
+    name: my-app-net
+```
+
+```yaml
+version: '3.5'
+networks:
+  network1:
+    external: true
+    name: my-app-net
+```
 
 ## configs configuration reference
 
@@ -870,6 +1086,8 @@ configs:
   my_second_config:
     external: true
 ```
+
+3.5
 
 ```yaml
 configs:
@@ -889,6 +1107,8 @@ secrets:
   my_second_secret:
     external: true
 ```
+
+3.5
 
 ```yaml
 secrets:
@@ -922,6 +1142,66 @@ db:
 web:
   build: .
   command: "$$VAR_NOT_INTERPOLATED_BY_COMPOSE"
+```
+
+## Extension fields
+
+```yaml
+version: '2.1'
+x-custom:
+  items:
+    - a
+    - b
+  options:
+    max-size: '12m'
+  name: "custom"
+```
+
+```yaml
+logging:
+  options:
+    max-size: '12m'
+    max-file: '5'
+  driver: json-fi
+```
+
+```yaml
+version: '2.1'
+x-logging:
+  &default-logging
+  options:
+    max-size: '12m'
+    max-file: '5'
+  driver: json-file
+
+services:
+  web:
+    image: myapp/web:latest
+    logging: *default-logging
+  db:
+    image: mysql:latest
+    logging: *default-logging
+```
+
+```yaml
+version: '2.1'
+x-volumes:
+  &default-volume
+  driver: foobar-storage
+
+services:
+  web:
+    image: myapp/web:latest
+    volumes: ["vol1", "vol2", "vol3"]
+volumes:
+  vol1: *default-volume
+  vol2:
+    << : *default-volume
+    name: volume02
+  vol3:
+    << : *default-volume
+    driver: default
+    name: volume-local
 ```
 
 # More Information

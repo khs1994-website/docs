@@ -19,6 +19,24 @@ GitHub: https://github.com/kubernetes/minikube
 
 <!--more-->
 
+# 修订记录
+
+* 2018-01-15：请在之前看过我文章的务必按照本文重新安装配置 minikube
+
+* 2018-01-15：由于阿里云的 localkube 出现问题（已反馈给相关人员），暂时只能使用我编译的 localkube。
+
+# 镜像列表
+
+```bash
+gcr.io/google_containers/kubernetes-dashboard-amd64    v1.8.0              55dbc28356f2        6 weeks ago         119MB
+gcr.io/k8s-minikube/storage-provisioner                v1.8.1              4689081edb10        2 months ago        80.8MB
+gcr.io/google_containers/k8s-dns-sidecar-amd64         1.14.5              fed89e8b4248        3 months ago        41.8MB
+gcr.io/google_containers/k8s-dns-kube-dns-amd64        1.14.5              512cd7425a73        3 months ago        49.4MB
+gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64   1.14.5              459944ce8cc4        3 months ago        41.4MB
+gcr.io/google-containers/kube-addon-manager            v6.4-beta.2         0a951668696f        7 months ago        79.2MB
+gcr.io/google_containers/pause-amd64                   3.0                 99e59f495ffa        20 months ago       747kB
+```
+
 本人也是初学 `minikube`，本文基于 `minikube` 0.24.1 版本。
 
 如果我们直接使用从 https://github.com/kubernetes/minikube 下载的 `minikube` 你可能会发现根本不能运行成功。
@@ -27,9 +45,10 @@ GitHub: https://github.com/kubernetes/minikube
 
 知道为什么成功不了，那我们就替换源码中的国外镜像为国内镜像源（阿里云）。
 
-具体要变更哪些文件请看 [GitHub](https://github.com/khs1994-docker/minikube#%E6%94%B9%E5%8F%98)
+具体要变更哪些文件请看 [GitHub](https://github.com/khs1994-docker/minikube)
 
 我已经把变更过的文件上传到了 [GitHub](https://github.com/khs1994-docker/minikube)，本文以这个 git 仓库为源码，重新编译 `minikube`
+
 
 # 安装 `kubectl`
 
@@ -64,11 +83,11 @@ $ kubectl config use-context minikube
 $ brew install kubectl
 ```
 
+## curl
+
 或者使用 `curl` 下载。
 
 >注意，由于网络问题，从官网下载极有可能下载失败。你可以使用国内镜像 https://github.com/khs1994-docker/kubectl-cn-mirror
-
-## curl
 
 ### bash
 
@@ -98,40 +117,11 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s ht
 
 # 重新安装 `minikube` 国内版
 
-你可以选择编译安装或者下载安装。
-
-## 编译安装
-
->注意：编译安装适用于对 `Go` 有一定了解的人。
-
-### 安装 `Go`
-
-```bash
-$ brew install go
-```
-
-设置 `Go` 相关环境变量，自行修改为你自己的路径。
-
-```bash
-GOROOT="/usr/local/opt/go/libexec"
-GOPATH="/Users/khs1994/go"
-```
-
-### 编译安装
-
-```bash
-$ git clone -b 0.24.1 --depth=1 git@github.com:khs1994-docker/minikube.git $GOPATH/src/k8s.io/minikube
-
-$ cd $GOPATH/src/k8s.io/minikube
-
-$ make
-
-$ sudo cp out/minikube /usr/local/bin
-```
+你可以选择 `编译安装` 或者 `下载安装`。为了避免混乱，编译安装的方法，放到了文章最后。
 
 ## 直接下载安装
 
-如果你不想编译安装，你也可以选择下载我编译好的二进制文件。
+你可以根据你的操作系统，下载对应的二进制文件。你也可以在命令行使用 curl 下载。
 
 https://github.com/khs1994-docker/minikube/releases
 
@@ -246,6 +236,37 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 ```bash
 $ minikube stop
+```
+
+# 附录
+
+## 编译安装 minikube
+
+>注意：编译安装适用于对 `Go` 有一定了解的人。
+
+### 安装 `Go`
+
+```bash
+$ brew install go
+```
+
+设置 `Go` 相关环境变量，自行修改为你自己的路径。
+
+```bash
+GOROOT="/usr/local/opt/go/libexec"
+GOPATH="/Users/khs1994/go"
+```
+
+### 编译安装
+
+```bash
+$ git clone -b 0.24.1 --depth=1 git@github.com:khs1994-docker/minikube.git $GOPATH/src/k8s.io/minikube
+
+$ cd $GOPATH/src/k8s.io/minikube
+
+$ make
+
+$ sudo cp out/minikube /usr/local/bin
 ```
 
 # More Information

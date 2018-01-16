@@ -76,7 +76,7 @@
     * [清理](docker/prune.md)
     * [WSL Docker CLI](docker/wsl-run-docker-cli.md)
     * [Docker 常见问题](docker/issues.md)
-    * [Docker 开源书籍](docker/cn-book.md)
+    * [Docker 从入门到实践](docker/docker_practice.md)
     * [minikube](docker/minikube/README.md)
     * [Kubernetes](docker/k8s/README.md)
         * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
