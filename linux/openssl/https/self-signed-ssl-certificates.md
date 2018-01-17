@@ -23,7 +23,7 @@ GitHub：https://github.com/khs1994-docker/tls
 
 * [Let's Encrypt SSL 证书配置详解](https://www.khs1994.com/php/development/nginx-lets-encrypt.html)
 
-* [Https 分类下的文章](https://www.khs1994.com/tags/https/)
+* [Https 标签下的文章](https://www.khs1994.com/tags/https/)
 
 ## 自签名证书详解
 

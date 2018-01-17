@@ -15,13 +15,13 @@ GitHub：https://github.com/yeasy/docker_practice
 
 GitBook：https://www.gitbook.com/book/yeasy/docker_practice/details
 
+<!--more-->
+
 《Docker 从入门到实践》是一本托管于 `GitBook` 的开源书籍。
 
 国内访问 `GitBook` 有时会遇到困难，而百度的搜索结果中的 PDF 下载地址都是他人的二次传播，几乎都是过时内容。
 
 作为 《Docker 从入门到实践》 的项目维护者，本人列出了 《Docker 从入门到实践》 官方提供的地址。
-
-<!--more-->
 
 # PDF 下载
 
