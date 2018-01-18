@@ -5,7 +5,7 @@ updated:
 comments: true
 tags:
 - Docker
-- k8s
+- K8s
 categories:
 - Docker
 ---

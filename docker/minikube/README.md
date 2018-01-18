@@ -4,11 +4,11 @@ date: 2017-12-01 12:00:00
 updated:
 comments: true
 tags:
-- k8s
-- minikube
+- K8s
+- Minikube
 categories:
-- k8s
-- minikube
+- K8s
+- Minikube
 ---
 
 OS：macOS

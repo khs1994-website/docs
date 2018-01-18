@@ -5,11 +5,11 @@ updated:
 comments: true
 tags:
 - Linux
-- openssl
+- OpenSSL
 - https
 categories:
 - Linux
-- openssl
+- OpenSSL
 - https
 ---
 

@@ -4,9 +4,9 @@ date: 2017-12-02 12:00:00
 updated:
 comments: true
 tags:
-- k8s
+- K8s
 categories:
-- k8s
+- K8s
 ---
 
 `k8s` 已经成为容器集群编排、管理工具的事实领导者。

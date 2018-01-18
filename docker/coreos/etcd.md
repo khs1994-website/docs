@@ -6,7 +6,7 @@ comments: true
 tags:
 - Docker
 - CoreOS
-- etcd
+- Etcd
 categories:
 - Docker
 - CoreOS
