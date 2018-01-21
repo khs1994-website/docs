@@ -156,6 +156,7 @@
         * [Gradle](other/java/gradle.md)
         * [Maven 常用配置](other/java/maven.md)
     * [iOS](other/ios/readme.md)
-        * [macOS CocoaPods 安装](other/ios/cocoapods.md)
+        * [macOS CocoaPods 安装](other/ios/README.md)
+    * [Swift](other/swift/README.md)    
 * [PHP](php/readme.md)
 * [Golang](golang/readme.md)
