@@ -14,6 +14,18 @@
 
 * [Blog](https://www.khs1994.com)
 
+# 在线阅读
+
+* https://doc.khs1994.com
+
+* https://khs1994-website.github.io/docs/
+
+# 通过 Docker 阅读
+
+```bash
+$ docker run -it --rm -p 8080:80 khs1994/docs
+```
+
 # 分支策略
 
 |分支|说明|功能|
