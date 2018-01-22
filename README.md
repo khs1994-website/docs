@@ -8,7 +8,7 @@
 
 * 文档中的内容欢迎大家通过 E-mail 与我交流 <a href="mailto:khs1994@khs1994.com">khs1994@khs1994.com</a>
 
-* [GitBook](https://doc.khs1994.com)
+* [GitBook](https://docs.khs1994.com)
 
 * [GitHub](https://github.com/khs1994-website/docs.git)
 
@@ -16,7 +16,7 @@
 
 # 在线阅读
 
-* https://doc.khs1994.com
+* https://docs.khs1994.com
 
 * https://khs1994-website.github.io/docs/
 

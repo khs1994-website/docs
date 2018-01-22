@@ -52,6 +52,8 @@ gcr.io/google_containers/pause-amd64                   3.0                 99e59
 
 # 安装 `kubectl`
 
+>注意，由于网络问题，从官网下载极有可能下载失败。你可以使用浏览器在国内镜像下载之后移入 `PATH` https://github.com/khs1994-docker/kubectl-cn-mirror
+
 使用 `minikube` 必须先安装好 `k8s` 命令行工具 `kubectl`。
 
 ## macOS
@@ -87,8 +89,6 @@ $ brew install kubectl
 
 或者使用 `curl` 下载。
 
->注意，由于网络问题，从官网下载极有可能下载失败。你可以使用国内镜像 https://github.com/khs1994-docker/kubectl-cn-mirror
-
 ### bash
 
 ```bash
@@ -116,6 +116,8 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/(curl -s ht
 ```
 
 # 重新安装 `minikube` 国内版
+
+>注意：国内从 GitHub 下载文件可能较慢，你可以在国内镜像下载之后移入 `PATH` https://code.aliyun.com/khs1994-docker/minikube/tree/v1.8.0
 
 你可以选择 `编译安装` 或者 `下载安装`。为了避免混乱，编译安装的方法，放到了文章最后。
 
@@ -239,6 +241,16 @@ $ minikube stop
 ```
 
 # 附录
+
+## Windows 启动 minikube
+
+自行在上面提到的 [GitHub](https://github.com/khs1994-docker/minikube/releases/download/v0.24.1/minikube) 或 [国内镜像](https://code.aliyun.com/khs1994-docker/minikube/tree/v1.8.0) 下载好 `kubectl.exe` `minikube.exe`,并加入 `PATH`
+
+配置 `Hyper-V`，具体图解请查看：https://yq.aliyun.com/articles/221687
+
+```bash
+$ minikube.exe start --registry-mirror=https://registry.docker-cn.com --vm-driver="hyperv" --memory=4096 --hyperv-virtual-switch="minikube"
+```
 
 ## 编译安装 minikube
 
