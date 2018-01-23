@@ -23,7 +23,9 @@ categories:
 
 # 项目同步
 
-登录之后点击右上角用户名，再点击右上的 `Sync account` 来同步项目。
+> 目前，travis 仅支持构建 GitHub 项目。
+
+登录之后点击右上角用户名，再点击右上的 `Sync account` 来同步 GitHub 项目。
 
 如果你名下的 GitHub 组织没有显示，请点击左下 `Review and add` 重新授予权限。
 
@@ -31,7 +33,7 @@ categories:
 
 在项目列表中（点击右上角头像进入）点击开关，即可打开项目构建，点击开关后边的设置按钮来设置构建选项（增加变量，计划构建等）。
 
-在项目根目录增加 `.travis.yml` 文件，即可开始使用 travis， travis 会在项目每次提交（commit），PR，tag 时自动构建项目。
+在 Git 项目根目录增加 `.travis.yml` 文件，即可开始使用 travis， travis 会在项目每次提交（commit），PR，tag 时自动构建项目。
 
 ## 使用示例
 
@@ -51,25 +53,17 @@ categories:
 
 他人向 `dev` 分支提交 PR，构建 PR 时就不能使用加密变量。
 
-# 错误排查
-
-`Travis CI` 本质就是一台云上的 `Linux`（Docker 容器或者是虚拟机），当执行错误时从以下两方面排查问题:
-
-* 路径问题(使用 `$ echo $PWD` 调试)
-
-* 权限问题(没有执行权限 `$ chmod +x filename.sh`)
-
 # 命令行工具
 
 安装 `Travis CI` 命令行工具
 
 ```bash
-$ sudo gem isntall travis
+$ sudo gem install travis
 
 # 登录
 # github-token 在 GitHub 设置页面生成，当然也可以使用密码登录
 
-$ sudo travis login --github-token 0abc23
+$ sudo travis login --github-token 0abc23...
 ```
 
 # SSH
@@ -113,12 +107,17 @@ addons:
   - github.com
 ```
 
-# 时区
+# 构建规则
+
+## 指定分支构建
 
 ```yaml
-before_install:
-- export TZ='Asia/Shanghai'
+branches:
+  only:
+  - master
 ```
+
+这样 travis 只会构建 `master` 分支，`dev` 等其他分支提交时(commit)不会构建。
 
 # 部署
 
@@ -154,6 +153,23 @@ deploy:
 cache:
   directories:
   - node_modules
+```
+
+# 其他
+
+## 错误排查
+
+`Travis CI` 本质就是一台云上的 `Linux`（Docker 容器或者是虚拟机），当执行错误时从以下两方面排查问题:
+
+* 路径问题(使用 `$ echo $PWD` 调试)
+
+* 权限问题(没有执行权限 `$ chmod +x filename.sh`)
+
+## 时区
+
+```yaml
+before_install:
+- export TZ='Asia/Shanghai'
 ```
 
 # 相关链接

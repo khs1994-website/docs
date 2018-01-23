@@ -14,7 +14,7 @@ GitHub: https://github.com/khs1994-website/hexo-cn-mirror
 
 <!--more-->
 
-使用 `hexo init` 新建的 Hexo 主题不太好看，我一般使用 Next 主题。
+使用 `hexo init` 新建的 Hexo 主题不太好看，我使用的是 [Next 主题](https://github.com/theme-next/hexo-theme-next)。
 
 该镜像替换主题为 Next
 

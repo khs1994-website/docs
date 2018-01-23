@@ -1,5 +1,3 @@
-<!-- ex_nonav -->
-
 # khs1994.com 技术文档
 
 [![Build Status](https://travis-ci.org/khs1994-website/docs.svg?branch=master)](https://travis-ci.org/khs1994-website/docs) [![Build Status](https://travis-ci.org/khs1994-website/docs.svg?branch=gitbook)](https://travis-ci.org/khs1994-website/docs)
@@ -33,14 +31,6 @@ $ docker run -it --rm -p 8080:80 khs1994/docs
 ```
 
 之后打开浏览器 `IP:8080`
-
-# 分支策略
-
-|分支|说明|功能|
-|:--|:--|:--|
-|`master`  |[发布分支](https://github.com/khs1994-website/docs/tree/master)    |接收 `gitbook` 分支 `PR`，每月发布上个月的版本|
-|`gitbook` |[编辑分支](https://github.com/khs1994-website/docs/tree/gitbook)   |接收日常变更                |
-|`gh-pages`|[静态分支](https://github.com/khs1994-website/docs/tree/gh-pages)  |托管静态 `HTML` 文件        |
 
 # 排版规范
 

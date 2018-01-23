@@ -14,24 +14,45 @@ categories:
 
 <!--more-->
 
+# 系统类
+
 ```php
 $m=new Memcached();
+
 $m->addServer('memcached',11211);
+
+// 多台服务器
+
+$m->addServers([
+  ['127.0.0.1',11211],
+  ['127.0.0.2',11211]
+]);
+
 $m->getVersion();
+
 $m->getStats();
 ```
 
 # 数据操作
 
-add 不会替换原值
+```php
 
-`$m->add('key','value',600);`
+// 600 为过期时间
 
-`$m->replace('key','value',600);`
+$m->add('key','value',600);
 
-`$m->set('key','value',600);`
+// 若对 key 再次执行 add 一个新值 value2 不能改变原值。
 
-`$m->delete('key');`
+// 替换
+
+$m->replace('key','value',600);
+
+$m->set('key','value',600);
+
+$m->get('key');
+
+$m->delete('key');
+```
 
 ## 清空
 
@@ -50,16 +71,22 @@ $array=[
   'key'=>'value',
   'key2'=>'value2'
 ]
+
+$m->setMulti($array,0);
+
+$m->getMulti(['key1','key2']);
+
+$m->deleteMulti(['key1','key2']);
 ```
 
-`$m->setMulti($array,0);`
+## 错误处理
 
-`$m->getMulti(['key1','key2']);`
+```php
+// 上次操作的返回值
 
-`$m->deleteMulti(['key1','key2']);`
+$m->getResultCode()
 
-## 返回结果
+// 上次操作的返回信息
 
-`$m->getResultCode()`
-
-`$m->getResultMessage()`
+$m->getResultMessage()
+```

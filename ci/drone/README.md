@@ -29,7 +29,7 @@ GitHub: https://github.com/khs1994-drone-ci-examples
 
 请使用或升级到最新 0.8 版本。
 
-编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/ci/blob/master/docker-compose.yml) 查看。
+编写 `docker-compose.yml`，示例文件请到 [这里](https://github.com/khs1994-docker/ci/blob/master/docker-compose.gogs.yml) 查看。
 
 > 注意：0.8 版本的 `drone-server`、`drone-agent` image 不同。
 
@@ -49,6 +49,4 @@ $ docker-compose up -d
 
 # 示例
 
-请查看 Fork 源项目。
-
-GitHub: https://github.com/khs1994-drone-ci-examples
+* https://github.com/khs1994-drone-ci-examples

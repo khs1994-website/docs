@@ -14,6 +14,8 @@ categories:
 
 <!--more-->
 
+# 安装
+
 下载，解压，进入文件夹
 
 ```bash
@@ -21,22 +23,27 @@ $ make
 
 $ make install
 
-$ mkdir /usr/local/redis
+$ mkdir -p /usr/local/redis
 
 $ cp redis.conf /usr/local/redis/
+```
 
 # 启动服务
 
+```bash
 $ redis-server /usr/local/redis/redis.conf
+```
 
-# 客户端连接工具
+# 客户端
 
+```bash
 $ redis-cli
+```
 
 # 关闭服务
 
+```bash
 $ redis-cli shutdown
-
 ```
 
 # systemd

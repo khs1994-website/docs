@@ -5,6 +5,7 @@
     * [Drone](ci/drone/README.md)
        * [GitBook](ci/drone/gitbook.md)
        * [Hexo](ci/drone/hexo.md)
+       * [PHP](ci/drone/php.md)
     * [Travis CI](ci/travis-ci/README.md)
         * [GitBook](ci/travis-ci/gitbook.md)
         * [Hexo](ci/travis-ci/hexo.md)

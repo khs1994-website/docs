@@ -8,3 +8,9 @@ tags:
 categories:
 - Cache
 ---
+
+<!--more-->
+
+# 非持久化存储
+
+对数据储存要求不高
