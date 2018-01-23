@@ -40,6 +40,8 @@ $ redis-server /usr/local/redis/redis.conf
 $ redis-cli
 ```
 
+各编程语言客户端 https://redis.io/clients
+
 # 关闭服务
 
 ```bash

@@ -10,11 +10,11 @@ categories:
 - Redis
 ---
 
-从集合中插入或者删除元素
-
-`sadd set1 12 13 14`
+从集合 (set) 中插入或者删除元素，set 中不能有重复值
 
 <!--more-->
+
+`sadd set1 12 13 14`
 
 # 移除
 

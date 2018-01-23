@@ -10,46 +10,55 @@ categories:
 - Redis
 ---
 
-按照 key 进行增加删除
-
-`hset hash1 key1 12`
-
 <!--more-->
 
-# 设置多条数据
+# 赋值
 
-`hmset hash1 key1 12 key2 13`
+```bash
 
-# 设置不存在的域,如果域存在则不赋值
+hset hash1 key1 12
 
-`hsetnx hash1 key3 13`
+hget hash1 key1
 
-`hget hash1 key1`
+hgetall hash1                 # 获取某个哈希表中的所有域及其值
 
-# 获取多条数据
+hmset hash1 key1 12 key2 13   # 一次设置某个哈希表里的多个域及其值
 
-`hmget key1 key2`
+hmget hash1 key1 key2
+
+hsetnx hash1 key3 13          # 当且仅当域的值不存在时赋值
+```
+
+# 删除数据
 
 `hdel hash1 key1 key2`
 
+# 是否存在
+
 `hexists hash1 key1`
 
-`hgetall hash1`
+# 哈希表域中域的数量
 
-# 获取哈希表中所有域的值
+`hlen hash1`
 
-`hvals hash1`
+# 获取哈希表中所有域
 
-# 增量
-
-`hincrby hash1 key1 10`
-
-# 浮点增量
-
-`hincrbyfloat hash1 key1 0.1`
+和 `hgetall` 不同的是，这个指令只返回域，下一个指令只返回域的值，`hgetall` 域及其值都返回。
 
 `hkeys hash1`
 
-# 哈希表 域的数量
+# 返回哈希表中所有域的值
 
-`hlen hash1`
+`hvals hash1`
+
+# 返回哈希表中域的值的长度
+
+`hstrlen hash1 key`
+
+# 增量
+
+```bash
+hincrby hash1 key1 10       # 可以为负数
+
+hincrbyfloat hash1 key1 0.1 # 浮点增量
+```
