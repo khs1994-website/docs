@@ -21,13 +21,13 @@ $ make
 
 $ make install
 
-$ mkdir /data/usr/local/redis
+$ mkdir /usr/local/redis
 
-$ cp redis.conf /data/usr/local/redis/
+$ cp redis.conf /usr/local/redis/
 
 # 启动服务
 
-$ redis-server /usr/local/etc/redis.conf
+$ redis-server /usr/local/redis/redis.conf
 
 # 客户端连接工具
 
@@ -41,7 +41,7 @@ $ redis-cli shutdown
 
 # systemd
 
-`/lib/systemd/system/redis.service`
+`/etc/systemd/system/redis.service`
 
 ```bash
 [Unit]  
@@ -50,8 +50,9 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 
 [Service]  
 Type=forking  
-PIDFile=/var/run/redis.pid  
-ExecStart=/home/redis/redis-3.2.0/src/redis-server /home/redis/redis-3.2.0/redis.conf  
+PIDFile=/var/run/redis.pid
+# 注意替换为你自己的实际路径
+ExecStart=/REDIS_PATH/redis-3.2.0/src/redis-server /usr/local/redis/redis.conf
 ExecReload=/bin/kill -s HUP $MAINPID  
 ExecStop=/bin/kill -s QUIT $MAINPID  
 PrivateTmp=true  
@@ -60,5 +61,6 @@ PrivateTmp=true
 WantedBy=multi-user.target
 ```
 
-相关链接：
+# 相关链接
+
 * http://blog.csdn.net/nimasike/article/details/52471992

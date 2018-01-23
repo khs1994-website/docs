@@ -8,11 +8,17 @@
 
 * 文档中的内容欢迎大家通过 E-mail 与我交流 <a href="mailto:khs1994@khs1994.com">khs1994@khs1994.com</a>
 
-* [GitBook](https://docs.khs1994.com)
+# 读者基础技能
 
-* [GitHub](https://github.com/khs1994-website/docs.git)
+在默认情况下，本人认为读者已经具备以下技能：
 
-* [Blog](https://www.khs1994.com)
+* Linux 基本操作
+
+* 了解 GitHub
+
+* 了解 Docker
+
+> 本技术文档只是记录本人学习中遇到的坑，以上提到的基础知识可能会略过，请读者悉知。
 
 # 在线阅读
 
@@ -25,6 +31,8 @@
 ```bash
 $ docker run -it --rm -p 8080:80 khs1994/docs
 ```
+
+之后打开浏览器 `IP:8080`
 
 # 分支策略
 

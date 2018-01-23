@@ -4,10 +4,9 @@ date: 2018-01-20 13:00:00
 updated:
 comments: true
 tags:
-- iOS
+- Swift
 categories:
 - Other
-- iOS
 - Swift
 ---
 

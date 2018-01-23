@@ -13,44 +13,68 @@ categories:
 
 本文列举了使用 Travis CI 可能遇到的问题及其解决方法。
 
+官方网站：https://travis-ci.org
+
 <!--more-->
 
-首先明确三个环境
+# 注册登录
 
-* `开发机`
+在 https://travis-ci.org 直接通过 GitHub 登录。
 
-* `Travis CI`
+# 项目同步
 
-* `服务器（生产环境）`
+登录之后点击右上角用户名，再点击右上的 `Sync account` 来同步项目。
+
+如果你名下的 GitHub 组织没有显示，请点击左下 `Review and add` 重新授予权限。
+
+# 使用 Travis CI
+
+在项目列表中（点击右上角头像进入）点击开关，即可打开项目构建，点击开关后边的设置按钮来设置构建选项（增加变量，计划构建等）。
+
+在项目根目录增加 `.travis.yml` 文件，即可开始使用 travis， travis 会在项目每次提交（commit），PR，tag 时自动构建项目。
+
+## 使用示例
+
+* https://github.com/khs1994/khs1994.github.io/blob/hexo/.travis.yml
+
+* https://github.com/travis-ci-examples
+
+# 构建变量（环境变量）
+
+在每个项目的设置页面中，通过 `K-V` 形式设置环境变量。
+
+变量分为加密变量（构建过程不可见）和普通变量。
+
+加密变量在构建项目中他人的 `PR` 时将不能被使用。在构建项目内不同分支的 PR 时可以使用。这一点需要注意：
+
+例如，项目的 `dev` 分支向 `master` 分支提交 PR，构建 PR 时就可以使用加密变量。
+
+他人向 `dev` 分支提交 PR，构建 PR 时就不能使用加密变量。
 
 # 错误排查
 
-`Travis CI` 本质就是一台云上的 `Linux`，当执行错误时从以下两方面排查问题:
+`Travis CI` 本质就是一台云上的 `Linux`（Docker 容器或者是虚拟机），当执行错误时从以下两方面排查问题:
 
-* 路径问题(使用 `$ echo $PWD`)
+* 路径问题(使用 `$ echo $PWD` 调试)
 
 * 权限问题(没有执行权限 `$ chmod +x filename.sh`)
 
 # 命令行工具
 
-`开发机` 安装 `Travis CI` 命令行工具
+安装 `Travis CI` 命令行工具
 
 ```bash
-# ruby 可能需要 sudo
-$ gem isntall travis
+$ sudo gem isntall travis
 
 # 登录
 # github-token 在 GitHub 设置页面生成，当然也可以使用密码登录
-$ travis login --github-token
+
+$ sudo travis login --github-token 0abc23
 ```
 
 # SSH
 
-原理:
-
-`开发机` 登录到 `服务器` 使用 `SSH` (主要是 `id_rsa` 和 `id_rsa.pub`)
-
-我们现在要让 `Travis CI` 能够登录到 `服务器`，就将 `开发机` 的 `~/.ssh/id_rsa` 「复制」 到 `Travis CI` 即可  
+我们现在要让 `Travis CI` 能够通过 SSH 登录到 `服务器`，就将 `~/.ssh/id_rsa` 「加密复制」 到 `Travis CI`。
 
 ## 加密 id_rsa
 
@@ -72,11 +96,11 @@ before_install:
   -in id_rsa.enc -out ~\/.ssh/id_rsa -d
 ```
 
-注意：请将上述内容的 `转义符` 去掉: `-out ~\/.ssh/id_rsa -d` 改为 `-out ~/.ssh/id_rsa -d`
+> 注意：请将上述内容的 `转义符` 去掉: `-out ~\/.ssh/id_rsa -d` 改为 `-out ~/.ssh/id_rsa -d`
 
 ## ssh_known_hosts
 
-首次 SSH 到某网址或 IP 需要输入 `yes` 来确认，在脚本中不太方便输入 yes ：
+首次 SSH 到某网址或 IP 需要输入 `yes` 来确认，你可以在 `.travis.yml` 文件中增加 `ssh_known_hosts` 来避免输入 yes
 
 ```yaml
 after_success:
@@ -87,8 +111,6 @@ addons:
   - 123.206.62.18
   - code.aliyun.com
   - github.com
-
-# 这样就不用输入 yes 了
 ```
 
 # 时区
@@ -104,14 +126,15 @@ before_install:
 
 ```yaml
 deploy:
-  #要push的文件夹
+  # 要 push 的文件夹
   local_dir: _book
   provider: pages
+  # pages 所在分支
   target_branch: master
   skip_cleanup: true
   github_token: $GH_TOKEN # Set in travis-ci.org dashboard
   on:
-    branch: gitbook       #哪个分支构建的就推送
+    branch: gitbook       # 哪个分支构建的就推送
 ```
 
 ## script

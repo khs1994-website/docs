@@ -12,7 +12,7 @@ categories:
 - Travis CI
 ---
 
-本文简要介绍了使用 Travis CI 构建 Hexo。
+本文简要介绍了使用 Travis CI 构建 Hexo。务必对 Travis CI [基础知识](https://www.khs1994.com/ci/travis-ci/README.html) 了解之后再阅读本文。
 
 示例文件：https://github.com/khs1994/khs1994.github.io/blob/hexo/.travis.yml
 

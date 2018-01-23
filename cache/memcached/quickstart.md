@@ -37,9 +37,13 @@ add 不会替换原值
 
 `$m->flush();`
 
+## 增减
+
 `$m->increment('num',5);`
 
 `$m->decrement('num',5);`
+
+## 一次操作多条数据
 
 ```php
 $array=[
@@ -47,8 +51,6 @@ $array=[
   'key2'=>'value2'
 ]
 ```
-
-## 一次操作多条数据
 
 `$m->setMulti($array,0);`
 

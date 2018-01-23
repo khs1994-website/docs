@@ -19,7 +19,7 @@ categories:
 ```bash
 $ sudo apt install libsasl2-dev libevent-dev
 
-$ ./configure --prefix=/data/usr/local/memcached --enable-sasl
+$ ./configure --prefix=/usr/local/memcached --enable-sasl
 
 $ make
 
@@ -47,7 +47,7 @@ $ yum install libmemcached-devel
 官方网站：http://libmemcached.org/libMemcached.html
 
 ```bash
-$ ./configure --prefix=/data/usr/local/libmemcached
+$ ./configure --prefix=/usr/local/libmemcached
 $ make
 $ make install
 ```
