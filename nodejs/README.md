@@ -20,3 +20,9 @@ categories:
 ```js
 console.log("Hello World!");
 ```
+
+执行
+
+```bash
+$ node index.js
+```

@@ -10,8 +10,6 @@ categories:
 - Redis
 ---
 
-<!--more-->
-
 ```bash
 set key value
 
@@ -19,6 +17,8 @@ del key     # 删除键，后边可以跟多个值，用空格分开
 
 exists key  # key 是否存在，存在返回 1 ，不存在返回 0
 ```
+
+<!--more-->
 
 # 过期时间
 

@@ -10,9 +10,9 @@ categories:
 - Redis
 ---
 
-<!--more-->
-
 # 赋值
+
+<!--more-->
 
 ```bash
 

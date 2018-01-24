@@ -70,6 +70,8 @@ pipeline:
       - go get
       - go build
       - go test
+    # 特定状态才构建  
+    # http://docs.drone.io/conditional-steps/  
     when:
       branch: master
       event: [push, pull_request, tag, deployment]
@@ -90,6 +92,7 @@ pipeline:
       - npm test
 
   publish:
+    # http://plugins.drone.io/drone-plugins/drone-docker/
     image: plugins/docker
     registry: registry.heroku.com
     repo: foo/bar
@@ -98,8 +101,8 @@ pipeline:
       # drone deploy octocat/hello-world 24 staging
       event: deployment
       environment: staging
-    username: $${DOCKER_USERNAME}
-    password: $${DOCKER_PASSWORD}
+    # username: $${DOCKER_USERNAME}
+    # password: $${DOCKER_PASSWORD}
     # 密钥这里小写，引用的时候大写
     secrets: [ docker_username, docker_password ]
     secrets:
@@ -169,6 +172,8 @@ matrix:
 
 ## Docker 仓库相关密钥
 
+构建过程需要私有仓库镜像，这个配置来使得 drone 能够拥有相关权限
+
 ```bash
 $ drone registry add \
     --repository username/hello-world \
@@ -188,9 +193,11 @@ $ drone secret add \
     -value <value>
 ```
 
+指定的事件才能使用这个密钥。
+
 ```bash
 $ drone secret add \
-    -repository octocat/hello-world \
+    -repository username/hello-world \
     -image plugins/docker \
     -event pull_request \
     -event push \

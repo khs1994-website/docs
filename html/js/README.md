@@ -13,6 +13,100 @@ JavaScript 基础语法介绍。
 
 <!-- more -->
 
+# 特例
+
+```js
+var a = (1,2,3); // 取右边的数值 a = 3
+```
+
+# 调试
+
+```js
+var x = 15 * 5;
+debugger;
+document.getElementbyId("demo").innerHTML = x;
+```
+
+# 变量
+
+```javascript
+var a;
+
+a = 1;
+
+a = "Hello";
+
+var b = 6;
+
+var c, d;         // 一次声明多个变量
+
+var c = 1,d = 1;  // 声明同时赋值
+```
+
+## 变量提升
+
+```js
+a = 1;
+
+console.log(a); // 可以正常输出
+
+console.log(b); // 报错
+
+var a
+
+var b = 1; // 声明的同时赋值，变量不会提升
+```
+
+## 变量作用域
+
+函数外部声明，函数内部可以调用，反之不行。
+
+下边是一个特例
+
+如果变量在函数内没有声明（没有使用 `var` 关键字），该变量为全局变量
+
+```js
+// 此处可调用 carName 变量
+
+function myFunction() {
+    carName = "Volvo";
+    // 此处可调用 carName 变量
+}
+```
+
+# 函数
+
+```js
+function fun1(a, b) {
+  console.log(a);
+  console.log(b);
+  return a;        // 函数返回值
+}
+
+fun1(1,2);  // 调用函数
+```
+
+在函数表达式存储在变量后，变量也可作为一个函数使用：
+
+```js
+var x = function (a, b) {return a * b};
+var z = x(4, 3);
+```
+
+## 函数参数
+
+### `Arguments` 对象
+
+`argument` 对象包含了函数调用的参数数组。
+
+## 自调用函数
+
+```js
+(function () {
+    var x = "Hello!!";      // 我将调用自己
+})();
+```
+
 # 数据类型(6 种)
 
 - `number`
@@ -25,7 +119,7 @@ JavaScript 基础语法介绍。
 
 - `undefined`
 
-- `对象`
+- `对象` 包含 `function` `Data` `Array`
 
 ## 隐式转换
 
@@ -57,49 +151,16 @@ Object.prototype.toString.apply([]); // [object Array]
 // duck type
 ```
 
-# 运算符
-
-```javascript
-var a = (1,2,3); // 取右边的数值 a = 3
-
-var obj = {x:1};
-
-delete obj.x;
-
-window.x = 1;
-
-'x' in window; // true
-```
-
-# 严格模式
-
-提供更强的错误检查。
+## 类型转换
 
 ```js
-function functionName() {
-  'use strict'
-}
-```
+String(123);
 
-不允许用 `with`
+(123).toString();
 
-`delete` 参数、函数名会报错
+Number("3.14");
 
-对象字面量重复属性报错 `{x:1,x:2}`
 
-# 变量
-
-```javascript
-var a;
-
-var c, d;
-
-var c = 1,d = 1;
-
-var b = 6;
-
-a = 1;
-a = "a";
 ```
 
 # 数组
@@ -111,87 +172,12 @@ var myArray = new Array(1,2,3);
 
 var myArray = [1,2,3];
 
-myArray[0] = 80;
+myArray[0] = 80;  // 数组赋值
 ```
 
-## 数组长度
-
 ```javascript
-myArray.length;
-```
-
-# 输出内容
-
-```javascript
-document.write(a);
-
-document.write("Hello");
-```
-
-## 输出警告
-
-```javascript
-alert('Hello');
-```
-
-## `confirm`
-
-```javascript
-confirm(a);
-
-var b=confirm(a);
-
-// 若用户点击确认，则返回 true，此时变量 b 的值为 true
-```
-
-## 提问
-
-```javascript
-prompt(str1,str2);
-
-// str1: 要显示在消息对话框中的文本，不可修改
-// str2：文本框中的内容，可以修改
-
-// 若用户点击确定，文本框中的内容将作为函数返回值
-
-// 点击取消，将返回 null
-```
-
-# 窗口
-
-## 打开新窗口
-
-```javascript
-window.open(URL,窗口名称,参数);
-```
-
-## 关闭窗口
-
-```javascript
-window.close();
-
-窗口对象.close();
-```
-
-# 获取元素
-
-```javascript
-obj=document.getElementById('id');
-
-obj.innerHTML="Hello";
-
-obj.style.color="red";
-
-obj.style.fontSize="20";
-
-// 设置或返回 obj 的 class 属性
-
-// 获取
-var b = obj.className;
-
-// 设置
-
-obj.className="className";
+myArray.length;  // 数组长度
+myArray.sort()   // 数组排序
 ```
 
 # 流程控制
@@ -206,7 +192,7 @@ if (true) {
 
 ```javascript
 switch (expression) {
-  case expression:
+  case expression: // 这里是恒等 ===
 
     break;
   default:
@@ -244,180 +230,34 @@ do {
 
 `continue` 跳过本次循坏。
 
-# 函数
 
-```javascript
-function functionName(x, y) {
-  return x;
+
+# 错误处理
+
+```js
+try {
+  throw "test"
+} catch (e) {
+  console.log(e);
+} finally {
+  console.log('finally');
 }
 ```
 
-# 事件
+# 严格模式 `'use strict'`
 
-- `onclick` 鼠标单击事件
+提供更强的错误检查。
 
-- `onmouseover` 鼠标经过事件
-
-- `onmouse` 鼠标移开事件
-
-```html
-< onclick="fun()" >
+```js
+function functionName() {
+  'use strict'
+}
 ```
 
-# 对象
+不允许用 `with`
 
-```javascript
-mystr.toUpperCase();
+`delete` 参数、函数名会报错
 
-// 将字符串变成大写
-```
+对象字面量重复属性报错 `{x:1,x:2}`
 
-## 日期
-
-```javascript
-var myDate=new Date();
-
-// 可以在括号中定义初始值
-
-// 打印当前时间
-
-document.write(myDate);
-
-// 输出年份
-
-myDate.getFullYear();
-
-// 设置年份
-
-myDate.setFullYear(2013);
-
-// 返回星期
-
-obj.getDay();
-```
-
-## 字符串
-
-```javascript
-// 返回指定位置的字符
-
-obj.charAt(index);
-
-// 返回指定字符串(substring)在某个字符串(obj)中首次出现的位置
-
-// 从 startPos 开始检索
-
-obj.indexOf(substring, startPos);
-
-// 将字符串(obj)用(separator)分割并返回数组
-
-obj.split(separator, limit);
-
-// 截取指定位置的字符串
-
-obj.substring(startPos, stopPos)
-
-obj.substring(7)
-
-// 若只有一个值，则返回从该位置知道结束
-
-obj.substring(2,6);
-
-// 从指定位置提取指定长度的字符串
-
-obj.substr(startPos, length);
-```
-
-## Math
-
-向上取整
-
-```javascript
-Math.ceil(0.8); // 返回 1
-```
-
-## 数组
-
-```javascript
-// 数组排序
-
-obj.sort();
-```
-
-# 浏览器对象
-
-## 计时器
-
-```javascript
-
-// 增加计时器，返回整数
-
-var int = setInterval(代码,交互时间); // 单位毫秒
-
-// 取消计时器
-
-clearInterval(id_of_setInterval);
-
-// 页面载入之后延迟指定时间后，去执行一次表达式，仅执行一次，和上边一样，返回整数
-
-setTimeout(代码,延迟时间);
-
-// 取消
-
-clearTimeout(id_of_setTimeout);
-```
-
-## 历史 `history`
-
-```javascript
-window.history.[属性|方法];
-
-// window 可省略
-
-history.length;
-
-// 返回浏览器历史列表中的 URL 数量。
-
-//返回前一个页面
-
-history.back();
-
-// 下边的代码等同于 back
-
-history.go(-1);
-
-// 倒退之后，回到倒退之前的页面
-
-history.forward(); // 相当于 go(1)
-```
-
-## `location`
-
-解析网页 URL
-
-```javascript
-location.[属性|方法];
-
-location.host; // 返回或设置主机名+端口号
-location.href; // 完整 URL
-```
-
-## `navigator`
-
-`Navigator` 对象包含有关浏览器的信息，通常用于检测浏览器与操作系统的版本。
-
-```javascript
-navigator.appVersion; // 返回浏览器的平台和版本信息
-
-navigator.platform; // 返回浏览器的操作系统平台
-
-navigator.userAgent; // 返回用户代理头的字符串表示(就是包括浏览器版本信息等的字符串)
-```
-
-## `screen`
-
-```javascript
-window.screen.属性;
-
-screen.availHeight; // 窗口可以使用的屏幕高度，单位像素
-```
+等等。

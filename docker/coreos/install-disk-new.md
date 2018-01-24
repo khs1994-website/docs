@@ -79,7 +79,9 @@ $ docker-compose up
 
 ## 启动
 
-新建虚拟机，添加按照文章开头设置两块网卡，内存最低设置为 `2G`，选择加载 `coreos_production_iso_image.iso` ISO 镜像之后启动。
+> 虚拟机内存最低设置为 `2G`，否则将不能使用！
+
+新建虚拟机，添加按照文章开头设置两块网卡，选择加载 `coreos_production_iso_image.iso` ISO 镜像之后启动。
 
 > ISO 启动方式不支持 UEFI
 

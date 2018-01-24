@@ -37,11 +37,13 @@ $ git clone --depth=1 https://github.com/khs1994-docker/coreos.git
 $ cd coreos
 ```
 
-## 配置  
+## 下载所需文件
+
+## 配置
 
 修改 `.env` 文件来自定义配置。
 
-# 启动
+## 启动
 
 ```bash
 $ docker-compose up

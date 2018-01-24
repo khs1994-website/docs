@@ -121,7 +121,7 @@ LABEL vendor=ACME\ Incorporated \
 
 为了保持 `Dockerfile` 文件的可读性，可理解性，以及可维护性，建议将长的或复杂的 `RUN` 指令用反斜杠 `\` 分割成多行。
 
-## apt-get
+### apt-get
 
 `RUN` 指令最常见的用法是安装包用的 `apt-get`。因为 `RUN apt-get` 指令会安装包，所以有几个问题需要注意。
 
