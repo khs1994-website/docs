@@ -12,6 +12,8 @@ categories:
 - Drone
 ---
 
+GitHub: https://github.com/khs1994-php/tencent-ai
+
 Github: https://github.com/khs1994-drone-ci-examples/php
 
 <!--more-->

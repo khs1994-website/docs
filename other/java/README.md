@@ -37,3 +37,13 @@ export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 ```
+
+# `Hello World!`
+
+```java
+public class HelloWorld {
+    public static void main(String[] args){
+        System.out.println("Hello World!");
+    }
+}
+```

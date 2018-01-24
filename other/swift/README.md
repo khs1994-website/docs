@@ -30,6 +30,8 @@ $ sudo apt install clang libicu-dev
 
 # 简单使用
 
+## `Hello World!`
+
 编写 `hello.swift` 文件。
 
 ```swift

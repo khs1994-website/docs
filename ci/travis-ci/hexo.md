@@ -60,8 +60,6 @@ categories:
 
 最后推送项目到 GitHub。
 
-一些常见问题请查看 [Travis CI 使用详解](README.html)
-
 # 相关链接
 
 * http://blog.csdn.net/woblog/article/details/51319364

@@ -15,6 +15,8 @@ categories:
 
 官方网站：https://travis-ci.org
 
+官方文档：https://docs.travis-ci.com/
+
 <!--more-->
 
 # 注册登录
@@ -33,7 +35,7 @@ categories:
 
 在项目列表中（点击右上角头像进入）点击开关，即可打开项目构建，点击开关后边的设置按钮来设置构建选项（增加变量，计划构建等）。
 
-在 Git 项目根目录增加 `.travis.yml` 文件，即可开始使用 travis， travis 会在项目每次提交（commit），PR，tag 时自动构建项目。
+在 Git 项目根目录增加 `.travis.yml` 文件，即可开始使用 travis， travis 会在项目每次提交（push），PR，tag 时自动构建项目。
 
 ## 使用示例
 
@@ -115,9 +117,14 @@ addons:
 branches:
   only:
   - master
+
+branches:  
+  except:
+  - legacy
+  - experimental  
 ```
 
-这样 travis 只会构建 `master` 分支，`dev` 等其他分支提交时(commit)不会构建。
+这样 travis 只会构建 `master` 分支，`dev` 等其他分支提交(push)时不会构建。
 
 # 部署
 
@@ -155,11 +162,75 @@ cache:
   - node_modules
 ```
 
+# 编程语言
+
+在 `.travis.yml` 文件开头首先指明编程语言
+
+```yaml
+language: php
+
+sudo: enabled
+os: osx
+```
+
+请查看 [官方文档](https://docs.travis-ci.com/user/languages/)
+
+# 加密文件
+
+https://docs.travis-ci.com/user/encrypting-files/
+
+# 构建生命周期
+
+```yaml
+language: php
+services:
+  - docker
+cache:
+git:
+  depth: 3
+  depth: false
+  submodules: false
+addons:
+  apt:
+    sources:
+      - deadsnakes
+      - sourceline: 'ppa:ubuntu-toolchain-r/test'
+      - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
+        key_url: 'https://packagecloud.io/gpg.key'
+  hosts:
+      - travis.test
+      - joshkalderimis.com      
+
+before_install:
+  - sudo apt-get update -qq
+# 安装构建依赖
+install:
+  -
+
+before_script:    
+# 执行构建步骤
+
+script:
+  -    
+
+after_script:  
+
+# 构建成功之后执行的步骤
+after_success:
+
+# 构建失败之后执行的步骤
+after_failure:
+before_cache:
+before_deploy:
+deploy:
+after_deploy:
+```
+
 # 其他
 
 ## 错误排查
 
-`Travis CI` 本质就是一台云上的 `Linux`（Docker 容器或者是虚拟机），当执行错误时从以下两方面排查问题:
+`Travis CI` 本质就是一台云上的 `Linux`（[Docker 容器或者是虚拟机](https://docs.travis-ci.com/user/for-beginners/#Infrastructure-and-environment-notes)），当执行错误时从以下两方面排查问题:
 
 * 路径问题(使用 `$ echo $PWD` 调试)
 

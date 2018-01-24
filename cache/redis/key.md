@@ -75,6 +75,8 @@ move key 1 # 移到数据库 1
 
 ## 当且仅当 newkey 不存在时，将 key 改名为 newkey
 
+nx => Not eXists
+
 `renamenx key newkey`
 
 # 排序
