@@ -11,6 +11,6 @@ categories:
 - Drone
 ---
 
-Github: https://github.com/khs1994-docker/drone-demo-hexo
+Github: https://github.com/khs1994-drone-ci-examples/hexo
 
 <!--more-->

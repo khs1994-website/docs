@@ -21,10 +21,10 @@ MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写�
 ```bash
 systemLog:
   destination: file
-  path: /data/usr/local/var/log/mongodb/mongo.log
+  path: /var/log/mongodb/mongo.log
   logAppend: true
 storage:
-  dbPath: /data/usr/local/var/mongodb
+  dbPath: /var/lib/mongodb
 processManagement:
   fork: true
 net:
@@ -36,7 +36,9 @@ net:
 
 ```bash
 $ mongod --config /usr/local/etc/mongod.conf
+
 # 客户端连接
+
 $ mongo 127.0.0.1:端口/数据库
 ```
 

@@ -11,12 +11,8 @@ categories:
 
 GitHub: https://github.com/khs1994-docker/compose-cn-mirror
 
+浏览器直接下载：https://code.aliyun.com/khs1994-docker/compose-cn-mirror/tree/master
+
+要下载不同的版本，请切换左上角的标签。
+
 <!--more-->
-
-国外环境执行 `curl` 从 GitHub 下载二进制文件。
-
-* 腾讯云容器服务
-
-* 阿里云容器服务
-
-* Docker Cloud

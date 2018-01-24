@@ -14,49 +14,55 @@ categories:
 
 <!--more-->
 
-`set string1 tom`
-
-# 将 key 的值设为 value ，当且仅当 key 不存在
-
-`setnx string2 bob`
-
-`mset`
-
-`get string1`
-
-`mget`
-
-# 自增
-
-`incr string2`
-
-# 增量
-
-`incrby key1 20`
-
-`incrbyfloat key1 0.01`
-
-# 减2
-
-`decrby string2 2`
-
 # 追加
 
-`append string "add"`
+```bash
+set key value
 
-# 字符串截取  -1 表示最后一个字符
+append key 1
 
-`getrange key1 0 4`
+get key
+```
 
-# 设置新值，返回旧值
+# 赋值
 
-`getset key newvalue`
+```bash
+setnx key 10 # 当且仅当 key 不存在时，将 key 的值设为 value
 
-时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。
+# 多键操作
 
-即使只有一个给定 key 已存在， MSETNX 也会拒绝执行所有给定 key 的设置操作。
+mset    # 一次设置多个键的值
+msetnx  # 当且仅当键不存在时才能赋值
 
-`msetnx`
+mset key1 value1 key2 value2
+
+mget    # 一次返回多个键的值
+
+mget key1 key2
+
+getset key newvalue # 设置新值，返回旧值
+```
+
+# 增减
+
+```bash
+
+incr string2          # 自增 1
+
+incrby key1 20         # 自定义增量
+
+incrbyfloat key1 0.01
+
+decr key                # 减 1
+
+decrby string2 2        # 减 2
+```
+
+# 字符串截取
+
+截取指定位置的字符串 -1 表示最后一个字符。
+
+`getrange key 0 4`
 
 # 生存时间
 
@@ -64,6 +70,8 @@ categories:
 psetex mykey 1000 "Hello"         # 单位 毫秒
 
 setex  key1 60 "value"            # 单位 秒
-
-strlen mykey
 ```
+
+# 字符串长度
+
+`strlen mykey`

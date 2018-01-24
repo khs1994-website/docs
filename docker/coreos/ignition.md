@@ -13,7 +13,7 @@ categories:
 - Ignition
 ---
 
-CoreOS 配置工具已由 `Ignition` 代替 [`cloud-config`](https://github.com/coreos/coreos-cloudinit)。
+CoreOS 配置工具已由 [`Ignition`](https://github.com/coreos/ignition) 代替 [`cloud-config`](https://github.com/coreos/coreos-cloudinit)。
 
 GitHub：https://github.com/coreos/ignition
 

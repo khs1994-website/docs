@@ -14,6 +14,18 @@ categories:
 
 <!--more-->
 
+# `Hello World!`
+
+```c
+#include <stdio.h>
+
+int main()
+{  
+     printf("Hello World!\n");
+     return 0;
+}
+```
+
 # 基本编译命令
 
 ```bash

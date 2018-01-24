@@ -14,3 +14,15 @@ categories:
 镜像源：http://mirrors.ustc.edu.cn/node/
 
 <!--more-->
+
+# `Hello World!`
+
+```js
+console.log("Hello World!");
+```
+
+执行
+
+```bash
+$ node index.js
+```

@@ -13,6 +13,7 @@ before_install:
 script:
 - export REPO=$REPO
 - export REPO_ALIYUN=$REPO_ALIYUN
+- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - .travis/deploy.sh
 env:
   global:

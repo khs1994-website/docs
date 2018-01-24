@@ -12,7 +12,7 @@ categories:
 - Travis CI
 ---
 
-本文只提供思路，具体实现请查看本人博客的其他文章。
+本文只提供思路，具体实现请查看本人博客的其他文章。务必对 Travis CI [基础知识](https://www.khs1994.com/ci/travis-ci/README.html) 了解之后再阅读本文。
 
 <!--more-->
 

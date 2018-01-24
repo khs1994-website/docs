@@ -70,7 +70,7 @@ $ sudo yum install docker-ce-<VERSION>
 # Debian
 
 ```bash
-$ sudo apt-get install \
+$ sudo apt install \
      apt-transport-https \
      ca-certificates \
      curl \
