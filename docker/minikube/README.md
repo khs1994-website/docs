@@ -17,13 +17,21 @@ GitHub：https://github.com/khs1994-docker/minikube
 
 GitHub: https://github.com/kubernetes/minikube
 
+本文基于 **0.25.0** 版本
+
 <!--more-->
 
 # 修订记录
 
+* 2018-01-27：Minikube 0.25.0 已经发布，请查看阿里云文章：https://yq.aliyun.com/articles/221687
+
 * 2018-01-15：请在之前看过我文章的务必按照本文重新安装配置 minikube
 
 * 2018-01-15：由于阿里云的 localkube 出现问题（已反馈给相关人员），暂时只能使用我编译的 localkube。
+
+# 特别注意
+
+请直接查看 [阿里云文章](https://yq.aliyun.com/articles/221687) 不要再按本文方法使用。
 
 # 镜像列表
 
