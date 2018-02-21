@@ -71,7 +71,9 @@ categories:
 链接
 
 ```html
-<a href=" " title=" " target="_blank"> </a>
+<a href="url" title="title" target="_blank"> </a>
+
+<a href="mailto:khs1994@khs1994.com">khs1994@khs1994.com</a>
 ```
 
 图片

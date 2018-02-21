@@ -1,6 +1,6 @@
 ---
 title: MySQL 查找数据 SELECT
-date: 2015-03-07 13:00:00
+date: 2015-03-12 13:00:00
 updated:
 comments: true
 tags:
@@ -11,7 +11,7 @@ categories:
 ---
 
 ```sql
-SELECT 字段1,字段2 FROM 表名;
+SELECT 字段1,字段2 FROM 表名 WHERE 条件 LIMIT 限制结果返回数量 OFFSET 偏移量;
 ```
 
 <!--more-->
@@ -23,19 +23,7 @@ SELECT 表名.字段名 FROM 表名;
 # 别名
 
 ```sql
-SELECT 字段 AS 别名 FROM 表名;
-```
-
-# 偏移量
-
-```sql
-SELECT 字段 FROM 表名 OFFSET ;
-```
-
-# 限制结果返回条数
-
-```sql
-SELECT 字段 FROM 表名 LIMIT ;
+SELECT 长字段 AS 别名 FROM 表名;
 ```
 
 # 条件
@@ -52,13 +40,13 @@ SELECT 字段 FROM 表名 WHERE 条件 IS NULL;
 SELECT 字段 FROM 表名 WHERE 条件 IS NOT NULL;
 ```
 
-# LIKE
+## LIKE
 
 ```sql
 SELECT 字段 FROM 表名 WHERE LIKE '%COM'
 ```
 
-`%` 是通配符
+> `%` 是通配符
 
 # 排序
 
@@ -83,13 +71,3 @@ SELECT 字段 FROM 表名 GROUP BY 字段 WITH ROLLUP;
 ```sql
 SELECT 字段 FROM 表名 GROUP BY 字段 HAVING 字段 > 5;
 ```
-
-# 连接
-
-```sql
-SELECT 字段 FROM 表名 INNER JOIN;
-```
-
-`LEFT JOIN`
-
-`RIGHT JOIN`

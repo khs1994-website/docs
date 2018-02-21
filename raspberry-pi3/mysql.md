@@ -10,25 +10,25 @@ categories:
 - Raspberry Pi3
 ---
 
-Debian9 使用 apt 安装 MySQL 会安装 MariaDB，下面介绍一下常用的配置方法。
+`Debian9` 使用 `apt` 安装 `MySQL` 会安装 `MariaDB`，下面介绍一下常用的配置方法。
 
 <!--more-->
 
 # 密码
 
-做一次安全检查，设置 root 密码等操作。
+做一次安全检查，设置 `root` 密码等操作。
 
 ```bash
 $ sudo /usr/bin/mysql_secure_installation  
 ```
 
-刚装好的服务端时只能用 sudo 命令登录，然后进行后续设置
+刚装好的服务端时只能用 `sudo` 命令登录，然后进行后续设置
 
 ```bash
 $ sudo mysql -u root -p
 ```
 
-设置密码之后，根据测试，使用 sudo 登录 MySQL 在输密码处直接回车也能登录。
+设置密码之后，根据测试，使用 `sudo` 登录 `MySQL` 在输密码处直接回车也能登录。
 
 这是由于 [plugin=unix_socket](https://www.baidu.com/s?wd=plugin%20unix_socket) 造成的，使用如下命令解决该问题。
 
@@ -72,7 +72,7 @@ SELECT host,user,password,Grant_priv,Super_priv FROM mysql.user;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.199.%' IDENTIFIED BY 'your-password' WITH GRANT OPTION;
 ```
 
-我们已经创建 root 用户，并且让这个用户在192.168.199.0/24 地址内能连接到服务器。
+我们已经创建 `root` 用户，并且让这个用户在 `192.168.199.0/24` 地址内能连接到服务器。
 
 重启 `mysql.service` 服务，进行测试。
 

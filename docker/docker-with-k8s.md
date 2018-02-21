@@ -16,6 +16,10 @@ Docker for Windows v18.02-rc1 正式支持 k8s。
 
 <!--more-->
 
+# 网络环境
+
+需要从 `gcr.io` 拉取镜像，国内网络一般不能够拉取到镜像！网络问题请读者自行解决。
+
 # 相关文章
 
 * [Beta Docker for Mac and Windows with Kubernetes](https://blog.docker.com/2017/10/docker-for-mac-and-windows-with-kubernetes-beta/)
@@ -28,7 +32,9 @@ Docker for Windows v18.02-rc1 正式支持 k8s。
 
 # 加入计划
 
-首先使用 Docker 账号在 https://beta.docker.com 注册预览计划，之后在 Docker 菜单登录该 Docker 账号。
+>可能需要此步骤
+
+使用 Docker 账号在 https://beta.docker.com 注册预览计划，之后在 Docker 菜单登录该 Docker 账号。
 
 # kubectl
 
@@ -37,18 +43,6 @@ Docker for Windows v18.02-rc1 正式支持 k8s。
 ```bash
 $ brew remove kubernetes-cli
 ```
-
-# 启用
-
-在 Docker 设置中启用 k8s，具体图解请查看 [官方文档](https://docs.docker.com/docker-for-mac/#kubernetes)。
-
-## 镜像列表
-
->注意，需要从 `gcr.io` 拉取以下镜像，由于网络问题可能会失败。
-
-镜像列表：https://github.com/khs1994-docker/docker-with-kubernetes
-
-## Minikube
 
 之前你可能使用了 `minikube` ，使用以下命令切换到 `docker-for-desktop`。
 
@@ -60,7 +54,15 @@ CURRENT   NAME                 CLUSTER                      AUTHINFO            
 *         minikube             minikube                     minikube
 
 $ kubectl config use-context docker-for-desktop
+
+# 切换回 minikube 的命令
+
+$ kubectl config use-context minikube
 ```
+
+# 启用
+
+在 Docker 设置中启用 k8s，具体图解请查看 [官方文档](https://docs.docker.com/docker-for-mac/#kubernetes)。
 
 ## 查看集群详情
 

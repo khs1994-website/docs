@@ -1,14 +1,14 @@
 ---
-title: nginx 配置 TLSv1.3
+title: NGINX 配置 TLSv1.3
 date: 2018-01-02 13:00:00
 updated:
 comments: true
 tags:
-- Linux
+- SSL
 - OpenSSL
 - https
 categories:
-- Linux
+- SSL
 - OpenSSL
 - https
 ---
