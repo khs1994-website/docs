@@ -59,7 +59,9 @@ appendfsync everysec             # 每秒执行一次同步操作
 
 Redis 允许同时开启 `AOF` 和 `RDB`。
 
-# 复制
+# 主从复制
+
+主节点不用修改配置文件，从节点选择以下三种方法进行配置。
 
 ## 修改配置文件
 
@@ -69,7 +71,7 @@ slaveof master-ip master-port
 
 ## 启动参数
 
-`--slaveof master-ip master port`
+不修改配置文件，直接在启动时加上参数也可以
 
 ```bash
 $ redis-server --port 6380 --slaveof 127.0.0.1 6379
@@ -93,4 +95,4 @@ redis>SLAVEOF 127.0.0.1 6379
 
 * 当启动配置文件启用 `appendonly` 时，redis 默认寻找 `appendonly.aof` 恢复数据，如果没有 `aof` 文件，则 `redis` 数据为空。
 
-* 当需要使用 `rdb` 文件恢复数据时，启动配置文件需注释掉 `#appendonly yes` 参数。
+* 当需要使用 `rdb` 文件恢复数据时，启动配置文件需注释掉 `#appendonly yes` 参数（或者将参数值改为 `no`）。

@@ -19,23 +19,43 @@ GitHub：https://github.com/khs1994-website/tls-1.3
 
 <!--more-->
 
+# 一键部署
+
+[khs1994-docker/lnmp](https://github.com/khs1994-docker/lnmp) 原生支持 TLSv1.3。
+
+PHP 开发者可以使用此项目一键部署 `TLSv1.3`。
+
 # 本站其他相关文章
 
-* [Nginx https 配置](https://www.khs1994.com/php/development/nginx-https.html)
+* [NGINX https 配置](https://www.khs1994.com/php/development/nginx/https.html)
 
-* [Let's Encrypt SSL 证书配置详解](https://www.khs1994.com/php/development/nginx-lets-encrypt.html)
+* [Let's Encrypt SSL 证书配置详解](https://www.khs1994.com/php/development/nginx/lets-encrypt.html)
 
 * [Https 标签下的文章](https://www.khs1994.com/tags/https/)
+
+# 浏览器环境
+
+> 务必使用最新测试版浏览器测试 `TLSv1.3`，请首先升级浏览器版本，否则后边的做法没有任何意义。
+
+* `Chrome` dev 版本
+
+* `FireFox` beta 版本
+
+* `Chrome Android` dev 版本
 
 # 从 GitHub 克隆 openssl 源码
 
 ```bash
-$ git clone -b tls1.3-draft-18 --depth=1 https://github.com/openssl/openssl /srv/openssl
+$ git clone -b master --depth=1 https://github.com/openssl/openssl /srv/openssl
+
+# 国内镜像
+
+$ git clone -b master --depth=1 https://gitee.com/mirrors/openssl.git /srv/openssl
 ```
 
->这里有个问题，克隆 `master` 分支，最新版的 Chrome 可以访问，但火狐访问不了。克隆 `tls1.3-draft-18` 正好相反。可能是与浏览器支持的草案版本有关，这里不再深入。
+> 你可能查看有的教程克隆了 `tls1.3-draft-18` 分支，注意此草案已经过了很久，[最新草案](https://tools.ietf.org/html/draft-ietf-tls-tls13-24) 已经更新到了 `24` 版本。最新草案已集成到 `master` 分支，我们这里直接克隆 `master` 分支即可。
 
-# 编译安装 nginx
+# 编译安装 NGINX
 
 主要添加以下两项
 
@@ -44,7 +64,7 @@ $ git clone -b tls1.3-draft-18 --depth=1 https://github.com/openssl/openssl /srv
 --with-openssl-opt='enable-tls1_3'
 ```
 
-nginx 编译安装请查看 https://www.khs1994.com/php/development/nginx-build.html
+NGINX 编译安装请查看 https://www.khs1994.com/php/development/nginx/build.html
 
 # Docker
 
@@ -78,3 +98,5 @@ server {
 * https://imququ.com/post/enable-tls-1-3.html
 
 * https://www.mf8.biz/nginx-tls1-3-draft/
+
+* [又拍云支持 TLSv1.3](https://tech.upyun.com/article/276/%E5%8F%88%E6%8B%8D%E4%BA%91%20CDN%20%E6%AD%A3%E5%BC%8F%E6%94%AF%E6%8C%81%20TLS%201.3%20%E5%8A%A0%E5%AF%86%E5%8D%8F%E8%AE%AE%EF%BC%8C%E4%B8%80%E9%94%AE%E5%BC%80%E5%90%AF%E6%9E%81%E9%80%9F%20HTTPS%20%E4%BD%93%E9%AA%8C.html)

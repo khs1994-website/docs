@@ -11,9 +11,9 @@ categories:
 - MySQL
 ---
 
-使用 `Docker Compose` 启动一主一从的 MySQL 集群。
+使用 `Docker Compose` 启动一主两从的 MySQL 集群。
 
-GitHub：https://github.com/khs1994-docker/mysql-cluster
+GitHub：https://github.com/khs1994-docker/lnmp/blob/master/docker-cluster.mysql.yml
 
 <!--more-->
 
@@ -36,22 +36,6 @@ server-id = 1
 server-id = 10
 ```
 
-## 启动 Docker MySQL
-
-编写 `docker-compose.yml` 文件，文件内容请查看 GitHub。
-
-新建 `.env` 文件，写入以下内容
-
-```bash
-MYSQL_ROOT_PASSWORD=mytest
-```
-
-启动 Docker 容器
-
-```bash
-$ docker-compose up -d
-```
-
 # 关联节点
 
 下面了介绍手动执行的步骤，GitHub 中将这一步写入了 shell 脚本文件。
@@ -60,12 +44,9 @@ $ docker-compose up -d
 
 登录主服务器
 
-```bash
-$ docker-compose exec mysql_master mysql -uroot -pmytest
-```
-
 ```sql
 GRANT REPLICATION SLAVE ON *.* to 'backup'@'%' identified by 'mytest';
+
 SHOW master status;
 ```
 
@@ -73,11 +54,7 @@ SHOW master status;
 
 ## 从服务器
 
-新打开一个终端，登录从服务器
-
-```bash
-$ docker-compose exec mysql_node mysql -uroot -pmytest
-```
+登录从服务器
 
 ```sql
 change master to master_host='mysql_1',master_user='backup',

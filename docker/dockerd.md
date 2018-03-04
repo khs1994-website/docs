@@ -435,7 +435,7 @@ CMD cat /test.txt
 按照前面的方法设置好环境变量，这里不再赘述。
 
 ```bash
-$ docker -H 192.168.57.110:2375 --tlsverify build -t khs1994/busybox .
+$ docker -H 192.168.57.110:2376 --tlsverify build -t khs1994/busybox .
 ```
 
 ## 在远程服务端查看
