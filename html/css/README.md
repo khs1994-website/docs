@@ -9,79 +9,75 @@ categories:
 - CSS
 ---
 
-CSS
+`CSS` 简要教程
 
 <!--more-->
 
 ```html
 <style type="text/css">
-
+    /*注释*/
 </style>
 ```
 
-注释
+# 位置
 
-`/*注释*/`
+* 内联式
 
-内联式
+  ```html
+  <p style="color:red"> </p>
+  ```
 
-```html
-<p style="color:red"> </p>
-```
+* 嵌入式
 
-嵌入式
+  写在当前 `HTML` 中
 
-外部式
+* 外部式
 
-```html
-<link href="main.css" rel="stylesheet" type="text/css" />
-```
+  ```html
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  ```
 
-类选择器
+# 选择器
 
 ```css
 .类名{
 
 }
-```
 
-ID 选择器
+/* ID 选择器 */
 
-```css
 #id{
 
 }
-```
 
-子选择器 第一代子元素
+/* 子选择器 第一代子元素 */
 
-```html
 .food>li{
 
 }
-```
 
-包含后代选择器
+/* 包含后代选择器 */
 
-```html
 .first span{
 
 }
-```
 
-` > 作用于元素的第一代后代，空格 作用于元素的所有后代`
+/* > 作用于元素的第一代后代，空格 作用于元素的所有后代 */
 
-伪类选择器
+/* 伪类选择器 */
 
-```html
 a:hover{
 
 }
-```
 
-分组选择符
+/* 通用选择器 */
 
-```html
+* {
+  color: red!important; /*重要性 具有最高权值*/
+}
+
+/* 分组选择符 */
+
 h1,span{
 
 }
@@ -89,33 +85,52 @@ h1,span{
 
 # CSS 属性
 
+## 字体
+
 `font-family`
 
 `font-size`
 
+`font-weight` 字体粗细
+
+`font-style: italic` 斜体
+
+## 颜色
+
 `color`
 
-`font-weight`
+## 文字
 
-`font-style`
+```css
+span {
+  text-decoration:underline;    /* 下划线 */
+  text-decoration:line-through; /* 删除线 */
+}
+```
 
-`text-decoration`
+`text-indent` 缩进
 
-`text-indent`
+`line-height` 行高
 
-`line-height`
+`letter-spacing` 文字间隔，英文字母之间的间隔
 
-`letter-spacing`
+`word-spacing` 单词间距
 
-`word-spacing`
+`text-align:center` 对齐
 
-`text-align:center`
-
-# 元素分类
+# 元素分类 `display`
 
 ## 块状元素
 
 `display:block`
+
+`<div>` `<p>`
+
+* 每个块级元素都从新的一行开始，并且其后的元素也另起一行。
+
+* 元素的高度、宽度、行高以及顶和底边距都可设置。
+
+* 元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。
 
 ## 内联元素（行内元素）
 
@@ -123,11 +138,15 @@ h1,span{
 
 和其他元素都在一行上；元素的高度、宽度及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。
 
+`<a>` `<span>`
+
 ## 内联块状元素
 
 `display:inline-block`
 
 和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。
+
+`<img>` `<input>`
 
 # 盒模型
 
@@ -139,9 +158,17 @@ h1,span{
 
 # 布局模型
 
-`flow` 流动模型
+## 流动模型
 
-`float` 浮动模型
+`flow`
+
+网页默认的布局模型。
+
+## 浮动模型
+
+`float`
+
+实现让两个块状元素并排显示。
 
 ```css
 div{
@@ -149,12 +176,12 @@ div{
 }
 ```
 
-`layer` 层模型
+## 层模型 `position`
 
-## 层模型
+`layer`
 
 `position:absolute` 绝对定位
 
 `position:relative` 相对定位
 
-`position:fixed` 固定定位
+`position:fixed` 固定定位 例如页面浮动广告

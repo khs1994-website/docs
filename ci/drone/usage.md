@@ -38,6 +38,14 @@ clone:
     # 克隆深度
     #
     depth: 50
+    recursive: true
+    submodule_override:
+      #
+      # 重写 git 子模块地址
+      #
+      # @link http://plugins.drone.io/drone-plugins/drone-git/
+      #
+      tests/resource: http://192.168.199.100:3000/khs1994/image.git
 
 #
 # 默认克隆到 /drone/src/github.com/username/hello-world
@@ -114,10 +122,12 @@ pipeline:
     image: plugins/docker
     registry: registry.heroku.com
     repo: foo/bar
-    tags: latest  
+    tags: latest
     when:
       #
-      # drone deploy octocat/hello-world 24 staging
+      # $ drone deploy octocat/hello-world 24 staging
+      #
+      # 命令行执行 deploy 命令才会执行
       #
       event: deployment
       environment: staging
@@ -139,13 +149,16 @@ pipeline:
       status: [ success, failure ]    
 
 services:
-  database:
+  #
+  # 服务使用 mysql 作为 host,下同
+  #
+  mysql:
     image: mysql
     environment:
       - MYSQL_DATABASE=test
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
 
-  cache:
+  redis:
     image: redis
 
 # 只构建以下分支

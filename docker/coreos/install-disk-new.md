@@ -43,13 +43,17 @@ categories:
 
 # 准备文件
 
-进入 http://alpha.release.core-os.net/amd64-usr/ 点击版本号或 `current` ，下载以下文件:
+进入 http://alpha.release.core-os.net/amd64-usr/ 点击特定的版本号或最后的 `current` ，下载以下文件:
 
-iso 启动文件 `coreos_production_iso_image.iso`
+iso 启动文件 `coreos_production_iso_image.iso` [下载链接](http://alpha.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso)
 
-镜像文件 `coreos_production_image.bin.bz2`
+镜像文件 `coreos_production_image.bin.bz2` [下载链接](http://alpha.release.core-os.net/amd64-usr/current/coreos_production_image.bin.bz2)
 
-签名文件 `coreos_production_image.bin.bz2.sig`
+签名文件 `coreos_production_image.bin.bz2.sig` [下载链接](http://alpha.release.core-os.net/amd64-usr/current/coreos_production_image.bin.bz2.sig)
+
+版本信息文件 `version.txt` [下载链接](http://alpha.release.core-os.net/amd64-usr/current/version.txt)
+
+> 注意 四个文件 缺一不可
 
 ## 克隆示例配置文件
 
@@ -67,7 +71,7 @@ $ cd coreos
 
 ## 放入文件
 
-把 `coreos_production_image.bin.bz2` `coreos_production_image.bin.bz2.sig` 放入 `current` 文件夹中。
+把 `coreos_production_image.bin.bz2` `coreos_production_image.bin.bz2.sig` `version.txt` 放入 `current` 文件夹中（三者缺一不可）。
 
 ## 启动容器
 
@@ -109,10 +113,11 @@ $ wget http://192.168.57.1:8080/disk/ignition-1.json
 $ sudo coreos-install \
       -d /dev/sda \
       -C alpha \
-      # -V 1590.0.0 \
       -i ignition-1.json \
       -b http://192.168.57.1:8080 \
       -v
+
+# 该命令也提供了 -V 参数可以安装指定版本 -V 1590.0.0
 
 + echo 'Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda'
 Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda
@@ -122,7 +127,7 @@ Success! CoreOS Container Linux alpha 1590.0.0 is installed on /dev/sda
 $ sudo shutdown now  
 ```
 
-关闭虚拟机之后移除 `ISO`，在虚拟机设置 `系统` 里选择 `启用 EFI`。稍后启动，接下来在其他两个节点进行安装。
+关闭虚拟机之后移除 `ISO`，在虚拟机设置 `系统` 里选择 `启用 EFI`，稍后启动。接下来在其他两个节点进行安装。
 
 ## 在另外两个节点安装
 

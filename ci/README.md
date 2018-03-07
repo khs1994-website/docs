@@ -21,7 +21,7 @@ GitHub：https://github.com/khs1994-php/tencent-ai
 
 * 设置构建步骤
 
-* 设置构建通知（可能项）
+* 设置构建通知
 
 具体步骤请查看官方文档，示例请查看 https://github.com/khs1994-php/tencent-ai
 

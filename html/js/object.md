@@ -1,6 +1,6 @@
 ---
 title: JavaScript 对象
-date: 2013-01-05 13:00:00
+date: 2013-04-05 13:00:00
 tags:
   - JavaScript
 categories:
@@ -14,7 +14,12 @@ JavaScript 中的所有事物都是对象：字符串、数值、数组、函数
 # 对象创建
 
 ```js
-var obj = Object.create({x:1});
+var obj = Object.create({
+  x:1,                   // 对象属性
+  fun: function () {     // 对象方法
+    return 1
+  }
+});
 ```
 
 ## 属性
@@ -43,13 +48,13 @@ obj.hasOwnProperty('toString');   //false 不会查找原型链上的属性
 
 ```js
 var obj = {
-    firstName:"John",
-    fullName: function () {
+    firstName: "John",
+    meth: function () {
         return this.firstName + " " + this.lastName;
     }
 }
 
-obj.fullName();
+obj.meth();
 ```
 
 # 原型链
