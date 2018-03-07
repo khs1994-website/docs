@@ -27,10 +27,10 @@
 # 通过 Docker 阅读
 
 ```bash
-$ docker run -it --rm -p 8080:80 khs1994/docs
+$ docker run -it --rm -p 4000:80 khs1994/docs
 ```
 
-之后打开浏览器 `IP:8080`
+然后浏览器打开 `127.0.0.1:4000`
 
 # 排版规范
 

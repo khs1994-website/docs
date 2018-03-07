@@ -1,6 +1,6 @@
 ---
 title: MySQL 更新数据 UPDATE
-date: 2015-03-06 13:00:00
+date: 2015-03-13 13:00:00
 updated:
 comments: true
 tags:

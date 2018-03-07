@@ -1,6 +1,6 @@
 ---
 title: MySQL 修改数据表 ALTER
-date: 2015-03-04 13:00:00
+date: 2015-03-05 13:00:00
 updated:
 comments: true
 tags:
@@ -13,7 +13,7 @@ categories:
 # 修改列定义
 
 ```sql
-ALTER table 表名 MODIFY 字段名 列定义 位置[FIRST | AFTER 字段名];
+ALTER TABLE 表名 MODIFY 列名 列定义 位置[FIRST | AFTER 列名];
 ```
 
 <!--more-->
@@ -21,47 +21,47 @@ ALTER table 表名 MODIFY 字段名 列定义 位置[FIRST | AFTER 字段名];
 # 修改列名称
 
 ```sql
-ALTER table 表名 CHANGE 原字段名 新字段名 列定义 位置;
+ALTER TABLE 表名 CHANGE 列名 新列名 列定义 位置;
 ```
 
 # 数据表更名
 
 ```sql
-ALTER table 表名 RENAME [ TO | AS ] 新名称;
+ALTER TABLE 表名 RENAME [ TO | AS ] 新名称;
 ```
 
 ```sql
-RENAME table 表名 TO 新名称;
+RENAME TABLE 表名 TO 新名称;
 ```
 
 # 添加单列
 
 ```sql
-ALTER TABLE 表名 ADD [COLUMN] 字段名 列定义 位置;
+ALTER TABLE 表名 ADD [COLUMN] 列名 列定义 位置;
 ```
 
 # 添加约束
 
 ```sql
-ALTER TABLE 表名 ADD PRIMARY KEY (字段);
+ALTER TABLE 表名 ADD PRIMARY KEY (列名);
 ```
 
 ```sql
-ALTER TABLE 表名 ADD UNIQUE (字段);
+ALTER TABLE 表名 ADD UNIQUE (列名);
 ```
 
 ```sql
-ALTER TABLE 表名 ADD FOREIGN KEY (字段) REFERENCES 父表(字段);
+ALTER TABLE 表名 ADD FOREIGN KEY (列名) REFERENCES 父表(列名);
 ```
 
 ```sql
-ALTER TABLE ALTER 字段 SET DEFAULT 值;
+ALTER TABLE ALTER 列名 SET DEFAULT 值;
 ```
 
 # 删除约束
 
 ```sql
-ALTER TABLE 表名 ALTER 字段 DROP DEFAULT;
+ALTER TABLE 表名 ALTER 列名 DROP DEFAULT;
 ```
 
 ```sql

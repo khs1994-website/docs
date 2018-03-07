@@ -4,11 +4,11 @@ date: 2018-01-01 13:00:00
 updated:
 comments: true
 tags:
-- Linux
+- SSL
 - OpenSSL
 - https
 categories:
-- Linux
+- SSL
 - OpenSSL
 - https
 ---
@@ -19,9 +19,9 @@ GitHub：https://github.com/khs1994-docker/tls
 
 # 本站其他相关文章
 
-* [Nginx https 配置](https://www.khs1994.com/php/development/nginx-https.html)
+* [NGINX https 配置](https://www.khs1994.com/php/development/nginx/https.html)
 
-* [Let's Encrypt SSL 证书配置详解](https://www.khs1994.com/php/development/nginx-lets-encrypt.html)
+* [Let's Encrypt SSL 证书配置详解](https://www.khs1994.com/php/development/nginx/lets-encrypt.html)
 
 * [Https 标签下的文章](https://www.khs1994.com/tags/https/)
 

@@ -9,9 +9,17 @@ categories:
   - JavaScript
 ---
 
-JavaScript 基础语法介绍。
+JavaScript 基础语法介绍，可能基于 ES6。
 
 <!-- more -->
+
+# 常量
+
+`ES6`
+
+```js
+const PI=3.14; // 与 PHP 类似
+```
 
 # 特例
 
@@ -76,8 +84,10 @@ function myFunction() {
 
 # 函数
 
+`ES6` 才允许函数默认值。
+
 ```js
-function fun1(a, b) {
+function fun1(a, b = 3) {
   console.log(a);
   console.log(b);
   return a;        // 函数返回值
@@ -94,6 +104,18 @@ var z = x(4, 3);
 ```
 
 ## 函数参数
+
+### 可变参数
+
+`ES6` 与 PHP 类似
+
+```js
+function f(...a){
+  // 遍历 a
+}
+
+f(1,2,3,4);
+```
 
 ### `Arguments` 对象
 
@@ -170,7 +192,7 @@ var myArray = new Array();
 
 var myArray = new Array(1,2,3);
 
-var myArray = [1,2,3];
+var myArray = [1,2,3]; // 和 PHP 一样
 
 myArray[0] = 80;  // 数组赋值
 ```
@@ -178,6 +200,14 @@ myArray[0] = 80;  // 数组赋值
 ```javascript
 myArray.length;  // 数组长度
 myArray.sort()   // 数组排序
+```
+
+## 数组合并
+
+```js
+var a = [1, 2, 3];
+
+var b = ['hello', ...a];
 ```
 
 # 流程控制

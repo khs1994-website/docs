@@ -1,6 +1,6 @@
 ---
 title: MySQL 插入数据 INSERT
-date: 2015-03-05 13:00:00
+date: 2015-03-10 13:00:00
 updated:
 comments: true
 tags:
@@ -11,7 +11,7 @@ categories:
 ---
 
 ```sql
-INSERT 表名 VALUES()
+INSERT (INTO) 表名 VALUES()
 ```
 
 <!--more-->

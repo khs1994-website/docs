@@ -16,7 +16,15 @@ Find and run available commands using `cmd-shift-p` (macOS) or `ctrl-shift-p` (L
 
 # 插件
 
-## 命令行方式
+## 加速
+
+`~/.atom/.apmrc`
+
+```bash
+registry = https://registry.npm.taobao.org
+```
+
+## 命令行方式安装
 
 >apm - Atom Package Manager powered by https://atom.io
 
@@ -48,8 +56,6 @@ https://gist.github.com/khs1994/80a9978333b86f4a6deb5cb2ddca56ad
 * language-docker
 * language-nginx
 * platformio-ide-terminal
-
-
 
 # 相关链接
 

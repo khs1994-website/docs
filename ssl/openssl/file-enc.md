@@ -4,10 +4,10 @@ date: 2017-10-09 13:00:00
 updated:
 comments: true
 tags:
-- Linux
+- SSL
 - OpenSSL
 categories:
-- Linux
+- SSL
 - OpenSSL
 ---
 

@@ -8,9 +8,9 @@ categories:
 - Raspberry Pi3
 ---
 
-GitHub: https://github.com/khs1994-pi/kernel
+GitHub: https://github.com/khs1994/kernel
 
-编译环境 Ubuntu 17.10 server 64 位(使用 VirtuaiBox 虚拟机)，本次编译专门针对 `树莓派 3`，可能不适用于前代产品！
+编译环境 Ubuntu 17.10 server 64 位(使用 `VirtuaiBox` 虚拟机)，本次编译专门针对 `树莓派 3`，可能不适用于前代产品！
 
 <!--more-->
 

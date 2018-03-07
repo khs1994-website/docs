@@ -29,9 +29,17 @@ GitHub：https://github.com/coreos/ignition
 $ ct-v0.5.0-x86_64-apple-darwin -in-file ignition.yaml  > ignition.json
 ```
 
-`container-linux-config-transpiler` 安装方法:
+# `container-linux-config-transpiler` 安装方法
 
 在 https://github.com/coreos/container-linux-config-transpiler/releases 下载二进制文件移入 `PATH`，并赋予可执行权限之后即可使用。
+
+## brew
+
+```bash
+$ brew install coreos-ct
+
+$ ct -help
+```
 
 官方文档：https://coreos.com/os/docs/latest/overview-of-ct.html
 

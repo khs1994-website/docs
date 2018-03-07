@@ -126,6 +126,8 @@ $ uwsgi --ini uwsgi.ini
 
 ## Nginx 配置
 
+官方文档：https://www.nginx.com/resources/wiki/start/topics/examples/djangofastcgi/
+
 ```nginx
 server {
   listen 80;

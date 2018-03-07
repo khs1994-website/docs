@@ -61,6 +61,9 @@ $ sudo /usr/sbin/sshd
 ## 不允许密码登录,只允许公钥登录
 
 ```bash
+# 务必配置此项
+PubkeyAuthentication yes
+
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
 #PermitEmptyPasswords no
@@ -70,7 +73,7 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 ```
 
-配置文件中上诉两项改为 `no`，之后重启 `sshd` 服务。现在我们在一台不带信任 key 的机器尝试登录，那么会提示如下信息:
+之后重启 `sshd` 服务。现在我们在一台不带信任 key 的机器尝试登录，那么会提示如下信息:
 
 ```bash
 ⋊> ~ ssh ubuntu@123.206.62.18

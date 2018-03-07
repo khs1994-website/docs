@@ -17,6 +17,10 @@ categories:
 
 ![](https://docs.docker.com/engine/admin/volumes/images/types-of-mounts-volume.png)
 
+# 修订说明
+
+* 务必弃用 `-v` 参数，为了方便对比，本文以注释方式提供 `-v` 参数示例。
+
 # 类型
 
 * `bind`
@@ -37,19 +41,25 @@ categories:
 
 ## 创建 volume
 
+不创建也可以，使用时若不存在，Docker 会自动新建。
+
 ```bash
 $ docker volume create VOLUME_NAME
 
 $ docker volume ls
+
+# 删除
 
 $ docker volume rm VOLUME_NAME
 ```
 
 ## `$ docker run`
 
+type=`volume`，可以省略，默认为该类型。
+
 ```bash
 $ docker run \
-   --mount source=VOLUME_NAME,target=/app
+   --mount type=volume,src=VOLUME_NAME,target=/app
    # -v VOLUME_NAME:/app \
    --mount source=nginx-vol,destination=/usr/share/nginx/html,readonly
    # -v nginx-vol:/usr/share/nginx/html:ro
@@ -67,7 +77,13 @@ $ docker service create -d \
 
 ## readonly
 
+将数据卷挂载为只读文件夹。
+
 ```
+--mount source=nginx-vol,destination=/usr/share/nginx/html,readonly
+
+# 进入容器，尝试新建文件夹，会提示错误
+
 $ mkdir: can't create directory 'a.txt': Read-only file system
 ```
 
@@ -75,13 +91,15 @@ $ mkdir: can't create directory 'a.txt': Read-only file system
 
 官方文档：https://docs.docker.com/engine/admin/volumes/bind-mounts/
 
-`-v` 参数挂载的文件或目录路径如果不存在，Docker 会默认创建一个文件夹
+`-v` 参数挂载的文件或目录路径如果不存在，Docker 会默认创建一个文件夹。
 
-`--mount` 参数挂载的文件或目录路径如果不存在，Docker 不会自动创建，并且会报错
+`--mount` 参数挂载的文件或目录路径如果不存在，Docker 不会自动创建，并且会报错。
+
+`type` 为 `bind`
 
 ```bash
 $ docker run \
-   --mount type=bind,source=$PWD/app,target=/app \
+   --mount type=bind,src=$PWD/app,target=/app \
    # -v "$(pwd)"/target:/app \
    --mount type=bind,source=$PWD/app,target=/app,readonly \
    # -v "$(pwd)"/target:/app:ro
@@ -110,6 +128,8 @@ These options are completely ignored on all host operating systems except `macOS
 
 --mount type=tmpfs,destination=/app,tmpfs-mode=1770
 ```
+
+`tmpfs` 没有宿主机源文件。
 
 # 注意事项
 
