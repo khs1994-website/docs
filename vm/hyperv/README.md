@@ -5,6 +5,7 @@ updated:
 comments: true
 tags:
 - Hyper-V
+- PowerShell
 categories:
 - VM
 - Hyper-V

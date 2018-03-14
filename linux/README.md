@@ -13,6 +13,28 @@ categories:
 
 <!--more-->
 
+# 软件源
+
+* https://pkgs.org/ 包含各种系统的软件源
+
+* http://rpms.remirepo.net/
+
+* https://fedoraproject.org/wiki/EPEL/zh-cn
+
+* https://rpmfusion.org/
+
+* https://ius.io/
+
+# 设置环境变量
+
+* export 临时
+
+* `/etc/profile`
+
+* `~/.bashrc`
+
+* `~/.bash_profile`
+
 # sudo
 
 ## 找不到命令

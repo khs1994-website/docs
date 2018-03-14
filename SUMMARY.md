@@ -183,6 +183,7 @@
         * [Gradle](other/java/gradle.md)
         * [Maven 常用配置](other/java/maven.md)
     * [iOS](other/ios/README.md)
-    * [Swift](other/swift/README.md)    
+    * [Swift](other/swift/README.md) 
+    * [PowerShell](other/powershell/README.md)   
 * [PHP](php/readme.md)
 * [Golang](golang/readme.md)
