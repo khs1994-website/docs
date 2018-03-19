@@ -13,6 +13,16 @@ categories:
 
 <!--more-->
 
+# 网页搜索软件包
+
+* https://pkgs.org/ 包含各种系统的软件源
+
+* Alpine https://pkgs.alpinelinux.org/packages
+
+* Debian https://packages.debian.org/zh-cn/
+
+* Ubuntu https://packages.ubuntu.com/zh-cn/
+
 # 软件源
 
 * https://pkgs.org/ 包含各种系统的软件源

@@ -11,6 +11,8 @@ categories:
 
 当然，理论上可以操控任意的远程 Docker Daemon。
 
+>注意：不要误认为是在 WSL 运行 Docker,这是完全没有可能的。
+
 <!--more-->
 
 # Docker for Windows 设置
@@ -18,6 +20,8 @@ categories:
 设置中打开 `2375` 端口，这里不再赘述。
 
 # 下载文件
+
+注意替换为最新版本号
 
 国内地址
 
