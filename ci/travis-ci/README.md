@@ -184,15 +184,20 @@ https://docs.travis-ci.com/user/encrypting-files/
 ```yaml
 language: php
 sudo: required
+
 services:
   - docker
+  - mysql
+
 cache:
   directories:
   - vendor
+
 git:
   depth: 3
   depth: false
   submodules: false
+
 addons:
   apt:
     sources:
@@ -202,23 +207,26 @@ addons:
         key_url: 'https://packagecloud.io/gpg.key'
   hosts:
       - travis.test
-      - joshkalderimis.com      
+      - joshkalderimis.com
+
 php:
   - 5.6
   - 7.0
   - 7.1
   - 7.2
+
 before_install:
   - sudo apt-get update -qq
+
 # 安装构建依赖
 install:
-  -
+  - composer install -q
 
 before_script:    
 # 执行构建步骤
 
 script:
-  -    
+  - env  
 
 after_script:  
 
@@ -232,17 +240,19 @@ before_deploy:
 deploy:
 after_deploy:
 
-jobs: # beta
+jobs:
   include:
     - stage: test
       script:
     - stage: deploy
       script:
+
 stages: # 指定顺序，构建条件
   - test
   - name: deploy
     if: tag =~ ^[0-9.]+$
   # https://docs.travis-ci.com/user/conditional-builds-stages-jobs/  
+
 env:
   global:
     - TZ=Asia/Shanghai

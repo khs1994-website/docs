@@ -28,9 +28,9 @@ $m->addServers([
   ['127.0.0.2',11211]
 ]);
 
-$m->getVersion();
+$m->getVersion(); // array
 
-$m->getStats();
+$m->getStats(); // array
 ```
 
 # 数据操作
@@ -39,19 +39,27 @@ $m->getStats();
 
 // 600 为过期时间
 
-$m->add('key','value',600);
+$m->add('key','value',600); // 若对 key 再次执行 add 一个新值 value2 不能改变原值。
 
-// 若对 key 再次执行 add 一个新值 value2 不能改变原值。
+$m->replace('key','value',600); // 替换
 
-// 替换
+$m->set('key','value',600); // set会替换原值，注意与 add 的区别
 
-$m->replace('key','value',600);
+$m->append(); // 追加键值对
 
-$m->set('key','value',600);
+$m->prepend(); // 向已存在 key(键) 的 value(数据值) 前面追加数据
 
 $m->get('key');
 
 $m->delete('key');
+```
+
+## cas
+
+用于执行一个"检查并设置"的操作。它仅在当前客户端最后一次取值后，该 key 对应的值没有被其他客户端修改的情况下， 才能够将值写入
+
+```php
+$m->cas()
 ```
 
 ## 清空

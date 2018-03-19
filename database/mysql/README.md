@@ -14,6 +14,67 @@ categories:
 
 <!--more-->
 
+* 表头(header): 每一列的名称;
+
+* 列(row): 具有相同数据类型的数据的集合;
+
+* 行(col): 每一行用来描述某个人/物的具体信息;
+
+* 值(value): 行的具体信息, 每个值必须与该列的数据类型相同;
+
+* 键(key): 表中用来识别某个特定的人\物的方法, 键的值在当前列中具有唯一性。
+
+# Grants
+
+* GRANT SELECT
+* INSERT
+* UPDATE
+* DELETE
+* CREATE
+* DROP
+* RELOAD
+* SHUTDOWN
+* PROCESS
+* FILE
+* REFERENCES
+* INDEX
+* ALTER
+* SHOW DATABASES
+* SUPER
+* CREATE TEMPORARY TABLES
+* LOCK TABLES
+* EXECUTE
+* REPLICATION SLAVE
+* REPLICATION CLIENT
+* CREATE VIEW
+* SHOW VIEW
+* CREATE ROUTINE
+* ALTER ROUTINE
+* CREATE USER
+* EVENT
+* TRIGGER
+* CREATE TABLESPACE
+* CREATE ROLE
+* DROP ROLE ON *.* TO `root`@`%` WITH GRANT OPTION"
+
+* GRANT BACKUP_ADMIN
+* BINLOG_ADMIN
+* CONNECTION_ADMIN
+* ENCRYPTION_KEY_ADMIN
+* GROUP_REPLICATION_ADMIN
+* PERSIST_RO_VARIABLES_ADMIN
+* REPLICATION_SLAVE_ADMIN
+* RESOURCE_GROUP_ADMIN
+* RESOURCE_GROUP_USER
+* ROLE_ADMIN
+* SET_USER_ID
+* SYSTEM_VARIABLES_ADMIN
+* XA_RECOVER_ADMIN ON *.* TO `root`@`%` WITH GRANT OPTION"
+
+# shell 变量
+
+* https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html
+
 # 常见指令
 
 ```sql
@@ -94,13 +155,40 @@ DELETE FROM user WHERE user='admin' and host='%';
 ## 修改配置文件
 
 ```yaml
+[client]
+default-character-set = utf8mb4
+
+[mysql]
+default-character-set = utf8mb4
+
+[mysqld]
+character-set-client-handshake = FALSE
 character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init_connect='SET NAMES utf8mb4'
 ```
 
 ## 查看字符集
 
 ```sql
-SHOW VARIABLES LIKE 'character%';
+SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
+
+# 以下为原始配置信息，修改后的配置请自行查看
+
++--------------------------+-------------------+
+| Variable_name            | Value             |
++--------------------------+-------------------+
+| character_set_client     | utf8              |
+| character_set_connection | utf8              |
+| character_set_database   | latin1            |
+| character_set_filesystem | binary            |
+| character_set_results    | utf8              |
+| character_set_server     | latin1            |
+| character_set_system     | utf8              |
+| collation_connection     | utf8_general_ci   |
+| collation_database       | latin1_swedish_ci |
+| collation_server         | latin1_swedish_ci |
++--------------------------+-------------------+
 ```
 
 # 元数据

@@ -14,7 +14,7 @@ categories:
 
 <!--more-->
 
-# RDB
+# RDB 快照
 
 该方式为默认方式。
 
@@ -38,7 +38,7 @@ Redis 默认会将快照文件存储在当前目录（可以自定义，在客�
 redis 127.0.0.1:6379> SAVE    # 该命令将在 redis 备份目录中创建dump.rdb文件。
 ```
 
-# AOF
+# AOF 日志
 
 `append only file`
 
@@ -61,31 +61,23 @@ Redis 允许同时开启 `AOF` 和 `RDB`。
 
 # 主从复制
 
-主节点不用修改配置文件，从节点选择以下三种方法进行配置。
-
-## 修改配置文件
+主节点不用修改，从节点选择以下三种方法进行配置。
 
 ```bash
+# 1.修改配置文件
+
 slaveof master-ip master-port
-```
 
-## 启动参数
+# 2.不修改配置文件，直接在启动时加上参数也可以
 
-不修改配置文件，直接在启动时加上参数也可以
-
-```bash
 $ redis-server --port 6380 --slaveof 127.0.0.1 6379
+
+# 3. redis-cli 中修改
+
+redis> SLAVEOF 127.0.0.1 6379
+
+redis> SLAVEOF NO ONE # 使当前数据库停止接收其他数据库的同步，转成主数据库
 ```
-
-## 命令
-
-`SLAVEOF master-ip master-port`
-
-```bash
-redis>SLAVEOF 127.0.0.1 6379
-```
-
-`SLAVEOF NO ONE` 可以使当前数据库停止接收其他数据库的同步，转成主数据库
 
 # 恢复
 

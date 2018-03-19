@@ -47,10 +47,6 @@ $ docker-compose up -d
 
 与 Travis CI 类似，项目中包含 `.drone.yml` 即可使用。
 
-使用文档请查看 [这里](http://docs.drone.io/getting-started/) 。
+使用文档请查看 http://docs.drone.io/getting-started/
 
-本站介绍的使用方法请查看 [这里](https://www.khs1994.com/ci/drone/usage.html)
-
-# 示例
-
-* https://github.com/khs1994-drone-ci-examples
+本站介绍的使用方法请查看 https://www.khs1994.com/ci/drone/usage.html

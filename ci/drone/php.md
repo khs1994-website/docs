@@ -14,6 +14,6 @@ categories:
 
 GitHub: https://github.com/khs1994-php/tencent-ai
 
-Github: https://github.com/khs1994-drone-ci-examples/php
+Github: https://github.com/khs1994-docker/php-demo
 
 <!--more-->
