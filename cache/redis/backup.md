@@ -14,7 +14,7 @@ categories:
 
 <!--more-->
 
-# RDB 快照
+# RDB 快照 (Redis DataBase)
 
 该方式为默认方式。
 
@@ -24,6 +24,8 @@ categories:
 save 900 1    # 900秒内有至少1个键被更改则进行快照
 save 300 10   # 300秒内有至少10个键被更改则进行快照
 save 60 10000 # 60秒内有至少10000个键被更改则进行快照
+
+save "" # 禁用该功能
 ```
 
 可以存在多个条件，条件之间是「或」的关系，只要满足其中一个条件，就会进行快照。如果想要禁用自动快照，只需要将所有的 `save` 参数删除即可。
@@ -38,15 +40,18 @@ Redis 默认会将快照文件存储在当前目录（可以自定义，在客�
 redis 127.0.0.1:6379> SAVE    # 该命令将在 redis 备份目录中创建dump.rdb文件。
 ```
 
-# AOF 日志
+# AOF 日志 (Append-only file)
 
 `append only file`
 
+将 操作 + 数据 以格式化指令的方式追加到操作日志文件的尾部
+
 ```bash
 appendonly yes
+
 appendfilename appendonly.aof
 
-# 当目前的AOF文件大小超过上一次重写时的AOF文件大小的百分之多少时会再次进行重写，如果之前没有重写过，则以启动时的AOF文件大小为依据
+# 当目前的 AOF 文件大小超过上一次重写时的 AOF 文件大小的百分之多少时会再次进行重写，如果之前没有重写过，则以启动时的 AOF 文件大小为依据
 
 auto-aof-rewrite-percentage 100
 
@@ -58,6 +63,14 @@ appendfsync everysec             # 每秒执行一次同步操作
 ```
 
 Redis 允许同时开启 `AOF` 和 `RDB`。
+
+# 混合 RDB-AOF 持久化格式
+
+4.0+
+
+```bash
+aof-use-rdb-preamble yes
+```
 
 # 主从复制
 
@@ -85,6 +98,6 @@ redis> SLAVEOF NO ONE # 使当前数据库停止接收其他数据库的同步�
 
 注意：  
 
-* 当启动配置文件启用 `appendonly` 时，redis 默认寻找 `appendonly.aof` 恢复数据，如果没有 `aof` 文件，则 `redis` 数据为空。
+* 当配置文件启用 `appendonly` 时，redis 默认寻找 `appendonly.aof` 恢复数据，如果没有 `aof` 文件，则 `redis` 数据为空。
 
 * 当需要使用 `rdb` 文件恢复数据时，启动配置文件需注释掉 `#appendonly yes` 参数（或者将参数值改为 `no`）。

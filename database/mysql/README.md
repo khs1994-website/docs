@@ -75,6 +75,14 @@ categories:
 
 * https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html
 
+# 配置文件加载顺序
+
+```bash
+$ mysql --verbose --help
+
+# 在输出结果中查看
+```
+
 # 常见指令
 
 ```sql
@@ -247,7 +255,7 @@ SHOW VARIABLES;      # 服务器配置变量
 ## 设置存储引擎
 
 ```bash
-default-storage-engine = engine
+default-storage-engine = InnoDB | MYISAM
 ```
 
 # 并发控制

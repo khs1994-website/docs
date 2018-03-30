@@ -209,6 +209,19 @@ addons:
       - travis.test
       - joshkalderimis.com
 
+matrix:
+  allow_failures:
+    - php: master
+  fast_finish: true
+
+env:
+  global:
+    - TZ=Asia/Shanghai
+  matrix:
+    - APP_ENV = pro
+    - APP_ENV = dev
+    - APP_ENV = staging
+
 php:
   - 5.6
   - 7.0
@@ -247,19 +260,13 @@ jobs:
     - stage: deploy
       script:
 
-stages: # 指定顺序，构建条件
+# 指定 jobs 顺序，构建条件
+#
+# @link https://docs.travis-ci.com/user/conditional-builds-stages-jobs/  
+stages:
   - test
   - name: deploy
     if: tag =~ ^[0-9.]+$
-  # https://docs.travis-ci.com/user/conditional-builds-stages-jobs/  
-
-env:
-  global:
-    - TZ=Asia/Shanghai
-  matrix:
-    - APP_ENV = pro
-    - APP_ENV = dev
-    - APP_ENV = staging
 
 # blocklist
 branches:

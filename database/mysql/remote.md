@@ -14,19 +14,19 @@ categories:
 
 <!--more-->
 
-# 授予用户权限
+# 配置文件
 
-## 改表法
+```bash
+[mysqld]
 
-更改 `mysql` 数据库里的 `user` 表里的 `host` 项，将 `localhost` 改为 `%`
+bind-address=0.0.0.0
 
-```sql
-USE mysql;
-
-UPDATE user SET host = '%' WHERE user = 'root';
-
-SELECT host, user FROM user;
+# 或改为你自己的 IP, 0.0.0.0 表示监听全部 IP
+#
+# 默认的配置文件没有该配置，不排除有人增加了这项配置，所以首先看看这个配置项
 ```
+
+# 授予用户权限
 
 ## 授权法
 
@@ -52,6 +52,18 @@ FLUSH   PRIVILEGES;
 GRANT ALL PRIVILEGES ON dk.* TO 'myuser'@'192.168.1.3' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
 
 FLUSH   PRIVILEGES;
+```
+
+## 改表法
+
+更改 `mysql` 数据库里的 `user` 表里的 `host` 项，将 `localhost` 改为 `%`
+
+```sql
+USE mysql;
+
+UPDATE user SET host = '%' WHERE user = 'root';
+
+SELECT host, user FROM user;
 ```
 
 # 创建、删除用户
@@ -88,7 +100,7 @@ show grants for dog@localhost;
 
 >GRANT USAGE:mysql usage 权限就是空权限，默认 create user的权限，只能连库，啥也不能干
 
-## 插表
+## 插表法
 
 ```sql
 # 旧版本

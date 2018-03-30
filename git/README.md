@@ -13,6 +13,12 @@ categories:
 
 <!--more-->
 
+# 子模块
+
+```bash
+$ git submodule update --init --recursive
+```
+
 # 配置
 
 查看配置
