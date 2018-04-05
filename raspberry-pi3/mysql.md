@@ -34,11 +34,18 @@ $ sudo mysql -u root -p
 
 ```bash
 $ sudo mysql -u root
-```
 
-```sql
 USE mysql;
+
+select plugin from user;
++-------------+
+| plugin      |
++-------------+
+| unix_socket |
++-------------+
+
 UPDATE user SET plugin='' WHERE User='root';
+
 flush privileges;
 ```
 

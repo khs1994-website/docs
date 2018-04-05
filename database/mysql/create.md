@@ -14,23 +14,18 @@ categories:
 
 <!--more-->
 
-# 数据库
-
 ```sql
-CREATE DATABASE db1;
-```
+CREATE DATABASE [if not exists] db_name CHARACTER set utf8mb4;
 
-# 数据表
-
-```sql
-USE DB1;
+USE db_name;
 
 CREATE TABLE `tb1`(
   `id` INT AUTO_INCREMENT,
-  `pid` INT UNSIGNED,
+  `pid` INT UNSIGNED COMMENT '注释',
   `username` VARCHAR(20) UNIQUE NOT NULL,
-  key(`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  key(`id`),
+  unique index index_name(col_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
 # 函数

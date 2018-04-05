@@ -10,11 +10,7 @@ sudo chmod -R 777 _book
 
 docker build -t khs1994/docs:latest .
 
-docker tag khs1994/docs:latest khs1994/doc:latest
-
 docker push khs1994/docs:latest
-
-docker push khs1994/doc:latest
 
 cd _book
 

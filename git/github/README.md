@@ -10,9 +10,15 @@ categories:
 - GitHub
 ---
 
-标准化`Git`使用
+标准化 `Git` 使用
 
 <!--more-->
+
+# 国内访问
+
+在 `/etc/hosts` 替换 hosts
+
+* https://github.com/khs1994/github-chinese
 
 # `.gitignore`
 

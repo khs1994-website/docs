@@ -99,12 +99,27 @@ https://docs.docker.com/engine/security/security/
 
 # Swarm mode
 
+## 服务创建
+
+* `docker service create ...` 一个服务
+
+* `docker stack deploy ...` 多个服务
+
+## 服务详情
+
+```bash
+$ docker service ls ps inspect logs
+
+$ docker stack ps STACK_NAME
+
+$ docker stack services STACK_NAME
+```
+
 ## 存储配置数据
 
 https://docs.docker.com/engine/swarm/configs/
 
 `docker config` 命令
-
 
 以 `redis` 为例
 
@@ -154,6 +169,50 @@ $ docker service create \
      nginx:latest \
      sh -c "exec nginx -g 'daemon off;'"
 ```
+
+## 服务更新
+
+https://docs.docker.com/edge/engine/reference/commandline/service_update/
+
+```bash
+$ docker service update ...
+```
+
+## 服务回退
+
+https://docs.docker.com/edge/engine/reference/commandline/service_rollback/#related-commands
+
+```bash
+$ docker service rollback
+```
+
+## 删除服务
+
+```bash
+$ docker service rm ...
+
+$ docker stack rm ...
+```
+
+## 服务容器数量伸缩
+
+```bash
+$ docker service scale backend=3 frontend=5
+```
+
+## 跨节点数据管理
+
+讨论 https://github.com/khs1994-docker/lnmp/issues/275
+
+* NFS
+
+* https://github.com/vieux/docker-volume-sshfs
+
+* ceph
+
+## 网络
+
+讨论 https://github.com/khs1994-docker/lnmp/issues/279
 
 # 在一个容器中运行多个服务
 

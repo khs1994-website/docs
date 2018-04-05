@@ -4,7 +4,7 @@ date: 2016-08-01 13:00:00
 updated:
 comments: true
 tags:
-- Server
+- Linux
 categories:
 - Linux
 - Server

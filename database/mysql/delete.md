@@ -1,5 +1,5 @@
 ---
-title: MySQL 删除数据 DELETE
+title: MySQL 删除 DELETE
 date: 2015-03-07 13:00:00
 updated:
 comments: true
@@ -11,6 +11,7 @@ categories:
 ---
 
 ```sql
-DELETE FROM 表名 WHERE 条件;
+DELETE FROM tb_name WHERE 条件;
 ```
+
 <!--more-->
