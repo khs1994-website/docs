@@ -14,6 +14,8 @@ categories:
 
 <!--more-->
 
+# 基本概念
+
 * 表头(header): 每一列的名称;
 
 * 列(row): 具有相同数据类型的数据的集合;
@@ -23,6 +25,47 @@ categories:
 * 值(value): 行的具体信息, 每个值必须与该列的数据类型相同;
 
 * 键(key): 表中用来识别某个特定的人\物的方法, 键的值在当前列中具有唯一性。
+
+# 字符集
+
+## 修改配置文件
+
+```yaml
+[client]
+default-character-set = utf8mb4
+
+[mysql]
+default-character-set = utf8mb4
+
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init_connect='SET NAMES utf8mb4'
+```
+
+## 查看字符集
+
+```sql
+SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
+
+# 以下为原始配置信息，修改后的配置请自行查看
+
++--------------------------+-------------------+
+| Variable_name            | Value             |
++--------------------------+-------------------+
+| character_set_client     | utf8              |
+| character_set_connection | utf8              |
+| character_set_database   | latin1            |
+| character_set_filesystem | binary            |
+| character_set_results    | utf8              |
+| character_set_server     | latin1            |
+| character_set_system     | utf8              |
+| collation_connection     | utf8_general_ci   |
+| collation_database       | latin1_swedish_ci |
+| collation_server         | latin1_swedish_ci |
++--------------------------+-------------------+
+```
 
 # Grants
 
@@ -71,19 +114,25 @@ categories:
 * SYSTEM_VARIABLES_ADMIN
 * XA_RECOVER_ADMIN ON *.* TO `root`@`%` WITH GRANT OPTION"
 
-# shell 变量
+# 删除用户
 
-* https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html
+```sql
+USE mysql;
 
-# 配置文件加载顺序
-
-```bash
-$ mysql --verbose --help
-
-# 在输出结果中查看
+DELETE FROM user WHERE user='admin' and host='%';
 ```
 
 # 常见指令
+
+```bash
+$ mysql -uroot -pmytest -D test
+```
+
+* `-D` 指定数据库
+
+* `-h` 指定主机
+
+* `-P` 指定端口
 
 ```sql
 # 切换数据库、数据表等
@@ -101,21 +150,33 @@ SELECT country FROM tb1 UNION ALL SELECT country FROM tb2 ORDER BY country; # �
 SELECT ... WHERE name REGEXP '^st';
 ```
 
-# 查看
+## 查看
 
 ```sql
 SHOW DATABASES;
 
 SHOW TABLES;
 
-SHOW TABLES FROM 数据库名;
+SHOW TABLES FROM db_name;
 
 # 查看表结构
 
-SHOW COLUMNS FROM 表名;
+SHOW COLUMNS FROM tb_name;
+
+=
+
+DESCRIBE tb_name;
+
+SHOW CREATE DATABASE db_name;
+
+SHOW CREATE TABLE tb_name;
+
+SHOW warnings;
+
+SHOW engines \G;
 ```
 
-# 约束
+## 约束
 
 `NULL` `NOT NULL`
 
@@ -131,7 +192,7 @@ SHOW COLUMNS FROM 表名;
 
 `FOREIGN KEY REFERENCES`
 
-## 外键约束
+### 外键约束
 
 `FOREIGN KEY`
 
@@ -142,7 +203,7 @@ CREATE TABLE 表名(
 );
 ```
 
-### 参照操作
+#### 参照操作
 
 `CASCADE`
 
@@ -150,56 +211,7 @@ CREATE TABLE 表名(
 
 `RESTRICT`
 
-# 删除用户
-
-```sql
-USE mysql;
-
-DELETE FROM user WHERE user='admin' and host='%';
-```
-
-# 字符集
-
-## 修改配置文件
-
-```yaml
-[client]
-default-character-set = utf8mb4
-
-[mysql]
-default-character-set = utf8mb4
-
-[mysqld]
-character-set-client-handshake = FALSE
-character-set-server = utf8mb4
-collation-server = utf8mb4_unicode_ci
-init_connect='SET NAMES utf8mb4'
-```
-
-## 查看字符集
-
-```sql
-SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
-
-# 以下为原始配置信息，修改后的配置请自行查看
-
-+--------------------------+-------------------+
-| Variable_name            | Value             |
-+--------------------------+-------------------+
-| character_set_client     | utf8              |
-| character_set_connection | utf8              |
-| character_set_database   | latin1            |
-| character_set_filesystem | binary            |
-| character_set_results    | utf8              |
-| character_set_server     | latin1            |
-| character_set_system     | utf8              |
-| collation_connection     | utf8_general_ci   |
-| collation_database       | latin1_swedish_ci |
-| collation_server         | latin1_swedish_ci |
-+--------------------------+-------------------+
-```
-
-# 元数据
+## 元数据
 
 ```sql
 SELECT VERSION();
@@ -213,7 +225,7 @@ SHOW STATUS;         # 服务器状态
 SHOW VARIABLES;      # 服务器配置变量
 ```
 
-# 事务
+## 事务
 
 保证数据库的完整性
 
@@ -239,24 +251,6 @@ SHOW VARIABLES;      # 服务器配置变量
 `ROLLBACK TO ` 回滚到某个保存点。
 
 `SET TRANSACTION` 设置事务的隔离级别。
-
-# 存储引擎
-
-`InnoDB`
-
-`MyISAM` 8.0 已废弃
-
-`Memory`
-
-`CSV`
-
-`Archive`
-
-## 设置存储引擎
-
-```bash
-default-storage-engine = InnoDB | MYISAM
-```
 
 # 并发控制
 

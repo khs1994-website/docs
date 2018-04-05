@@ -15,7 +15,7 @@ categories:
 
 # 网页搜索软件包
 
-* https://pkgs.org/ 包含各种系统的软件源
+* https://pkgs.org/ 包含各种系统的软件包
 
 * Alpine https://pkgs.alpinelinux.org/packages
 
@@ -25,15 +25,17 @@ categories:
 
 # 软件源
 
-* https://pkgs.org/ 包含各种系统的软件源
+* https://pkgs.org/ 包含各种系统的软件包
 
-* http://rpms.remirepo.net/
+## RHEL 第三方源
 
-* https://fedoraproject.org/wiki/EPEL/zh-cn
+* REMI http://rpms.remirepo.net/ http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
-* https://rpmfusion.org/
+* EPEL https://fedoraproject.org/wiki/EPEL/zh-cn http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-* https://ius.io/
+* RPM Fusion https://rpmfusion.org/ http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-1.noarch.rpm
+
+* IUS https://ius.io/ https://centos7.iuscommunity.org/ius-release.rpm
 
 # 设置环境变量
 
@@ -60,6 +62,12 @@ Defaults  secure_path=...
 
 ```bash
 echo "password" | sudo -S cmd
+```
+
+## sudo 重定向到文件
+
+```bash
+$ echo 1 | sudo tee 1.txt
 ```
 
 # 相关链接

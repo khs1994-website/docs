@@ -6,8 +6,6 @@ comments: true
 tags:
   - Docker
   - CoreOS
-  - CoreOS Blog
-  - Deprecated
 categories:
   - Docker
   - CoreOS

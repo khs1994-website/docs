@@ -16,6 +16,18 @@ GitHub：https://github.com/khs1994-docker/lnmp/blob/master/config/mysql/docker.
 
 <!--more-->
 
+# shell 变量
+
+* https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html
+
+# 配置文件加载顺序
+
+```bash
+$ mysql --verbose --help
+
+# 在输出结果中查看
+```
+
 # 错误设置
 
 ```bash

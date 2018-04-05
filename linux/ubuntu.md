@@ -59,3 +59,7 @@ $ apt install mailutils
 $ sudo apt install openssl
 $ sudo apt install libssl-dev
 ```
+
+## update-alternatives
+
+* http://persevere.iteye.com/blog/1479524

@@ -1,5 +1,5 @@
 ---
-title: MySQL 插入数据 INSERT
+title: MySQL 插入/更新 INSERT UPDATE
 date: 2015-03-10 13:00:00
 updated:
 comments: true
@@ -28,4 +28,10 @@ INSERT 表名 SET 字段名=值;
 
 ```sql
 INSERT 表名 SELECT
+```
+
+# 更新
+
+```sql
+UPDATE tb_name SET 字段名=值 WHERE 条件;
 ```
