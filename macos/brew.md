@@ -7,7 +7,6 @@ tags:
 - macOS
 - brew
 categories:
-- OS
 - macOS
 ---
 

@@ -6,7 +6,6 @@ comments: true
 tags:
 - Vim
 categories:
-- OS
 - Tools
 ---
 

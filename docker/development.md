@@ -15,6 +15,24 @@ categories:
 
 <!--more-->
 
+# 镜像选择
+
+* `alpine:3.7` (首选)
+
+* `debian:stretch-slim` （次选）
+
+## 常见系统镜像大小对比
+
+```bash
+REPOSITORY   TAG               IMAGE ID        CREATED          SIZE
+fedora       latest            9110ae7f579f    4 weeks ago      235MB
+centos       7.4.1708          3afd47092a0e    5 months ago     197MB
+ubuntu       16.04             f975c5035748    4 weeks ago      112MB
+debian       stretch           2b98c9851a37    3 weeks ago      100MB
+debian       stretch-slim      dd99abd0503e    3 weeks ago      55.3MB
+alpine       latest            3fd9065eaf02    2 months ago     4.15MB
+```
+
 根据官方文档的层次，分为
 
 * 容器 (`Containers`) 使用 `Docker run`
@@ -79,7 +97,7 @@ Docker 开发最佳实践
 
 ## Use CI/CD for testing and deployment
 
-* 当程序源码改变或创建了一个 `Pull request`，使用 [Docker Cloud](https://cloud.khs1994.com) 或者其他 CI/CD 自动构建镜像和创建镜像标签并自动测试镜像。Docker cloud 可以把测试通过的镜像部署到生产环境中。
+* 当程序源码改变（commit、tag）或创建了一个 `Pull request`，使用 [Docker Cloud](https://cloud.khs1994.com) 或者其他 CI/CD 自动构建镜像和创建镜像标签并自动测试镜像。Docker cloud 可以把测试通过的镜像部署到生产环境中。
 
 * 使用 Docker EE ，安全团队 sign 一个镜像，之后部署到生产环境中。
 

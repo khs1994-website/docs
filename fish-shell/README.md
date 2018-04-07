@@ -6,7 +6,6 @@ comments: true
 tags:
 - fish shell
 categories:
-- OS
 - fish shell
 ---
 

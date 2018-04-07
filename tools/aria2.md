@@ -6,7 +6,6 @@ comments: true
 tags:
 - aria2
 categories:
-- OS
 - Tools
 ---
 

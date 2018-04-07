@@ -6,7 +6,6 @@ comments: true
 tags:
 - Firefox
 categories:
-- OS
 - Tools
 ---
 

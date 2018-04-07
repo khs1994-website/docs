@@ -4,10 +4,9 @@ date: 2017-10-12 12:00:00
 updated:
 comments: true
 tags:
-- Deploy
+- Netlify
 categories:
 - CMS
-- Deploy
 ---
 
 我们知道可以把网站部署到 GitHub Pages 服务，Netlify 也提供类似的服务。

@@ -6,7 +6,6 @@ comments: true
 tags:
 - EditorConfig
 categories:
-- OS
 - Tools
 ---
 

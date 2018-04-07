@@ -6,7 +6,6 @@ comments: true
 tags:
 - macOS
 categories:
-- OS
 - macOS
 ---
 

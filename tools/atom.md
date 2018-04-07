@@ -6,7 +6,6 @@ comments: true
 tags:
 - Atom
 categories:
-- OS
 - Tools
 ---
 
