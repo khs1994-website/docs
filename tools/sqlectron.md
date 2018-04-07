@@ -6,7 +6,6 @@ comments: true
 tags:
 - Tools
 categories:
-- OS
 - Tools
 ---
 

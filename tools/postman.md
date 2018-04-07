@@ -6,7 +6,6 @@ comments: true
 tags:
 - Postman
 categories:
-- OS
 - Tools
 ---
 

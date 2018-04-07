@@ -4,9 +4,9 @@ date: 2017-01-05 13:00:00
 updated:
 comments: true
 tags:
-- OS
+- Tools
 categories:
-- OS
+- Tools
 ---
 
 asciinema 是一个用 ClojureScript 编写的开源命令行录屏工具。

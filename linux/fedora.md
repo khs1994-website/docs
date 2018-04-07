@@ -6,7 +6,7 @@ comments: true
 tags:
 - Fedora
 categories:
-- OS
+- Linux
 ---
 
 本文列举了 Fedora 常用软件。
