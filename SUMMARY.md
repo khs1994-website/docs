@@ -165,6 +165,8 @@
     * [EditorConfig](os/tools/editorconfig.md)
     * [终端录制工具](os/terminal-rec.md)
 * [Python](python/README.md)
+    * [基本语法](python/basic.md)
+    * [OOP](python/oop.md)
     * [Django](python/django/README.md)
     * [MySQL](python/mysql.md)
 * [Raspberry Pi3](raspberry-pi3/README.md)
