@@ -6,7 +6,7 @@ comments: true
 tags:
 - fish shell
 categories:
-- fish shell
+- Linux
 ---
 
 记录一下 `complete` 各个参数含义。

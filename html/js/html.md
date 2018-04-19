@@ -9,52 +9,29 @@ categories:
   - JavaScript
 ---
 
-# 引用外部 js
-
 ```html
-<head>
 <script src="main.js"></script>
-</head>
+
+<script> var a=1; document.write(a);</script>
 ```
 
 <!--more-->
 
-```html
-<body>
-<script>
-var a=1;
-document.write(a);  // 输出内容
-</script>
-</body>
-```
-
-# 获取元素对象
+* 获取元素对象
 
 ```js
-vat obj = document.getElementById('id'); // 还可以 ByClassName / ByName
+var obj = document.getElementById('id'); // 还可以 ByClassName / ByName
 ```
 
 # 输出
 
-## 输出到控制台
+* 输出到控制台 `console.log("Hello");`
 
-```js
-console.log("Hello");
-```
+* 输出到 html 元素 `obj.innerHTML("Hello");`
 
-## 输出到 html 元素
+* 弹窗警告 `alert('Hello');`
 
-```js
-obj.innerHTML("Hello");
-```
-
-## 弹窗警告 `alert`
-
-```javascript
-alert('Hello');
-```
-
-## 确认对话框 `confirm`
+* 确认对话框 `confirm`
 
 ```javascript
 confirm(a);
@@ -62,7 +39,7 @@ confirm(a);
 var b = confirm(a); // 若用户点击确认，则返回 true，此时变量 b 的值为 true
 ```
 
-## 提问
+## `prompt` 提问
 
 文本对话框，可以输入文本
 
@@ -73,7 +50,7 @@ prompt(str1,str2);  // 若用户点击确定，文本框中的内容将作为函
 // str2：文本框中的内容，可以修改
 ```
 
-# 窗口
+# `window` 窗口
 
 ```javascript
 window.open(URL, 窗口名称, 参数);   // 打开新窗口
@@ -90,6 +67,8 @@ obj=document.getElementById('id');
 
 obj.innerHTML="Hello";
 
+obj.style.display = 'none' ; // block 隐藏 显示
+
 obj.style.color="red";         // 设置样式 CSS
 
 obj.style.fontSize="20";
@@ -99,7 +78,7 @@ var b = obj.className;         // 获取、设置元素的 class
 obj.className = "className";
 ```
 
-# 事件
+# 事件 `obclick` `onmouseover` `onmouse`
 
 HTML 页面完成加载(`onload`)、HTML input 字段改变时、HTML 按钮被点击
 
@@ -132,7 +111,7 @@ setTimeout(代码,延迟时间);            // 页面载入之后延迟指定时
 clearTimeout(id_of_setTimeout);     // 取消
 ```
 
-## 历史 `history`
+## `history` 历史
 
 ```javascript
 window.history.[属性|方法];   // window 可省略
@@ -146,9 +125,7 @@ history.go(-1);             // 下边的代码等同于 back
 history.forward();         // 倒退之后，回到倒退之前的页面 相当于 go(1)
 ```
 
-## `location`
-
-解析网页 URL
+## `location` 解析网页 URL
 
 ```javascript
 location.[属性|方法];
@@ -157,7 +134,7 @@ location.host;          // 返回或设置主机名+端口号
 location.href;          // 完整 URL
 ```
 
-## `navigator`
+## `navigator` 有关浏览器的信息
 
 `Navigator` 对象包含有关浏览器的信息，通常用于检测浏览器与操作系统的版本。
 

@@ -13,19 +13,29 @@ JavaScript 基础语法介绍，可能基于 ES6。
 
 <!-- more -->
 
-# 常量
+# 数据类型(6 种)
 
-`ES6`
+- `number`
 
-```js
-const PI=3.14; // 与 PHP 类似
-```
+- `string`
 
-# 特例
+- `boolean`
 
-```js
-var a = (1,2,3); // 取右边的数值 a = 3
-```
+- `null`
+
+- `undefined`
+
+- `对象` 包含 `function` `Data` `Array`
+
+# 基础语法
+
+* 常量 `const PI=3.14; // 同 PHP`
+
+* 变量 `var a;` `a = 1` `a = 'Hello World !'`
+
+* 特例 `var a = (1,2,3); // 取右边的数值 a = 3`
+
+* 连接符 `+`
 
 # 调试
 
@@ -35,23 +45,7 @@ debugger;
 document.getElementbyId("demo").innerHTML = x;
 ```
 
-# 变量
-
-```javascript
-var a;
-
-a = 1;
-
-a = "Hello";
-
-var b = 6;
-
-var c, d;         // 一次声明多个变量
-
-var c = 1,d = 1;  // 声明同时赋值
-```
-
-## 变量提升
+# 变量提升
 
 ```js
 a = 1;
@@ -69,9 +63,7 @@ var b = 1; // 声明的同时赋值，变量不会提升
 
 函数外部声明，函数内部可以调用，反之不行。
 
-下边是一个特例
-
-如果变量在函数内没有声明（没有使用 `var` 关键字），该变量为全局变量
+特例：如果变量在函数内没有声明（即，没有使用 `var` 关键字），该变量为全局变量
 
 ```js
 // 此处可调用 carName 变量
@@ -107,7 +99,7 @@ var z = x(4, 3);
 
 ### 可变参数
 
-`ES6` 与 PHP 类似
+`ES6` 同 PHP
 
 ```js
 function f(...a){
@@ -128,20 +120,6 @@ f(1,2,3,4);
     var x = "Hello!!";      // 我将调用自己
 })();
 ```
-
-# 数据类型(6 种)
-
-- `number`
-
-- `string`
-
-- `boolean`
-
-- `null`
-
-- `undefined`
-
-- `对象` 包含 `function` `Data` `Array`
 
 ## 隐式转换
 
@@ -181,8 +159,6 @@ String(123);
 (123).toString();
 
 Number("3.14");
-
-
 ```
 
 # 数组
@@ -192,13 +168,12 @@ var myArray = new Array();
 
 var myArray = new Array(1,2,3);
 
-var myArray = [1,2,3]; // 和 PHP 一样
+var myArray = [1,2,3]; // 同 PHP
 
 myArray[0] = 80;  // 数组赋值
-```
 
-```javascript
 myArray.length;  // 数组长度
+
 myArray.sort()   // 数组排序
 ```
 
@@ -212,13 +187,9 @@ var b = ['hello', ...a];
 
 # 流程控制
 
-```javascript
-if (true) {
+`if` `while` 同 PHP
 
-} else {
-
-}
-```
+`break` 跳出循环, `continue` 跳过本次循坏。
 
 ```javascript
 switch (expression) {
@@ -245,22 +216,10 @@ for (var variable in object) {
 ```
 
 ```javascript
-while (true) {
-
-}
-```
-
-```javascript
 do {
 
 } while (true);
 ```
-
-`break` 跳出循环。
-
-`continue` 跳过本次循坏。
-
-
 
 # 错误处理
 

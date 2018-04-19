@@ -10,7 +10,6 @@ tags:
 categories:
 - SSL
 - OpenSSL
-- https
 ---
 
 将 `即将` 发布的 `TLSv1.3` 作为 `https` 系列的开篇。

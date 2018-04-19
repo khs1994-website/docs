@@ -118,11 +118,13 @@
         * [apt](linux/package_management/apt.md)
         * [Alpine apk](linux/package_management/apk.md)
         * [RedHat yum](linux/package_management/yum.md)
-* SSL
-    * [OpenSSL 加密文件](ssl/openssl/file-enc.md)
-    * [HTTPS](ssl/openssl/https/README.md)
-    * [自签名证书](ssl/openssl/https/self-signed-ssl-certificates.md)
-    * [cfssl](ssl/cfssl/README.md)  
+    * SSL
+       * [OpenSSL 加密文件](linux/ssl/file-enc.md)
+       * [HTTPS](linux/ssl/https/README.md)
+       * [自签名 TLS 证书](linux/ssl/https/self-signed-ssl-certificates.md)
+       * [cfssl](linux/ssl/cfssl.md)
+    * [fish shell](linux/fish-shell/README.md)
+       * [命令补全](linux/fish-shell/completion.md)  
 * [Git](git/README.md)
     * [GitHub](git/github/README.md)
         * [API](git/github/api.md)
@@ -156,8 +158,6 @@
     * [macOS 背后的故事上](macos/story.md)
     * [macOS 背后的故事下](macos/story2.md)
     * [macOS 背后的故事 补充](macos/story3.md)
-* [fish shell](fish-shell/README.md)
-    * [命令补全](fish-shell/completion.md)
 * 工具软件
     * [火狐常用设置](tools/firefox.md)
     * [视频下载工具 you-get](tools/youget.md)

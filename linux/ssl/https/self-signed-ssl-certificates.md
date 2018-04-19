@@ -10,7 +10,6 @@ tags:
 categories:
 - SSL
 - OpenSSL
-- https
 ---
 
 GitHub：https://github.com/khs1994-docker/tls
