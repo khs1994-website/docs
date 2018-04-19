@@ -7,8 +7,8 @@ tags:
 - SSL
 - OpenSSL
 categories:
+- Linux
 - SSL
-- OpenSSL
 ---
 
 加密解密文件。

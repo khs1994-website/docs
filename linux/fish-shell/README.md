@@ -6,7 +6,7 @@ comments: true
 tags:
 - fish shell
 categories:
-- fish shell
+- Linux
 ---
 
 fish-shell GitHub：https://github.com/fish-shell/fish-shell
