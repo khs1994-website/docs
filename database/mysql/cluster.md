@@ -45,7 +45,9 @@ server-id = 10
 登录主服务器
 
 ```sql
-GRANT REPLICATION SLAVE ON *.* to 'backup'@'%' identified by 'mytest';
+CREATE USER 'backup'@'%' identified by 'mytest';
+
+GRANT REPLICATION SLAVE ON *.* to 'backup'@'%';
 
 SHOW master status;
 ```

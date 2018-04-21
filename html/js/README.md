@@ -9,23 +9,59 @@ categories:
   - JavaScript
 ---
 
-JavaScript 基础语法介绍，可能基于 ES6。
+JavaScript 基础语法介绍，基于 ES6。
 
 <!-- more -->
 
 # 数据类型(6 种)
 
-- `number`
+- `Number`
 
-- `string`
+- `String`
 
-- `boolean`
+- `Boolean`
+
+- `Array`
 
 - `null`
 
 - `undefined`
 
-- `对象` 包含 `function` `Data` `Array`
+- `Object` 包含 `function` `Data` `Array`
+
+```js
+var x = new Number;
+```
+
+## 类型转换
+
+```js
+String(123);
+
+(123).toString()
+```
+
+## 类型检测
+
+```javascript
+typeof 100 // number
+
+obj instanceof Object // obj 是不是 Object
+
+Object.prototype.toString.apply([]); // [object Array]
+
+// constructor
+
+// duck type
+```
+
+## 隐式转换
+
+```javascript
+"37" - 7 // 30
+
+"37" + 7 // 377
+```
 
 # 基础语法
 
@@ -36,6 +72,13 @@ JavaScript 基础语法介绍，可能基于 ES6。
 * 特例 `var a = (1,2,3); // 取右边的数值 a = 3`
 
 * 连接符 `+`
+
+* 换行
+
+```js
+document.write("hello \
+World !")
+```
 
 # 调试
 
@@ -54,7 +97,7 @@ console.log(a); // 可以正常输出
 
 console.log(b); // 报错
 
-var a
+var a;
 
 var b = 1; // 声明的同时赋值，变量不会提升
 ```
@@ -82,6 +125,7 @@ function myFunction() {
 function fun1(a, b = 3) {
   console.log(a);
   console.log(b);
+  argument[0];     // 包含函数参数的数组
   return a;        // 函数返回值
 }
 
@@ -109,10 +153,6 @@ function f(...a){
 f(1,2,3,4);
 ```
 
-### `Arguments` 对象
-
-`argument` 对象包含了函数调用的参数数组。
-
 ## 自调用函数
 
 ```js
@@ -121,44 +161,18 @@ f(1,2,3,4);
 })();
 ```
 
-## 隐式转换
+## 闭包
 
-```javascript
-"37" - 7 // 30
+```js
 
-"37" + 7 // 377
 ```
 
-## 包装对象
+# 包装对象
 
 ```javascript
 var a = 'a';
 
 var obj = new String('a');
-```
-
-## 类型检测
-
-```javascript
-typeof 100 // number
-
-obj instanceof Object // obj 是不是 Object
-
-Object.prototype.toString.apply([]); // [object Array]
-
-// constructor
-
-// duck type
-```
-
-## 类型转换
-
-```js
-String(123);
-
-(123).toString();
-
-Number("3.14");
 ```
 
 # 数组

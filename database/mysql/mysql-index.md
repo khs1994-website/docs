@@ -18,6 +18,14 @@ categories:
 
 组合索引，即一个索引包含多个列。
 
+* 主键
+
+* 唯一索引
+
+* 复合索引
+
+* 全文索引
+
 ```sql
 CREATE INDEX indexName ON 表名(字段名(长度));
 

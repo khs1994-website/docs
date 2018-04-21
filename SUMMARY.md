@@ -52,6 +52,7 @@
         * [mysqldump 命令](database/mysql/mysqldump.md)
         * [主从配置](database/mysql/cluster.md)
         * [存储引擎](database/mysql/engine.md)
+        * [NoSQL](database/mysql/nosql.md)
     * [PostgreSQL](database/postgresql/README.md)
         * [配置文件](database/postgresql/config.md)    
 * [Docker](docker/README.md)

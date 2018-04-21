@@ -3,6 +3,7 @@ title: jQuery
 date: 2013-04-05 13:00:00
 tags:
   - JavaScript
+  - JQuery
 categories:
   - JavaScript
 ---

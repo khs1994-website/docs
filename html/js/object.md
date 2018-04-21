@@ -49,12 +49,12 @@ obj.hasOwnProperty('toString');   //false 不会查找原型链上的属性
 ```js
 var obj = {
     firstName: "John",
-    meth: function () {
+    methodName: function () {
         return this.firstName + " " + this.lastName;
     }
 }
 
-obj.meth();
+obj.methodName();
 ```
 
 # 原型链

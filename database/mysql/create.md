@@ -15,17 +15,21 @@ categories:
 <!--more-->
 
 ```sql
-CREATE DATABASE [if not exists] db_name CHARACTER set utf8mb4;
+mysql> CREATE DATABASE [if not exists] db_name CHARACTER set utf8mb4;
 
-USE db_name;
+mysql> USE db_name;
 
-CREATE TABLE `tb1`(
+mysql> CREATE TABLE `tb1`(
   `id` INT AUTO_INCREMENT,
   `pid` INT UNSIGNED COMMENT '注释',
   `username` VARCHAR(20) UNIQUE NOT NULL,
   key(`id`),
   unique index index_name(col_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+# 临时表 断开与数据库的连接后，临时表就会自动被销毁
+
+CREATE TEMPORARY TABLE  tb1();
 ```
 
 # 函数
