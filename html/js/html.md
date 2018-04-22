@@ -78,23 +78,53 @@ var b = obj.className;         // 获取、设置元素的 class
 obj.className = "className";
 ```
 
-# 事件 `obclick` `onmouseover` `onmouse`
+# 事件
 
-HTML 页面完成加载(`onload`)、HTML input 字段改变时、HTML 按钮被点击
+HTML 页面完成加载(`onload`)
 
-- `onclick` 鼠标单击事件
+HTML input 字段改变时
 
-- `onmouseover` 鼠标经过事件
+HTML 按钮被点击
 
-- `onmouse` 鼠标移开事件
+## `onclick` 鼠标单击事件
+
+## `onmouseover` 鼠标经过事件
+
+## `onmouse` 鼠标移开事件
+
+## `onmouseout` 从一个 HTML 元素移开鼠标
+
+## `onchange` HTML 元素改变
+
+## `onkeydown` 按下键盘按键
+
+## `onload` 页面完成加载
 
 ```html
-<some-HTML-element some-event="JavaScript 代码">
+<some-HTML-element onclick="fun_name()">
 
 <button onclick="this.innerHTML=Date()">现在的时间是?</button>
 ```
 
 # 浏览器对象
+
+## Window
+
+```js
+window.open()
+
+window.close()
+
+window.moveTo() // 移动当前窗口
+
+window.resize() // 调整当前窗口的尺寸
+```
+
+## cookie
+
+```js
+document.cookie="key=value; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+```
 
 ## 计时器
 

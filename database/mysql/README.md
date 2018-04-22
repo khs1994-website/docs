@@ -14,6 +14,10 @@ categories:
 
 <!--more-->
 
+# 字段规则
+
+小写 + 下划线 `user_name`
+
 # 基本概念
 
 * 表头(header): 每一列的名称;
@@ -67,61 +71,6 @@ SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIK
 +--------------------------+-------------------+
 ```
 
-# Grants
-
-* GRANT SELECT
-* INSERT
-* UPDATE
-* DELETE
-* CREATE
-* DROP
-* RELOAD
-* SHUTDOWN
-* PROCESS
-* FILE
-* REFERENCES
-* INDEX
-* ALTER
-* SHOW DATABASES
-* SUPER
-* CREATE TEMPORARY TABLES
-* LOCK TABLES
-* EXECUTE
-* REPLICATION SLAVE
-* REPLICATION CLIENT
-* CREATE VIEW
-* SHOW VIEW
-* CREATE ROUTINE
-* ALTER ROUTINE
-* CREATE USER
-* EVENT
-* TRIGGER
-* CREATE TABLESPACE
-* CREATE ROLE
-* DROP ROLE ON *.* TO `root`@`%` WITH GRANT OPTION"
-
-* GRANT BACKUP_ADMIN
-* BINLOG_ADMIN
-* CONNECTION_ADMIN
-* ENCRYPTION_KEY_ADMIN
-* GROUP_REPLICATION_ADMIN
-* PERSIST_RO_VARIABLES_ADMIN
-* REPLICATION_SLAVE_ADMIN
-* RESOURCE_GROUP_ADMIN
-* RESOURCE_GROUP_USER
-* ROLE_ADMIN
-* SET_USER_ID
-* SYSTEM_VARIABLES_ADMIN
-* XA_RECOVER_ADMIN ON *.* TO `root`@`%` WITH GRANT OPTION"
-
-# 删除用户
-
-```sql
-USE mysql;
-
-DELETE FROM user WHERE user='admin' and host='%';
-```
-
 # 常见指令
 
 ```bash
@@ -137,43 +86,38 @@ $ mysql -uroot -pmytest -D test
 ```sql
 # 切换数据库、数据表等
 
-USE
+mysql> USE
 
 # UNION 将多个 SELECT 结果组合到一起
 
-SELECT country FROM tb1 UNION SELECT country FROM tb2 ORDER BY country; # 结果没有重复值
+mysql> SELECT country FROM tb1 UNION SELECT country FROM tb2 ORDER BY country; # 结果没有重复值
 
-SELECT country FROM tb1 UNION ALL SELECT country FROM tb2 ORDER BY country; # 结果有重复值
+mysql> SELECT country FROM tb1 UNION ALL SELECT country FROM tb2 ORDER BY country; # 结果有重复值
 
 # 正则表达式 REGEXP
 
-SELECT ... WHERE name REGEXP '^st';
+mysql> SELECT ... WHERE name REGEXP '^st';
 ```
 
 ## 查看
 
 ```sql
-SHOW DATABASES;
+mysql> SHOW DATABASES;
 
-SHOW TABLES;
+mysql> SHOW TABLES;
 
-SHOW TABLES FROM db_name;
+mysql> SHOW TABLES FROM db_name;
 
-# 查看表结构
 
-SHOW COLUMNS FROM tb_name;
+mysql> { SHOW COLUMNS FROM | DESCRIBE | DESC } tbl_name;
 
-=
+mysql> SHOW CREATE DATABASE db_name;
 
-DESCRIBE tb_name;
+mysql> SHOW CREATE TABLE tbl_name;
 
-SHOW CREATE DATABASE db_name;
+mysql> SHOW warnings;
 
-SHOW CREATE TABLE tb_name;
-
-SHOW warnings;
-
-SHOW engines \G;
+mysql> SHOW engines \G;
 ```
 
 ## 约束
@@ -197,7 +141,7 @@ SHOW engines \G;
 `FOREIGN KEY`
 
 ```sql
-CREATE TABLE 表名(
+mysql> CREATE TABLE 表名(
   pid 定义,
   FOREIGN KEY (pid) REFERENCES 父表 (字段) [参照操作];
 );
@@ -214,29 +158,28 @@ CREATE TABLE 表名(
 ## 元数据
 
 ```sql
-SELECT VERSION();
+mysql> SELECT VERSION();
 
-SELECT DATABASE();
+mysql> SELECT DATABASE();
 
-SELECT USER();
+mysql> SELECT USER();
 
-SHOW STATUS;         # 服务器状态
+mysql> SHOW STATUS;         # 服务器状态
 
-SHOW VARIABLES;      # 服务器配置变量
+mysql> SHOW VARIABLES;      # 服务器配置变量
 ```
 
 ## 事务
 
 保证数据库的完整性
 
-`原子性` 要么成功，要么不成功。
+* `原子性` 要么成功，要么不成功。
 
-`一致性` 事务开始之前和结束之后，数据库的完整性没有被破坏。
+* `一致性` 事务开始之前和结束之后，数据库的完整性没有被破坏。
 
-`隔离性` 防止多个事务并发执行时由于交叉执行而导致的数据的不一致，分为 `读未提交(READ UNCOMMITTED)` `读提交(READ COMMITTED)` `可重复读(REPEATABLE READ)` `串行化(SERIALIZABLE)`。
+* `隔离性` 防止多个事务并发执行时由于交叉执行而导致的数据的不一致，分为 `读未提交(READ UNCOMMITTED)` `读提交(READ COMMITTED)` `可重复读(REPEATABLE READ)` `串行化(SERIALIZABLE)`。
 
-
-`持久性` 事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
+* `持久性` 事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
 
 `BEGIN` `START TRANSACTION` 显式的开启一个事务。
 

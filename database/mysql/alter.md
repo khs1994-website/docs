@@ -10,7 +10,7 @@ categories:
 - MySQL
 ---
 
-# 修改列定义
+# 修改列定义 `MODIFY`
 
 ```sql
 ALTER TABLE 表名 MODIFY 列名 列定义 位置[FIRST | AFTER 列名];
@@ -18,13 +18,13 @@ ALTER TABLE 表名 MODIFY 列名 列定义 位置[FIRST | AFTER 列名];
 
 <!--more-->
 
-# 修改列名称
+# 修改列名称 `CHANGE`
 
 ```sql
 ALTER TABLE 表名 CHANGE 列名 新列名 列定义 位置;
 ```
 
-# 数据表更名
+# 数据表更名 `RENAME`
 
 ```sql
 ALTER TABLE 表名 RENAME [ TO | AS ] 新名称;
@@ -34,7 +34,7 @@ ALTER TABLE 表名 RENAME [ TO | AS ] 新名称;
 RENAME TABLE 表名 TO 新名称;
 ```
 
-# 添加单列
+# 添加单列 `ADD`
 
 ```sql
 ALTER TABLE 表名 ADD [COLUMN] 列名 列定义 位置;

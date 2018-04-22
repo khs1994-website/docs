@@ -8,8 +8,8 @@ tags:
 - OpenSSL
 - https
 categories:
+- Linux
 - SSL
-- OpenSSL
 ---
 
 GitHub：https://github.com/khs1994-docker/tls

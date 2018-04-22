@@ -18,7 +18,7 @@ SELECT 字段1,字段2 FROM 表名 WHERE 条件 LIMIT 限制结果返回数量 O
 
 * WHERE
 
-* `IN` `NOT IN` 
+* `IN` `NOT IN`
 
 * LIMIT
 
@@ -78,3 +78,19 @@ SELECT 字段 FROM 表名 GROUP BY 字段 WITH ROLLUP;
 
 SELECT 字段 FROM 表名 GROUP BY 字段 HAVING 字段 > 5;
 ```
+
+# UNION
+
+用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中，多个 SELECT 语句会删除重复的数据。
+
+```sql
+mysql> SELECT col_name FROM tb1 UNION [ ALL | DISTINCT ] SELECT col_name FROM tb2;
+```
+
+# 连接 `JOIN`
+
+* `INNER JOIN` 内连接（等值连接）获取两个表中字段匹配关系的记录。
+
+* `LEFT JOIN` 获取左表所有记录，即使右表没有对应匹配的记录。
+
+* `RIGHT JOIN`

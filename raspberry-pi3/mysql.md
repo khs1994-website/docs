@@ -76,7 +76,9 @@ SELECT host,user,password,Grant_priv,Super_priv FROM mysql.user;
 ## 赋予完整权限
 
 ```sql
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.199.%' IDENTIFIED BY 'your-password' WITH GRANT OPTION;
+CREATE USER 'username'@'%' IDENTIFIED [ WITH mysql_native_password ] BY 'password';
+
+GRANT ALL ON *.* TO 'root'@'192.168.199.%' WITH GRANT OPTION;
 ```
 
 我们已经创建 `root` 用户，并且让这个用户在 `192.168.199.0/24` 地址内能连接到服务器。
