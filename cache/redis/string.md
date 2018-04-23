@@ -14,64 +14,26 @@ categories:
 
 <!--more-->
 
-# 追加
+* `append` KEY value # 将 值追加到原值末尾
 
-```bash
-set key value
+* `mset[nx]` KEY1 value1 KEY2 value2   # 一次设置多个键的值
 
-append key 1
+* `mget` KEY1 KEY2         # 一次返回多个键的值
 
-get key
-```
+* `getset` KEY NEW_VALUE   # 设置新值，返回旧值
 
-# 赋值
+* `incr | decr` KEY                 # 自增(减) 1
 
-```bash
-setnx key 10 # 当且仅当 key 不存在时，将 key 的值设为 value
+* `incrby | decrby` KEY 20          # 自定义增量
 
-# 多键操作
+* `incrbyfloat` KEY 0.01
 
-mset    # 一次设置多个键的值
-msetnx  # 当且仅当键不存在时才能赋值
+* `getrange` KEY start end # 截取指定位置的字符串 -1 表示最后一个字符。
 
-mset key1 value1 key2 value2
+* `setrange` KEY offset value        # 从指定位置重写值
 
-mget    # 一次返回多个键的值
+* `psetex` KEY 1000 "Hello"          # 单位 毫秒
 
-mget key1 key2
+* `setex`  KEY 60 "value"            # 单位 秒
 
-getset key newvalue # 设置新值，返回旧值
-```
-
-# 增减
-
-```bash
-
-incr string2          # 自增 1
-
-incrby key1 20         # 自定义增量
-
-incrbyfloat key1 0.01
-
-decr key                # 减 1
-
-decrby string2 2        # 减 2
-```
-
-# 字符串截取
-
-截取指定位置的字符串 -1 表示最后一个字符。
-
-`getrange key 0 4`
-
-# 生存时间
-
-```bash
-psetex mykey 1000 "Hello"         # 单位 毫秒
-
-setex  key1 60 "value"            # 单位 秒
-```
-
-# 字符串长度
-
-`strlen mykey`
+* `strlen` KEY                       # 字符串长度

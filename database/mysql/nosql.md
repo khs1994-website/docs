@@ -19,5 +19,9 @@ mysql> CREATE TABLE tb1(c1 JSON);
 
 mysql> INSERT INTO tb1 VALUSE('{"key"=>1}');
 
+mysql> SELECT json_array('a','b',now()); # []
+
+mysql> SELECT json_object('ksy1',1,'ksy2',2); # {}
+
 
 ```

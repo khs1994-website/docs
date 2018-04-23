@@ -33,6 +33,7 @@
         * [list 类型](cache/redis/list.md)
         * [set 类型](cache/redis/set.md)
         * [sorted set 类型 zset](cache/redis/sorted-set.md)
+        * [其他](cache/redis/other.md)
 * 数据库
     * [MongoDB](database/mongodb/README.md)
         * [配置文件](database/mongodb/config.md)
