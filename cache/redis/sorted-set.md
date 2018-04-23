@@ -14,14 +14,16 @@ categories:
 
 <!--more-->
 
-```bash
-zadd zset1 10.1 val1
-zadd zset1 11.2 val2
-zadd zset1 10.3 val3
+* `zadd` zset1 10.1 value
 
-zcard zset1
-zrange zset1 0 2 withscores
+* `zcard` zset1
 
-zrank zset1 val2
-zadd zset1 12.2 val3
-```
+* `zcount` zset1 min max              # 返回有序集 key 中， score 值在 min 和 max 之间(默认包括 score 值等于 min 或 max )的成员的数量
+
+* `zincrby` set1 key increment member
+
+* `zrange` zset1 0 2 withscores       # 返回有序集 key 中，指定区间内的成员
+
+* `zrank` zset1 val2                  # 返回有序集 key 中成员 member 的排名
+
+* `zrem` zset member 

@@ -30,11 +30,11 @@ hset[nx] HASH1 KEY value
 
 * `hlen` hash1 # 哈希表域中域的数量
 
-* `hkeys hash1` # 这个指令只返回域
+* `hstrlen` hash1 key # 返回哈希表中域的值的长度
 
-* `hvals hash1` # 这个指令只返回域的值
+* `hkeys` hash1 # 这个指令只返回域
 
-* `hstrlen hash1 key` # 返回哈希表中域的值的长度
+* `hvals` hash1 # 这个指令只返回域的值
 
 * `hincrby` hash1 key1 10       # 可以为负数
 

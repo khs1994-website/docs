@@ -12,23 +12,22 @@ categories:
 
 序列（list）两端推入、或弹出元素，修剪、查找、移除元素。
 
-list 中可以有重复值
-
 <!--more-->
 
-```bash
-lpush list1 12
-lpush list1 13
+* `lpush` list1 1 2 3  
 
-rpop list1
-```
+* `rpop` list1
 
-# 数据不唯一
+* `llen` list1
 
-```bash
-lpush list2 12
-lpush list2 13
-lpush list1 12
+* `lindex` key index # 返回列表中下表为 index 的元素
 
-llen list2
-```
+* `lset` key index value
+
+* `linsert` key berore | after pivot value # 将值 value 插入到列表 key 当中，位于值 pivot 之前或之后。
+
+* `lrange` key start end # 返回列表 key 中指定区间内的元素，区间以偏移量 start 和 stop 指定
+
+* `lrem` key count value # 根据参数 count 的值，移除列表中与参数 value 相等的元素
+
+* `ltrim` key start end  # 让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除
