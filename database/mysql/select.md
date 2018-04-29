@@ -28,6 +28,7 @@ SELECT 字段1,字段2 FROM 表名 WHERE 条件 LIMIT 限制结果返回数量 O
 
 * GROUP BY
 
+* FETCH NEXT n
 
 ```sql
 SELECT 表名.字段名 FROM 表名;
@@ -35,6 +36,14 @@ SELECT 表名.字段名 FROM 表名;
 # 别名
 
 SELECT 长字段 AS 别名 FROM 表名;
+
+# 从第 2 条（0 为第一条）开始读（即，跳过第一条数据），返回 5 条数据
+
+SELECT * FROM tbl_name LIMIT 1,5;
+
+# 从第 2 条开始读（即，跳过前 1 条数据 ）
+
+SELECT * FROM tbl_name LIMIT 1 OFFSET 1;
 ```
 
 # 条件

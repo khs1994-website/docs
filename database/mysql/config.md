@@ -14,6 +14,8 @@ MySQL 配置文件详解。
 
 GitHub：https://github.com/khs1994-docker/lnmp/blob/master/config/mysql/docker.cnf
 
+官方文档: https://dev.mysql.com/doc/refman/8.0/en/mysqld-option-tables.html
+
 <!--more-->
 
 # shell 变量

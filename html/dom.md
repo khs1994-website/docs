@@ -41,5 +41,4 @@ obj.attributes[0].nodeName | nodeValue  // 获取元素节点值及属性值
 obj.childNodes[0].nodeName | nodeValue  // 获取文本节点值及文本值
 
 document.doctype.nodeName | nodeValue   // 获取文档类型节点值及类型
-
 ```

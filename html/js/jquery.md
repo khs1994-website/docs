@@ -12,6 +12,8 @@ categories:
 $(selector).action(
 
 );
+
+$.method();
 ```
 
 <!--more-->
@@ -56,6 +58,32 @@ $("tr:odd") 奇数位置的 <tr> 元素
 $(document).ready(function(){
     //
 });
+```
+
+# DOM
+
+## 创建元素
+
+```js
+var p = $("<p></p>").text('文本');
+```
+
+## 设置属性
+
+```js
+p.attr('k','v');
+```
+
+## 设置文本
+
+```js
+p.text('文本');
+```
+
+## 设置 CSS
+
+```js
+p.css('k','v');
 ```
 
 # 事件

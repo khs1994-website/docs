@@ -153,6 +153,8 @@ JSON.parse("JSON 字符串");
 
 # jQuery
 
+* http://www.w3school.com.cn/jquery/ajax_ajax.asp
+
 ```js
 $(document).ready(function(){
   $("#search").click(function(){
@@ -165,11 +167,7 @@ $(document).ready(function(){
         name:1
       },
       success:function(data){
-        if(data.success){
-          $("#return").html(data.msg);
-        }else{
-          $("#return").html("出现错误");
-        }
+        alter(data);
       },
       error:function(){
         alert("发生错误");
