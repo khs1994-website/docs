@@ -171,6 +171,7 @@
     * [Postman](tools/postman.md)
     * [EditorConfig](tools/editorconfig.md)
     * [终端录制工具](tools/terminal-rec.md)
+    * [跨平台终端 Hyper](tools/hyper.md)
 * [Raspberry Pi3](raspberry-pi3/README.md)
     * [Docker](raspberry-pi3/docker.md)
     * [arm64v8](raspberry-pi3/arm64v8.md)
