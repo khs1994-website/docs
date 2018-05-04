@@ -144,25 +144,11 @@ categories:
 
 # 聚合函数
 
-## 平均数
+* 平均数 `AVG()`
 
-`AVG()`
+* `COUNT()` `MAX()` `MIN()` `SUM()`
 
-## 计数
-
-`COUNT()`
-
-`MAX()`
-
-`MIN()`
-
-`SUM()`
-
-# 加密函数
-
-`MD5()`
-
-`PASSWORD()`
+* 加密函数 `MD5()` `PASSWORD()`(8.0 已废弃)
 
 # 自定义函数
 
@@ -173,10 +159,10 @@ CREATE FUNCTION 函数名
 RETURNS
 {STRING|INTEGER|REAL|DECIMAL}
 函数体;
-```
-## 删除函数
 
-`DROP FUNCTION f1;`
+# 删除函数
+DROP FUNCTION fun1;
+```
 
 ## 举例
 
@@ -192,7 +178,7 @@ RETURNS FLOAT(10,2) UNSIGNED
 RETURN (num1+num2)/2
 ```
 
-函数体若为复合结构，则使用 `BEGIAN END`
+函数体若为复合结构，则使用 `BEGIAN` `END`
 
 ```sql
 CREATE FUNCTION adduser(username VARCHAR(20))

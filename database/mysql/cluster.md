@@ -17,6 +17,12 @@ GitHub：https://github.com/khs1994-docker/lnmp/blob/master/docker-cluster.mysql
 
 <!--more-->
 
+# 类型
+
+* 一主多从
+
+* 多主一丛 （多源复制）
+
 # 配置文件内容
 
 可以通过命令配置，这里以配置文件举例。

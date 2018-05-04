@@ -33,6 +33,7 @@
         * [list 类型](cache/redis/list.md)
         * [set 类型](cache/redis/set.md)
         * [sorted set 类型 zset](cache/redis/sorted-set.md)
+        * [其他](cache/redis/other.md)
 * 数据库
     * [MongoDB](database/mongodb/README.md)
         * [配置文件](database/mongodb/config.md)
@@ -96,6 +97,7 @@
     * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
     * [Docker for Desktop k8s](docker/docker-with-k8s.md)
 * [Linux](linux/README.md)
+    * [Crontab](linux/crontab.md)
     * [CentOS7 初始化配置](linux/centos.md)
     * [Ubuntu 初始化配置](linux/ubuntu.md)
     * [Fedora](linux/fedora.md)
@@ -169,6 +171,7 @@
     * [Postman](tools/postman.md)
     * [EditorConfig](tools/editorconfig.md)
     * [终端录制工具](tools/terminal-rec.md)
+    * [跨平台终端 Hyper](tools/hyper.md)
 * [Raspberry Pi3](raspberry-pi3/README.md)
     * [Docker](raspberry-pi3/docker.md)
     * [arm64v8](raspberry-pi3/arm64v8.md)

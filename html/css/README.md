@@ -152,7 +152,7 @@ span {
 
 `border` 边框
 
-`podding` 填充
+`padding` 填充
 
 `margin` 边界
 

@@ -10,55 +10,32 @@ categories:
 - Redis
 ---
 
-# 赋值
+```bash
+hset[nx] HASH1 KEY value
+```
 
 <!--more-->
 
-```bash
+* `hget` HASH1 key1
 
-hset hash1 key1 12
+* `hgetall` HASH1
 
-hget hash1 key1
+* `hmset` hash1 key1 12 key2 1
 
-hgetall hash1                 # 获取某个哈希表中的所有域及其值
+* `hmget` hash1 key1 key2
 
-hmset hash1 key1 12 key2 13   # 一次设置某个哈希表里的多个域及其值
+* `hdel` hash1 key1 key2
 
-hmget hash1 key1 key2
+* `hexists` hash1 key1
 
-hsetnx hash1 key3 13          # 当且仅当域的值不存在时赋值
-```
+* `hlen` hash1 # 哈希表域中域的数量
 
-# 删除数据
+* `hstrlen` hash1 key # 返回哈希表中域的值的长度
 
-`hdel hash1 key1 key2`
+* `hkeys` hash1 # 这个指令只返回域
 
-# 是否存在
+* `hvals` hash1 # 这个指令只返回域的值
 
-`hexists hash1 key1`
+* `hincrby` hash1 key1 10       # 可以为负数
 
-# 哈希表域中域的数量
-
-`hlen hash1`
-
-# 获取哈希表中所有域
-
-和 `hgetall` 不同的是，这个指令只返回域，下一个指令只返回域的值，`hgetall` 域及其值都返回。
-
-`hkeys hash1`
-
-# 返回哈希表中所有域的值
-
-`hvals hash1`
-
-# 返回哈希表中域的值的长度
-
-`hstrlen hash1 key`
-
-# 增量
-
-```bash
-hincrby hash1 key1 10       # 可以为负数
-
-hincrbyfloat hash1 key1 0.1 # 浮点增量
-```
+* `hincrbyfloat` hash1 key1 0.1 # 浮点增量

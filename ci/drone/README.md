@@ -19,11 +19,9 @@ categories:
 
 GitHub：https://github.com/drone
 
-<!--more-->
-
 GitHub: https://github.com/khs1994-docker/ci
 
-GitHub: https://github.com/khs1994-drone-ci-examples
+<!--more-->
 
 # 安装
 

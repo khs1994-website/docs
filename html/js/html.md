@@ -25,13 +25,15 @@ var obj = document.getElementById('id'); // 还可以 ByClassName / ByName
 
 # 输出
 
-* 输出到控制台 `console.log("Hello");`
+* 输出到 HTNL `document.write(1)` 会重写整个 HTML 文档
 
-* 输出到 html 元素 `obj.innerHTML("Hello");`
+* 输出到控制台 `console.log("Hello")`
 
-* 弹窗警告 `alert('Hello');`
+* 输出到 html 元素 `obj.innerHTML("Hello")`
 
-* 确认对话框 `confirm`
+* 弹窗警告 `alert('Hello')`
+
+* 确认对话框 `confirm(1)`
 
 ```javascript
 confirm(a);
@@ -50,32 +52,34 @@ prompt(str1,str2);  // 若用户点击确定，文本框中的内容将作为函
 // str2：文本框中的内容，可以修改
 ```
 
-# `window` 窗口
+# 设置 CSS
 
-```javascript
-window.open(URL, 窗口名称, 参数);   // 打开新窗口
-
-window.close();                  // 关闭窗口
-
-窗口对象.close();
-```
-
-# 获取元素
-
-```javascript
-obj=document.getElementById('id');
+```js
+var obj = document.getElementById('id');
 
 obj.innerHTML="Hello";
 
-obj.style.display = 'none' ; // block 隐藏 显示
+obj.style.display = 'none' ;   // block 隐藏 显示
 
 obj.style.color="red";         // 设置样式 CSS
 
 obj.style.fontSize="20";
+```
+
+# 设置属性
+
+```js
+// obj 变量接上部分
 
 var b = obj.className;         // 获取、设置元素的 class
 
 obj.className = "className";
+
+obj.getAttribute('class');     // 获取元素属性
+
+obj.setAttribute('class', 'new_value'); // 设置元素属性
+
+obj.innerHTML('内容');         // 设置文本
 ```
 
 # 事件
@@ -108,7 +112,7 @@ HTML 按钮被点击
 
 # 浏览器对象
 
-## Window
+## `window`
 
 ```js
 window.open()
@@ -120,7 +124,7 @@ window.moveTo() // 移动当前窗口
 window.resize() // 调整当前窗口的尺寸
 ```
 
-## cookie
+## `cookie`
 
 ```js
 document.cookie="key=value; expires=Thu, 01 Jan 1970 00:00:00 GMT"

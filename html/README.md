@@ -11,6 +11,22 @@ categories:
 
 列举 HTML 标签。
 
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="url"></script>
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  <title>Title</title>
+</head>
+
+<body>
+  <!--注释-->
+</body>
+</html>
+```
+
 <!--more-->
 
 # head
@@ -23,8 +39,6 @@ categories:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 # 标签
-
-注释 `<!--注释-->`
 
 空格 `&nbsp;`
 

@@ -10,94 +10,59 @@ categories:
 - Redis
 ---
 
-```bash
-set key value
+* http://redisdoc.com/
 
-del key     # 删除键，后边可以跟多个值，用空格分开
-
-exists key  # key 是否存在，存在返回 1 ，不存在返回 0
-```
+* http://redis.io/documentation
 
 <!--more-->
 
-# 过期时间
+切换数据库
 
 ```bash
-expire key 30        # 单位为秒
-
-ttl key              # 查看剩余生存时间
-
-persist              # 去掉生存时间，不删除 key
-
-pexpire mykey 1500   # 单位为毫秒
-
-pttl mykey           # 查看剩余生存时间，单位毫秒
-
-expireat name 1355292000  # unix 时间戳
-
-pexpireat key             # 毫秒时间戳
-
+SELECT 1 # redis 默认使用数据库 `0`
 ```
 
-# 查找所有符合给定模式 pattern 的 key
+# 基本命令
 
-```bash
-keys * # 匹配数据库中所有 key
-```
+* `set` KEY VALUE
 
-# 迁移
+* `del` KEY KEY2
 
-`migrate` 将 key 原子性地从当前实例传送到目标实例的指定数据库上，一旦传送成功， key 保证会出现在目标实例上，而当前实例上的 key 会被删除。
+* `exists` KEY
 
-```bash
-migrate 127.0.0.1 6380 key 0 1000
-```
+* `expire` KEY 30            # 单位为秒
 
-# 将当前数据库的 key 移动到给定的数据库 db 当中
+* `pexpire` KEY 1500         # 单位为毫秒
 
-`move key db_name`
+* `ttl` key                  # 查看剩余生存时间
 
-redis 默认使用数据库 `0`
+* `pttl` KEY                 # 查看剩余生存时间，单位毫秒
 
-```bash
-SELECT 0   # 切换数据库
+* `persist` KEY              # 去掉生存时间，不删除 key
 
-move key 1 # 移到数据库 1
-```
+* `expireat` KEY 1355292000  # unix 时间戳
 
-# 随机返回一个key
+* `pexpireat` KEY            # 毫秒时间戳
 
-`randomkey`
+* `keys` *                   # 匹配数据库中所有 key
 
-# 重命名
+* `migrate` 127.0.0.1 6380 KEY DB_NAME TARGET_DB_NAME                # 将 key 原子性地从当前实例传送到目标实例的指定数据库上，一旦传送成功， key 保证会出现在目标实例上，而当前实例上的 key 会被删除。
 
-`rename key newkey`
+* `move` KEY TARGET_DB_NAME        # 将当前数据库的 key 移动到给定的数据库 db 当中
 
-## 当且仅当 newkey 不存在时，将 key 改名为 newkey
+* `randomkey`                      # 随机返回一个key
 
-nx => Not eXists
+* `rename` KEY NEW_KEY_NAME
 
-`renamenx key newkey`
+* `renamenx`                       # 当且仅当 newkey 不存在时，将 key 改名为 newkey nx => Not eXists
 
-# 排序
+* `sort keys [DESC]`               # 默认从小到大 DESC 从大到小
 
-https://khs1994.github.io/redis/key/sort.html
+* `dump` `restore` # 序列化给定的 KEY
 
-## 数值排序
+# 数值类型
 
-`sort keys`  默认从小到大
-
-`sort keys DESC` DESC 从大到小
-
-## 字符串排序
-
-`sort keys alpha`
-
-# 查看类型
-
-`type key`
-
-返回结果
+`type` KEY
 
 * none
 * string
