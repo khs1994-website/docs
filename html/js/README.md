@@ -27,7 +27,7 @@ JavaScript 基础语法介绍，基于 ES6。
 
 - `undefined`
 
-- `Object` 包含 `function` `Data` `Array`
+- `Object` 包含 `function` `Date` `Array`
 
 ```js
 var x = new Number;
@@ -64,6 +64,8 @@ Object.prototype.toString.apply([]); // [object Array]
 ```
 
 # 基础语法
+
+* 引号中包含变量
 
 * 常量 `const PI=3.14; // 同 PHP`
 

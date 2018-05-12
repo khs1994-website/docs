@@ -7,7 +7,7 @@ tags:
 - Linux
 categories:
 - Linux
-- Server
+- Network
 ---
 
 ```bash

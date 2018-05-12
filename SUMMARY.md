@@ -102,6 +102,8 @@
     * [Ubuntu 初始化配置](linux/ubuntu.md)
     * [Fedora](linux/fedora.md)
     * [Alpine](linux/alpine.md)
+    * [网络相关](linux/network/README.md)
+        * [其他工具](linux/network/tools.md)
     * Server
         * [邮件服务器](linux/server/email.md)
         * [自动部署](linux/server/pxe.md)
