@@ -10,10 +10,12 @@ categories:
 - MySQL
 ---
 
-# 修改列定义 `MODIFY`
-
 ```sql
-ALTER TABLE 表名 MODIFY 列名 列定义 位置[FIRST | AFTER 列名];
+ALTER TABLE tbl_name AUTO_INCREMENT = 100;
+
+ALTER TABLE tbl_name ADD [COLUMN] 列名 列定义 位置;
+
+ALTER TABLE tbl_name MODIFY col_name 列定义 [ FIRST | AFTER 列名];
 ```
 
 <!--more-->
@@ -28,16 +30,8 @@ ALTER TABLE 表名 CHANGE 列名 新列名 列定义 位置;
 
 ```sql
 ALTER TABLE 表名 RENAME [ TO | AS ] 新名称;
-```
 
-```sql
 RENAME TABLE 表名 TO 新名称;
-```
-
-# 添加单列 `ADD`
-
-```sql
-ALTER TABLE 表名 ADD [COLUMN] 列名 列定义 位置;
 ```
 
 # 添加约束
@@ -64,6 +58,8 @@ ALTER TABLE ALTER 列名 SET DEFAULT 值;
 ALTER TABLE 表名 ALTER 列名 DROP DEFAULT;
 ```
 
+## 删除主键
+
 ```sql
 ALTER TABLE 表名 DROP PRIMARY KEY;
 ```
@@ -72,6 +68,7 @@ ALTER TABLE 表名 DROP PRIMARY KEY;
 
 ```sql
 SHOW INDEXES FROM 表名;
+
 ALTER TABLE 表名 DROP 索引;
 ```
 
@@ -79,5 +76,6 @@ ALTER TABLE 表名 DROP 索引;
 
 ```sql
 SHOW CREATE TABLE 表名;
+
 ALTER TABLE 表名 DROP FOREIGN KEY fk_symbol;
 ```

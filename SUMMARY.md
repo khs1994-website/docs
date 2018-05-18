@@ -1,6 +1,6 @@
 # Summary
 
-* [khs1994.com 技术文档](README.md)
+* [README](README.md)
 * [CI/CD](ci/README.md)
     * [Style CI](ci/styleci/README.md)     
     * [Jenkins](ci/jenkins/README.md)
@@ -102,6 +102,7 @@
     * [Ubuntu 初始化配置](linux/ubuntu.md)
     * [Fedora](linux/fedora.md)
     * [Alpine](linux/alpine.md)
+    * [下载相关](linux/download.md)
     * [网络相关](linux/network/README.md)
         * [其他工具](linux/network/tools.md)
     * Server

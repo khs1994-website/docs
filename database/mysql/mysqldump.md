@@ -18,7 +18,7 @@ categories:
 # 导出某数据库 只能是一个数据库，后边参数表示这个数据的表名
 # 导出多个数据库请使用下一条命令
 # 导出某数据库中的某表
-mysqldump [OPTIONS] database [tables]
+mysqldump [OPTIONS] database [tables] > file.name
 
 # 导出指定数据库
 

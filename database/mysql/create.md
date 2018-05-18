@@ -23,9 +23,9 @@ mysql> CREATE TABLE `tb1`(
   `id` INT AUTO_INCREMENT,
   `pid` INT UNSIGNED COMMENT '注释',
   `username` VARCHAR(20) UNIQUE NOT NULL,
-  key(`id`),
+  PRIMARY key(`id`),
   unique index index_name(col_name)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB auto_increment=100 DEFAULT CHARSET=utf8mb4;
 
 # 临时表 断开与数据库的连接后，临时表就会自动被销毁
 
