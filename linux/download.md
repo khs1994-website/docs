@@ -23,6 +23,6 @@ $ curl -O url
 $ curl -fsSL url
 ```
 
-```wget
+```bash
 $ wget url -O outfile
 ```

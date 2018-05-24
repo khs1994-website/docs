@@ -27,6 +27,23 @@ $ git config -g user.email "khs1994@khs1994.com"
 $ git branch --set-upstream dev origin/dev
 ```
 
+# 永久删除大文件
+
+* https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
+自行替换 `*.db` 为自己的文件规则
+
+```bash
+$ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch *.db' --prune-empty --tag-name-filter cat -- --all
+
+$ rm -rf .git/refs/original/
+$ git reflog expire --expire=now --all
+$ git gc --prune=now
+$ git gc --aggressive --prune=now
+$ git push origin --force --all
+$ git push origin --force --tags
+```
+
 # 子模块
 
 ```bash

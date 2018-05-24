@@ -15,6 +15,26 @@ categories:
 
 # 网页搜索软件包
 
+* 查看包有哪些文件
+
+* 查看文件属于哪个包
+
+```bash
+$ sudo apt install apt-file
+
+$ sudo apt-file update
+
+$ apt-file search file_name
+
+$ apt-file list package_name
+```
+
+```bash
+$ yum whatprovides
+```
+
+或者在以下网站中输入 **文件** 或 **包名** 查找。
+
 * https://pkgs.org/ 包含各种系统的软件包
 
 * Alpine https://pkgs.alpinelinux.org/packages

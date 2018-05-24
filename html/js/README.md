@@ -65,7 +65,16 @@ Object.prototype.toString.apply([]); // [object Array]
 
 # 基础语法
 
-* 引号中包含变量 `your name is ${name}` 同 bash
+* 一行或多行 字符串和变量写在一起
+
+```js
+`your name is ${name}`
+
+`h
+ello JS`
+```
+
+同 bash
 
 * 常量 `const PI=3.14; // 同 PHP`
 
@@ -80,16 +89,6 @@ Object.prototype.toString.apply([]); // [object Array]
 ```js
 document.write("hello \
 World !")
-```
-
-* 多行
-
-```js
-a(`
-
-your name is ${name}
-
-  `)
 ```
 
 # 调试
