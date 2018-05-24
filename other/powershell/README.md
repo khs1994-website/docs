@@ -32,3 +32,7 @@ $ [environment]::SetEnvironmentvariable("a", "1", "User")
 ```
 
 * https://www.pstips.net/powershell-environment-variables.html
+
+# 常用变量
+
+`$PSScriptRoot` 文件所在路径

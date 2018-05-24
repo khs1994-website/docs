@@ -73,6 +73,34 @@ obj.y = 3;
 obj.z // 3
 ```
 
+# ES6
+
+```js
+class A
+{
+    constructor(){
+      this.type = 'a'
+    }  
+
+    says(say){
+      console.log(say)
+    }
+}
+
+let a = new A()
+
+a.says('hello');
+
+// 继承
+
+class B extends A{
+  constructor(){
+    super()
+    this.type = 'cat'
+  }
+}
+```
+
 # 对象详解
 
 ## 日期对象

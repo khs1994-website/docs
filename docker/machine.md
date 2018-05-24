@@ -31,6 +31,20 @@ $ docker-machine create \
       default
 ```
 
+## Windows Hyperv
+
+```
+$ docker-machine create `
+    -d hyperv `
+    --engine-registry-mirror https://registry.docker-cn.com `
+    --hyperv-memory "2048" `
+    --hyperv-cpu-count "2" `
+    --hyperv-virtual-switch zy `
+    default
+```
+
+* `--hyperv-virtual-switch`
+
 ## macOS xhyve
 
 使用第三方驱动 `xhyve`
