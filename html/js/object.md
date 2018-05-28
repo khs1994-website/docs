@@ -14,7 +14,7 @@ JavaScript 中的所有事物都是对象：字符串、数值、数组、函数
 # 对象创建
 
 ```js
-var obj = Object.create({
+let obj = Object.create({
   x:1,                   // 对象属性
   fun: function () {     // 对象方法
     return 1
@@ -31,7 +31,7 @@ obj["y"];       // 通过中括号访问
 
 delete obj.x;   // 删除属性
 
-for (var variable in object) {
+for (let variable in object) {
   if (object.hasOwnProperty(variable)) {
 
   }
@@ -47,7 +47,7 @@ obj.hasOwnProperty('toString');   //false 不会查找原型链上的属性
 ## 方法
 
 ```js
-var obj = {
+let obj = {
     firstName: "John",
     methodName: function () {
         return this.firstName + " " + this.lastName;
@@ -64,7 +64,7 @@ function foo() {}
 
 foo.prototype.z = 3;
 
-var obj = new foo();
+let obj = new foo();
 
 obj.x = 2;
 
@@ -106,7 +106,7 @@ class B extends A{
 ## 日期对象
 
 ```javascript
-var myDate=new Date();   // 可以在括号中定义初始值
+let myDate=new Date();   // 可以在括号中定义初始值
 
 document.write(myDate);  // 打印当前时间
 

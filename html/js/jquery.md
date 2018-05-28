@@ -65,7 +65,7 @@ $(document).ready(function(){
 ## 创建元素
 
 ```js
-var p = $("<p></p>").text('文本');
+let p = $("<p></p>").text('文本');
 ```
 
 ## 设置属性
