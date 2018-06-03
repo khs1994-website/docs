@@ -10,19 +10,11 @@ categories:
 - MySQL
 ---
 
+存储引擎包括 `InnoDB` `MyISAM` `Memory` `CSV` `Archive`
+
 <!--more-->
 
-# 存储引擎
-
-`InnoDB`
-
-`MyISAM` 8.0 已废弃
-
-`Memory`
-
-`CSV`
-
-`Archive`
+# 对比
 
 ## 设置默认存储引擎
 
