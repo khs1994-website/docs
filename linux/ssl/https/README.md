@@ -73,6 +73,8 @@ NGINX 编译安装请查看 https://www.khs1994.com/php/development/nginx/build.
 
 # nginx 配置
 
+下面的配置很可能会发生变化，最新配置请查看 GitHub。
+
 ```nginx
 server {
   # 为了测试各浏览器对 TLSv1.3 的支持，这里只保留 TLSv1.3

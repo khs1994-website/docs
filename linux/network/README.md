@@ -45,3 +45,21 @@ $ lsof -i:8000
 
 $ netstat -anp | grep 80
 ```
+
+### ss
+
+* http://man.linuxde.net/ss
+
+```bash
+$ ss -h
+```
+
+# Other
+
+* `nslookup`
+
+* `ip route list` 查看路由表
+
+* `tracepath` 追踪并显示报文到达目的主机所经过的路由信息
+
+* `traceroute`

@@ -1,3 +1,3 @@
-FROM nginx:1.13.12-alpine
+FROM nginx:1.15.0-alpine
 
 COPY _book /usr/share/nginx/html
