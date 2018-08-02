@@ -20,19 +20,15 @@ HTML 表单
 </form>
 ```
 
-# `input` 类型
+# `input` type
 
-`text`
+文本 `text`
 
-`password`
+密码 `password`
 
-单选框
+单选框 `radio` name 属性一致
 
-`radio` name 属性一致
-
-复选框
-
-`checkbox` name 属性一致
+复选框 `checkbox` name 属性一致
 
 下拉列表框
 
@@ -48,10 +44,6 @@ HTML 表单
 <select multiple="multiple"> </select>
 ```
 
-提交
+提交 `submit`
 
-`submit`
-
-撤销输入
-
-`reset`
+撤销输入 `reset`

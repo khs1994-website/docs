@@ -187,6 +187,11 @@ https://docs.travis-ci.com/user/encrypting-files/
 
 ```yaml
 language: php
+
+os:
+  - linux
+  - osx
+
 sudo: required
 
 services:
@@ -210,8 +215,12 @@ addons:
       - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
         key_url: 'https://packagecloud.io/gpg.key'
   hosts:
-      - travis.test
-      - joshkalderimis.com
+    - travis.test
+    - joshkalderimis.com
+  ssh_known_hosts:
+    - 123.206.62.18
+    - code.aliyun.com
+    - github.com
 
 matrix:
   allow_failures:

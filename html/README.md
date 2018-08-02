@@ -33,11 +33,10 @@ categories:
 
 ```html
 <meta charset="utf-8">
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
+
 # 标签
 
 空格 `&nbsp;`
@@ -52,21 +51,9 @@ categories:
 
 代码 `<code> </code> <pre> </pre>`
 
-无序列表
+无序列表 `<ul><li></li></ul>`
 
-```html
-<ul>
-  <li> </li>
-</ul>
-```
-
-有序列表
-
-```html
-<ol>
-   <li> </li>
-</ol>
-```
+有序列表 `<ol><li></li></ol>`
 
 表格
 

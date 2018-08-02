@@ -21,25 +21,9 @@ $ yum -y install nautilus-open-terminal
 
 # Tilix
 
-原名 `terminix`
-
-新建 `/etc/yum.repos.d/terminix.repo` 文件
-
-```yaml
-[heikoada-terminix]  
-name=Copr repo for terminix owned by heikoada  
-baseurl=https://copr-be.cloud.fedoraproject.org/results/heikoada/terminix/fedora-$releasever-$basearch/  
-skip_if_unavailable=True  
-gpgcheck=1  
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/heikoada/terminix/pubkey.gpg  
-enabled=1  
-enabled_metadata=1
-```
-
-之后执行以下命令进行安装
+* https://github.com/gnunn1/tilix
 
 ```bash
-$ dnf update
 $ dnf install tilix
 ```
 

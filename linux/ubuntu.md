@@ -18,7 +18,6 @@ categories:
 
 ## 静态IP
 
-
 编辑 `/etc/network/interface` 文件。
 
 ```bash
@@ -44,20 +43,14 @@ name_servers=127.0.0.1
 # 常用软件
 
 ```bash
-$ sudo apt install gcc g++
+$ sudo apt install gcc g++ \
+    openssl libssl-dev
 ```
 
 ## mail
 
 ```bash
 $ apt install mailutils
-```
-
-## openssl
-
-```bash
-$ sudo apt install openssl
-$ sudo apt install libssl-dev
 ```
 
 ## update-alternatives
@@ -68,13 +61,13 @@ $ sudo apt install libssl-dev
 
 ## 网易云音乐
 
-http://music.163.com/#/download
+* http://music.163.com/#/download
 
 ## mpv 播放器
 
-https://mpv.io/   
+* https://mpv.io/   
 
-https://launchpad.net/~mc3man/+archive/ubuntu/mpv-tests
+* https://launchpad.net/~mc3man/+archive/ubuntu/mpv-tests
 
 ```bash
 $ sudo add-apt-repository ppa:mc3man/mpv-tests
@@ -90,9 +83,7 @@ $ sudo apt install mpv
 
 ## tilix 终端
 
-原名 `terminix`
-
-https://github.com/gnunn1/tilix  
+* https://github.com/gnunn1/tilix  
 
 ```bash
 $ sudo add-apt-repository ppa:webupd8team/terminix
@@ -100,8 +91,7 @@ $ sudo apt update
 $ sudo apt install terminix
 ```
 
-b站介绍视频
-http://www.bilibili.com/video/av5879001/
+* B 站介绍视频 http://www.bilibili.com/video/av5879001/
 
 ## OBS 录屏工具
 
@@ -111,11 +101,11 @@ $ sudo add-apt-repository ppa:obsproject/obs-studio
 $ sudo apt-get update && sudo apt-get install obs-studio
 ```
 
-https://github.com/jp9000/obs-studio/wiki/Install-Instructions#linux
+* https://github.com/jp9000/obs-studio/wiki/Install-Instructions#linux
 
 ## Firefox Flash 插件
 
-https://get.adobe.com/flashplayer/?loc=cn
+* https://get.adobe.com/flashplayer/?loc=cn
 
 ```bash
 $ sudo cp /home/khs1994/下载/libflashplayer.so /usr/lib/firefox-addons/plugins
@@ -125,17 +115,17 @@ $ sudo cp /home/khs1994/下载/libflashplayer.so /usr/lib/firefox-addons/plugins
 
 ## 虚拟机
 
-https://www.virtualbox.org/
+* https://www.virtualbox.org/
 
 双网卡 卡1桥接 卡2hostonly
 
 ## 搜狗拼音输入法
 
-http://pinyin.sogou.com/linux/?r=pinyin
+* http://pinyin.sogou.com/linux/?r=pinyin
 
 ## PDF
 
-https://code-industry.net/free-pdf-editor/
+* https://code-industry.net/free-pdf-editor/
 
 # 主题
 

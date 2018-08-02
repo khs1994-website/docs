@@ -39,11 +39,12 @@ $ npm install -g stylus
 
 #header{
   color: @a;
+  // comments
+
+ /**
+   * comments
+  */
 }
-
-/**/
-
-//
 
 ```
 

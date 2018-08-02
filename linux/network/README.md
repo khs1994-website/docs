@@ -1,5 +1,5 @@
 ---
-title: 参看某 IP 端口是否打开
+title: Linux 网络相关
 date: 2016-08-01 13:00:00
 updated:
 comments: true
@@ -10,7 +10,7 @@ categories:
 - Network
 ---
 
-端口相关命令介绍。
+* https://www.imooc.com/learn/344
 
 <!--more-->
 

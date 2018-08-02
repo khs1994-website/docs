@@ -25,7 +25,7 @@ DOM 文档对象模型。
 
 * 文档节点 `Document` 9
 
-* 文档类型节点 `DocumentType` 10 <!DOCTYPE html>
+* 文档类型节点 `DocumentType` 10 `<!DOCTYPE html>`
 
 * 文档片段节点 `DocumentFragment` 11
 

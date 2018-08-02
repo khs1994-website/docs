@@ -10,7 +10,13 @@ categories:
 - Redis
 ---
 
-官方网站：https://redis.io/
+* 官方网站：https://redis.io/
+
+* http://redisdoc.com/
+
+* https://redis.io/documentation
+
+* https://redis.io/commands
 
 <!--more-->
 

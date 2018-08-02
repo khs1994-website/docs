@@ -22,9 +22,10 @@
         * [使用详解](cache/memcached/quickstart.md)
     * [Redis](cache/redis/README.md)
         * [配置文件](cache/redis/config.md)
-        * [持久化](cache/redis/backup.md)
-        * [Cluster By Ruby](cache/redis/cluster.md)
+        * [持久化](cache/redis/persistence.md)
+        * [主从复制](cache/redis/replication.md)
         * [Sentinel](cache/redis/sentinel.md)
+        * [Cluster](cache/redis/cluster.md)
         * [key 操作](cache/redis/key.md)
         * [string 类型](cache/redis/string.md)            
         * [hash 类型](cache/redis/hash.md)
@@ -101,6 +102,7 @@
 ## Kubernetes
 
 * [Kubernetes](docker/k8s/README.md)
+    * [手动部署](docker/k8s/install,md)
     * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
     * [Docker for Desktop k8s](docker/docker-with-k8s.md)
 
@@ -114,7 +116,6 @@
     * [Alpine](linux/alpine.md)
     * [下载相关](linux/download.md)
     * [网络相关](linux/network/README.md)
-        * [其他工具](linux/network/tools.md)
     * Server
         * [邮件服务器](linux/server/email.md)
         * [自动部署](linux/server/pxe.md)
