@@ -11,6 +11,14 @@ categories:
 
 JavaScript 基础语法介绍，基于 ES6。
 
+必须启用严格模式
+
+```js
+'use strict'
+
+// code
+```
+
 <!-- more -->
 
 # 数据类型(6 种)
@@ -73,8 +81,6 @@ Object.prototype.toString.apply([]); // [object Array]
 `h
 ello JS`
 ```
-
-同 bash
 
 * 常量 `const PI=3.14; // 同 PHP`
 
@@ -178,6 +184,44 @@ f(1,2,3,4);
 
 ```js
 
+```
+
+## 高阶函数
+
+一个函数接收另一个函数作为参数，这种函数就称之为高阶函数
+
+## 箭头函数
+
+```js
+x => x * x
+
+function (x) {
+    return x * x;
+}
+
+x => {
+    if (x > 0) {
+        return x * x;
+    }
+    else {
+        return - x * x;
+    }
+}
+
+// 两个参数:
+(x, y) => x * x + y * y
+
+// 无参数:
+() => 3.14
+
+// 可变参数:
+(x, y, ...rest) => {
+    var i, sum = x + y;
+    for (i=0; i<rest.length; i++) {
+        sum += rest[i];
+    }
+    return sum;
+}
 ```
 
 # 包装对象

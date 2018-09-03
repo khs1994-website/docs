@@ -108,7 +108,6 @@ mysql> SHOW TABLES;
 
 mysql> SHOW TABLES FROM db_name;
 
-
 mysql> { SHOW COLUMNS FROM | DESCRIBE | DESC } tbl_name;
 
 mysql> SHOW CREATE DATABASE db_name;
@@ -117,7 +116,7 @@ mysql> SHOW CREATE TABLE tbl_name;
 
 mysql> SHOW warnings;
 
-mysql> SHOW engines \G;
+mysql> SHOW engines\G;
 ```
 
 ## 约束

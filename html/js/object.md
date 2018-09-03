@@ -15,19 +15,20 @@ JavaScript 中的所有事物都是对象：字符串、数值、数组、函数
 
 ```js
 let obj = Object.create({
-  x:1,                   // 对象属性
-  fun: function () {     // 对象方法
-    return 1
+  x:1,                       // 对象属性
+  firstName: 'x',
+  methodName: function () {  // 对象方法
+      return this.firstName + " " + this.lastName;
   }
 });
 ```
-
-## 属性
 
 ```js
 obj.x;          // 通过 . 访问
 
 obj["y"];       // 通过中括号访问
+
+obj.methodName(); // 调用方法
 
 delete obj.x;   // 删除属性
 
@@ -44,19 +45,6 @@ obj.hasOwnProperty('x');          //true
 obj.hasOwnProperty('toString');   //false 不会查找原型链上的属性
 ```
 
-## 方法
-
-```js
-let obj = {
-    firstName: "John",
-    methodName: function () {
-        return this.firstName + " " + this.lastName;
-    }
-}
-
-obj.methodName();
-```
-
 # 原型链
 
 ```js
@@ -71,6 +59,30 @@ obj.x = 2;
 obj.y = 3;
 
 obj.z // 3
+```
+
+# 解构赋值
+
+```js
+let [x, y, z] = ['hello', 'JavaScript', 'ES6']; // 同 PHP list($a)=[1]
+
+let [x, [y, z]] = ['hello', ['JavaScript', 'ES6']]; // 嵌套
+
+let [, , z] = ['hello', 'JavaScript', 'ES6']; // 忽略前两个元素，只对z赋值第三个元素
+
+var person = {
+    name: '小明',
+    age: 20,
+    gender: 'male',
+    passport: 'G-12345678',
+    school: 'No.4 middle school'
+};
+
+// 把 passport 属性赋值给变量id:
+let {name, passport:id} = person;
+
+// 如果 person 对象没有 single 属性，默认赋值为 true:
+var {name, single=true} = person;
 ```
 
 # ES6
@@ -147,4 +159,12 @@ obj.toUpperCase();                  // 字符串转换成大写
 
 ```javascript
 Math.ceil(0.8); // 返回 1
+```
+
+## JSON
+
+```js
+JSON.stringify(); // 对象 -> json
+
+JSON.parse(); // json -> 对象
 ```

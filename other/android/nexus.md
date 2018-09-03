@@ -6,7 +6,6 @@ comments: true
 tags:
 - Android
 categories:
-- Other
 - Android
 ---
 

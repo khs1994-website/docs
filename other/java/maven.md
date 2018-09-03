@@ -7,7 +7,6 @@ tags:
 - Java
 - Maven
 categories:
-- Other
 - Java
 - Maven
 ---

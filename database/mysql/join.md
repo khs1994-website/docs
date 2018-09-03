@@ -51,9 +51,19 @@ INSERT tb2 VALUES('001',20),
 # 详解
 
 ```sql
-SELECT tb1.id,tb1.author,tb2.num_count FROM tb1 a INNER JOIN tb2 b ON a.author=b.author;
+SELECT tb1.id,tb1.author,tb2.num_count FROM tb1 AS a INNER JOIN tb2 AS b ON a.author=b.author;
 
 SELECT tb1.id,tb1.author,tb2.num_count FROM tb1 a LEFT JOIN tb2 b ON a.author=b.author;
 
 SELECT tb1.id,tb1.author,tb2.num_count FROM tb1 a RIGHT JOIN tb2 b ON a.author=b.author;
+```
+
+# DELETE
+
+```sql
+DELETE A FROM YSHA A LEFT JOIN YSHB B ON A.code=b.code WHERE b.code is NULL
+
+DELETE FROM YSHA WHERE NOT EXISTS(SELECT 1 FROM YSHB B WHERE YSHA.code=b.code)
+
+# 将 B 表中未使用的 A 表编号删除
 ```

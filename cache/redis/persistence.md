@@ -99,13 +99,11 @@ set
 $3
 ```
 
-# 混合 RDB-AOF 持久化格式
+# 混合 RDB-AOF 持久化格式 4.0+
 
 先以 RDB 格式写入全量数据再追加增量日志
 
 * https://yq.aliyun.com/articles/193034
-
-4.0+
 
 ```bash
 aof-use-rdb-preamble yes

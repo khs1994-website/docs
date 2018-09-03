@@ -6,7 +6,6 @@ comments: true
 tags:
 - Swift
 categories:
-- Other
 - Swift
 ---
 

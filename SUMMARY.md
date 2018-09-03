@@ -106,6 +106,11 @@
     * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
     * [Docker for Desktop k8s](docker/docker-with-k8s.md)
 
+## CLOUD
+
+* CLOUD
+    * [minio](cloud/minio.md)
+
 ## Linux
 
 * [Linux](linux/README.md)

@@ -53,6 +53,14 @@ $ git submodule update --init --recursive
 $ git submodule add URL DIR
 ```
 
+# 拉取 PR
+
+```bash
+$ git fetch origin pull/365/merge:branch-fix-1
+
+$ git checkout branch-fix-1
+```
+
 # 配置
 
 查看配置

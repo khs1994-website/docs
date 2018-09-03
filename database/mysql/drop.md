@@ -20,4 +20,6 @@ DROP TABLE tb1;
 DROP DATABASE DB1;
 
 DROP USER 'username'@'host';
+
+DROP INDEX index_name ON tbl_name;
 ```

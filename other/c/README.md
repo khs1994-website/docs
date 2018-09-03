@@ -6,7 +6,6 @@ comments: true
 tags:
 - C
 categories:
-- Other
 - C
 ---
 
