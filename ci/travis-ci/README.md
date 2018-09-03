@@ -13,7 +13,7 @@ categories:
 
 本文列举了使用 Travis CI 可能遇到的问题及其解决方法。
 
-官方网站：https://travis-ci.org
+官方网站：https://travis-ci.com
 
 官方文档：https://docs.travis-ci.com/
 
@@ -21,11 +21,13 @@ categories:
 
 # 注册登录
 
-在 https://travis-ci.org 直接通过 GitHub 登录。
+在 https://travis-ci.com 直接通过 GitHub 登录。
 
 # 项目同步
 
 > 目前，travis 仅支持构建 GitHub 项目。
+
+安装 Travis CI GitHub App。
 
 登录之后点击右上角用户名，再点击右上的 `Sync account` 来同步 GitHub 项目。
 
@@ -117,6 +119,8 @@ addons:
 branches:
   only:
   - master
+  - /.*/
+  - /^deploy-.*$/
 
 branches:  
   except:
@@ -183,6 +187,11 @@ https://docs.travis-ci.com/user/encrypting-files/
 
 ```yaml
 language: php
+
+os:
+  - linux
+  - osx
+
 sudo: required
 
 services:
@@ -206,8 +215,12 @@ addons:
       - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
         key_url: 'https://packagecloud.io/gpg.key'
   hosts:
-      - travis.test
-      - joshkalderimis.com
+    - travis.test
+    - joshkalderimis.com
+  ssh_known_hosts:
+    - 123.206.62.18
+    - code.aliyun.com
+    - github.com
 
 matrix:
   allow_failures:

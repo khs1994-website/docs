@@ -11,23 +11,23 @@ categories:
 ---
 
 ```sql
-INSERT (INTO) 表名 VALUES()
+INSERT INTO 表名 VALUES()
 ```
 
 <!--more-->
 
 ```sql
-INSERT 表名(字段1,字段2,...) VALUES()
+INSERT INTO 表名(字段1,字段2,...) VALUES()
 ```
 
 ```sql
-INSERT 表名 SET 字段名=值;
+INSERT INTO 表名 SET 字段名=值;
 ```
 
 # 将查询结果插入表中
 
 ```sql
-INSERT 表名 SELECT
+INSERT INTO 表名 SELECT
 ```
 
 # 更新

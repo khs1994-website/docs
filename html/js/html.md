@@ -12,7 +12,7 @@ categories:
 ```html
 <script src="main.js"></script>
 
-<script> var a=1; document.write(a);</script>
+<script> let a=1; document.write(a);</script>
 ```
 
 <!--more-->
@@ -20,7 +20,7 @@ categories:
 * 获取元素对象
 
 ```js
-var obj = document.getElementById('id'); // 还可以 ByClassName / ByName
+let obj = document.getElementById('id'); // 还可以 ByClassName / ByName
 ```
 
 # 输出
@@ -38,7 +38,7 @@ var obj = document.getElementById('id'); // 还可以 ByClassName / ByName
 ```javascript
 confirm(a);
 
-var b = confirm(a); // 若用户点击确认，则返回 true，此时变量 b 的值为 true
+let b = confirm(a); // 若用户点击确认，则返回 true，此时变量 b 的值为 true
 ```
 
 ## `prompt` 提问
@@ -55,7 +55,7 @@ prompt(str1,str2);  // 若用户点击确定，文本框中的内容将作为函
 # 设置 CSS
 
 ```js
-var obj = document.getElementById('id');
+let obj = document.getElementById('id');
 
 obj.innerHTML="Hello";
 
@@ -71,7 +71,7 @@ obj.style.fontSize="20";
 ```js
 // obj 变量接上部分
 
-var b = obj.className;         // 获取、设置元素的 class
+let b = obj.className;         // 获取、设置元素的 class
 
 obj.className = "className";
 
@@ -136,7 +136,7 @@ document.cookie="key=value; expires=Thu, 01 Jan 1970 00:00:00 GMT"
 
 // 增加计时器，返回整数
 
-var int = setInterval(代码,交互时间); // 单位毫秒
+let int = setInterval(代码,交互时间); // 单位毫秒
 
 clearInterval(id_of_setInterval);   // 取消计时器
 

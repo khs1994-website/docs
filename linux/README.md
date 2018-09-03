@@ -13,6 +13,10 @@ categories:
 
 <!--more-->
 
+# U 盘制作工具
+
+* https://github.com/pbatard/rufus
+
 # 网页搜索软件包
 
 * 查看包有哪些文件
@@ -88,6 +92,14 @@ echo "password" | sudo -S cmd
 
 ```bash
 $ echo 1 | sudo tee 1.txt
+```
+
+## 脚本中切换用户
+
+```bash
+su - user -c "command"
+
+su - user -s /bin/bash shell.sh
 ```
 
 # 相关链接

@@ -162,6 +162,12 @@ $(document).ready(function(){
       type: "GEt",
       url: "url",
       dataType:"json",
+      beforeSend: function(xhr) {
+         xhr.setRequestHeader("Access-Toke");
+      },
+      headers: {
+        'Access-Token':$.cookie('access_token')
+      },
       data:{
         // post 数据
         name:1

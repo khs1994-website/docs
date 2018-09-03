@@ -6,7 +6,6 @@ comments: true
 tags:
 - Java
 categories:
-- Other
 - Java
 ---
 

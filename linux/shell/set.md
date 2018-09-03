@@ -11,10 +11,9 @@ categories:
 - Shell
 ---
 
-<!--more-->
-
 * http://www.ruanyifeng.com/blog/2017/11/bash-set.html
 
+<!--more-->
 
 `set -u` 遇到不存在的变量就会报错，并停止执行。
 

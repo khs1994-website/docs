@@ -11,6 +11,14 @@ categories:
 
 JavaScript 基础语法介绍，基于 ES6。
 
+必须启用严格模式
+
+```js
+'use strict'
+
+// code
+```
+
 <!-- more -->
 
 # 数据类型(6 种)
@@ -30,7 +38,7 @@ JavaScript 基础语法介绍，基于 ES6。
 - `Object` 包含 `function` `Date` `Array`
 
 ```js
-var x = new Number;
+let x = new Number;
 ```
 
 ## 类型转换
@@ -74,11 +82,11 @@ Object.prototype.toString.apply([]); // [object Array]
 ello JS`
 ```
 
-同 bash
-
 * 常量 `const PI=3.14; // 同 PHP`
 
-* 变量 `var a;` `a = 1` `a = 'Hello World !'`
+* 变量 `let a;` `a = 1` `a = 'Hello World !'`
+
+`let` `const` 严禁使用 `var`
 
 * 特例 `var a = (1,2,3); // 取右边的数值 a = 3`
 
@@ -94,7 +102,7 @@ World !")
 # 调试
 
 ```js
-var x = 15 * 5;
+let x = 15 * 5;
 debugger;
 document.getElementbyId("demo").innerHTML = x;
 ```
@@ -146,8 +154,8 @@ fun1(1,2);  // 调用函数
 在函数表达式存储在变量后，变量也可作为一个函数使用：
 
 ```js
-var x = function (a, b) {return a * b};
-var z = x(4, 3);
+let x = function (a, b) {return a * b};
+let z = x(4, 3);
 ```
 
 ## 函数参数
@@ -168,7 +176,7 @@ f(1,2,3,4);
 
 ```js
 (function () {
-    var x = "Hello!!";      // 我将调用自己
+    let x = "Hello!!";      // 我将调用自己
 })();
 ```
 
@@ -178,22 +186,60 @@ f(1,2,3,4);
 
 ```
 
+## 高阶函数
+
+一个函数接收另一个函数作为参数，这种函数就称之为高阶函数
+
+## 箭头函数
+
+```js
+x => x * x
+
+function (x) {
+    return x * x;
+}
+
+x => {
+    if (x > 0) {
+        return x * x;
+    }
+    else {
+        return - x * x;
+    }
+}
+
+// 两个参数:
+(x, y) => x * x + y * y
+
+// 无参数:
+() => 3.14
+
+// 可变参数:
+(x, y, ...rest) => {
+    var i, sum = x + y;
+    for (i=0; i<rest.length; i++) {
+        sum += rest[i];
+    }
+    return sum;
+}
+```
+
 # 包装对象
 
 ```javascript
-var a = 'a';
+let a = 'a';
 
-var obj = new String('a');
+let obj = new String('a');
 ```
 
 # 数组
 
 ```javascript
-var myArray = new Array();
+let myArray = new Array();
 
-var myArray = new Array(1,2,3);
+let myArray = new Array(1,2,3);
 
-var myArray = [1,2,3]; // 同 PHP
+let myArray = [1,2,3]; // 同 PHP
 
 myArray[0] = 80;  // 数组赋值
 
@@ -205,9 +251,9 @@ myArray.sort()   // 数组排序
 ## 数组合并
 
 ```js
-var a = [1, 2, 3];
+let a = [1, 2, 3];
 
-var b = ['hello', ...a];
+let b = ['hello', ...a];
 ```
 
 # 流程控制
@@ -227,13 +273,13 @@ switch (expression) {
 ```
 
 ```javascript
-for (var i = 0; i < array.length; i++) {
+for (let i = 0; i < array.length; i++) {
   array[i]
 }
 ```
 
 ```javascript
-for (var variable in object) {
+for (let variable in object) {
   if (object.hasOwnProperty(variable)) {
 
   }

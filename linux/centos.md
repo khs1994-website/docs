@@ -36,24 +36,16 @@ $ wget -O /etc/yum.repos.d/epel.repo \
 
 # 网络设置
 
-## 开机网络连接
-
 编辑 `/etc/sysconfig/network-scripts/ifcfg-enp0s8`
 
-```bash     
-ONBOOT=yes
-```
-
-## 静态 IP
-
 ```bash
-BOOTPROTO=static
+BOOTPROTO=static # 静态 IP
 ...
 IPADDR=192.168.56.121
 NETMASK=225.225.225.0
 NAME=enp0s8
 DEVICE=enp0s8
-ONBOOT=yes
+ONBOOT=yes # 开机自动连接网络
 ```
 
 ## 路由
@@ -114,9 +106,14 @@ $ systemctl restart NetworkManager.service
 # 常用软件包
 
 ```bash
-$ yum install zip unzip wget  \
-    gcc gcc-c++ gdb git openssl-devel \
-    bash-completion tree vim
+$ yum install zip unzip \
+    wget \
+    gcc gcc-c++ gdb \
+    git \
+    openssl-devel \
+    bash-completion \
+    tree \
+    vim
 ```
 
 # 安全配置
@@ -126,6 +123,7 @@ $ yum install zip unzip wget  \
 ```bash
 $ systemctl status firewalld
 ```
+
 ### 停止 firewall
 
 ```bash

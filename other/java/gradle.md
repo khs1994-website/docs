@@ -7,7 +7,6 @@ tags:
 - Java
 - Gradle
 categories:
-- Other
 - Java
 - Gradle
 ---

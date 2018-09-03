@@ -16,9 +16,7 @@ categories:
 ```bash
 $ curl url -o outfile
 
-$ curl -O url
-
-# Write output to a file named as the remote file
+$ curl -O url # Write output to a file named as the remote file
 
 $ curl -fsSL url
 ```

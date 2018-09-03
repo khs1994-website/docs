@@ -6,7 +6,6 @@ comments: true
 tags:
 - iOS
 categories:
-- Other
 - iOS
 ---
 

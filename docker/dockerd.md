@@ -11,7 +11,7 @@ categories:
 
 配置 `TLS` 实现安全的 Docker 远程连接。
 
-GitHub：https://github.com/khs1994-docker/dockerd-tls
+GitHub：https://github.com/khs1994-docker/lnmp-k8s
 
 本机：`macOS`
 
@@ -244,24 +244,34 @@ $ chmod -v 0444 ca.pem server-cert.pem cert.pem
 
 ### 使用容器生成证书（推荐）
 
-GitHub：https://github.com/khs1994-docker/dockerd-tls
+GitHub：https://github.com/khs1994-docker/lnmp-k8s
 
 方法来自 `CoreOS` 官方文档：https://coreos.com/os/docs/latest/generate-self-signed-certificates.html
 
 >既然使用容器那就可以在任何系统运行，只要把生成的证书文件对应的放到 Docker 客户端和服务端即可。
 
 ```bash
-$ git clone --depth=1 https://github.com/khs1994-docker/dockerd-tls.git
-$ cd dockerd-tls
+$ git clone --depth=1 https://github.com/khs1994-docker/lnmp-k8s
+
+$ cd lnmp-k8s
+
+# 初始化
+$ ./lnmp-k8s
 ```
 
-在 `./cfssl/*.json` 中配置好 `CN` `hosts`。
+在 `./systemd/.env` 中配置
 
 ```bash
-$ docker-compose up cfssl
+server_hosts=127.0.0.1,localhost,1.1.1.1
 ```
 
-命令执行完毕之后在 `./cfssl/cert` 文件夹中可以看到证书文件，修改文件权限。
+值为 Docker 服务端所在 IP 或 域名。多个值用逗号分隔
+
+```bash
+$ docker-compose up cfssl-single
+```
+
+命令执行完毕之后在 `./systemd/certs` 文件夹中可以看到证书文件，修改文件权限。
 
 ```bash
 $ chmod -v 0400 ca-key.pem key.pem server-key.pem

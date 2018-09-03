@@ -9,3 +9,9 @@ categories:
 - Cache
 - Redis
 ---
+
+* https://redis.io/topics/config
+
+<!--more-->
+
+* http://www.redis.cn/topics/config.html

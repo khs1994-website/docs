@@ -31,7 +31,7 @@ categories:
 
 * 全文索引 `fulltext KEY` (仅 MyISAM 引擎支持) (只能创建在 CHAR、VARCHAR 或 TEXT 类型的字段上)
 
-MySQL 只对以下操作符才使用索引：`<` `<=` `=` `>` `>=` `between` `in` 以及某些时候的 `like` (不以通配符 % 或 _ 开头的情形)
+MySQL 只对以下操作符才使用索引：`<` `<=` `=` `>` `>=` `between` `in` 以及某些时候的 `like` (不以通配符 % 或 _ 开头的情形，`%a` 不可以，`a%` 可以)
 
 索引不会包含有 null 值的列
 
@@ -63,4 +63,15 @@ CREATE INDEX index_name ON tbl_name(col_name(长度));
 ALTER TABLE tbl_name ADD INDEX index_name(col_name);
 
 DROP INDEX index_name ON tbl_name;
+```
+
+# explain
+
+```sql
+mysql> explain select * from servers;
++----+-------------+---------+------+---------------+------+---------+------+------+-------+
+| id | select_type | table   | type | possible_keys | key  | key_len | ref  | rows | Extra |
++----+-------------+---------+------+---------------+------+---------+------+------+-------+
+|  1 | SIMPLE      | servers | ALL  | NULL          | NULL | NULL    | NULL |    1 | NULL  |
++----+-------------+---------+------+---------------+------+---------+------+------+-------+
 ```

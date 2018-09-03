@@ -12,21 +12,20 @@
     * [Travis CI](ci/travis-ci/README.md)
         * [GitBook](ci/travis-ci/gitbook.md)
         * [Hexo](ci/travis-ci/hexo.md)
-* CMS
-    * [Hexo](cms/hexo/README.md)
-    * [Typecho 使用详解](cms/typecho/README.md)
-    * [WordPress 使用详解](cms/wordpress/README.md)
-    * [Netlify](cms/netlify.md)
-    * [pages](cms/pages.md)
+    * [Codecov](ci/codecov/README.md)    
+
+## 缓存
+
 * [缓存](cache/README.md)
     * [Compare](cache/compare.md)
     * [Memcached](cache/memcached/README.md)
         * [使用详解](cache/memcached/quickstart.md)
     * [Redis](cache/redis/README.md)
         * [配置文件](cache/redis/config.md)
-        * [持久化](cache/redis/backup.md)
-        * [Cluster By Ruby](cache/redis/cluster.md)
+        * [持久化](cache/redis/persistence.md)
+        * [主从复制](cache/redis/replication.md)
         * [Sentinel](cache/redis/sentinel.md)
+        * [Cluster](cache/redis/cluster.md)
         * [key 操作](cache/redis/key.md)
         * [string 类型](cache/redis/string.md)            
         * [hash 类型](cache/redis/hash.md)
@@ -34,6 +33,9 @@
         * [set 类型](cache/redis/set.md)
         * [sorted set 类型 zset](cache/redis/sorted-set.md)
         * [其他](cache/redis/other.md)
+
+## 数据库
+
 * 数据库
     * [MongoDB](database/mongodb/README.md)
         * [配置文件](database/mongodb/config.md)
@@ -55,7 +57,10 @@
         * [存储引擎](database/mysql/engine.md)
         * [NoSQL](database/mysql/nosql.md)
     * [PostgreSQL](database/postgresql/README.md)
-        * [配置文件](database/postgresql/config.md)    
+        * [配置文件](database/postgresql/config.md)
+
+## Docker
+
 * [Docker](docker/README.md)
     * [Rkt](docker/rkt/README.md)
     * [CoreOS](docker/coreos/README.md)
@@ -93,9 +98,21 @@
     * [Docker 从入门到实践](docker/docker_practice.md)
     * [Mac Docker API](docker/mac_docker_api.md)
     * [Minikube](docker/minikube/README.md)
+
+## Kubernetes
+
 * [Kubernetes](docker/k8s/README.md)
+    * [手动部署](docker/k8s/install,md)
     * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
     * [Docker for Desktop k8s](docker/docker-with-k8s.md)
+
+## CLOUD
+
+* CLOUD
+    * [Minio](cloud/minio.md)
+
+## Linux
+
 * [Linux](linux/README.md)
     * [Crontab](linux/crontab.md)
     * [CentOS7 初始化配置](linux/centos.md)
@@ -104,7 +121,6 @@
     * [Alpine](linux/alpine.md)
     * [下载相关](linux/download.md)
     * [网络相关](linux/network/README.md)
-        * [其他工具](linux/network/tools.md)
     * Server
         * [邮件服务器](linux/server/email.md)
         * [自动部署](linux/server/pxe.md)
@@ -114,7 +130,8 @@
         * [date](linux/shell/date.md)
         * [echo、read](linux/shell/echo-read.md)
         * [if、case](linux/shell/if-case-etc.md)
-        * [set](linux/shell/set.md)    
+        * [set](linux/shell/set.md)
+        * [patch](linux/shell/patch.md)  
     * [SSH](linux/ssh/README.md)
         * [SSH 隧道与端口转发内网穿透](linux/ssh/proxy.md)
     * [systemd 详解](linux/systemd/README.md)
@@ -131,39 +148,64 @@
        * [cfssl](linux/ssl/cfssl.md)
     * [fish shell](linux/fish-shell/README.md)
        * [命令补全](linux/fish-shell/completion.md)  
+
+## Git
+
 * [Git](git/README.md)
     * [GitHub](git/github/README.md)
         * [API](git/github/api.md)
-    * [Git SVN 一起使用](git/git-svn.md)
     * [GitBook](git/gitbook.md)
     * [Gitlab Docker 安装配置](git/gitlab.md)
     * [Gogs Docker 安装配置](git/gogs.md)
     * [国内 Git](git/cn.md)
     * [Git LFS](git/lfs.md)
+    * [Git SVN 一起使用](git/git-svn.md)
+    * [SVN](git/svn.md)
+
+## HTML
+
 * [HTML](html/README.md)
     * [HTML 表单](html/form.md)
     * [DOM](html/dom.md)
+
+## CSS
+
 * [CSS](html/css/README.md)
     * [预处理器](html/css/less_sass.md)
+
+## EcmaScript
+
 * [JavaScript](html/js/README.md)
     * [HTML](html/js/html.md)
     * [对象](html/js/object.md)
     * [AJAX](html/js/ajax.md)
     * [jQuery](html/js/jquery.md)
+
+## Node.js
+
 * [Node.js](nodejs/README.md)
     * [npm](nodejs/npm.md)
     * [yarn](nodejs/yarn.md)    
+
+## Python
+
 * [Python](python/README.md)
     * [基本语法](python/basic.md)
     * [OOP](python/oop.md)
     * [Django](python/django/README.md)
     * [MySQL](python/mysql.md)    
+
+## Macos
+
 * [macOS](macos/README.md)
     * [Homebrew](macos/brew.md)
     * [gdb](macos/gdb.md)
     * [macOS 背后的故事上](macos/story.md)
     * [macOS 背后的故事下](macos/story2.md)
     * [macOS 背后的故事 补充](macos/story3.md)
+
+## 工具软件
+
 * 工具软件
     * [火狐常用设置](tools/firefox.md)
     * [视频下载工具 you-get](tools/youget.md)
@@ -183,6 +225,18 @@
 * [虚拟化](vm/README.md)
     * [UbuntuEFI 设置](vm/ubuntu-efi.md)
     * [Hyper-V](vm/hyperv/README.md)
+
+## CMS
+
+* CMS
+    * [Hexo](cms/hexo/README.md)
+    * [Typecho 使用详解](cms/typecho/README.md)
+    * [WordPress 使用详解](cms/wordpress/README.md)
+    * [Netlify](cms/netlify.md)
+    * [pages](cms/pages.md)
+
+## 其他
+
 * 其他
     * Android
         * [AndroidStudio Linux](other/android/android-studio-linux32.md)
