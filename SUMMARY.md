@@ -147,7 +147,8 @@
        * [自签名 TLS 证书](linux/ssl/https/self-signed-ssl-certificates.md)
        * [cfssl](linux/ssl/cfssl.md)
     * [fish shell](linux/fish-shell/README.md)
-       * [命令补全](linux/fish-shell/completion.md)  
+       * [命令补全](linux/fish-shell/completion.md)
+    * [Ansible](linux/ansible.md)   
 
 ## Git
 

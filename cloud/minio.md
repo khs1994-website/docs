@@ -14,3 +14,7 @@ categories:
 <!--more-->
 
 GitHub: https://github.com/khs1994-docker/lnmp/blob/master/docs/minio.md
+
+## More Information
+
+* https://me.csdn.net/dingjs520
