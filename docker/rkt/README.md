@@ -6,7 +6,6 @@ comments: true
 tags:
 - Rkt
 categories:
-- Docker
 - Rkt
 ---
 

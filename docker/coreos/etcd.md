@@ -4,11 +4,8 @@ date: 2017-08-10 13:00:00
 updated:
 comments: true
 tags:
-- Docker
-- CoreOS
 - Etcd
 categories:
-- Docker
 - CoreOS
 ---
 

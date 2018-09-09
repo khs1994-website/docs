@@ -4,10 +4,8 @@ date: 2017-02-07T13:00:00.000Z
 updated: null
 comments: true
 tags:
-  - Docker
   - CoreOS
 categories:
-  - Docker
   - CoreOS
 ---
 

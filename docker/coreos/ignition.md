@@ -4,11 +4,9 @@ date: 2016-09-02 14:00:00
 updated:
 comments: true
 tags:
-- Docker
 - CoreOS
 - Ignition
 categories:
-- Docker
 - CoreOS
 - Ignition
 ---

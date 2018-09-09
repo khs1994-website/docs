@@ -97,7 +97,6 @@
     * [Docker 常见问题](docker/issues.md)
     * [Docker 从入门到实践](docker/docker_practice.md)
     * [Mac Docker API](docker/mac_docker_api.md)
-    * [Minikube](docker/minikube/README.md)
 
 ## Kubernetes
 
@@ -105,6 +104,8 @@
     * [手动部署](docker/k8s/install,md)
     * [kubectl 国内镜像](docker/k8s/kubectl-cn-mirror.md)
     * [Docker for Desktop k8s](docker/docker-with-k8s.md)
+    * [包管理工具 Helm](docker/k8s/helm.md)
+    * [Minikube](docker/k8s/minikube.md)
 
 ## CLOUD
 

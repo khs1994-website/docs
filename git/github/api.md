@@ -4,10 +4,8 @@ date: 2017-07-08 14:00:00
 updated:
 comments: true
 tags:
-- Git
 - GitHub
 categories:
-- Git
 - GitHub
 ---
 

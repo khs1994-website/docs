@@ -5,8 +5,10 @@ updated:
 comments: true
 tags:
 - CI
+- Codecov
 categories:
 - CI
+- Codecov
 ---
 
 官方网站：https://codecov.io
@@ -18,6 +20,8 @@ Example：https://github.com/codecov/example-php
 Example: https://github.com/khs1994-php/tencent-ai
 
 <!--more-->
+
+由于网站部分资源从 google 加载，国内可能访问不畅！
 
 本文以 PHP 为例。
 
@@ -43,7 +47,7 @@ $ export CODECOV_TOKEN=XXX
 # Travis CI 等 Codecov 支持的 CI 工具无需设置 Token，若在本地测试需要设置 Token
 # 注意此步不要写在构建脚本中，这里列出只是方便告诉大家需要的环境变量，具体的 Token 值请在仓库的设置中查看
 
-# 使用上传脚本，上传错误报告，当然也提供其他语言的脚本，自行查看文档
+# 使用上传脚本，上传测试报告，当然也提供其他语言的脚本，自行查看文档
 
 $ bash <(curl -s https://codecov.io/bash)
 ```

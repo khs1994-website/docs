@@ -6,7 +6,6 @@ comments: true
 tags:
 - GitHub
 categories:
-- Git
 - GitHub
 ---
 
