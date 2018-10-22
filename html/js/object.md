@@ -85,34 +85,6 @@ let {name, passport:id} = person;
 var {name, single=true} = person;
 ```
 
-# ES6
-
-```js
-class A
-{
-    constructor(){
-      this.type = 'a'
-    }  
-
-    says(say){
-      console.log(say)
-    }
-}
-
-let a = new A()
-
-a.says('hello');
-
-// 继承
-
-class B extends A{
-  constructor(){
-    super()
-    this.type = 'cat'
-  }
-}
-```
-
 # 对象详解
 
 ## 日期对象

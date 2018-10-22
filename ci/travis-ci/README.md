@@ -19,6 +19,12 @@ categories:
 
 <!--more-->
 
+# 更新说明
+
+travis-ci 有两个网站 .com 和 .org，之前 .com 用于私有项目，.org 用于开源项目。
+
+新用户请使用 .com
+
 # 注册登录
 
 在 https://travis-ci.com 直接通过 GitHub 登录。
@@ -27,15 +33,13 @@ categories:
 
 > 目前，travis 仅支持构建 GitHub 项目。
 
-安装 Travis CI GitHub App。
-
-登录之后点击右上角用户名，再点击右上的 `Sync account` 来同步 GitHub 项目。
+登录之后点击右上角用户名，再点击左上的 `Sync account` 来同步 GitHub 项目。
 
 如果你名下的 GitHub 组织没有显示，请点击左下 `Review and add` 重新授予权限。
 
-# 使用 Travis CI
+安装 Travis CI GitHub App。
 
-在项目列表中（点击右上角头像进入）点击开关，即可打开项目构建，点击开关后边的设置按钮来设置构建选项（增加变量，计划构建等）。
+# 使用 Travis CI
 
 在 Git 项目根目录增加 `.travis.yml` 文件，即可开始使用 travis， travis 会在项目每次提交（push），PR，tag 时自动构建项目。
 
@@ -223,6 +227,11 @@ addons:
     - github.com
 
 matrix:
+  include:
+    - os: linux
+      dist: xenial
+      env: K=V
+    - os: osx
   allow_failures:
     - php: master
   fast_finish: true
@@ -234,6 +243,11 @@ env:
     - APP_ENV = pro
     - APP_ENV = dev
     - APP_ENV = staging
+
+# env:
+#   - APP_ENV = pro
+#   - APP_ENV = dev
+#   - APP_ENV = staging
 
 php:
   - 5.6
@@ -275,7 +289,7 @@ jobs:
 
 # 指定 jobs 顺序，构建条件
 #
-# @link https://docs.travis-ci.com/user/conditional-builds-stages-jobs/  
+# @see https://docs.travis-ci.com/user/conditional-builds-stages-jobs/  
 stages:
   - test
   - name: deploy

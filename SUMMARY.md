@@ -182,6 +182,9 @@
     * [对象](html/js/object.md)
     * [AJAX](html/js/ajax.md)
     * [jQuery](html/js/jquery.md)
+    * [ESLint](html/js/eslint.md)
+    * [webpack](html/js/webpack.md)
+    * [面向对象](html/js/oop.md)
 
 ## Node.js
 

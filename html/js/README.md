@@ -138,17 +138,15 @@ function myFunction() {
 
 # 函数
 
-`ES6` 才允许函数默认值。
-
 ```js
-function fun1(a, b = 3) {
+function fun1(a, b = 3) { // ES6 才允许函数默认值
   console.log(a);
   console.log(b);
   argument[0];     // 包含函数参数的数组
   return a;        // 函数返回值
 }
 
-fun1(1,2);  // 调用函数
+fun1(1, 2);  // 调用函数
 ```
 
 在函数表达式存储在变量后，变量也可作为一个函数使用：
@@ -160,9 +158,7 @@ let z = x(4, 3);
 
 ## 函数参数
 
-### 可变参数
-
-`ES6` 同 PHP
+### 可变参数 `ES6` 同 PHP
 
 ```js
 function f(...a){
@@ -258,9 +254,7 @@ let b = ['hello', ...a];
 
 # 流程控制
 
-`if` `while` 同 PHP
-
-`break` 跳出循环, `continue` 跳过本次循坏。
+`if` `while` 同 PHP `break` `continue`
 
 ```javascript
 switch (expression) {

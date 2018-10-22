@@ -15,8 +15,8 @@ HTML 表单
 
 ```html
 <form method="post" action=" ">
-<label for=" " >用户名</label>
-<input type="text" name=" " id=" " value=" "> </input>
+<label for="id" >用户名</label>
+<input type="text" name=" " id="id" value=" "> </input>
 </form>
 ```
 

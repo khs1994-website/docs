@@ -35,7 +35,6 @@ $ docker run -d \
 
 之后打开浏览器 `127.0.0.1:2375/version`。
 
-
 # More Information
 
 * [Docker API](https://docs.docker.com/engine/api/v1.35/)

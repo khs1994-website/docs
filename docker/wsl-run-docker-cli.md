@@ -84,3 +84,7 @@ $ ls
 原理 Windows Docker 服务端将 C 盘挂载到了 /C
 
 所以我们在 WSL 中也将 C 盘软链接到 /C,这样在 WSL /C 中使用 Docker 就可以使用 $PWD 变量挂载本地文件了。
+
+当然也可以通过 WSL 的配置文件将 C 盘直接挂载到 /c，具体请查看下边的链接
+
+https://github.com/khs1994-docker/lnmp/blob/master/wsl/config/wsl.conf
