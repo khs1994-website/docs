@@ -21,9 +21,9 @@ categories:
 
 # 更新说明
 
-travis-ci 有两个网站 .com 和 .org，之前 .com 用于私有项目，.org 用于开源项目。
+* travis-ci 有两个网站 .com 和 .org，之前 .com 用于私有项目，.org 用于开源项目。随着 travis ci 逐步使用 GitHub App，.org 网站会被弃用新用户请使用 .com
 
-新用户请使用 .com
+* `sudo:` 指令废弃，[移除容器接口，所有构建都在虚拟机中进行](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures)
 
 # 注册登录
 
@@ -138,15 +138,18 @@ branches:
 
 ## GitHub Pages
 
+* https://docs.travis-ci.com/user/deployment/pages
+
 ```yaml
 deploy:
-  # 要 push 的文件夹
-  local_dir: _book
   provider: pages
+  # 要 push 的文件夹
+  local-dir: _book
   # pages 所在分支
-  target_branch: master
-  skip_cleanup: true
-  github_token: $GH_TOKEN # Set in travis-ci.org dashboard
+  target-branch: master
+  skip-cleanup: true # 若为 false （默认） 会运行 `git stash -all` 把 git 目录中更改的藏起来
+  # 意味着 在 deploy 之前会把 git 恢复到初始状态，所以当提交对象（新生成）在 git 仓库中，必须设置为 true，具体原理请查看 `git stash`
+  github-token: $GH_TOKEN # Set in travis-ci.org settings
   on:
     branch: gitbook       # 哪个分支构建的就推送
 ```
@@ -157,7 +160,7 @@ deploy:
 deploy:
   provider: script
   script: .travis/deploy.sh
-  skip_cleanup: true
+  skip-cleanup: true
   on:
     branch: gitbook
 ```
@@ -177,7 +180,6 @@ cache:
 ```yaml
 language: php
 
-sudo: enabled
 os: osx
 ```
 
@@ -195,8 +197,6 @@ language: php
 os:
   - linux
   - osx
-
-sudo: required
 
 services:
   - docker
@@ -313,7 +313,9 @@ branches:
 
 ## 错误排查
 
-`Travis CI` 本质就是一台云上的 `Linux`（[Docker 容器或者是虚拟机](https://docs.travis-ci.com/user/for-beginners/#Infrastructure-and-environment-notes)），当执行错误时从以下两方面排查问题:
+`Travis CI` 本质就是一台云上的 `Linux`（[虚拟机](https://docs.travis-ci.com/user/for-beginners/#Infrastructure-and-environment-notes)），当执行错误时从以下两方面排查问题:
+
+* 注意容器运行环境已废弃，即现在的构建环境都是在虚拟机中。
 
 * 路径问题(使用 `$ echo $PWD` 调试)
 
