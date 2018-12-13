@@ -186,6 +186,8 @@
     * [webpack](html/js/webpack.md)
     * [面向对象](html/js/oop.md)
 
+* [TypeScript](html/js/typescript/README.md)   
+
 ## Node.js
 
 * [Node.js](nodejs/README.md)

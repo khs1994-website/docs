@@ -14,6 +14,12 @@ Vue 简单示例
 
 <!--more-->
 
+```bash
+$ npm install --global @vue/cli
+
+$ vue create my-project-name
+```
+
 ```html
 <p>Using mustaches: {{ rawHtml }}</p>
 <p>Using v-html directive: <span v-html="rawHtml"></span></p>

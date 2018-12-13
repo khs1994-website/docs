@@ -13,6 +13,12 @@ categories:
 
 <!--more-->
 
+# 换行
+
+```css
+word-wrap: break-word;
+```
+
 ```html
 <style type="text/css">
     /*注释*/
