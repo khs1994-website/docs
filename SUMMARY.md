@@ -256,4 +256,4 @@
     * [Swift](other/swift/README.md)
     * [PowerShell](other/powershell/README.md)   
 * [PHP](php/readme.md)
-* [Golang](golang/readme.md)
+* [Golang](golang/README.md)

@@ -31,12 +31,18 @@ $ vue create my-project-name
 </div>
 
 <script>
-new Vue({
+let vm = new Vue({
   el: '#app', // 与哪个元素绑定
   data: {
     message: 'Hello Vue!'
   }
-})
+});
+
+vm.message = 'Hello World';
+
+vm.$data;
+vm.$el;
+
 </script>
 ```
 
@@ -45,20 +51,12 @@ new Vue({
 绑定元素属性
 
 ```html
-<div id="app-2">
-  <span v-bind:title="message">
-    鼠标悬停几秒钟查看此处动态绑定的提示信息！
-  </span>
-</div>
+<span v-bind:title="message">
+<!-- 简写 -->
+<a :href="url">url</a>
 
-<script>
-new Vue({
-  el: '#app-2',
-  data: {
-    message: '页面加载于 ' + new Date().toLocaleString()
-  }
-})
-</script>
+<!-- 上面的语法表示 active 这个 class 存在与否将取决于数据属性 isActive 的值 -->
+<span v-bind:class="{ active: isActive, 'text-danger': hasError}"></span>
 ```
 
 # v-if
@@ -66,18 +64,7 @@ new Vue({
 这里，`v-if` 指令将根据表达式 seen 的值的真假来插入/移除 `<p>` 元素。
 
 ```html
-<div id="app-3">
-  <p v-if="seen">现在你看到我了</p>
-</div>
-
-<script>
-new Vue({
-  el: '#app-3',
-  data: {
-    seen: true
-  }
-})
-</script>
+<p v-if="seen">现在你看到我了</p>
 ```
 
 # v-for
@@ -112,25 +99,9 @@ new Vue({
 事件与方法绑定
 
 ```html
-<div id="app-5">
-  <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">逆转消息</button>
-  <button @clink="reverseMessage">逆转消息</button>
-</div>
-
-<script>
-new Vue({
-  el: '#app-5',
-  data: {
-    message: 'Hello Vue.js!'
-  },
-  methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
-    }
-  }
-})
-</script>
+<button v-on:click="reverseMessage">逆转消息</button>
+<!-- 简写 -->
+<button @clink="reverseMessage">逆转消息</button>
 ```
 
 # v-model
@@ -155,58 +126,58 @@ new Vue({
 
 # 组件
 
-```html
-<script>
-// 定义名为 todo-item 的新组件
-Vue.component('todo-item', {
-  template: '<li>这是个待办项</li>'
-})
+```js
+Vue.component('todo-item',{
+  props: ['todo']
+  template: '<li>{{todo.text}}</li>'
+});
+```
 
-Vue.component('todo-item', {
-  // todo-item 组件现在接受一个
-  // "prop"，类似于一个自定义特性。
-  // 这个 prop 名为 todo。
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-})
-</script>
+# 计算属性
 
-<ol>
-  <!-- 创建一个 todo-item 组件的实例 -->
-  <todo-item></todo-item>
-</ol>
+```js
+<p>{{prop}}</p>
 
-<div id="app-7">
-  <ol>
-    <!--
-      现在我们为每个 todo-item 提供 todo 对象
-      todo 对象是变量，即其内容可以是动态的。
-      我们也需要为每个组件提供一个“key”，稍后再
-      作详细解释。
-    -->
-    <todo-item
-      v-for="item in groceryList"
-      v-bind:todo="item"
-      v-bind:key="item.id">
-    </todo-item>
-  </ol>
-</div>
+new Vue({
+  computed: {
+    prop(){
+      return '';
+    },
+    // getter setter
+    prop2: {
+      get(){
 
-<script>
-Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-})
+      },
+      set(newValue){
 
-var app7 = new Vue({
-  el: '#app-7',
-  data: {
-    groceryList: [
-      { id: 0, text: '蔬菜' },
-      { id: 1, text: '奶酪' },
-      { id: 2, text: '随便其它什么人吃的东西' }
-    ]
+      }
+    }
+  },
+  methods: {
+    prop(){
+      return '';
+    }
+  }
+});
+```
+
+与 `methods` 区别
+
+> 计算属性是基于它们的依赖进行缓存的。只在相关依赖发生改变时它们才会重新求值。
+
+> 相比之下，每当触发重新渲染时，调用方法将总会再次执行函数。
+
+# 侦听属性
+
+> 观察和响应 Vue 实例上的数据变动
+
+```js
+new Vue({
+  watch: {
+    // 当 first 值变动时，执行
+    firstName(val){
+      this.fullName = val + '111';
+    }
   }
 })
-</script>
 ```
