@@ -49,14 +49,14 @@ menu default
 
 克隆示例配置文件并启动内网安装服务器。
 
-GitHub：https://github.com/khs1994-docker/coreos
+GitHub：https://github.com/khs1994-docker/lnmp-k8s/tree/master/coreos
 
 ```bash
-$ git clone --depth=1 https://github.com/khs1994-docker/coreos
+$ git clone --depth=1 hhttps://github.com/khs1994-docker/lnmp-k8s
 
 $ cd coreos
 
-$ docker-compose up  # 默认监听 8080 端口
+$ ./coreos server  # 默认监听 8080 端口
 ```
 
 内网服务器详情请参见 [CoreOS 安装服务本地服务器 Docker 化](https://www.khs1994.com/docker/coreos/install-server.html)。

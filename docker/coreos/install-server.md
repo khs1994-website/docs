@@ -13,7 +13,7 @@ categories:
 
 本博客 [系列文章](https://www.khs1994.com/categories/Docker/CoreOS/) `CoreOS` 节点全部基于 `virtualbox` 虚拟机。
 
-GitHub：https://github.com/khs1994-docker/coreos
+GitHub：https://github.com/khs1994-docker/lnmp-k8s/tree/master/coreos
 
 <!--more-->
 
@@ -30,9 +30,9 @@ GitHub：https://github.com/khs1994-docker/coreos
 IP `192.168.57.1` 位于本机，默认监听 `8080` 端口。
 
 ```bash
-$ git clone --depth=1 https://github.com/khs1994-docker/coreos.git
+$ git clone --depth=1 https://github.com/khs1994-docker/lnmp-k8s
 
-$ cd coreos
+$ cd lnmp-k8s/coreos
 ```
 
 ## 下载所需文件
@@ -44,7 +44,7 @@ $ cd coreos
 ## 启动
 
 ```bash
-$ docker-compose up
+$ ./coreos server
 ```
 
 这样安装 CoreOS 的内网服务器部署完成。

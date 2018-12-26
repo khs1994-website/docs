@@ -129,7 +129,7 @@ storage:
 
 # 示例文件
 
-https://github.com/khs1994-docker/coreos/blob/master/disk/ignition-1.example.yaml
+https://github.com/khs1994-docker/lnmp-k8s/blob/master/coreos/disk/example/ignition-1.example.yaml
 
 # 相关链接
 

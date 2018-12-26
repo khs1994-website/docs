@@ -55,10 +55,10 @@ iso 启动文件 `coreos_production_iso_image.iso` [下载链接](http://alpha.r
 
 ## 克隆示例配置文件
 
-GitHub：https://github.com/khs1994-docker/coreos
+GitHub：https://github.com/khs1994-docker/lnmp-k8s/tree/master/coreos
 
 ```bash
-$ git clone --depth=1 https://github.com/khs1994-docker/coreos
+$ git clone --depth=1 https://github.com/khs1994-docker/lnmp-k8s
 
 $ cd coreos
 ```
@@ -74,7 +74,7 @@ $ cd coreos
 ## 启动容器
 
 ```bash
-$ docker-compose up
+$ ./coreos server
 ```
 
 # 安装 CoreOS
