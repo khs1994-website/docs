@@ -1,0 +1,4259 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Docker Compose · khs1994.com 技术文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="khs1994.com">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="compose-mirror.html" />
+    
+    
+    <link rel="prev" href="registry-config.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../favicon.ico'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../favicon.ico">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="//www.khs1994.com/more" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ci/">
+            
+                <a href="../ci/">
+            
+                    
+                    CI/CD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ci/styleci/">
+            
+                <a href="../ci/styleci/">
+            
+                    
+                    Style CI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ci/jenkins/">
+            
+                <a href="../ci/jenkins/">
+            
+                    
+                    Jenkins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ci/drone/">
+            
+                <a href="../ci/drone/">
+            
+                    
+                    Drone
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../ci/drone/usage.html">
+            
+                <a href="../ci/drone/usage.html">
+            
+                    
+                    用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../ci/drone/gitbook.html">
+            
+                <a href="../ci/drone/gitbook.html">
+            
+                    
+                    GitBook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../ci/drone/hexo.html">
+            
+                <a href="../ci/drone/hexo.html">
+            
+                    
+                    Hexo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../ci/drone/php.html">
+            
+                <a href="../ci/drone/php.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ci/travis-ci/">
+            
+                <a href="../ci/travis-ci/">
+            
+                    
+                    Travis CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../ci/travis-ci/gitbook.html">
+            
+                <a href="../ci/travis-ci/gitbook.html">
+            
+                    
+                    GitBook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../ci/travis-ci/hexo.html">
+            
+                <a href="../ci/travis-ci/hexo.html">
+            
+                    
+                    Hexo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ci/codecov/">
+            
+                <a href="../ci/codecov/">
+            
+                    
+                    Codecov
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">缓存</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../cache/">
+            
+                <a href="../cache/">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../cache/compare.html">
+            
+                <a href="../cache/compare.html">
+            
+                    
+                    Compare
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../cache/memcached/">
+            
+                <a href="../cache/memcached/">
+            
+                    
+                    Memcached
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../cache/memcached/quickstart.html">
+            
+                <a href="../cache/memcached/quickstart.html">
+            
+                    
+                    使用详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../cache/redis/">
+            
+                <a href="../cache/redis/">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../cache/redis/config.html">
+            
+                <a href="../cache/redis/config.html">
+            
+                    
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../cache/redis/persistence.html">
+            
+                <a href="../cache/redis/persistence.html">
+            
+                    
+                    持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../cache/redis/replication.html">
+            
+                <a href="../cache/redis/replication.html">
+            
+                    
+                    主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../cache/redis/sentinel.html">
+            
+                <a href="../cache/redis/sentinel.html">
+            
+                    
+                    Sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="../cache/redis/cluster.html">
+            
+                <a href="../cache/redis/cluster.html">
+            
+                    
+                    Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="../cache/redis/key.html">
+            
+                <a href="../cache/redis/key.html">
+            
+                    
+                    key 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="../cache/redis/string.html">
+            
+                <a href="../cache/redis/string.html">
+            
+                    
+                    string 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="../cache/redis/hash.html">
+            
+                <a href="../cache/redis/hash.html">
+            
+                    
+                    hash 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="../cache/redis/list.html">
+            
+                <a href="../cache/redis/list.html">
+            
+                    
+                    list 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="../cache/redis/set.html">
+            
+                <a href="../cache/redis/set.html">
+            
+                    
+                    set 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.11" data-path="../cache/redis/sorted-set.html">
+            
+                <a href="../cache/redis/sorted-set.html">
+            
+                    
+                    sorted set 类型 zset
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.12" data-path="../cache/redis/other.html">
+            
+                <a href="../cache/redis/other.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../database/mongodb/">
+            
+                <a href="../database/mongodb/">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="../database/mongodb/config.html">
+            
+                <a href="../database/mongodb/config.html">
+            
+                    
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="../database/mongodb/quickstart.html">
+            
+                <a href="../database/mongodb/quickstart.html">
+            
+                    
+                    使用详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../database/mysql/">
+            
+                <a href="../database/mysql/">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../database/mysql/remote.html">
+            
+                <a href="../database/mysql/remote.html">
+            
+                    
+                    远程登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../database/mysql/config.html">
+            
+                <a href="../database/mysql/config.html">
+            
+                    
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../database/mysql/types.html">
+            
+                <a href="../database/mysql/types.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.4" data-path="../database/mysql/alter.html">
+            
+                <a href="../database/mysql/alter.html">
+            
+                    
+                    ALTER
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.5" data-path="../database/mysql/create.html">
+            
+                <a href="../database/mysql/create.html">
+            
+                    
+                    CREATE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.6" data-path="../database/mysql/delete.html">
+            
+                <a href="../database/mysql/delete.html">
+            
+                    
+                    DELETE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.7" data-path="../database/mysql/drop.html">
+            
+                <a href="../database/mysql/drop.html">
+            
+                    
+                    DROP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.8" data-path="../database/mysql/select.html">
+            
+                <a href="../database/mysql/select.html">
+            
+                    
+                    SELECT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.9" data-path="../database/mysql/insert_update.html">
+            
+                <a href="../database/mysql/insert_update.html">
+            
+                    
+                    INSERT_UPDATE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.10" data-path="../database/mysql/mysql-index.html">
+            
+                <a href="../database/mysql/mysql-index.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.11" data-path="../database/mysql/function.html">
+            
+                <a href="../database/mysql/function.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.12" data-path="../database/mysql/mysqldump.html">
+            
+                <a href="../database/mysql/mysqldump.html">
+            
+                    
+                    mysqldump 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.13" data-path="../database/mysql/cluster.html">
+            
+                <a href="../database/mysql/cluster.html">
+            
+                    
+                    主从配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.14" data-path="../database/mysql/engine.html">
+            
+                <a href="../database/mysql/engine.html">
+            
+                    
+                    存储引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.15" data-path="../database/mysql/nosql.html">
+            
+                <a href="../database/mysql/nosql.html">
+            
+                    
+                    NoSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../database/postgresql/">
+            
+                <a href="../database/postgresql/">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="../database/postgresql/config.html">
+            
+                <a href="../database/postgresql/config.html">
+            
+                    
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Docker</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="rkt/">
+            
+                <a href="rkt/">
+            
+                    
+                    Rkt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="coreos/">
+            
+                <a href="coreos/">
+            
+                    
+                    CoreOS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.2.1" data-path="coreos/ignition.html">
+            
+                <a href="coreos/ignition.html">
+            
+                    
+                    Ignition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.2" data-path="coreos/configuration-v2_2-experimental.html">
+            
+                <a href="coreos/configuration-v2_2-experimental.html">
+            
+                    
+                    Ignition v2.2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.3" data-path="coreos/install-server.html">
+            
+                <a href="coreos/install-server.html">
+            
+                    
+                    安装内网服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.4" data-path="coreos/boot-pxe-new.html">
+            
+                <a href="coreos/boot-pxe-new.html">
+            
+                    
+                    CoreOS PXE 启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.5" data-path="coreos/boot-ipxe.html">
+            
+                <a href="coreos/boot-ipxe.html">
+            
+                    
+                    CoreOS iPXE 启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.6" data-path="coreos/install-disk-new.html">
+            
+                <a href="coreos/install-disk-new.html">
+            
+                    
+                    CoreOS 硬盘安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.7" data-path="coreos/update.html">
+            
+                <a href="coreos/update.html">
+            
+                    
+                    CoreOS 系统升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.8" data-path="coreos/etcd.html">
+            
+                <a href="coreos/etcd.html">
+            
+                    
+                    etcd
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.9" data-path="coreos/migrating-from-fleet-to-kubernetes.html">
+            
+                <a href="coreos/migrating-from-fleet-to-kubernetes.html">
+            
+                    
+                    fleet 废弃
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="overview.html">
+            
+                <a href="overview.html">
+            
+                    
+                    概念总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="dockerd.html">
+            
+                <a href="dockerd.html">
+            
+                    
+                    Docker 守护进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="machine.html">
+            
+                <a href="machine.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="registry.html">
+            
+                <a href="registry.html">
+            
+                    
+                    Docker Registry v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="registry-config.html">
+            
+                <a href="registry-config.html">
+            
+                    
+                    Docker Registry v2 配置文件详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.8" data-path="compose.html">
+            
+                <a href="compose.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="compose-mirror.html">
+            
+                <a href="compose-mirror.html">
+            
+                    
+                    Docker Compose 中国镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="swarm.html">
+            
+                <a href="swarm.html">
+            
+                    
+                    Swarm mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="network.html">
+            
+                <a href="network.html">
+            
+                    
+                    Docker 网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="manage-application-data.html">
+            
+                <a href="manage-application-data.html">
+            
+                    
+                    Docker 数据管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="dockerfile.html">
+            
+                <a href="dockerfile.html">
+            
+                    
+                    Dockerfile 最佳实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.14" data-path="build-image.html">
+            
+                <a href="build-image.html">
+            
+                    
+                    Docker 镜像云端构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.15" data-path="multistage-builds.html">
+            
+                <a href="multistage-builds.html">
+            
+                    
+                    Dockerfile 多阶段构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.16" data-path="cloud.html">
+            
+                <a href="cloud.html">
+            
+                    
+                    Docker Cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.17" data-path="store.html">
+            
+                <a href="store.html">
+            
+                    
+                    Docker Store
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.18" data-path="development.html">
+            
+                <a href="development.html">
+            
+                    
+                    开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.19" data-path="production.html">
+            
+                <a href="production.html">
+            
+                    
+                    生产环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.20" data-path="lnmp.html">
+            
+                <a href="lnmp.html">
+            
+                    
+                    Docker LNMP 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.21" data-path="linuxkit.html">
+            
+                <a href="linuxkit.html">
+            
+                    
+                    LinuxKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.22" data-path="prune.html">
+            
+                <a href="prune.html">
+            
+                    
+                    清理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.23" data-path="wsl-run-docker-cli.html">
+            
+                <a href="wsl-run-docker-cli.html">
+            
+                    
+                    WSL Docker CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.24" data-path="issues.html">
+            
+                <a href="issues.html">
+            
+                    
+                    Docker 常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.25" data-path="docker_practice.html">
+            
+                <a href="docker_practice.html">
+            
+                    
+                    Docker 从入门到实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.26" data-path="mac_docker_api.html">
+            
+                <a href="mac_docker_api.html">
+            
+                    
+                    Mac Docker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Kubernetes</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="k8s/">
+            
+                <a href="k8s/">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="k8s/install,md">
+            
+                <span>
+            
+                    
+                    手动部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="k8s/kubectl-cn-mirror.html">
+            
+                <a href="k8s/kubectl-cn-mirror.html">
+            
+                    
+                    kubectl 国内镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="docker-with-k8s.html">
+            
+                <a href="docker-with-k8s.html">
+            
+                    
+                    Docker for Desktop k8s
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="k8s/helm.html">
+            
+                <a href="k8s/helm.html">
+            
+                    
+                    包管理工具 Helm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="k8s/minikube.html">
+            
+                <a href="k8s/minikube.html">
+            
+                    
+                    Minikube
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">CLOUD</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    CLOUD
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../cloud/minio.html">
+            
+                <a href="../cloud/minio.html">
+            
+                    
+                    Minio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../linux/crontab.html">
+            
+                <a href="../linux/crontab.html">
+            
+                    
+                    Crontab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../linux/centos.html">
+            
+                <a href="../linux/centos.html">
+            
+                    
+                    CentOS7 初始化配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../linux/ubuntu.html">
+            
+                <a href="../linux/ubuntu.html">
+            
+                    
+                    Ubuntu 初始化配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../linux/fedora.html">
+            
+                <a href="../linux/fedora.html">
+            
+                    
+                    Fedora
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../linux/alpine.html">
+            
+                <a href="../linux/alpine.html">
+            
+                    
+                    Alpine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" data-path="../linux/download.html">
+            
+                <a href="../linux/download.html">
+            
+                    
+                    下载相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.7" data-path="../linux/network/">
+            
+                <a href="../linux/network/">
+            
+                    
+                    网络相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8" >
+            
+                <span>
+            
+                    
+                    Server
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.8.1" data-path="../linux/server/email.html">
+            
+                <a href="../linux/server/email.html">
+            
+                    
+                    邮件服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8.2" data-path="../linux/server/pxe.html">
+            
+                <a href="../linux/server/pxe.html">
+            
+                    
+                    自动部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8.3" data-path="../linux/server/dhcp.html">
+            
+                <a href="../linux/server/dhcp.html">
+            
+                    
+                    DHCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8.4" data-path="../linux/server/dns.html">
+            
+                <a href="../linux/server/dns.html">
+            
+                    
+                    DNS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9" data-path="../linux/shell/function.html">
+            
+                <a href="../linux/shell/function.html">
+            
+                    
+                    SHELL 脚本
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.9.1" data-path="../linux/shell/date.html">
+            
+                <a href="../linux/shell/date.html">
+            
+                    
+                    date
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9.2" data-path="../linux/shell/echo-read.html">
+            
+                <a href="../linux/shell/echo-read.html">
+            
+                    
+                    echo、read
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9.3" data-path="../linux/shell/if-case-etc.html">
+            
+                <a href="../linux/shell/if-case-etc.html">
+            
+                    
+                    if、case
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9.4" data-path="../linux/shell/set.html">
+            
+                <a href="../linux/shell/set.html">
+            
+                    
+                    set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9.5" data-path="../linux/shell/patch.html">
+            
+                <a href="../linux/shell/patch.html">
+            
+                    
+                    patch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.10" data-path="../linux/ssh/">
+            
+                <a href="../linux/ssh/">
+            
+                    
+                    SSH
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.10.1" data-path="../linux/ssh/proxy.html">
+            
+                <a href="../linux/ssh/proxy.html">
+            
+                    
+                    SSH 隧道与端口转发内网穿透
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.11" data-path="../linux/systemd/">
+            
+                <a href="../linux/systemd/">
+            
+                    
+                    systemd 详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.11.1" data-path="../linux/systemd/timer.html">
+            
+                <a href="../linux/systemd/timer.html">
+            
+                    
+                    timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.11.2" data-path="../linux/systemd/journal.html">
+            
+                <a href="../linux/systemd/journal.html">
+            
+                    
+                    journal
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.12" >
+            
+                <span>
+            
+                    
+                    包管理工具
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.12.1" data-path="../linux/package_management/apt.html">
+            
+                <a href="../linux/package_management/apt.html">
+            
+                    
+                    apt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.12.2" data-path="../linux/package_management/apk.html">
+            
+                <a href="../linux/package_management/apk.html">
+            
+                    
+                    Alpine apk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.12.3" data-path="../linux/package_management/yum.html">
+            
+                <a href="../linux/package_management/yum.html">
+            
+                    
+                    RedHat yum
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.13" >
+            
+                <span>
+            
+                    
+                    SSL
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.13.1" data-path="../linux/ssl/file-enc.html">
+            
+                <a href="../linux/ssl/file-enc.html">
+            
+                    
+                    OpenSSL 加密文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.13.2" data-path="../linux/ssl/https/">
+            
+                <a href="../linux/ssl/https/">
+            
+                    
+                    HTTPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.13.3" data-path="../linux/ssl/https/self-signed-ssl-certificates.html">
+            
+                <a href="../linux/ssl/https/self-signed-ssl-certificates.html">
+            
+                    
+                    自签名 TLS 证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.13.4" data-path="../linux/ssl/cfssl.html">
+            
+                <a href="../linux/ssl/cfssl.html">
+            
+                    
+                    cfssl
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.14" data-path="../linux/fish-shell/">
+            
+                <a href="../linux/fish-shell/">
+            
+                    
+                    fish shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.14.1" data-path="../linux/fish-shell/completion.html">
+            
+                <a href="../linux/fish-shell/completion.html">
+            
+                    
+                    命令补全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.15" data-path="../linux/ansible.html">
+            
+                <a href="../linux/ansible.html">
+            
+                    
+                    Ansible
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Git</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../git/">
+            
+                <a href="../git/">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../git/github/">
+            
+                <a href="../git/github/">
+            
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1.1" data-path="../git/github/api.html">
+            
+                <a href="../git/github/api.html">
+            
+                    
+                    API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../git/gitbook.html">
+            
+                <a href="../git/gitbook.html">
+            
+                    
+                    GitBook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../git/gitlab.html">
+            
+                <a href="../git/gitlab.html">
+            
+                    
+                    Gitlab Docker 安装配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../git/gogs.html">
+            
+                <a href="../git/gogs.html">
+            
+                    
+                    Gogs Docker 安装配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../git/cn.html">
+            
+                <a href="../git/cn.html">
+            
+                    
+                    国内 Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../git/lfs.html">
+            
+                <a href="../git/lfs.html">
+            
+                    
+                    Git LFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../git/git-svn.html">
+            
+                <a href="../git/git-svn.html">
+            
+                    
+                    Git SVN 一起使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.8" data-path="../git/svn.html">
+            
+                <a href="../git/svn.html">
+            
+                    
+                    SVN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">HTML</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../html/">
+            
+                <a href="../html/">
+            
+                    
+                    HTML
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../html/form.html">
+            
+                <a href="../html/form.html">
+            
+                    
+                    HTML 表单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../html/dom.html">
+            
+                <a href="../html/dom.html">
+            
+                    
+                    DOM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">CSS</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../html/css/">
+            
+                <a href="../html/css/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../html/css/less_sass.html">
+            
+                <a href="../html/css/less_sass.html">
+            
+                    
+                    预处理器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">EcmaScript</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../html/js/">
+            
+                <a href="../html/js/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1.1" data-path="../html/js/html.html">
+            
+                <a href="../html/js/html.html">
+            
+                    
+                    HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.2" data-path="../html/js/object.html">
+            
+                <a href="../html/js/object.html">
+            
+                    
+                    对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.3" data-path="../html/js/ajax.html">
+            
+                <a href="../html/js/ajax.html">
+            
+                    
+                    AJAX
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.4" data-path="../html/js/jquery.html">
+            
+                <a href="../html/js/jquery.html">
+            
+                    
+                    jQuery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.5" data-path="../html/js/eslint.html">
+            
+                <a href="../html/js/eslint.html">
+            
+                    
+                    ESLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.6" data-path="../html/js/webpack.html">
+            
+                <a href="../html/js/webpack.html">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.7" data-path="../html/js/oop.html">
+            
+                <a href="../html/js/oop.html">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../html/js/typescript/">
+            
+                <a href="../html/js/typescript/">
+            
+                    
+                    TypeScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Node.js</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../nodejs/">
+            
+                <a href="../nodejs/">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.1.1" data-path="../nodejs/npm.html">
+            
+                <a href="../nodejs/npm.html">
+            
+                    
+                    npm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.2" data-path="../nodejs/yarn.html">
+            
+                <a href="../nodejs/yarn.html">
+            
+                    
+                    yarn
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Python</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../python/">
+            
+                <a href="../python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.1.1" data-path="../python/basic.html">
+            
+                <a href="../python/basic.html">
+            
+                    
+                    基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.1.2" data-path="../python/oop.html">
+            
+                <a href="../python/oop.html">
+            
+                    
+                    OOP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.1.3" data-path="../python/django/">
+            
+                <a href="../python/django/">
+            
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.1.4" data-path="../python/mysql.html">
+            
+                <a href="../python/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Macos</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../macos/">
+            
+                <a href="../macos/">
+            
+                    
+                    macOS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="14.1.1" data-path="../macos/brew.html">
+            
+                <a href="../macos/brew.html">
+            
+                    
+                    Homebrew
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.1.2" data-path="../macos/gdb.html">
+            
+                <a href="../macos/gdb.html">
+            
+                    
+                    gdb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.1.3" data-path="../macos/story.html">
+            
+                <a href="../macos/story.html">
+            
+                    
+                    macOS 背后的故事上
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.1.4" data-path="../macos/story2.html">
+            
+                <a href="../macos/story2.html">
+            
+                    
+                    macOS 背后的故事下
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.1.5" data-path="../macos/story3.html">
+            
+                <a href="../macos/story3.html">
+            
+                    
+                    macOS 背后的故事 补充
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">工具软件</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" >
+            
+                <span>
+            
+                    
+                    工具软件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.1.1" data-path="../tools/firefox.html">
+            
+                <a href="../tools/firefox.html">
+            
+                    
+                    火狐常用设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.2" data-path="../tools/youget.html">
+            
+                <a href="../tools/youget.html">
+            
+                    
+                    视频下载工具 you-get
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.3" data-path="../tools/vim.html">
+            
+                <a href="../tools/vim.html">
+            
+                    
+                    Vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.4" data-path="../tools/atom.html">
+            
+                <a href="../tools/atom.html">
+            
+                    
+                    Atom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.5" data-path="../tools/aria2.html">
+            
+                <a href="../tools/aria2.html">
+            
+                    
+                    aria2 下载工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.6" data-path="../tools/sqlectron.html">
+            
+                <a href="../tools/sqlectron.html">
+            
+                    
+                    sqlectron SQL 图形客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.7" data-path="../tools/postman.html">
+            
+                <a href="../tools/postman.html">
+            
+                    
+                    Postman
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.8" data-path="../tools/editorconfig.html">
+            
+                <a href="../tools/editorconfig.html">
+            
+                    
+                    EditorConfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.9" data-path="../tools/terminal-rec.html">
+            
+                <a href="../tools/terminal-rec.html">
+            
+                    
+                    终端录制工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.1.10" data-path="../tools/hyper.html">
+            
+                <a href="../tools/hyper.html">
+            
+                    
+                    跨平台终端 Hyper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../raspberry-pi3/">
+            
+                <a href="../raspberry-pi3/">
+            
+                    
+                    Raspberry Pi3
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.2.1" data-path="../raspberry-pi3/docker.html">
+            
+                <a href="../raspberry-pi3/docker.html">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2.2" data-path="../raspberry-pi3/arm64v8.html">
+            
+                <a href="../raspberry-pi3/arm64v8.html">
+            
+                    
+                    arm64v8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2.3" data-path="../raspberry-pi3/build-kernel.html">
+            
+                <a href="../raspberry-pi3/build-kernel.html">
+            
+                    
+                    编译内核
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2.4" data-path="../raspberry-pi3/mysql.html">
+            
+                <a href="../raspberry-pi3/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3" data-path="../vm/">
+            
+                <a href="../vm/">
+            
+                    
+                    虚拟化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.3.1" data-path="../vm/ubuntu-efi.html">
+            
+                <a href="../vm/ubuntu-efi.html">
+            
+                    
+                    UbuntuEFI 设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3.2" data-path="../vm/hyperv/">
+            
+                <a href="../vm/hyperv/">
+            
+                    
+                    Hyper-V
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">CMS</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" >
+            
+                <span>
+            
+                    
+                    CMS
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.1.1" data-path="../cms/hexo/">
+            
+                <a href="../cms/hexo/">
+            
+                    
+                    Hexo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.1.2" data-path="../cms/typecho/">
+            
+                <a href="../cms/typecho/">
+            
+                    
+                    Typecho 使用详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.1.3" data-path="../cms/wordpress/">
+            
+                <a href="../cms/wordpress/">
+            
+                    
+                    WordPress 使用详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.1.4" data-path="../cms/netlify.html">
+            
+                <a href="../cms/netlify.html">
+            
+                    
+                    Netlify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.1.5" data-path="../cms/pages.html">
+            
+                <a href="../cms/pages.html">
+            
+                    
+                    pages
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">其他</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.1.1" >
+            
+                <span>
+            
+                    
+                    Android
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.1.1.1" data-path="../other/android/android-studio-linux32.html">
+            
+                <a href="../other/android/android-studio-linux32.html">
+            
+                    
+                    AndroidStudio Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.1.2" data-path="../other/android/nexus.html">
+            
+                <a href="../other/android/nexus.html">
+            
+                    
+                    Android 依赖服务器 Nexus
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.2" data-path="../other/c/">
+            
+                <a href="../other/c/">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.3" data-path="../other/java/">
+            
+                <a href="../other/java/">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.1.3.1" data-path="../other/java/gradle.html">
+            
+                <a href="../other/java/gradle.html">
+            
+                    
+                    Gradle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.3.2" data-path="../other/java/maven.html">
+            
+                <a href="../other/java/maven.html">
+            
+                    
+                    Maven 常用配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.4" data-path="../other/ios/">
+            
+                <a href="../other/ios/">
+            
+                    
+                    iOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.5" data-path="../other/swift/">
+            
+                <a href="../other/swift/">
+            
+                    
+                    Swift
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.1.6" data-path="../other/powershell/">
+            
+                <a href="../other/powershell/">
+            
+                    
+                    PowerShell
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../php/readme.html">
+            
+                <a href="../php/readme.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.3" data-path="../golang/README.md">
+            
+                <span>
+            
+                    
+                    Golang
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Docker Compose</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; khs1994.com all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
+<li><div><a href="#install">install</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#command-line-completion">Command-line completion</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#fish">fish</a><i></i></div></li>
+<li><div><a href="#bash">bash</a><i></i></div></li>
+</ul></li>
+</ul></li>
+<li><div><a href="#compose-file-reference">Compose file reference</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#build">build</a><i></i></div></li>
+<li><div><a href="#capadd-capdrop">capadd, capdrop</a><i></i></div></li>
+<li><div><a href="#command">command</a><i></i></div></li>
+<li><div><a href="#configs">configs</a><i></i></div></li>
+<li><div><a href="#cgroupparent">cgroup_parent</a><i></i></div></li>
+<li><div><a href="#containername">container_name</a><i></i></div></li>
+<li><div><a href="#credentialspec">credential_spec</a><i></i></div></li>
+<li><div><a href="#deploy">deploy</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#endpointmode">endpoint_mode</a><i></i></div></li>
+<li><div><a href="#mode">mode</a><i></i></div></li>
+<li><div><a href="#placement">placement</a><i></i></div></li>
+<li><div><a href="#resources">resources</a><i></i></div></li>
+<li><div><a href="#restartpolicy">restart_policy</a><i></i></div></li>
+<li><div><a href="#updateconfig">update_config</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#devices">devices</a><i></i></div></li>
+<li><div><a href="#dependson">depends_on</a><i></i></div></li>
+<li><div><a href="#dns">dns</a><i></i></div></li>
+<li><div><a href="#dnssearch">dns_search</a><i></i></div></li>
+<li><div><a href="#tmpfs">tmpfs</a><i></i></div></li>
+<li><div><a href="#entrypoint">entrypoint</a><i></i></div></li>
+<li><div><a href="#envfile">env_file</a><i></i></div></li>
+<li><div><a href="#environment">environment</a><i></i></div></li>
+<li><div><a href="#expose">expose</a><i></i></div></li>
+<li><div><a href="#externallinks">external_links</a><i></i></div></li>
+<li><div><a href="#extrahosts">extra_hosts</a><i></i></div></li>
+<li><div><a href="#healthcheck">healthcheck</a><i></i></div></li>
+<li><div><a href="#image">image</a><i></i></div></li>
+<li><div><a href="#isolation">isolation</a><i></i></div></li>
+<li><div><a href="#labels">labels</a><i></i></div></li>
+<li><div><a href="#links">links</a><i></i></div></li>
+<li><div><a href="#logging">logging</a><i></i></div></li>
+<li><div><a href="#networkmode">network_mode</a><i></i></div></li>
+<li><div><a href="#networks">networks</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#aliases">aliases</a><i></i></div></li>
+<li><div><a href="#ipv4address-ipv6address">ipv4address ipv6address</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#pid">pid</a><i></i></div></li>
+<li><div><a href="#ports">ports</a><i></i></div></li>
+<li><div><a href="#secrets">secrets</a><i></i></div></li>
+<li><div><a href="#securityopt">security_opt</a><i></i></div></li>
+<li><div><a href="#stopgraceperiod">stopgraceperiod</a><i></i></div></li>
+<li><div><a href="#stopsignal">stop_signal</a><i></i></div></li>
+<li><div><a href="#sysctls">sysctls</a><i></i></div></li>
+<li><div><a href="#ulimits">ulimits</a><i></i></div></li>
+<li><div><a href="#usernsmode">userns_mode</a><i></i></div></li>
+<li><div><a href="#volumes">volumes</a><i></i></div></li>
+<li><div><a href="#restart">restart</a><i></i></div></li>
+<li><div><a href="#domainname-hostname-ipc-macaddress-privileged-readonly-shmsize-stdinopen-tty-user-workingdir">domainname, hostname, ipc, macaddress, privileged, readonly, shmsize, stdinopen, tty, user, working_dir</a><i></i></div></li>
+<li><div><a href="#specifying-durations">Specifying durations</a><i></i></div></li>
+<li><div><a href="#volume-configuration-reference">Volume configuration reference</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#name">name</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#network-configuration-reference">Network configuration reference</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#host-or-none">host OR none</a><i></i></div></li>
+<li><div><a href="#driveropts">driver_opts</a><i></i></div></li>
+<li><div><a href="#attachable">attachable</a><i></i></div></li>
+<li><div><a href="#ipam">ipam</a><i></i></div></li>
+<li><div><a href="#name">name</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#configs-configuration-reference">configs configuration reference</a><i></i></div></li>
+<li><div><a href="#secrets-configuration-reference">secrets configuration reference</a><i></i></div></li>
+<li><div><a href="#variable-substitution">Variable substitution</a><i></i></div></li>
+<li><div><a href="#extension-fields">Extension fields</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#more-information">More Information</a><i></i></div></li>
+</ul>
+</div>
+
+
+<p>Define application stacks built using multiple containers, services, and swarm configurations.</p>
+<p>GitHub: <a href="https://github.com/docker/compose" target="_blank">https://github.com/docker/compose</a></p>
+<!--more-->
+<h1 id="install">install</h1>
+<p>Docker CE for Windows 10 &#x3001;Docker CE for Mac &#x81EA;&#x5E26; <code>docker-compose</code>&#xFF0C;&#x5B98;&#x65B9;&#x5EFA;&#x8BAE;&#x968F; Docker &#x7248;&#x672C;&#x5347;&#x7EA7;&#x3002;</p>
+<p>Linux &#x8BF7;&#x5728; <a href="https://github.com/docker/compose/releases" target="_blank">GitHub releases</a> &#x5904;&#x4E0B;&#x8F7D;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x79FB;&#x5165; <code>PATH</code> &#x5E76;&#x8D4B;&#x4E88;&#x53EF;&#x6267;&#x884C;&#x6743;&#x9650;&#x3002;</p>
+<p>&#x6216;&#x8005;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">$ DOCKER_COMPOSE_VERSION<span class="token operator">=</span>1.18.0
+
+$ <span class="token function">curl</span> -L https://github.com/docker/compose/releases/download/<span class="token variable">${DOCKER_COMPOSE_VERSION}</span>/docker-compose-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> -s<span class="token variable">`</span></span>-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> -m<span class="token variable">`</span></span> <span class="token operator">&gt;</span> docker-compose
+
+$ <span class="token function">chmod</span> +x docker-compose
+
+$ <span class="token function">sudo</span> <span class="token function">mv</span> docker-compose /usr/local/bin
+
+$ docker-compose --version
+</code></pre>
+<p>&#x6216;&#x8005;&#x901A;&#x8FC7; <code>Python</code> &#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177; <code>pip</code> &#x5B89;&#x88C5;&#x3002;</p>
+<h2 id="command-line-completion">Command-line completion</h2>
+<h3 id="fish">fish</h3>
+<p><code>~/.config/fish/completions</code></p>
+<pre class="language-"><code class="lang-bash">$ <span class="token function">wget</span> https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish
+</code></pre>
+<h3 id="bash">bash</h3>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://docs.docker.com/compose/completion/" target="_blank">https://docs.docker.com/compose/completion/</a></p>
+<h1 id="compose-file-reference">Compose file reference</h1>
+<h2 id="build">build</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3&apos;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">webapp</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token comment"># Dockerfile &#x76EE;&#x5F55;&#x6216; git &#x4ED3;&#x5E93;&#x7F51;&#x5740;</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> ./dir <span class="token punctuation">|</span> .
+      <span class="token comment"># Dockerfile &#x6587;&#x4EF6;&#x540D;&#x79F0;</span>
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> Dockerfile<span class="token punctuation">-</span>alternate
+      <span class="token comment"># 3.2</span>
+      <span class="token key atrule">cache_from</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> alpine<span class="token punctuation">:</span>latest
+        <span class="token punctuation">-</span> corp/web_app<span class="token punctuation">:</span><span class="token number">3.14</span>
+      <span class="token comment"># 3.3  </span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">com.example.description</span><span class="token punctuation">:</span> <span class="token string">&quot;Accounting webapp&quot;</span>
+        <span class="token key atrule">com.example.department</span><span class="token punctuation">:</span> <span class="token string">&quot;Finance&quot;</span>
+        <span class="token key atrule">com.example.label-with-empty-value</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>  
+      <span class="token comment"># &#x6784;&#x5EFA;&#x65F6;&#x53D8;&#x91CF;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E; docker build --build-arg list</span>
+      <span class="token key atrule">args</span><span class="token punctuation">:</span>
+        <span class="token key atrule">buildno</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">args</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> buildno=1
+      <span class="token comment"># 3.5  </span>
+      <span class="token key atrule">shm_size</span><span class="token punctuation">:</span> <span class="token string">&apos;2gb&apos;</span>  
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> webapp<span class="token punctuation">:</span>tag
+</code></pre>
+<p><code>Dockerfile</code> &#x4E2D;&#x5305;&#x542B;&#x53D8;&#x91CF;</p>
+<pre class="language-"><code class="lang-docker"><span class="token keyword">ARG</span> buildno
+<span class="token keyword">ARG</span> password
+
+<span class="token keyword">RUN</span> echo <span class="token string">&quot;Build number: $buildno&quot;</span>
+<span class="token keyword">RUN</span> script<span class="token punctuation">-</span>requiring<span class="token punctuation">-</span>password.sh <span class="token string">&quot;$password&quot;</span>
+</code></pre>
+<h2 id="capadd-capdrop">cap_add, cap_drop</h2>
+<p>&#x6CA1;&#x7528;&#x8FC7;&#xFF0C;&#x4E0D;&#x4E86;&#x89E3;&#x3002;</p>
+<p>Add or drop container capabilities. See <code>man 7 capabilities</code> for a full list.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">cap_add</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> ALL
+
+<span class="token key atrule">cap_drop</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> NET_ADMIN
+  <span class="token punctuation">-</span> SYS_ADMIN
+</code></pre>
+<h2 id="command">command</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">command</span><span class="token punctuation">:</span> bundle exec thin <span class="token punctuation">-</span>p 3000
+
+<span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;bundle&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;exec&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;thin&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-p&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;3000&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">command</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> bundle
+  <span class="token punctuation">-</span> exec
+  <span class="token punctuation">-</span> thin
+  <span class="token punctuation">-</span> <span class="token punctuation">-</span>p
+  <span class="token punctuation">-</span> <span class="token number">3000</span>
+</code></pre>
+<h2 id="configs">configs</h2>
+<p>3.3</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.3&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>latest
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> my_config
+      <span class="token punctuation">-</span> my_other_config
+
+<span class="token key atrule">configs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./my_config.txt
+  <span class="token comment"># &#x4F7F;&#x7528;&#x5916;&#x90E8;&#x7684; config&#xFF0C;&#x4F7F;&#x7528; docker config create &#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x7684; config  </span>
+  <span class="token key atrule">my_other_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.3&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>latest
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">source</span><span class="token punctuation">:</span> my_config
+        <span class="token key atrule">target</span><span class="token punctuation">:</span> /redis_config
+        <span class="token key atrule">uid</span><span class="token punctuation">:</span> <span class="token string">&apos;103&apos;</span>
+        <span class="token key atrule">gid</span><span class="token punctuation">:</span> <span class="token string">&apos;103&apos;</span>
+        <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token number">0440</span>
+
+<span class="token key atrule">configs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./my_config.txt
+  <span class="token key atrule">my_other_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<h2 id="cgroupparent">cgroup_parent</h2>
+<p>Specify an optional parent cgroup for the container.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">cgroup_parent</span><span class="token punctuation">:</span> m<span class="token punctuation">-</span>executor<span class="token punctuation">-</span>abcd
+</code></pre>
+<h2 id="containername">container_name</h2>
+<p>&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF0C;&#x6B64;&#x9879;&#x914D;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x670D;&#x52A1;&#x5C06;&#x4E0D;&#x80FD;&#x6269;&#x5C55;&#x3002;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">container_name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>web<span class="token punctuation">-</span>container
+</code></pre>
+<h2 id="credentialspec">credential_spec</h2>
+<p>&#x6CA1;&#x7528;&#x8FC7;&#xFF0C;&#x4E0D;&#x4E86;&#x89E3;&#x3002;</p>
+<p>3.3</p>
+<p>&#x4EC5;&#x7528;&#x4E8E; Windows &#x5BB9;&#x5668;&#x3002;</p>
+<h2 id="deploy">deploy</h2>
+<p>&#x4EC5;&#x7528;&#x4E8E; <code>Swarm mode</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3&apos;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token comment"># &#x96C6;&#x7FA4;&#x4E2D;&#x8FD0;&#x884C;&#x8BE5;&#x670D;&#x52A1;&#x7684;&#x5BB9;&#x5668;&#x4E2A;&#x6570;</span>
+      <span class="token key atrule">mode</span><span class="token punctuation">:</span> replicated
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">6</span>
+      <span class="token key atrule">update_config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">parallelism</span><span class="token punctuation">:</span> <span class="token number">2</span>
+        <span class="token key atrule">delay</span><span class="token punctuation">:</span> 10s
+      <span class="token key atrule">restart_policy</span><span class="token punctuation">:</span>
+        <span class="token key atrule">condition</span><span class="token punctuation">:</span> on<span class="token punctuation">-</span>failure
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">com.example.description</span><span class="token punctuation">:</span> <span class="token string">&quot;This label will appear on the web service&quot;</span>
+</code></pre>
+<h3 id="endpointmode">endpoint_mode</h3>
+<p>3.3</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoint_mode</span><span class="token punctuation">:</span> vip
+  <span class="token key atrule">endpoint_mode</span><span class="token punctuation">:</span> dnsrr
+</code></pre>
+<h3 id="mode">mode</h3>
+<p><a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services" target="_blank">https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services</a></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token comment"># &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E00;&#x4E2A;&#x5BB9;&#x5668; exactly one container per swarm node</span>
+  <span class="token key atrule">mode</span><span class="token punctuation">:</span> global
+  <span class="token comment"># &#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5BB9;&#x5668; a specified number of containers</span>
+  <span class="token key atrule">mode</span><span class="token punctuation">:</span> replicated
+</code></pre>
+<h3 id="placement">placement</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">placement</span><span class="token punctuation">:</span>
+    <span class="token key atrule">constraints</span><span class="token punctuation">:</span>
+      <span class="token comment"># &#x8FD0;&#x884C;&#x5728;&#x7BA1;&#x7406;&#x8282;&#x70B9;</span>
+      <span class="token punctuation">-</span> node.role == manager
+      <span class="token punctuation">-</span> engine.labels.operatingsystem == ubuntu 14.04
+    <span class="token key atrule">preferences</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">spread</span><span class="token punctuation">:</span> node.labels.zone
+</code></pre>
+<h3 id="resources">resources</h3>
+<p>&#x8D44;&#x6E90;&#x9650;&#x5236;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+    <span class="token key atrule">limits</span><span class="token punctuation">:</span>
+      <span class="token key atrule">cpus</span><span class="token punctuation">:</span> <span class="token string">&apos;0.50&apos;</span>
+      <span class="token key atrule">memory</span><span class="token punctuation">:</span> 50M
+    <span class="token key atrule">reservations</span><span class="token punctuation">:</span>
+      <span class="token key atrule">cpus</span><span class="token punctuation">:</span> <span class="token string">&apos;0.25&apos;</span>
+      <span class="token key atrule">memory</span><span class="token punctuation">:</span> 20M
+</code></pre>
+<h3 id="restartpolicy">restart_policy</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">restart_policy</span><span class="token punctuation">:</span>
+        <span class="token key atrule">condition</span><span class="token punctuation">:</span> none <span class="token punctuation">|</span> on<span class="token punctuation">-</span>failure <span class="token punctuation">|</span> any (&#x9ED8;&#x8BA4;)
+        <span class="token comment"># &#x7B49;&#x5F85;&#x65F6;&#x95F4;</span>
+        <span class="token key atrule">delay</span><span class="token punctuation">:</span> 5s
+        <span class="token comment"># &#x6700;&#x5927;&#x5C1D;&#x8BD5;&#x6B21;&#x6570;</span>
+        <span class="token key atrule">max_attempts</span><span class="token punctuation">:</span> <span class="token number">3</span>
+        <span class="token comment"># How long to wait before deciding if a restart has succeeded, specified as a duration (default: decide immediately)</span>
+        <span class="token key atrule">window</span><span class="token punctuation">:</span> 120s
+</code></pre>
+<h3 id="updateconfig">update_config</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3.4&apos;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">vote</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> dockersamples/examplevotingapp_vote<span class="token punctuation">:</span>before
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> redis
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">2</span>
+      <span class="token key atrule">update_config</span><span class="token punctuation">:</span>
+        <span class="token comment"># &#x540C;&#x65F6;&#x5347;&#x7EA7; config &#x7684;&#x5BB9;&#x5668;&#x4E2A;&#x6570;</span>
+        <span class="token key atrule">parallelism</span><span class="token punctuation">:</span> <span class="token number">2</span>
+        <span class="token key atrule">delay</span><span class="token punctuation">:</span> 10s
+        <span class="token key atrule">failure_action</span><span class="token punctuation">:</span> continue <span class="token punctuation">|</span> rollback <span class="token punctuation">|</span> pause (&#x9ED8;&#x8BA4;)
+        <span class="token key atrule">monitor</span><span class="token punctuation">:</span>
+        <span class="token key atrule">max_failure_ration</span><span class="token punctuation">:</span>
+        <span class="token comment"># 3.4</span>
+        <span class="token key atrule">order</span><span class="token punctuation">:</span> stop<span class="token punctuation">-</span>first (&#x9ED8;&#x8BA4;) <span class="token punctuation">|</span> start<span class="token punctuation">-</span>first
+</code></pre>
+<p><code>docker stack deploy</code> &#x4E0D;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;</p>
+<p><code>build</code></p>
+<p><code>cgroup_parent</code></p>
+<p><code>container_name</code></p>
+<p><code>devices</code></p>
+<p><code>tmpfs</code></p>
+<p><code>external_links</code></p>
+<p><code>links</code></p>
+<p><code>network_mode</code></p>
+<p><code>security_opt</code></p>
+<p><code>stop_signal</code></p>
+<p><code>sysctls</code></p>
+<p><code>userns_mode</code></p>
+<h2 id="devices">devices</h2>
+<p>List of device mappings. Uses the same format as the --device docker client create option.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">devices</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;/dev/ttyUSB0:/dev/ttyUSB0&quot;</span>
+</code></pre>
+<h2 id="dependson">depends_on</h2>
+<p>&#x4FDD;&#x8BC1;&#x4F9D;&#x8D56;&#x7684;&#x670D;&#x52A1;&#x5B8C;&#x5168;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#x624D;&#x542F;&#x52A8; <a href="https://docs.docker.com/compose/startup-order/" target="_blank">https://docs.docker.com/compose/startup-order/</a></p>
+<p>&#x4F9D;&#x8D56;&#x5173;&#x7CFB;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3&apos;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> .
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+      <span class="token punctuation">-</span> redis
+
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> postgres
+</code></pre>
+<h2 id="dns">dns</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">dns</span><span class="token punctuation">:</span> 8.8.8.8
+
+<span class="token key atrule">dns</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> 8.8.8.8
+  <span class="token punctuation">-</span> 9.9.9.9
+</code></pre>
+<h2 id="dnssearch">dns_search</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">dns_search</span><span class="token punctuation">:</span> example.com
+
+<span class="token key atrule">dns_search</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> dc1.example.com
+  <span class="token punctuation">-</span> dc2.example.com
+</code></pre>
+<h2 id="tmpfs">tmpfs</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">tmpfs</span><span class="token punctuation">:</span> /run
+
+<span class="token key atrule">tmpfs</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> /run
+  <span class="token punctuation">-</span> /tmp
+</code></pre>
+<h2 id="entrypoint">entrypoint</h2>
+<p>&#x5165;&#x53E3;&#x6587;&#x4EF6;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">entrypoint</span><span class="token punctuation">:</span> /code/entrypoint.sh
+
+<span class="token key atrule">entrypoint</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> php
+    <span class="token punctuation">-</span> <span class="token punctuation">-</span>d
+    <span class="token punctuation">-</span> zend_extension=/usr/local/lib/php/extensions/no<span class="token punctuation">-</span>debug<span class="token punctuation">-</span>non<span class="token punctuation">-</span>zts<span class="token punctuation">-</span>20100525/xdebug.so
+    <span class="token punctuation">-</span> <span class="token punctuation">-</span>d
+    <span class="token punctuation">-</span> memory_limit=<span class="token punctuation">-</span><span class="token number">1</span>
+    <span class="token punctuation">-</span> vendor/bin/phpunit
+</code></pre>
+<h2 id="envfile">env_file</h2>
+<p>&#x4ECE;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x53D8;&#x91CF;&#x5199;&#x5165;&#x955C;&#x50CF; <code>&#x73AF;&#x5883;&#x53D8;&#x91CF;</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">env_file</span><span class="token punctuation">:</span> .env
+
+<span class="token key atrule">env_file</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> ./common.env
+  <span class="token punctuation">-</span> ./apps/web.env
+  <span class="token punctuation">-</span> /opt/secrets.env
+</code></pre>
+<p>&#x82E5;&#x53D8;&#x91CF;&#x91CD;&#x590D;&#xFF0C;&#x540E;&#x8FB9;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x91CF;&#x4F1A;&#x8986;&#x76D6;&#x540E;&#x8FB9;&#x7684;&#x3002;</p>
+<p><code>env</code> &#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4E3E;&#x4F8B;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token comment"># &#x652F;&#x6301; # &#x53F7;&#x6CE8;&#x91CA;</span>
+RACK_ENV=development
+</code></pre>
+<h2 id="environment">environment</h2>
+<p>&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">environment</span><span class="token punctuation">:</span>
+  <span class="token key atrule">RACK_ENV</span><span class="token punctuation">:</span> development
+  <span class="token key atrule">SHOW</span><span class="token punctuation">:</span> <span class="token string">&apos;true&apos;</span>
+  <span class="token key atrule">SESSION_SECRET</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">environment</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> RACK_ENV=development
+  <span class="token punctuation">-</span> SHOW=true
+  <span class="token punctuation">-</span> SESSION_SECRET
+</code></pre>
+<h2 id="expose">expose</h2>
+<p>&#x5185;&#x90E8;&#x66B4;&#x9732;&#x7AEF;&#x53E3;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">expose</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;3000&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;8000&quot;</span>
+</code></pre>
+<h2 id="externallinks">external_links</h2>
+<p>&#x94FE;&#x63A5;&#x5916;&#x90E8;&#x5BB9;&#x5668;&#x3002;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF0C;&#x5EFA;&#x8BAE;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#xFF01;</p>
+<p><code>CONTAINER:ALIAS</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">external_links</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> redis_1
+ <span class="token punctuation">-</span> project_db_1<span class="token punctuation">:</span>mysql
+ <span class="token punctuation">-</span> project_db_1<span class="token punctuation">:</span>postgresql
+</code></pre>
+<h2 id="extrahosts">extra_hosts</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">extra_hosts</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;somehost:162.242.195.82&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;otherhost:50.31.209.229&quot;</span>
+</code></pre>
+<p>&#x5728;&#x5BB9;&#x5668;&#x5185; <code>/etc/hosts</code> &#x5199;&#x5165;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;</p>
+<pre class="language-"><code class="lang-bash">162.242.195.82  somehost
+50.31.209.229   otherhost
+</code></pre>
+<h2 id="healthcheck">healthcheck</h2>
+<p>&#x5065;&#x5EB7;&#x68C0;&#x67E5;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">healthcheck</span><span class="token punctuation">:</span>
+  <span class="token key atrule">test</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;CMD&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;curl&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-f&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;http://localhost&quot;</span><span class="token punctuation">]</span>
+  <span class="token comment"># &#x95F4;&#x9694;</span>
+  <span class="token key atrule">interval</span><span class="token punctuation">:</span> 1m30s
+  <span class="token comment"># &#x8D85;&#x65F6;&#x65F6;&#x95F4;</span>
+  <span class="token key atrule">timeout</span><span class="token punctuation">:</span> 10s
+  <span class="token comment"># &#x91CD;&#x8BD5;&#x6B21;&#x6570;</span>
+  <span class="token key atrule">retries</span><span class="token punctuation">:</span> <span class="token number">3</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token comment"># Hit the local web app</span>
+<span class="token key atrule">test</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;CMD&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;curl&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-f&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;http://localhost&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># As above, but wrapped in /bin/sh. Both forms below are equivalent.</span>
+<span class="token key atrule">test</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;CMD-SHELL&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;curl -f http://localhost &amp;&amp; echo &apos;cool, it works&apos;&quot;</span><span class="token punctuation">]</span>
+<span class="token key atrule">test</span><span class="token punctuation">:</span> curl <span class="token punctuation">-</span>f https<span class="token punctuation">:</span>//localhost &amp;&amp; echo &apos;cool<span class="token punctuation">,</span> it works&apos;
+</code></pre>
+<h2 id="image">image</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+<span class="token key atrule">image</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">14.04</span>
+<span class="token key atrule">image</span><span class="token punctuation">:</span> tutum/influxdb
+<span class="token key atrule">image</span><span class="token punctuation">:</span> example<span class="token punctuation">-</span>registry.com<span class="token punctuation">:</span>4000/postgresql
+<span class="token key atrule">image</span><span class="token punctuation">:</span> a4bc65fd
+</code></pre>
+<h2 id="isolation">isolation</h2>
+<p><a href="https://docs.docker.com/engine/reference/commandline/run/#specify-isolation-technology-for-container---isolation" target="_blank">https://docs.docker.com/engine/reference/commandline/run/#specify-isolation-technology-for-container---isolation</a></p>
+<p>Specify a container&#x2019;s isolation technology. On Linux, the only supported value is <code>default</code>. On Windows, acceptable values are <code>default</code>, <code>process</code>and <code>hyperv</code>.</p>
+<h2 id="labels">labels</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">labels</span><span class="token punctuation">:</span>
+  <span class="token key atrule">com.example.description</span><span class="token punctuation">:</span> <span class="token string">&quot;Accounting webapp&quot;</span>
+  <span class="token key atrule">com.example.department</span><span class="token punctuation">:</span> <span class="token string">&quot;Finance&quot;</span>
+  <span class="token key atrule">com.example.label-with-empty-value</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;com.example.description=Accounting webapp&quot;</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;com.example.department=Finance&quot;</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;com.example.label-with-empty-value&quot;</span>
+</code></pre>
+<h2 id="links">links</h2>
+<p>&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF01;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">web</span><span class="token punctuation">:</span>
+  <span class="token key atrule">links</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> db
+   <span class="token punctuation">-</span> db<span class="token punctuation">:</span>database
+   <span class="token punctuation">-</span> redis
+</code></pre>
+<h2 id="logging">logging</h2>
+<p>&#x65E5;&#x5FD7;&#x914D;&#x7F6E;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">logging</span><span class="token punctuation">:</span>
+  <span class="token key atrule">driver</span><span class="token punctuation">:</span> syslog
+  <span class="token key atrule">options</span><span class="token punctuation">:</span>
+    <span class="token key atrule">syslog-address</span><span class="token punctuation">:</span> <span class="token string">&quot;tcp://192.168.0.42:123&quot;</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">&quot;json-file&quot;</span>
+<span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">&quot;syslog&quot;</span>
+<span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">&quot;none&quot;</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">options</span><span class="token punctuation">:</span>
+  <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">&quot;200k&quot;</span>
+  <span class="token key atrule">max-file</span><span class="token punctuation">:</span> <span class="token string">&quot;10&quot;</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">some-service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> some<span class="token punctuation">-</span>service
+    <span class="token key atrule">logging</span><span class="token punctuation">:</span>
+      <span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">&quot;json-file&quot;</span>
+      <span class="token key atrule">options</span><span class="token punctuation">:</span>
+        <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">&quot;200k&quot;</span>
+        <span class="token key atrule">max-file</span><span class="token punctuation">:</span> <span class="token string">&quot;10&quot;</span>
+</code></pre>
+<h2 id="networkmode">network_mode</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">network_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;bridge&quot;</span>
+<span class="token key atrule">network_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;host&quot;</span>
+<span class="token key atrule">network_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;none&quot;</span>
+<span class="token key atrule">network_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;service:[service name]&quot;</span>
+<span class="token key atrule">network_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;container:[container name/id]&quot;</span>
+</code></pre>
+<h2 id="networks">networks</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">some-service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+     <span class="token punctuation">-</span> some<span class="token punctuation">-</span>network
+     <span class="token punctuation">-</span> other<span class="token punctuation">-</span>network
+</code></pre>
+<h3 id="aliases">aliases</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">some-service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">some-network</span><span class="token punctuation">:</span>
+        <span class="token key atrule">aliases</span><span class="token punctuation">:</span>
+         <span class="token punctuation">-</span> alias1
+         <span class="token punctuation">-</span> alias3
+      <span class="token key atrule">other-network</span><span class="token punctuation">:</span>
+        <span class="token key atrule">aliases</span><span class="token punctuation">:</span>
+         <span class="token punctuation">-</span> alias2
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;2&apos;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> ./web
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> new
+
+  <span class="token key atrule">worker</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> ./worker
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> legacy
+
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">new</span><span class="token punctuation">:</span>
+        <span class="token key atrule">aliases</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> database
+      <span class="token key atrule">legacy</span><span class="token punctuation">:</span>
+        <span class="token key atrule">aliases</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> mysql
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">new</span><span class="token punctuation">:</span>
+  <span class="token key atrule">legacy</span><span class="token punctuation">:</span>
+</code></pre>
+<h3 id="ipv4address-ipv6address">ipv4_address ipv6_address</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;2.1&apos;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">app</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> busybox
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> ifconfig
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+        <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 172.16.238.10
+        <span class="token key atrule">ipv6_address</span><span class="token punctuation">:</span> 2001<span class="token punctuation">:</span>3984<span class="token punctuation">:</span>3989<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">10</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+    <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge
+    <span class="token key atrule">enable_ipv6</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">ipam</span><span class="token punctuation">:</span>
+      <span class="token key atrule">driver</span><span class="token punctuation">:</span> default
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span>
+        <span class="token key atrule">subnet</span><span class="token punctuation">:</span> 172.16.238.0/24
+      <span class="token punctuation">-</span>
+        <span class="token key atrule">subnet</span><span class="token punctuation">:</span> 2001<span class="token punctuation">:</span>3984<span class="token punctuation">:</span>3989<span class="token punctuation">:</span><span class="token punctuation">:</span>/64
+</code></pre>
+<h2 id="pid">pid</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">pid</span><span class="token punctuation">:</span> <span class="token string">&quot;host&quot;</span>
+</code></pre>
+<h2 id="ports">ports</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">ports</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;3000&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;3000-3005&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;8000:8000&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;9090-9091:8080-8081&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;49100:22&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:8001:8001&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:5000-5010:5000-5010&quot;</span>
+ <span class="token punctuation">-</span> <span class="token string">&quot;6060:6060/udp&quot;</span>
+</code></pre>
+<p>3.2 &#x5F00;&#x59CB;&#x652F;&#x6301;&#x957F;&#x683C;&#x5F0F;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">target</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">published</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+    <span class="token key atrule">protocol</span><span class="token punctuation">:</span> tcp
+    <span class="token key atrule">mode</span><span class="token punctuation">:</span> host
+</code></pre>
+<h2 id="secrets">secrets</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.1&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>latest
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> my_secret
+      <span class="token punctuation">-</span> my_other_secret
+<span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./my_secret.txt
+  <span class="token key atrule">my_other_secret</span><span class="token punctuation">:</span>
+    <span class="token comment"># &#x4F7F;&#x7528;&#x5916;&#x90E8; secret</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<p>&#x957F;&#x683C;&#x5F0F;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.1&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>latest
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">source</span><span class="token punctuation">:</span> my_secret
+        <span class="token key atrule">target</span><span class="token punctuation">:</span> redis_secret
+        <span class="token key atrule">uid</span><span class="token punctuation">:</span> <span class="token string">&apos;103&apos;</span>
+        <span class="token key atrule">gid</span><span class="token punctuation">:</span> <span class="token string">&apos;103&apos;</span>
+        <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token number">0440</span>
+<span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./my_secret.txt
+  <span class="token key atrule">my_other_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<h2 id="securityopt">security_opt</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">security_opt</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> label<span class="token punctuation">:</span>user<span class="token punctuation">:</span>USER
+  <span class="token punctuation">-</span> label<span class="token punctuation">:</span>role<span class="token punctuation">:</span>ROLE
+</code></pre>
+<h2 id="stopgraceperiod">stop_grace_period</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">stop_grace_period</span><span class="token punctuation">:</span> 1s
+<span class="token key atrule">stop_grace_period</span><span class="token punctuation">:</span> 1m30s
+</code></pre>
+<h2 id="stopsignal">stop_signal</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">stop_signal</span><span class="token punctuation">:</span> SIGUSR1
+</code></pre>
+<h2 id="sysctls">sysctls</h2>
+<p>Kernel parameters to set in the container. You can use either an array or a dictionary.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">sysctls</span><span class="token punctuation">:</span>
+  <span class="token key atrule">net.core.somaxconn</span><span class="token punctuation">:</span> <span class="token number">1024</span>
+  <span class="token key atrule">net.ipv4.tcp_syncookies</span><span class="token punctuation">:</span> <span class="token number">0</span>
+
+<span class="token key atrule">sysctls</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> net.core.somaxconn=1024
+  <span class="token punctuation">-</span> net.ipv4.tcp_syncookies=0
+</code></pre>
+<h2 id="ulimits">ulimits</h2>
+<p>Override the default ulimits for a container. You can either specify a single limit as an integer or soft/hard limits as a mapping.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">ulimits</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nproc</span><span class="token punctuation">:</span> <span class="token number">65535</span>
+  <span class="token key atrule">nofile</span><span class="token punctuation">:</span>
+    <span class="token key atrule">soft</span><span class="token punctuation">:</span> <span class="token number">20000</span>
+    <span class="token key atrule">hard</span><span class="token punctuation">:</span> <span class="token number">40000</span>
+</code></pre>
+<h2 id="usernsmode">userns_mode</h2>
+<p>Disables the user namespace for this service, if Docker daemon is configured with user namespaces. See dockerd for more information.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">userns_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;host&quot;</span>
+</code></pre>
+<h2 id="volumes">volumes</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.2&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx<span class="token punctuation">:</span>alpine
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> volume
+        <span class="token key atrule">source</span><span class="token punctuation">:</span> mydata
+        <span class="token key atrule">target</span><span class="token punctuation">:</span> /data
+        <span class="token key atrule">volume</span><span class="token punctuation">:</span>
+          <span class="token key atrule">nocopy</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> bind
+        <span class="token key atrule">source</span><span class="token punctuation">:</span> ./static
+        <span class="token key atrule">target</span><span class="token punctuation">:</span> /opt/app/static
+
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> postgres<span class="token punctuation">:</span>latest
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock&quot;</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;dbdata:/var/lib/postgresql/data&quot;</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mydata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">dbdata</span><span class="token punctuation">:</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token comment"># Just specify a path and let the Engine create a volume</span>
+  <span class="token punctuation">-</span> /var/lib/mysql
+
+  <span class="token comment"># Specify an absolute path mapping</span>
+  <span class="token punctuation">-</span> /opt/data<span class="token punctuation">:</span>/var/lib/mysql
+
+  <span class="token comment"># Path on the host, relative to the Compose file</span>
+  <span class="token punctuation">-</span> ./cache<span class="token punctuation">:</span>/tmp/cache
+
+  <span class="token comment"># User-relative path</span>
+  <span class="token punctuation">-</span> ~/configs<span class="token punctuation">:</span>/etc/configs/<span class="token punctuation">:</span>ro
+
+  <span class="token comment"># Named volume</span>
+  <span class="token punctuation">-</span> datavolume<span class="token punctuation">:</span>/var/lib/mysql
+
+  <span class="token comment">#</span>
+
+  <span class="token punctuation">-</span> source<span class="token punctuation">:</span>/target<span class="token punctuation">:</span>constraints (&#x9ED8;&#x8BA4;) <span class="token punctuation">|</span> cached (&#x5BBF;&#x4E3B;&#x673A;&#x4F18;&#x5148;)<span class="token punctuation">|</span> delegated (&#x5BB9;&#x5668;&#x4F18;&#x5148;)
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.2&quot;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx<span class="token punctuation">:</span>alpine
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;80:80&quot;</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">webnet</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> volume
+    <span class="token key atrule">source</span><span class="token punctuation">:</span> mydata
+    <span class="token key atrule">target</span><span class="token punctuation">:</span> /data
+    <span class="token key atrule">volume</span><span class="token punctuation">:</span>
+      <span class="token key atrule">nocopy</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> bind
+    <span class="token key atrule">source</span><span class="token punctuation">:</span> ./static
+    <span class="token key atrule">target</span><span class="token punctuation">:</span> /opt/app/static
+</code></pre>
+<h2 id="restart">restart</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">restart</span><span class="token punctuation">:</span> <span class="token string">&quot;no&quot;</span>
+<span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+<span class="token key atrule">restart</span><span class="token punctuation">:</span> on<span class="token punctuation">-</span>failure
+<span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
+</code></pre>
+<h2 id="domainname-hostname-ipc-macaddress-privileged-readonly-shmsize-stdinopen-tty-user-workingdir">domainname, hostname, ipc, mac_address, privileged, read_only, shm_size, stdin_open, tty, user, working_dir</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">user</span><span class="token punctuation">:</span> postgresql
+<span class="token key atrule">working_dir</span><span class="token punctuation">:</span> /code
+
+<span class="token key atrule">domainname</span><span class="token punctuation">:</span> foo.com
+<span class="token key atrule">hostname</span><span class="token punctuation">:</span> foo
+<span class="token key atrule">ipc</span><span class="token punctuation">:</span> host
+<span class="token key atrule">mac_address</span><span class="token punctuation">:</span> 02<span class="token punctuation">:</span>42<span class="token punctuation">:</span>ac<span class="token punctuation">:</span><span class="token datetime number">11:65:43</span>
+
+<span class="token key atrule">privileged</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+
+<span class="token key atrule">read_only</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">shm_size</span><span class="token punctuation">:</span> 64M
+<span class="token key atrule">stdin_open</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<h2 id="specifying-durations">Specifying durations</h2>
+<pre class="language-"><code class="lang-yaml">2.5s
+10s
+1m30s
+2h32m
+5h34m56s
+</code></pre>
+<h2 id="volume-configuration-reference">Volume configuration reference</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> db
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> data<span class="token punctuation">-</span>volume<span class="token punctuation">:</span>/var/lib/db
+  <span class="token key atrule">backup</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> backup<span class="token punctuation">-</span>service
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> data<span class="token punctuation">-</span>volume<span class="token punctuation">:</span>/var/lib/backup/data
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data-volume</span><span class="token punctuation">:</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">driver</span><span class="token punctuation">:</span> foobar
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">driver_opts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">&quot;bar&quot;</span>
+  <span class="token key atrule">baz</span><span class="token punctuation">:</span> <span class="token number">1</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">labels</span><span class="token punctuation">:</span>
+  <span class="token key atrule">com.example.description</span><span class="token punctuation">:</span> <span class="token string">&quot;Database volume&quot;</span>
+  <span class="token key atrule">com.example.department</span><span class="token punctuation">:</span> <span class="token string">&quot;IT/Ops&quot;</span>
+  <span class="token key atrule">com.example.label-with-empty-value</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;com.example.description=Database volume&quot;</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;com.example.department=IT/Ops&quot;</span>
+  <span class="token punctuation">-</span> <span class="token string">&quot;com.example.label-with-empty-value&quot;</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> actual<span class="token punctuation">-</span>name<span class="token punctuation">-</span>of<span class="token punctuation">-</span>volume
+</code></pre>
+<h3 id="name">name</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3.4&apos;</span>
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>data
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3.4&apos;</span>
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>data
+</code></pre>
+<h2 id="network-configuration-reference">Network configuration reference</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">driver</span><span class="token punctuation">:</span> overlay
+</code></pre>
+<h3 id="host-or-none">host OR none</h3>
+<p>&#x7528;&#x4E8E; <code>docker stack</code>&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; <code>docker-compose</code> &#x8BF7;&#x4F7F;&#x7528; <code>network_mode</code>&#x3002;</p>
+<p>&#x7C7B;&#x4F3C;&#x4E8E; <code>docker run --net=host</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token punctuation">...</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">hostnet</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hostnet</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> host
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#x4E8E; <code>docker run --net=none</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token punctuation">...</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">nonet</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nonet</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> none
+</code></pre>
+<h3 id="driveropts">driver_opts</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">driver_opts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">&quot;bar&quot;</span>
+  <span class="token key atrule">baz</span><span class="token punctuation">:</span> <span class="token number">1</span>
+</code></pre>
+<h3 id="attachable">attachable</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mynet1</span><span class="token punctuation">:</span>
+    <span class="token key atrule">driver</span><span class="token punctuation">:</span> overlay
+    <span class="token key atrule">attachable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<h3 id="ipam">ipam</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">ipam</span><span class="token punctuation">:</span>
+  <span class="token key atrule">driver</span><span class="token punctuation">:</span> default
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">subnet</span><span class="token punctuation">:</span> 172.28.0.0/16
+</code></pre>
+<h3 id="name">name</h3>
+<p>3.5</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3.5&apos;</span>
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">network1</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>net
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;3.5&apos;</span>
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">network1</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>net
+</code></pre>
+<h2 id="configs-configuration-reference">configs configuration reference</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">configs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_first_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./config_data
+  <span class="token key atrule">my_second_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<p>3.5</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">configs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_first_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./config_data
+  <span class="token key atrule">my_second_config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> redis_config
+</code></pre>
+<h2 id="secrets-configuration-reference">secrets configuration reference</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_first_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./secret_data
+  <span class="token key atrule">my_second_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<p>3.5</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+  <span class="token key atrule">my_first_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> ./secret_data
+  <span class="token key atrule">my_second_secret</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> redis_secret
+</code></pre>
+<h2 id="variable-substitution">Variable substitution</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">db</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;postgres:${POSTGRES_VERSION}&quot;</span>
+</code></pre>
+<p>&#x4ECE; <code>.env</code> &#x6587;&#x4EF6;&#x6216;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#x4E2D;&#x8BFB;&#x53D6;&#x53D8;&#x91CF;&#xFF0C;&#x6765;&#x66FF;&#x6362; compose &#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x3002;</p>
+<p><code>docker stack deploy</code> &#x4E0D;&#x652F;&#x6301;&#x53D8;&#x91CF;&#x8BFB;&#x53D6;&#x3002;</p>
+<p><code>$VAR</code> <code>${VAR}</code> &#x8FD9;&#x4E24;&#x79CD;&#x683C;&#x5F0F;&#x90FD;&#x652F;&#x6301;&#x3002;</p>
+<p><code>${VARIABLE:-default}</code> &#x5982;&#x679C; <code>VARIABLE</code> &#x88AB; <code>unset</code> &#x6216;&#x4E3A;&#x7A7A; (<code>empty</code>) &#x65F6;&#x8BBE;&#x7F6E;&#x4E3A; <code>default</code>&#x3002;</p>
+<p><code>${VARIABLE-default}</code> &#x5982;&#x679C; <code>VARIABLE</code> &#x88AB; <code>unset</code> &#x65F6;&#x8BBE;&#x7F6E;&#x4E3A; <code>default</code>&#x3002;</p>
+<p>&#x4F7F;&#x7528; <code>$$</code> &#x907F;&#x514D;&#x89E3;&#x6790;&#x53D8;&#x91CF;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">web</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build</span><span class="token punctuation">:</span> .
+  <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token string">&quot;$$VAR_NOT_INTERPOLATED_BY_COMPOSE&quot;</span>
+</code></pre>
+<h2 id="extension-fields">Extension fields</h2>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;2.1&apos;</span>
+<span class="token key atrule">x-custom</span><span class="token punctuation">:</span>
+  <span class="token key atrule">items</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> a
+    <span class="token punctuation">-</span> b
+  <span class="token key atrule">options</span><span class="token punctuation">:</span>
+    <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">&apos;12m&apos;</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">&quot;custom&quot;</span>
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">logging</span><span class="token punctuation">:</span>
+  <span class="token key atrule">options</span><span class="token punctuation">:</span>
+    <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">&apos;12m&apos;</span>
+    <span class="token key atrule">max-file</span><span class="token punctuation">:</span> <span class="token string">&apos;5&apos;</span>
+  <span class="token key atrule">driver</span><span class="token punctuation">:</span> json<span class="token punctuation">-</span>fi
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;2.1&apos;</span>
+<span class="token key atrule">x-logging</span><span class="token punctuation">:</span>
+  <span class="token important">&amp;default</span><span class="token punctuation">-</span>logging
+  <span class="token key atrule">options</span><span class="token punctuation">:</span>
+    <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">&apos;12m&apos;</span>
+    <span class="token key atrule">max-file</span><span class="token punctuation">:</span> <span class="token string">&apos;5&apos;</span>
+  <span class="token key atrule">driver</span><span class="token punctuation">:</span> json<span class="token punctuation">-</span>file
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> myapp/web<span class="token punctuation">:</span>latest
+    <span class="token key atrule">logging</span><span class="token punctuation">:</span> <span class="token important">*default</span><span class="token punctuation">-</span>logging
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span>latest
+    <span class="token key atrule">logging</span><span class="token punctuation">:</span> <span class="token important">*default</span><span class="token punctuation">-</span>logging
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&apos;2.1&apos;</span>
+<span class="token key atrule">x-volumes</span><span class="token punctuation">:</span>
+  <span class="token important">&amp;default</span><span class="token punctuation">-</span>volume
+  <span class="token key atrule">driver</span><span class="token punctuation">:</span> foobar<span class="token punctuation">-</span>storage
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> myapp/web<span class="token punctuation">:</span>latest
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;vol1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vol2&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vol3&quot;</span><span class="token punctuation">]</span>
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">vol1</span><span class="token punctuation">:</span> <span class="token important">*default</span><span class="token punctuation">-</span>volume
+  <span class="token key atrule">vol2</span><span class="token punctuation">:</span>
+    <span class="token key atrule">&lt;&lt;</span> <span class="token punctuation">:</span> <span class="token important">*default</span><span class="token punctuation">-</span>volume
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> volume02
+  <span class="token key atrule">vol3</span><span class="token punctuation">:</span>
+    <span class="token key atrule">&lt;&lt;</span> <span class="token punctuation">:</span> <span class="token important">*default</span><span class="token punctuation">-</span>volume
+    <span class="token key atrule">driver</span><span class="token punctuation">:</span> default
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> volume<span class="token punctuation">-</span>local
+</code></pre>
+<h1 id="more-information">More Information</h1>
+<ul>
+<li><p><a href="https://docs.docker.com/compose/install/" target="_blank">https://docs.docker.com/compose/install/</a></p>
+</li>
+<li><p><a href="https://docs.docker.com/compose/compose-file/" target="_blank">https://docs.docker.com/compose/compose-file/</a></p>
+</li>
+</ul>
+<footer class="page-footer"><span class="copyright">&#xA9; 2018 khs1994.com</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2018-01-24 23:44:44
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="registry-config.html" class="navigation navigation-prev " aria-label="Previous page: Docker Registry v2 配置文件详解">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="compose-mirror.html" class="navigation navigation-next " aria-label="Next page: Docker Compose 中国镜像">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker Compose","date":"2017-08-04T12:00:00.000Z","updated":null,"comments":true,"tags":["Docker"],"categories":["Docker"],"level":"4.1.8","depth":2,"next":{"title":"Docker Compose 中国镜像","level":"4.1.9","depth":2,"path":"docker/compose-mirror.md","ref":"docker/compose-mirror.md","articles":[]},"previous":{"title":"Docker Registry v2 配置文件详解","level":"4.1.7","depth":2,"path":"docker/registry-config.md","ref":"docker/registry-config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","tbfed-pagefooter@git+https://github.com/khs1994/gitbook-plugin-tbfed-pagefooter.git","prism","page-treeview","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"tbfed-pagefooter":{"copyright":"&copy 2018 khs1994.com","modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; khs1994.com","minHeaderCount":"2","minHeaderDeep":"2"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico","appleTouch":"favicon.ico","appleTouchMore":{"120x120":"favicon.ico","180x180":"favicon.ico"}},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"khs1994.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"khs1994.com 技术文档","language":"zh-hans","links":{"sidebar":{"Home":"//www.khs1994.com/more"}},"gitbook":"*"},"file":{"path":"docker/compose.md","mtime":"2018-01-24T15:44:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T02:23:17.258Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
